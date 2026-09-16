@@ -1,0 +1,18 @@
+2026-09-11 14:00:04 INFO  :Log Started
+2026-09-11 14:00:04 INFO  :VirtualHere Client 6.0.2 starting (Compiled: Jul 29 2026 08:53:36)
+2026-09-11 14:00:04 INFO  :Client OS is Windows 11 (build 26200), 64-bit edition
+2026-09-11 14:00:04 INFO  :Using config at C:\Users\pavlo\AppData\Roaming\vhui.ini
+2026-09-11 14:00:04 INFO  :Administrator mode
+2026-09-11 14:00:04 INFO  :IPC available at \\.\pipe\vhclient
+2026-09-11 14:00:04 INFO  :In file ../src/msw/taskbar.cpp at line 190: 'Shell_NotifyIcon(NIM_ADD)' failed with error 0x80004005 (Unspecified error).
+2026-09-11 14:00:04 INFO  :Auto-find (Bonjour) on
+2026-09-11 14:00:04 INFO  :Auto-find (Bonjour SSL) on
+2026-09-11 14:01:06 INFO  :Log Started
+2026-09-11 14:01:06 INFO  :VirtualHere Client 6.0.2 starting (Compiled: Jul 29 2026 08:53:36)
+2026-09-11 14:01:06 INFO  :Client OS is Windows 11 (build 26200), 64-bit edition
+2026-09-11 14:01:06 INFO  :Using config at C:\Users\pavlo\AppData\Roaming\vhui.ini
+2026-09-11 14:01:06 INFO  :Administrator mode
+2026-09-11 14:01:06 INFO  :IPC available at \\.\pipe\vhclient
+2026-09-11 14:01:06 INFO  :In file ../src/msw/taskbar.cpp at line 190: 'Shell_NotifyIcon(NIM_ADD)' failed with error 0x80004005 (Unspecified error).
+2026-09-11 14:01:06 INFO  :Auto-find (Bonjour) on
+2026-09-11 14:01:06 INFO  :Auto-find (Bonjour SSL) on
