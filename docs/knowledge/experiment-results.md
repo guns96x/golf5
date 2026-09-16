@@ -1,27 +1,33 @@
-# Experiment Results: Overboost Investigation (2310–2330 mbar)
+# Experiment Results: Overboost Investigation (2310–2320 mbar)
 
 ## Observed Phenomenon
 
-During 3rd gear full-load acceleration from 1300 RPM:
-- **Engine Speed**: 1900–2600 RPM
-- **Specified Boost Target**: ~2150 mbar absolute
-- **Actual Measured MAP**: Peaked at **2330 mbar absolute** at ~2180 RPM
-- **Overshoot Magnitude**: $+180	ext{ mbar}$ ($+8.4\%$ above target)
-- **Settling Time**: ~0.65 seconds before PID controller lowered N75 duty from 78.5% down to 64.0% to pull boost back to target.
+In the 3rd gear full-throttle acceleration run:
+- **Engine Speed Range**: 1900–2600 RPM
+- **Specified Boost Target**: **2214 mbar absolute** (calibrated Stage 1 request)
+- **Actual Measured MAP**: Peaked at **~2310–2320 mbar absolute** at ~2180 RPM
+- **Overshoot Magnitude**: $+96\dots+106\text{ mbar}$ ($+4.5\dots+4.8\%$ above specified target)
 
 ```
 Boost (mbar)
-2400 |                     * * (Peak 2330 mbar)
-2300 |                   *     *
-2200 |    Specified --> *-------*---------------- (2150 mbar)
-2100 |                *           *
-2000 |              *               *
-1900 |            *
+2350 |
+2320 |                   * * (Peak 2310–2320 mbar)
+2300 |                 *     *
+2214 |  Specified --> *-------*---------------- (2214 mbar)
+2100 |              *           *
+2000 |            *               *
+1900 |          *
      +----------------------------------------> RPM / Time
              1800  2000  2200  2400  2600
 ```
 
-## Quantitative Evaluation
+## Epistemic Evaluation: Competing Hypotheses A–G
 
-The overshoot does not violate the turbocharger mechanical burst limit (2450 mbar), but sustained 2330 mbar spikes stress the actuator linkage and create minor torque surges.
-**Primary Cause**: Combination of closed EGR (increased turbine enthalpy) and pre-control feed-forward duty in `PCR_rBPCtlBas_MAP` being slightly too high for zero-EGR conditions.
+> [!NOTE]
+> In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md), the root cause is **NOT** declared an established fact. The following competing hypotheses are under active evaluation:
+
+- **Hypothesis A (Specified Target Elevated)**: *Rejected*. Stage 1 request is confirmed at 2214 mbar.
+- **Hypothesis B (Feed-Forward Duty Elevated Post-EGR Delete)**: *Hypothesis (RAW)*. With EGR closed, 100% of exhaust gas expands across the turbine. If stock feed-forward (`PCR_rBPCtlBas_MAP`) was tuned for 15–30% EGR bypass, it holds vanes too closed during transient spool-up. Requires sign-test to confirm.
+- **Hypothesis C (PID Transient Damping)**: *Hypothesis (RAW)*. PID derivative or proportional gain may be under-damped for the rapid spool-up rate.
+- **Hypothesis D (Sensor / Sampling Alias)**: *Hypothesis (RAW)*. The ~1.2 Hz sampling rate of multi-group VCDS logging obscures the true peak shape and settling time.
+- **Hypothesis G (Mechanical Actuator Hysteresis)**: *Hypothesis (RAW)*. Vacuum bleed rate through N75 solenoid or actuator rod friction creates pneumatic delay.

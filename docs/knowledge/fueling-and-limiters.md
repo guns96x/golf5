@@ -2,9 +2,9 @@
 
 ## Fuel Quantity Selection Logic
 
-In Bosch EDC16U34, the final injected quantity ($q_{	ext{final}}$ in mg/stroke) delivered to the Pumpe-Düse unit injectors is arbitrated through a strict cascade of limiters:
+In Bosch EDC16U34, the final injected quantity ($q_{\text{final}}$ in mg/stroke) delivered to the Pumpe-Düse unit injectors is arbitrated through a strict cascade of limiters:
 
-$$q_{	ext{final}} = \min(q_{	ext{driver\_wish}}, q_{	ext{torque\_limiter}}, q_{	ext{smoke\_limiter}}, q_{	ext{component\_protection}})$$
+$$q_{\text{final}} = \min(q_{\text{driver\_wish}}, q_{\text{torque\_limiter}}, q_{\text{smoke\_limiter}}, q_{\text{component\_protection}})$$
 
 ```
                                   +-----------------------+
@@ -30,7 +30,7 @@ $$q_{	ext{final}} = \min(q_{	ext{driver\_wish}}, q_{	ext{torque\_limiter}}, q_{	
 
 ## Diagnostic Verification via VCDS (Measuring Block 008)
 
-During full-throttle acceleration (3rd or 4th gear WOT), log **Measuring Block 008**:
+During full-throttle acceleration (3rd gear WOT), log **Measuring Block 008**:
 - `Field 1`: Engine Speed (RPM)
 - `Field 2`: Driver Wish IQ (mg/stroke) — should be highest (~60–70 mg)
 - `Field 3`: Torque Limit IQ (mg/stroke) — calibrated mechanical limit

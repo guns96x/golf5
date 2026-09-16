@@ -1,6 +1,6 @@
 # Recommended Test Protocols for Vehicle Validation
 
-## Test Protocol 1: High-Rate Boost Closed-Loop Run
+## Test Protocol 1: High-Rate Boost Closed-Loop Run (MVB 011 Only)
 
 - **Diagnostic Tool**: VCDS (VAG-COM)
 - **Engine Control Module**: `01 - Engine`
@@ -15,7 +15,7 @@
 
 ---
 
-## Test Protocol 2: Fueling & Limiter Arbitration Run
+## Test Protocol 2: Fueling & Limiter Arbitration Run (MVB 008 Only)
 
 - **Measurement Selection**: **Select Group 008 ONLY**.
 - **Channels**:

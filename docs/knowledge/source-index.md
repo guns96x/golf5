@@ -5,7 +5,7 @@ This document catalogues all foundational, engineering, diagnostic, and project-
 ## Authority & Applicability Scoring System
 
 In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md):
-- **Authority Score (1–5)**: Credibility of the publisher and scientific/engineering rigor (5 = OEM/Bosch/ASAM, 4 = SAE/ETAS/Textbooks, 3 = Ross-Tech/TDIClub, 2 = Tuner blogs, 1 = Unverified forums).
+- **Authority Score (1–5)**: Credibility of publisher and scientific/engineering rigor (5 = OEM/Bosch/ASAM, 4 = SAE/ETAS/Textbooks, 3 = Ross-Tech/TDIClub, 2 = Tuner blogs, 1 = Unverified forums).
 - **Applicability Score (1–5)**: Exactness of fit to this specific vehicle: **VW Golf 5 2008, 1.9 TDI BLS, Bosch EDC16U34, HW 03G906021QJ, SW 1037391847, Turbo BV39 54399880072** (5 = Exact SW/HW/Binary/Log, 4 = EDC16U34 BLS family, 3 = Generic EDC16 / Pumpe-Düse, 2 = Generic Diesel, 1 = Generic ICE).
 
 ---
@@ -41,13 +41,20 @@ In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md):
 
 ---
 
-## Tier C: Exact Project Evidence (Level 5 / Applicability 5)
+## Tier C: Exact Project Evidence & Verified Ground Truth
 
-| ID | Resource Name | Local Repository Path | SHA-256 Hash | Notes |
+> [!IMPORTANT]
+> **Source of Truth Hierarchy**:
+> `diagnostic-review/*` + raw A2L + exact BINs + real telemetry logs = **PRIMARY SOURCE OF TRUTH**.
+> `docs/knowledge/*` represents the curated draft synthesis subject to continuous verification.
+
+| ID | Resource Name | Local Repository Path | Role / Status | Notes |
 |---|---|---|---|---|
-| P-01 | **Factory A2L Definition Dataset** | `diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l` | `verified` | Exact 12.6 MB ASAP2 matching SW 1037391847 with 11,537 characteristics |
-| P-02 | **Reference Factory Binary** | `diagnostic-review/reference-from-hex.analysis-only.bin` | `b3f36070a7b4582f3efce39ff6d46487e45218d6e3cbebe4fbe8cbdbdffca577` | 2,097,152 bytes uncorrupted OEM baseline |
-| P-03 | **Stage 1 Refined CS_OK** | `03G906021QJ_stage1_refined_CS_OK.bin` | `verified` | Active tuned image with verified checksum |
-| P-04 | **Stage 1 DPF & EGR OFF** | `03G906021QJ_ideal_stage1_dpf_egr_off.bin` | `verified` | Active tuned image with DPF switch and EGR closed |
-| P-05 | **VCDS WOT Log (2026-09-14)** | `logs/VCDS_WOT_Log_20260914_114936.csv` | `verified` | Road pull capturing 2330 mbar transient overboost |
-| P-06 | **Turbo Fast OBD Log** | `logs/Turbo_Fast_Log_20260914_210903.csv` | `verified` | High-frequency MAP and RPM transient recording |
+| P-01 | **Factory A2L Definition Dataset** | `diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l` | Primary Definition | Exact 12.6 MB ASAP2 matching SW 1037391847 with 11,537 characteristics |
+| P-02 | **Reference Factory Binary** | `diagnostic-review/reference-from-hex.analysis-only.bin` | Baseline Reference | 2,097,152 bytes uncorrupted OEM baseline (stock request: 2050 mbar) |
+| P-03 | **Stage 1 Full Power (Active in Car)** | `03G906021QJ_stage1_full_power_dpf_egr_off.bin` | **Currently Flashed in Car** | Active in vehicle: boost target 2214 mbar, PoI2 off (0.0 mg), CTSCD restored to 0x0B, EGT protection active |
+| P-04 | **Stage 1 Refined CS_OK** | `03G906021QJ_stage1_refined_CS_OK.bin` | Candidate Image | Static audit only (not flash approved without logging plan); contains HS-250 fix and Gear 5/6 cruise SOI (+0.703°) |
+| P-05 | **Stage 1 Ideal (Rejected Build)** | `03G906021QJ_ideal_stage1_dpf_egr_off.bin` | **Rejected Test Build** | Test build with factory duration maps that drove too sluggishly; rejected |
+| P-06 | **Calibration Enhancements Audit** | `diagnostic-review/calibration-enhancements-deep-audit-2026-09-11.md` | Ground Truth Audit | Authoritative audit of HS-250, N75-A, SMK-2500, and cruise SOI |
+| P-07 | **VCDS WOT Log (2026-09-14)** | `logs/VCDS_WOT_Log_20260914_114936.csv` | Measured Run | Multi-group log capturing 2310–2320 mbar boost peak vs 2214 mbar request |
+| P-08 | **Turbo Fast OBD Log** | `logs/Turbo_Fast_Log_20260914_210903.csv` | Measured Run | High-frequency MAP and RPM transient recording |

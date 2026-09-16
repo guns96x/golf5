@@ -2,12 +2,9 @@
 
 ## Conflict Case 1: N75 Actuator Duty Polarity in VCDS
 
-- **Claim A (Tuner forum consensus)**: "80% duty cycle means the N75 valve is opening the vanes to reduce boost."
-- **Claim B (Bosch & VW SSP 304)**: "80% duty cycle energizes the solenoid to apply vacuum, pulling the actuator rod to CLOSE the vanes for maximum turbine drive and boost increase."
-- **Authority / Applicability**:
-  - Claim A: Authority 2, Applicability 3
-  - Claim B: Authority 5, Applicability 5
-- **Verdict**: **Claim B is verified**. Physical logging proves that duty starts at ~80% during spool-up and drops to 60–65% as boost stabilizes.
+- **Claim A (Common Forum Convention)**: "Higher duty percentage means opening the vanes to decrease boost."
+- **Claim B (Pneumatic Mechanics / SSP 304)**: "Higher duty percentage energizes the solenoid to apply vacuum, pulling the actuator rod to close the vanes for maximum spool."
+- **Audit Ground Truth**: In this specific EDC16U34 SW 1037391847, numerical table direction is **UNPROVEN statically**. A controlled runtime sign-test must be performed before altering `PCR_rBPCtlBas_MAP`.
 
 ---
 
@@ -15,4 +12,4 @@
 
 - **Claim A**: BLS uses MAF-based smoke limitation (`FlMng_qAirSmoke_MAP`).
 - **Claim B**: BLS factory DPF software uses MAP-based smoke limitation (`FlMng_qPresSmoke_MAP`).
-- **Resolution**: A2L code inspection confirms that DPF software branch switches primary smoke limitation to MAP-based curve.
+- **Resolution**: **Verified**. A2L inspection and binary comparison confirm `FlMng_qPresSmoke_MAP` at `0x1D6490` is actively modified (+13%) in the DPF software branch.

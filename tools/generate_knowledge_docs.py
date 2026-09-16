@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 tools/generate_knowledge_docs.py — Knowledge Document Generator for EDC16U34 Bootstrap Pack
-Generates all 20 required documentation files in docs/knowledge/ adhering to the
-Master Research Policy and strict engineering evidence standards.
+Strictly aligns all 20 technical documents with deep-audit ground truth,
+exact A2L offsets/dimensions, raw epistemic statuses, and verified firmware lineage.
 """
 
 import os
@@ -21,7 +21,7 @@ This document catalogues all foundational, engineering, diagnostic, and project-
 ## Authority & Applicability Scoring System
 
 In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md):
-- **Authority Score (1–5)**: Credibility of the publisher and scientific/engineering rigor (5 = OEM/Bosch/ASAM, 4 = SAE/ETAS/Textbooks, 3 = Ross-Tech/TDIClub, 2 = Tuner blogs, 1 = Unverified forums).
+- **Authority Score (1–5)**: Credibility of publisher and scientific/engineering rigor (5 = OEM/Bosch/ASAM, 4 = SAE/ETAS/Textbooks, 3 = Ross-Tech/TDIClub, 2 = Tuner blogs, 1 = Unverified forums).
 - **Applicability Score (1–5)**: Exactness of fit to this specific vehicle: **VW Golf 5 2008, 1.9 TDI BLS, Bosch EDC16U34, HW 03G906021QJ, SW 1037391847, Turbo BV39 54399880072** (5 = Exact SW/HW/Binary/Log, 4 = EDC16U34 BLS family, 3 = Generic EDC16 / Pumpe-Düse, 2 = Generic Diesel, 1 = Generic ICE).
 
 ---
@@ -57,16 +57,23 @@ In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md):
 
 ---
 
-## Tier C: Exact Project Evidence (Level 5 / Applicability 5)
+## Tier C: Exact Project Evidence & Verified Ground Truth
 
-| ID | Resource Name | Local Repository Path | SHA-256 Hash | Notes |
+> [!IMPORTANT]
+> **Source of Truth Hierarchy**:
+> `diagnostic-review/*` + raw A2L + exact BINs + real telemetry logs = **PRIMARY SOURCE OF TRUTH**.
+> `docs/knowledge/*` represents the curated draft synthesis subject to continuous verification.
+
+| ID | Resource Name | Local Repository Path | Role / Status | Notes |
 |---|---|---|---|---|
-| P-01 | **Factory A2L Definition Dataset** | `diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l` | `verified` | Exact 12.6 MB ASAP2 matching SW 1037391847 with 11,537 characteristics |
-| P-02 | **Reference Factory Binary** | `diagnostic-review/reference-from-hex.analysis-only.bin` | `b3f36070a7b4582f3efce39ff6d46487e45218d6e3cbebe4fbe8cbdbdffca577` | 2,097,152 bytes uncorrupted OEM baseline |
-| P-03 | **Stage 1 Refined CS_OK** | `03G906021QJ_stage1_refined_CS_OK.bin` | `verified` | Active tuned image with verified checksum |
-| P-04 | **Stage 1 DPF & EGR OFF** | `03G906021QJ_ideal_stage1_dpf_egr_off.bin` | `verified` | Active tuned image with DPF switch and EGR closed |
-| P-05 | **VCDS WOT Log (2026-09-14)** | `logs/VCDS_WOT_Log_20260914_114936.csv` | `verified` | Road pull capturing 2330 mbar transient overboost |
-| P-06 | **Turbo Fast OBD Log** | `logs/Turbo_Fast_Log_20260914_210903.csv` | `verified` | High-frequency MAP and RPM transient recording |
+| P-01 | **Factory A2L Definition Dataset** | `diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l` | Primary Definition | Exact 12.6 MB ASAP2 matching SW 1037391847 with 11,537 characteristics |
+| P-02 | **Reference Factory Binary** | `diagnostic-review/reference-from-hex.analysis-only.bin` | Baseline Reference | 2,097,152 bytes uncorrupted OEM baseline (stock request: 2050 mbar) |
+| P-03 | **Stage 1 Full Power (Active in Car)** | `03G906021QJ_stage1_full_power_dpf_egr_off.bin` | **Currently Flashed in Car** | Active in vehicle: boost target 2214 mbar, PoI2 off (0.0 mg), CTSCD restored to 0x0B, EGT protection active |
+| P-04 | **Stage 1 Refined CS_OK** | `03G906021QJ_stage1_refined_CS_OK.bin` | Candidate Image | Static audit only (not flash approved without logging plan); contains HS-250 fix and Gear 5/6 cruise SOI (+0.703°) |
+| P-05 | **Stage 1 Ideal (Rejected Build)** | `03G906021QJ_ideal_stage1_dpf_egr_off.bin` | **Rejected Test Build** | Test build with factory duration maps that drove too sluggishly; rejected |
+| P-06 | **Calibration Enhancements Audit** | `diagnostic-review/calibration-enhancements-deep-audit-2026-09-11.md` | Ground Truth Audit | Authoritative audit of HS-250, N75-A, SMK-2500, and cruise SOI |
+| P-07 | **VCDS WOT Log (2026-09-14)** | `logs/VCDS_WOT_Log_20260914_114936.csv` | Measured Run | Multi-group log capturing 2310–2320 mbar boost peak vs 2214 mbar request |
+| P-08 | **Turbo Fast OBD Log** | `logs/Turbo_Fast_Log_20260914_210903.csv` | Measured Run | High-frequency MAP and RPM transient recording |
 """
 
 # 2. ecu-architecture.md
@@ -117,11 +124,12 @@ In SW `1037391847`, all calibration parameters and maps reside in the upper **25
 
 - **Flash Base Address**: `0x000000`
 - **Calibration Area Base**: `0x1C0000`
-- **Key Boost Map (`PCR_pBDesBas_MAP`)**: `0x1E9A40`
-- **N75 Pre-Control Map (`PCR_rBPCtlBas_MAP`)**: `0x1E9FD0`
-- **Smoke Limiter (`FlMng_qPresSmoke_MAP`)**: `0x1E4280`
-- **Torque Limiter (`TrqLim_trqEng_MAP`)**: `0x1D9C90`
-- **Driver Wish (`DrvDem_tq_MAP`)**: `0x1D2A40`
+- **N75 Pre-Control Map (`PCR_rBPCtlBas_MAP`)**: `0x1E9FD0` (16×13)
+- **Base Boost Target Map (`PCR_pBDesBas_MAP`)**: `0x1EB0B2` / `0x1E9A40` (16×10 / 16×16 depending on variant bank)
+- **Smoke Limiter (`FlMng_qPresSmoke_MAP`)**: `0x1D6490` (16×12)
+- **Hot-Start Base Torque (`StSys_trqStrtBas_MAP`)**: `0x1F070C` (9×9)
+- **Hot-Start Term 50 Torque (`StSys_trqStrt_MAP`)**: `0x1F07EA` (9×9)
+- **Cruise SOI 5-6 Gear (`InjCrv_phiBasGear56_MAP`)**: `0x1DACF8` (16×14)
 
 ---
 
@@ -203,14 +211,15 @@ DOCUMENTS["boost-control.md"] = """# EDC16 Boost Pressure Control Architecture
 
 In the Bosch EDC16U34 system for the 1.9 TDI BLS, the target manifold absolute pressure (MAP) is governed by the **PCR (Pressure Charge Regulation)** functional subsystem.
 
-$$\text{Final Boost Target} = \min\Big(\text{PCR\_pBDesBas\_MAP}(\text{RPM}, \text{IQ}) + \Delta p_{\text{ambient}} + \Delta p_{\text{temp}}, \text{PCR\_pBDesMax\_CUR}(\text{RPM})\Big)$$
+$$\\text{Final Boost Target} = \\min\\Big(\\text{PCR\\_pBDesBas\\_MAP}(\\text{RPM}, \\text{IQ}) + \\Delta p_{\\text{ambient}} + \\Delta p_{\\text{temp}}, \\text{PCR\\_pBDesMax\\_CUR}(\\text{RPM})\\Big)$$
 
 ### 1. Base Boost Target Map (`PCR_pBDesBas_MAP`)
-- **A2L Symbol**: `PCR_pBDesBas_MAP`
-- **Offset in SW 1037391847**: `0x1E9A40`
-- **Axes**: Engine Speed (RPM, 16 points) × Injected Quantity (mg/stroke, 16 points)
-- **Units**: mbar absolute
-- **Stage 1 Calibration Peak**: **2350 mbar** at 2250–3500 RPM, 55 mg/stroke.
+- **Stock Reference High-Load Request**: **2050 mbar** absolute.
+- **Stage 1 Active Request**: **2214 mbar** absolute (104 values modified versus stock reference; verified by deep-audit).
+- **Units**: mbar absolute.
+
+> [!NOTE]
+> Previous draft documentation mistakenly referenced a 2350 mbar ceiling. The actual verified Stage 1 high-load request across the 2000–3500 RPM full-load plateau is **2214 mbar**.
 
 ### 2. Atmospheric & Environmental Corrections
 - Altitude compensation (`PCR_pBDesAtm_MAP`): Derates boost request as ambient barometric pressure decreases below 1000 mbar to prevent turbocharger overspeed in thin air.
@@ -237,13 +246,11 @@ $$\text{Final Boost Target} = \min\Big(\text{PCR\_pBDesBas\_MAP}(\text{RPM}, \te
                         +-------------------+
 ```
 
-1. **Feed-Forward Control**:
-   - Predicts the exact vane position (duty cycle) required to generate the requested boost at the current mass flow and engine speed.
-   - Allows instant response without waiting for error to accumulate in the manifold.
+1. **Feed-Forward Control (`PCR_rBPCtlBas_MAP`)**:
+   - A static 2D starting point for the closed-loop controller.
+   - In SW 1037391847, this map remained **100% stock reference** in Stage 1, while boost request was raised from 2050 to 2214 mbar.
 2. **Feedback Correction (PID)**:
-   - **Proportional (P)**: Immediate counter-reaction proportional to instantaneous boost error.
-   - **Integral (I)**: Eliminates steady-state error over time.
-   - **Derivative (D)**: Dampens rapid boost rise rate to prevent overshoot.
+   - Reacts to dynamic boost error ($e = p_{\\text{actual}} - p_{\\text{target}}$).
 """
 
 # 5. vnt-n75-control.md
@@ -253,35 +260,47 @@ DOCUMENTS["vnt-n75-control.md"] = """# VNT / N75 Actuator Mechanics & Pre-Contro
 
 - **Turbocharger Model**: BorgWarner / KKK BV39
 - **OEM Part Reference**: `5439 988 0072` / `03G253014M`
-- **Type**: Variable Nozzle Turbine (VNT) with vacuum actuator and N75 electro-pneumatic solenoid.
-
-## Actuator Duty Cycle Polarity in EDC16U34
-
-> [!IMPORTANT]
-> **Polarity Definition for EDC16U34**:
-> - **Higher N75 Duty % (e.g., 80%)**: Vacuum solenoid applies higher vacuum to the actuator capsule. The VNT vanes move to the **closed position** (minimum nozzle area). This forces exhaust gas through narrow guide vanes at maximum velocity onto the turbine wheel, producing **maximum turbine drive and rapid boost rise**.
-> - **Lower N75 Duty % (e.g., 30–45%)**: Solenoid vents vacuum to atmosphere. Actuator spring opens the vanes (maximum nozzle area). Exhaust velocity drops, bypassing energy around the wheel to **dump turbine drive and reduce boost**.
+- **Type**: Variable Nozzle Turbine (VNT) with pneumatic vacuum actuator and N75 electro-pneumatic solenoid.
 
 ---
 
 ## Pre-Control Map (`PCR_rBPCtlBas_MAP`)
 
-- **A2L Symbol**: `PCR_rBPCtlBas_MAP`
+- **A2L Symbol**: `PCR_rBPCtlBas_MAP` (line 394165 in A2L)
 - **Description**: *Basissteuerkennfeld für Ladedruck* (Base control map for charge pressure)
-- **Offset**: `0x1E9FD0`
-- **Dimensions**: 16 × 16
-- **Axes**: Engine Speed (RPM) × Injected Quantity (mg/stroke)
+- **Address**: `0x1E9FD0`
+- **Actual Dimensions**: **16 × 13** (NOT 16×16!)
+- **Axes**: Engine Speed (RPM, 16 points) × Injected Quantity (mg/stroke, 13 points)
+- **Data Format**: 16-bit signed, factor 0.01 (% duty)
+- **Status in Stage 1**: **Identical to stock reference** (zero changes).
 
-### The Overboost Mechanism Post-EGR Delete
+---
 
-When EGR is active in stock software, a substantial fraction of exhaust gas (15–35%) recirculates into the intake manifold before the turbine.
-When **EGR is turned OFF (closed 100%)**:
-1. **100% of total exhaust mass flow** is directed across the turbine wheel during spool-up.
-2. If `PCR_rBPCtlBas_MAP` retains stock pre-control values (designed for reduced gas flow), the vanes are held too closed for the increased mass flow.
-3. The turbine over-accelerates rapidly during 1900–2300 RPM spool-up.
-4. Manifold pressure shoots up to **2310–2330 mbar** before the PID integral term can react, back off N75 duty, and stabilize boost.
+## Actuator Duty Cycle Polarity — Statically Unproven
 
-**Remedy**: Relax `PCR_rBPCtlBas_MAP` by 3–6% in the spool-up region (1800–2400 RPM, 35–55 mg IQ).
+> [!WARNING]
+> **Static Data Cannot Prove Actuator Polarity**:
+> In VAG EDC16 implementations:
+> - Physical vacuum pulls the actuator rod against internal spring pressure to move vanes toward the narrow/closed position (maximum turbine drive).
+> - However, whether higher numeric percentage in `PCR_rBPCtlBas_MAP` commands more vacuum or less vacuum in SW 1037391847 is **NOT PROVED from static data alone**.
+> - The repository's deep-audit explicitly states:
+>   > *"The numerical duty direction is not proved from static data. Use the small N75-A surface only if a sign test proves that lower Prc increases initial boost slope."*
+> 
+> Therefore, no arbitrary 3–6% pre-control edits should be applied without first executing a controlled single-group sign-test.
+
+---
+
+## The `N75-A` Micro-Experiment Specification
+
+If a sign-test proves that lower table numbers increase turbine spool drive, the deep-audit defined a conservative **0.2–0.75 percentage-point** test pocket (NOT 3–6%):
+
+| RPM \\ IQ | 30 mg | 32 mg | 35 mg | 38 mg | 40 mg | 45 mg | Offset Range |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1750 | 56.53→56.28 | 51.00→50.50 | 49.45→48.95 | 47.14→46.64 | 47.43→47.03 | 47.00→46.80 | `0x1EA0B8–0x1EA0C2` |
+| 1900 | 47.42→47.02 | 47.00→46.25 | 44.13→43.38 | 44.34→43.59 | 43.87→43.27 | 45.06→44.76 | `0x1EA0D2–0x1EA0DC` |
+| 2000 | 46.00→45.75 | 46.00→45.50 | 43.21→42.71 | 43.03→42.53 | 43.34→42.94 | 43.96→43.76 | `0x1EA0EC–0x1EA0F6` |
+
+Status: **HOLD** until sign-test logging is completed.
 """
 
 # 6. fueling-and-limiters.md
@@ -289,9 +308,9 @@ DOCUMENTS["fueling-and-limiters.md"] = """# Fueling Architecture & Limiter Hiera
 
 ## Fuel Quantity Selection Logic
 
-In Bosch EDC16U34, the final injected quantity ($q_{\text{final}}$ in mg/stroke) delivered to the Pumpe-Düse unit injectors is arbitrated through a strict cascade of limiters:
+In Bosch EDC16U34, the final injected quantity ($q_{\\text{final}}$ in mg/stroke) delivered to the Pumpe-Düse unit injectors is arbitrated through a strict cascade of limiters:
 
-$$q_{\text{final}} = \min(q_{\text{driver\_wish}}, q_{\text{torque\_limiter}}, q_{\text{smoke\_limiter}}, q_{\text{component\_protection}})$$
+$$q_{\\text{final}} = \\min(q_{\\text{driver\\_wish}}, q_{\\text{torque\\_limiter}}, q_{\\text{smoke\\_limiter}}, q_{\\text{component\\_protection}})$$
 
 ```
                                   +-----------------------+
@@ -317,7 +336,7 @@ $$q_{\text{final}} = \min(q_{\text{driver\_wish}}, q_{\text{torque\_limiter}}, q
 
 ## Diagnostic Verification via VCDS (Measuring Block 008)
 
-During full-throttle acceleration (3rd or 4th gear WOT), log **Measuring Block 008**:
+During full-throttle acceleration (3rd gear WOT), log **Measuring Block 008**:
 - `Field 1`: Engine Speed (RPM)
 - `Field 2`: Driver Wish IQ (mg/stroke) — should be highest (~60–70 mg)
 - `Field 3`: Torque Limit IQ (mg/stroke) — calibrated mechanical limit
@@ -327,26 +346,30 @@ Whichever field (3 or 4) has the **lower value** is the active governing limiter
 """
 
 # 7. smoke-limiter.md
-DOCUMENTS["smoke-limiter.md"] = """# Smoke Limiter Strategy: MAP-Based vs MAF-Based
+DOCUMENTS["smoke-limiter.md"] = """# Smoke Limiter Strategy: MAP-Based Calibration
 
-## BLS Engine OEM Architecture
+## Exact Definition in SW 1037391847
 
 In factory 1.9 TDI BLS configurations equipped with DPF, Bosch utilizes a **MAP-based (manifold pressure) smoke limitation system** as the primary active smoke limiter:
 
-- **A2L Symbol**: `FlMng_qPresSmoke_MAP`
+- **A2L Symbol**: `FlMng_qPresSmoke_MAP` (line 462199 in A2L)
 - **Description**: *Rauchbegrenzungskennfeld abhängig vom Ladedruck* (Smoke limitation map dependent on charge pressure)
-- **Offset in SW 1037391847**: `0x1E4280`
-- **Axes**: Engine Speed (RPM) × Manifold Absolute Pressure (mbar)
-- **Output**: Maximum allowable injected fuel quantity (mg/stroke)
+- **Address in Flash**: `0x1D6490` (NOT `0x1E4280`!)
+- **Actual Dimensions**: **16 × 12** (NOT 16×16!)
+- **RPM Nodes (16)**: `700, 800, 900, 1000, 1100, 1400, 1500, 1600, 1700, 1800, 2000, 2250, 2500, 3000, 4000, 5355`
+- **Pressure Nodes (12)**: Corrected pressure hPa (`FlMng_pIATCorr_mp`)
+- **Resolution**: 0.01 mg/stroke
 
-## Comparison with MAF-Based Strategy (BKC / BXE)
+> [!IMPORTANT]
+> **No 2750 RPM Node Exists**:
+> The axis jumps directly from 2500 RPM to 3000 RPM. Any proposal to create a flat "2500–2750 plateau" must understand that 2750 RPM is calculated via linear interpolation between the 2500 and 3000 RPM columns.
 
-| Characteristic | BLS (with DPF) | BKC / BXE (Euro 3/4 non-DPF) |
-|---|---|---|
-| Primary Sensor | MAP (Intake Manifold Pressure Sensor G31) | MAF (Mass Air Flow Sensor G70) |
-| A2L Map Name | `FlMng_qPresSmoke_MAP` | `FlMng_qAirSmoke_MAP` |
-| Fast Response | Instantaneous manifold pressure measurement | Slight sensor film thermal delay |
-| Air Leak Impact | Boost leak can cause over-fueling if MAP reads high | Boost leak causes safe fuel derating |
+## Status in Current Stage 1
+
+- The 1800 and 2000 hPa rows are already modified by approximately +13% over stock reference.
+- At 2500 RPM / 2000 hPa: 50.0 mg (ref) → **56.5 mg** (current).
+- At 3000 RPM / 2000 hPa: 60.0 mg (ref) → **67.8 mg** (current).
+- Deep-audit proposed micro-experiment `SMK-2500` would edit only offset `0x1D6602` (2500 RPM / 2000 hPa: 56.5 mg → 58.5 mg) conditionally.
 """
 
 # 8. injection-duration.md
@@ -378,29 +401,47 @@ DOCUMENTS["injection-timing.md"] = """# Start of Injection (SOI) & Temperature C
 ## Start of Injection (SOI) Overview
 
 - **A2L Base Map**: `InjCrv_phiMI1Des_MAP`
-- **Units**: Degrees Crank Angle Before Top Dead Center (°BTDC)
-- **Axes**: Engine Speed (RPM) × Fuel Quantity (mg/stroke)
+- **Gear 5-6 Cruise Map**: `InjCrv_phiBasGear56_MAP` at `0x1DACF8` (16 × 14, RPM × mg/stroke)
+- **Units**: Degrees Crank Angle Before Top Dead Center (°BTDC) with resolution 0.0234375° CA
 
-Advancing SOI increases peak cylinder pressure ($P_{\text{max}}$) and improves thermal efficiency, but increases mechanical stress on conrods and piston crowns. Retarding SOI reduces $P_{\text{max}}$ and NOx, but increases exhaust gas temperature (EGT).
+## Eco Cruise Advance
+
+In candidate build `stage1_refined_CS_OK`, cruise SOI in Gear 5/6 is advanced by exactly **+0.703125° CA** (30 LSBs) across 1750–2250 RPM and 15–25 mg/stroke to optimize combustion phasing with EGR closed.
 """
 
 # 10. hot-start.md
-DOCUMENTS["hot-start.md"] = """# Hot-Start Hesitation & Cranking Fuel Architecture
+DOCUMENTS["hot-start.md"] = """# Hot-Start Hesitation & Cranking Torque Architecture
 
 ## The Bosch EDC16 Hot Start Problem
 
 A widespread issue in VAG 1.9 TDI Pumpe-Düse engines running EDC16 is prolonged cranking when the engine is at normal operating temperature (75–90°C coolant).
 
-### Root Cause in Calibration
+### Root Cause in Calibration (Ground Truth)
 
-In factory map `EngM_qStart_MAP` (Cranking fuel quantity):
-- At cold temperatures (e.g. 0–20°C), the ECU injects fuel immediately even at low cranking speeds (100–150 RPM).
-- At warm temperatures (> 70°C), the OEM calibration deliberately sets injected quantity to **0.0 mg** until the starter motor spins the engine above **250 RPM**.
-- As the starter motor, battery, and cabling age, maximum warm cranking RPM drops to 220–240 RPM. The engine cranks continuously without firing until RPM barely crosses the 250 RPM threshold.
+The primary cranking torque map is **`StSys_trqStrtBas_MAP`**:
+- **Address in Flash**: `0x1F070C`
+- **Actual Dimensions**: **9 × 9** (RPM × Coolant °C)
+- **RPM Nodes**: `0, 200, 250, 280, 450, 600, 900, 1550, 1600`
+- **Coolant Nodes**: Approximately `−24, −18, −10, 0, 20, 40, 60, 80, 100°C`
 
-### Engineering Solution
+At 250 RPM, `StSys_trqStrtBas_MAP` delivers **0.0 Nm** across 40°C, 60°C, 80°C, and 100°C. Both base and terminal-50 maps match completely at 280 RPM (108–125 Nm).
+As the starter motor and battery age, hot cranking RPM plateaus between 240 and 275 RPM, causing extended dry cranking without fuel delivery.
 
-Smoothly interpolate the warm temperature columns down to 150–180 RPM, delivering 25–35 mg/stroke of starting fuel, resolving the extended cranking hesitation permanently while preserving dual-mass flywheel protection.
+### The Verified `HS-250` Patch
+
+> [!IMPORTANT]
+> **Do Not Perform a Bulk Copy**:
+> A bulk copy from `StSys_trqStrt_MAP` alters 14 cells down to 0 RPM, potentially defeating deliberate cranking protection.
+> Instead, populate ONLY the 4 missing cells at 250 RPM:
+
+| RPM | Coolant | Current Value | `HS-250` Patch | Flash Offset | Big-Endian S16 Byte Diff |
+|---:|---:|---:|---:|---:|---|
+| 250 | 39.96°C | 0 Nm | **125 Nm** | `0x1F0762` | `0000 → 04E2` |
+| 250 | 59.96°C | 0 Nm | **112 Nm** | `0x1F0764` | `0000 → 0460` |
+| 250 | 79.96°C | 0 Nm | **108 Nm** | `0x1F0766` | `0000 → 0438` |
+| 250 | 99.96°C | 0 Nm | **108 Nm** | `0x1F0768` | `0000 → 0438` |
+
+This exact patch is implemented in `03G906021QJ_stage1_refined_CS_OK.bin`.
 """
 
 # 11. thermal-protection.md
@@ -408,11 +449,11 @@ DOCUMENTS["thermal-protection.md"] = """# Thermal Protection & Component Safety 
 
 ## Modeled Exhaust Gas Temperature (EGT)
 
-The 1.9 TDI BLS is not fitted with a physical pre-turbine EGT thermocouple in all market revisions. Instead, EDC16 runs a complex real-time thermodynamic thermal model:
+The 1.9 TDI BLS uses an onboard thermodynamic model to estimate pre-turbine exhaust gas temperature.
 
-- **EGT Calculation**: Function of engine speed, injected quantity, start of injection (SOI), boost pressure, and intake air temperature.
-- **Limit Threshold**: Pre-turbine EGT must not exceed **850°C continuous** or **880°C peak transient** on the BorgWarner BV39 turbocharger.
-- **Thermal Limiter Map**: When modeled temperature exceeds threshold, the ECU progressive derates fuel injection quantity to cool the exhaust gas.
+- **Limit Threshold**: Pre-turbine EGT must not exceed **805°C continuous** on the BorgWarner BV39 turbocharger.
+- **Protection Map**: `EngPrt_facTempPreTrbn_MAP` progressively derates torque when temperature exceeds safe thresholds.
+- **Status in Current Vehicle**: Restored and active in `stage1_full_power_dpf_egr_off.bin`.
 """
 
 # 12. hardware-limits.md
@@ -422,9 +463,9 @@ DOCUMENTS["hardware-limits.md"] = """# Hardware Mechanical & Thermal Limits — 
 
 | Component | Hardware Specification | Safe Calibration Limit | Failure Mode / Consequence |
 |---|---|---|---|
-| **Turbocharger** | BorgWarner BV39 (`54399880072`) | 2350 mbar continuous, 2450 mbar transient peak | Shaft overspeed, bearing fatigue, compressor wheel burst |
-| **Connecting Rods** | BLS Powdered-Metal Fractured Rods | 350 Nm torque maximum | Conrod bending under high cylinder pressure below 2000 RPM |
-| **Dual Mass Flywheel** | LUK / Sachs 228mm DMF | 360 Nm, smooth ramp above 2200 RPM | Spring bottoming, vibration, rotational imbalance, clutch slip |
+| **Turbocharger** | BorgWarner BV39 (`54399880072`) | 2214 mbar target, 2300 mbar transient limit | Shaft overspeed, bearing fatigue, compressor wheel burst |
+| **Connecting Rods** | BLS Powdered-Metal Fractured Rods | 330–350 Nm torque maximum | Conrod bending under high cylinder pressure below 2000 RPM |
+| **Dual Mass Flywheel** | LUK / Sachs 228mm DMF | 330 Nm, smooth ramp above 2200 RPM | Spring bottoming, vibration, rotational imbalance, clutch slip |
 | **Unit Injectors** | BLS OEM Bosch PD | 60–62 mg/stroke maximum delivery | Solenoid duty limits, excessive duration (>35° CA) |
 | **Intercooler** | OEM Front-Mounted Plastic End-Tank | 2.5 bar absolute burst limit | End-tank seam separation, charge pipe pop-off |
 """
@@ -432,19 +473,20 @@ DOCUMENTS["hardware-limits.md"] = """# Hardware Mechanical & Thermal Limits — 
 # 13. a2l-map-index.md
 DOCUMENTS["a2l-map-index.md"] = """# Active A2L Map Catalog — SW 1037391847
 
-Curated list of verified active calibration maps in Bosch EDC16U34 SW `1037391847`:
+Curated list of verified active calibration maps in Bosch EDC16U34 SW `1037391847` based on `calibration-enhancements-deep-audit-2026-09-11.md`:
 
-| Map Name | Hex Offset | Dimensions | Description | Conversion / Unit | Verified Status |
+| Map Name | Flash Address | Actual Dimensions | Axes | Unit / Resolution | Verified Role & Status |
 |---|---|---|---|---|---|
-| `PCR_pBDesBas_MAP` | `0x1E9A40` | 16 × 16 | Base Boost Target | mbar absolute | **ACTIVE (Stage 1)** |
-| `PCR_rBPCtlBas_MAP` | `0x1E9FD0` | 16 × 16 | N75 Pre-Control / Feed-Forward | % Duty Cycle | **ACTIVE (Investigating)** |
-| `PCR_pBDesAtm_MAP` | `0x1E9630` | 8 × 8 | Atmospheric Boost Derating | mbar absolute | **ACTIVE** |
-| `FlMng_qPresSmoke_MAP`| `0x1E4280` | 16 × 16 | MAP-Based Smoke Limiter | mg/stroke fuel | **ACTIVE (Stage 1)** |
-| `TrqLim_trqEng_MAP` | `0x1D9C90` | 21 × 3 | Main Engine Torque Limiter | Nm indicated | **ACTIVE (Stage 1)** |
-| `DrvDem_tq_MAP` | `0x1D2A40` | 12 × 16 | Driver Wish Torque Request | Nm requested | **ACTIVE (Stage 1)** |
-| `EngM_qStart_MAP` | `0x1E2D60` | 10 × 10 | Cranking Start Fuel Quantity | mg/stroke fuel | **ACTIVE (Hot Start)** |
-| `AirCtl_qHigh_CUR` | `0x1C9DAA` | 20 × 1 | EGR Hysteresis High Boundary | mg/stroke | **ACTIVE (EGR OFF)** |
-| `AirCtl_qMiddle_CUR`| `0x1C9EA0` | 20 × 1 | EGR Hysteresis Middle Boundary | mg/stroke | **ACTIVE (EGR OFF)** |
+| `PCR_rBPCtlBas_MAP` | `0x1E9FD0` | **16 × 13** | RPM × mg/stroke | 0.01 % | N75 Pre-control base map; 100% stock reference; polarity unproven |
+| `PCR_pBDesBas_MAP` | `0x1EB0B2` | **16 × 10** | RPM × mg/stroke | mbar abs | Boost target; Stage 1 high-load request = **2214 mbar** |
+| `FlMng_qPresSmoke_MAP` | `0x1D6490` | **16 × 12** | RPM × corrected hPa | 0.01 mg/stroke | MAP-based smoke limiter; 1800/2000 hPa rows modified +13% |
+| `StSys_trqStrtBas_MAP` | `0x1F070C` | **9 × 9** | RPM × coolant °C | 0.1 Nm | Base cranking torque; targets 250 RPM cells in `HS-250` patch |
+| `StSys_trqStrt_MAP` | `0x1F07EA` | **9 × 9** | RPM × coolant °C | 0.1 Nm | Terminal-50 cranking torque; reference for HS-250 values |
+| `InjCrv_phiBasGear56_MAP` | `0x1DACF8` | **16 × 14** | RPM × mg/stroke | 0.0234375° CA | Cruise SOI 5-6 gear; +0.703° CA in candidate build |
+| `TrqLim_trqEng_MAP` | `0x1D9C90` | 21 × 3 | RPM × atmospheric | Nm indicated | Main torque limiter bounding indicated engine torque |
+| `DrvDem_tq_MAP` | `0x1D2A40` | 12 × 16 | RPM × pedal % | Nm requested | Driver wish torque request |
+| `AirCtl_qHigh_CUR` | `0x1C9DAA` | 20 × 1 | Temp | mg/stroke | EGR hysteresis high threshold (zeroed for EGR OFF) |
+| `AirCtl_qMiddle_CUR` | `0x1C9EA0` | 20 × 1 | Temp | mg/stroke | EGR hysteresis middle threshold (zeroed for EGR OFF) |
 """
 
 # 14. firmware-lineage.md
@@ -456,17 +498,26 @@ DOCUMENTS["firmware-lineage.md"] = """# Firmware Lineage & Version Control
    - **File**: `diagnostic-review/reference-from-hex.analysis-only.bin`
    - **Origin**: Extracted from official factory HEX dataset `03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.HEX`
    - **Size**: 2,097,152 bytes (2.0 MB)
-   - **SHA-256**: `b3f36070a7b4582f3efce39ff6d46487e45218d6e3cbebe4fbe8cbdbdffca577`
-   - **Integrity**: Pure stock calibration reference.
+   - **Stock High-Load Boost Target**: **2050 mbar**
+   - **Status**: Pure stock calibration reference.
 
-2. **Stage 1 Refined CS_OK**:
+2. **Stage 1 Full Power (CURRENTLY FLASHED IN VEHICLE)**:
+   - **File**: `03G906021QJ_stage1_full_power_dpf_egr_off.bin`
+   - **SHA-256**: `d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0`
+   - **High-Load Boost Request**: **2214 mbar**
+   - **Features**: PoI2 zeroed (no unburned fuel smoke), CTSCD restored to 0x0B (no 87°C derate), EGT protection active.
+   - **Status**: Currently installed and running in the vehicle.
+
+3. **Stage 1 Refined CS_OK (Candidate Build)**:
    - **File**: `03G906021QJ_stage1_refined_CS_OK.bin`
-   - **Modifications**: Optimized torque request, boost ceiling raised to 2350 mbar, smoke limits aligned, checksum verified via EVC OLS242.
-   - **Status**: Flash-ready.
+   - **SHA-256**: `a517affa3f89bf2ba188a84c6b6810b20f61fa297de4917e99cba5f1f18e2b44`
+   - **High-Load Boost Request**: **2214 mbar**
+   - **Features**: Adds `HS-250` hot start fix and Gear 5/6 cruise SOI (+0.703° CA); checksums verified.
+   - **Status**: Static audit complete; NOT flash approved without logging plan.
 
-3. **Stage 1 Ideal DPF & EGR OFF**:
+4. **Stage 1 Ideal DPF & EGR OFF (REJECTED BUILD)**:
    - **File**: `03G906021QJ_ideal_stage1_dpf_egr_off.bin`
-   - **Modifications**: Stage 1 calibration combined with DPF deactivation switch and EGR zero hysteresis curve.
+   - **Status**: **REJECTED**. Retained stock duration maps and drove too sluggishly.
 """
 
 # 15. log-index.md
@@ -476,38 +527,44 @@ DOCUMENTS["log-index.md"] = """# Telemetry & Diagnostic Log Index
 
 | Log File | Format | Sampling Rate | Channels Logged | Primary Objective |
 |---|---|---|---|---|
-| `VCDS_WOT_Log_20260914_114936.csv` | VCDS CSV | ~1.2 Hz (multi-group) | RPM, Specified Boost, Actual Boost, N75 Duty, Driver Wish, Torque Limit, Smoke Limit, MAF | Full WOT pull capturing boost spike and active limiters |
+| `VCDS_WOT_Log_20260914_114936.csv` | VCDS CSV | ~1.2 Hz (multi-group) | RPM, Specified Boost, Actual Boost, N75 Duty, Driver Wish, Torque Limit, Smoke Limit, MAF | Multi-group log capturing 2310–2320 mbar boost peak vs 2214 mbar request |
 | `Turbo_Fast_Log_20260914_210903.csv` | High-Rate OBD CSV | ~4.2 Hz | RPM, MAP absolute, Baro, Boost gauge, MAF, Speed, Engine Load | High-frequency MAP rise time and transient oscillation analysis |
 """
 
 # 16. experiment-results.md
-DOCUMENTS["experiment-results.md"] = """# Experiment Results: Overboost Investigation (2310–2330 mbar)
+DOCUMENTS["experiment-results.md"] = """# Experiment Results: Overboost Investigation (2310–2320 mbar)
 
 ## Observed Phenomenon
 
-During 3rd gear full-load acceleration from 1300 RPM:
-- **Engine Speed**: 1900–2600 RPM
-- **Specified Boost Target**: ~2150 mbar absolute
-- **Actual Measured MAP**: Peaked at **2330 mbar absolute** at ~2180 RPM
-- **Overshoot Magnitude**: $+180\text{ mbar}$ ($+8.4\%$ above target)
-- **Settling Time**: ~0.65 seconds before PID controller lowered N75 duty from 78.5% down to 64.0% to pull boost back to target.
+In the 3rd gear full-throttle acceleration run:
+- **Engine Speed Range**: 1900–2600 RPM
+- **Specified Boost Target**: **2214 mbar absolute** (calibrated Stage 1 request)
+- **Actual Measured MAP**: Peaked at **~2310–2320 mbar absolute** at ~2180 RPM
+- **Overshoot Magnitude**: $+96\\dots+106\\text{ mbar}$ ($+4.5\\dots+4.8\\%$ above specified target)
 
 ```
 Boost (mbar)
-2400 |                     * * (Peak 2330 mbar)
-2300 |                   *     *
-2200 |    Specified --> *-------*---------------- (2150 mbar)
-2100 |                *           *
-2000 |              *               *
-1900 |            *
+2350 |
+2320 |                   * * (Peak 2310–2320 mbar)
+2300 |                 *     *
+2214 |  Specified --> *-------*---------------- (2214 mbar)
+2100 |              *           *
+2000 |            *               *
+1900 |          *
      +----------------------------------------> RPM / Time
              1800  2000  2200  2400  2600
 ```
 
-## Quantitative Evaluation
+## Epistemic Evaluation: Competing Hypotheses A–G
 
-The overshoot does not violate the turbocharger mechanical burst limit (2450 mbar), but sustained 2330 mbar spikes stress the actuator linkage and create minor torque surges.
-**Primary Cause**: Combination of closed EGR (increased turbine enthalpy) and pre-control feed-forward duty in `PCR_rBPCtlBas_MAP` being slightly too high for zero-EGR conditions.
+> [!NOTE]
+> In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md), the root cause is **NOT** declared an established fact. The following competing hypotheses are under active evaluation:
+
+- **Hypothesis A (Specified Target Elevated)**: *Rejected*. Stage 1 request is confirmed at 2214 mbar.
+- **Hypothesis B (Feed-Forward Duty Elevated Post-EGR Delete)**: *Hypothesis (RAW)*. With EGR closed, 100% of exhaust gas expands across the turbine. If stock feed-forward (`PCR_rBPCtlBas_MAP`) was tuned for 15–30% EGR bypass, it holds vanes too closed during transient spool-up. Requires sign-test to confirm.
+- **Hypothesis C (PID Transient Damping)**: *Hypothesis (RAW)*. PID derivative or proportional gain may be under-damped for the rapid spool-up rate.
+- **Hypothesis D (Sensor / Sampling Alias)**: *Hypothesis (RAW)*. The ~1.2 Hz sampling rate of multi-group VCDS logging obscures the true peak shape and settling time.
+- **Hypothesis G (Mechanical Actuator Hysteresis)**: *Hypothesis (RAW)*. Vacuum bleed rate through N75 solenoid or actuator rod friction creates pneumatic delay.
 """
 
 # 17. conflicting-evidence.md
@@ -515,12 +572,9 @@ DOCUMENTS["conflicting-evidence.md"] = """# Conflicting Evidence & Dispute Resol
 
 ## Conflict Case 1: N75 Actuator Duty Polarity in VCDS
 
-- **Claim A (Tuner forum consensus)**: "80% duty cycle means the N75 valve is opening the vanes to reduce boost."
-- **Claim B (Bosch & VW SSP 304)**: "80% duty cycle energizes the solenoid to apply vacuum, pulling the actuator rod to CLOSE the vanes for maximum turbine drive and boost increase."
-- **Authority / Applicability**:
-  - Claim A: Authority 2, Applicability 3
-  - Claim B: Authority 5, Applicability 5
-- **Verdict**: **Claim B is verified**. Physical logging proves that duty starts at ~80% during spool-up and drops to 60–65% as boost stabilizes.
+- **Claim A (Common Forum Convention)**: "Higher duty percentage means opening the vanes to decrease boost."
+- **Claim B (Pneumatic Mechanics / SSP 304)**: "Higher duty percentage energizes the solenoid to apply vacuum, pulling the actuator rod to close the vanes for maximum spool."
+- **Audit Ground Truth**: In this specific EDC16U34 SW 1037391847, numerical table direction is **UNPROVEN statically**. A controlled runtime sign-test must be performed before altering `PCR_rBPCtlBas_MAP`.
 
 ---
 
@@ -528,44 +582,25 @@ DOCUMENTS["conflicting-evidence.md"] = """# Conflicting Evidence & Dispute Resol
 
 - **Claim A**: BLS uses MAF-based smoke limitation (`FlMng_qAirSmoke_MAP`).
 - **Claim B**: BLS factory DPF software uses MAP-based smoke limitation (`FlMng_qPresSmoke_MAP`).
-- **Resolution**: A2L code inspection confirms that DPF software branch switches primary smoke limitation to MAP-based curve.
+- **Resolution**: **Verified**. A2L inspection and binary comparison confirm `FlMng_qPresSmoke_MAP` at `0x1D6490` is actively modified (+13%) in the DPF software branch.
 """
 
 # 18. open-questions.md
 DOCUMENTS["open-questions.md"] = """# Project Open Questions & Competing Hypotheses
 
-## The 15 Core Project Questions
+## Core Project Research Questions
 
-1. What functional block generates final boost request on SW 1037391847?
-2. Which environmental corrections alter `PCR_pBDesBas_MAP` output?
-3. What is the exact feed-forward role of `PCR_rBPCtlBas_MAP`?
-4. How does the IQ axis extrapolate above the final defined axis value?
-5. Which PID closed-loop terms dominate transient boost regulation?
-6. Which limiter governs fuel at each 100 RPM increment from 1500 to 4000 RPM?
-7. Is `FlMng_qPresSmoke_MAP` actively limiting fuel in the 1800–2200 RPM window?
-8. What governs actual injected quantity during rapid pedal tip-in?
-9. Which SOI maps execute for gear 3 vs gear 5?
-10. Which thermal protection maps derate torque under high continuous load?
-11. Which exact map controls hot start cranking fuel?
-12. What was the OEM post-injection thermal management strategy for DPF regeneration?
-13. Which calibration differences in stage 1 are functional vs software version artifacts?
-14. Which duplicate map banks are actively called at runtime?
-15. What exact pre-control adjustment eliminates the 2330 mbar boost overshoot?
-
----
-
-## Competing Hypotheses for 2310–2330 mbar Boost Spike
-
-- **Hypothesis A (High Target)**: Specified boost request itself is set high in this range. *(Contradicted by logs: specified is ~2150 mbar)*.
-- **Hypothesis B (Feed-Forward Duty Too High)**: Zero EGR flow increases turbine mass flow; feed-forward table holds vanes too closed. *(Strongly Supported)*.
-- **Hypothesis C (PID Transient Tuning)**: Derivative/Proportional gain is too slow to catch rapid spool-up. *(Corroborated)*.
-- **Hypothesis D (Mechanical Sticking)**: VNT vanes or vacuum actuator linkage has mechanical friction. *(Low probability: vehicle returns cleanly to target)*.
+1. Does lower numerical percentage in `PCR_rBPCtlBas_MAP` increase or decrease initial boost rise slope? *(Sign-test required)*.
+2. Which limiter actively governs fuel injection during the 1800–2400 RPM spool-up window (Torque limit vs Smoke limit `FlMng_qPresSmoke_MAP`)?
+3. How does the IQ axis of `PCR_rBPCtlBas_MAP` extrapolate when IQ exceeds the final defined column (45 mg)?
+4. What is the exact settling time of boost regulation when logged at > 4 Hz?
+5. Does the candidate build `stage1_refined_CS_OK` resolve warm-start delay cleanly in vehicle testing?
 """
 
 # 19. recommended-tests.md
 DOCUMENTS["recommended-tests.md"] = """# Recommended Test Protocols for Vehicle Validation
 
-## Test Protocol 1: High-Rate Boost Closed-Loop Run
+## Test Protocol 1: High-Rate Boost Closed-Loop Run (MVB 011 Only)
 
 - **Diagnostic Tool**: VCDS (VAG-COM)
 - **Engine Control Module**: `01 - Engine`
@@ -580,7 +615,7 @@ DOCUMENTS["recommended-tests.md"] = """# Recommended Test Protocols for Vehicle 
 
 ---
 
-## Test Protocol 2: Fueling & Limiter Arbitration Run
+## Test Protocol 2: Fueling & Limiter Arbitration Run (MVB 008 Only)
 
 - **Measurement Selection**: **Select Group 008 ONLY**.
 - **Channels**:
@@ -594,13 +629,15 @@ DOCUMENTS["recommended-tests.md"] = """# Recommended Test Protocols for Vehicle 
 # 20. research-changelog.md
 DOCUMENTS["research-changelog.md"] = """# Research Changelog & Bootstrap History
 
-## Version 1.0.0 — 2026-09-16
-- **Bootstrap Initialization**: Implemented the complete Project Knowledge Bootstrap Pack specification from `docs/knowledge/EDC16U34_KNOWLEDGE_BOOTSTRAP_PACK.md`.
-- **Database Engine**: Deployed `knowledge/edc16_knowledge.db` with SQLite relational schema and FTS5 virtual tables (`claims_fts`, `maps_fts`).
-- **A2L Ingestion**: Parsed and indexed 11,537 characteristics from OEM A2L dataset `03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l`.
-- **Active Maps**: Tagged and correlated 29 verified active maps from `active-map-verification.json`.
-- **Telemetry Ingestion**: Ingested VCDS and Turbo Fast logs into relational tables with quantitative overshoot calculations.
-- **Documentation**: Generated all 20 technical knowledge documents in `docs/knowledge/` adhering to the Master Research Policy.
+## Version 1.1.0 — 2026-09-16 (Ground-Truth Alignment Pass)
+- **Addresses & Dimensions Aligned with Deep-Audit**:
+  - `PCR_rBPCtlBas_MAP`: corrected dimensions to **16×13** at `0x1E9FD0`.
+  - `FlMng_qPresSmoke_MAP`: corrected address to **`0x1D6490`** and dimensions to **16×12** (RPM × corrected pressure hPa).
+  - `StSys_trqStrtBas_MAP`: confirmed address at **`0x1F070C`** (9×9) and exact `HS-250` cells at `0x1F0762–0x1F0768`.
+- **Target Boost Calibration**: Corrected high-load Stage 1 target from draft 2350 mbar to verified **2214 mbar** (stock reference: 2050 mbar).
+- **Epistemic Status Sanitization**: Downgraded unverified assertions (overboost root cause, N75 numerical duty direction) from verified to `raw` / `hypothesis`.
+- **Firmware Lineage Correction**: Explicitly noted that `stage1_full_power` is active in car, `stage1_refined_CS_OK` is candidate build, and `ideal_stage1` was rejected as sluggish.
+- **Database Synchronization**: Re-seeded and re-indexed `knowledge/edc16_knowledge.db` with ground-truth records.
 """
 
 
@@ -610,7 +647,7 @@ def main():
         with open(fpath, "w", encoding="utf-8") as f:
             f.write(content.strip() + "\n")
         print(f"Generated {fpath} ({len(content)} bytes)")
-    print("\nAll 20 knowledge documents generated successfully.")
+    print("\nAll 20 knowledge documents generated and aligned with deep-audit ground truth.")
 
 
 if __name__ == "__main__":

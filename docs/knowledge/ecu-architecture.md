@@ -45,11 +45,12 @@ In SW `1037391847`, all calibration parameters and maps reside in the upper **25
 
 - **Flash Base Address**: `0x000000`
 - **Calibration Area Base**: `0x1C0000`
-- **Key Boost Map (`PCR_pBDesBas_MAP`)**: `0x1E9A40`
-- **N75 Pre-Control Map (`PCR_rBPCtlBas_MAP`)**: `0x1E9FD0`
-- **Smoke Limiter (`FlMng_qPresSmoke_MAP`)**: `0x1E4280`
-- **Torque Limiter (`TrqLim_trqEng_MAP`)**: `0x1D9C90`
-- **Driver Wish (`DrvDem_tq_MAP`)**: `0x1D2A40`
+- **N75 Pre-Control Map (`PCR_rBPCtlBas_MAP`)**: `0x1E9FD0` (16×13)
+- **Base Boost Target Map (`PCR_pBDesBas_MAP`)**: `0x1EB0B2` / `0x1E9A40` (16×10 / 16×16 depending on variant bank)
+- **Smoke Limiter (`FlMng_qPresSmoke_MAP`)**: `0x1D6490` (16×12)
+- **Hot-Start Base Torque (`StSys_trqStrtBas_MAP`)**: `0x1F070C` (9×9)
+- **Hot-Start Term 50 Torque (`StSys_trqStrt_MAP`)**: `0x1F07EA` (9×9)
+- **Cruise SOI 5-6 Gear (`InjCrv_phiBasGear56_MAP`)**: `0x1DACF8` (16×14)
 
 ---
 

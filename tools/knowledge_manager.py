@@ -387,14 +387,14 @@ def seed_sources(conn):
 
 def seed_research_tasks(conn):
     tasks = [
-        ("TASK-BOOST-01", "Investigate 2310-2330 mbar peak boost spike in 1900-2600 rpm region", "P1_CRITICAL", "in_progress", "Hypothesis B: N75 pre-control (PCR_rBPCtlBas_MAP) or closed-loop PID overshoot", "VCDS MVB 011 single-group log, PCR_rBPCtlBas_MAP active values", "Antigravity/Gemini"),
-        ("TASK-MAP-01", "Verify active address of PCR_rBPCtlBas_MAP (N75 pre-control) in SW 1037391847", "P1_CRITICAL", "completed", "A2L maps point to 0x1E9FD0 or active block offset", "Binary comparison between reference and stage 1", "Antigravity/Gemini"),
-        ("TASK-MAP-02", "Verify active address of PCR_pBDesBas_MAP (Boost target)", "P1_CRITICAL", "completed", "Boost request ceiling set to 2350 mbar absolute in Stage 1", "A2L index & Stage 1 map dump", "Antigravity/Gemini"),
-        ("TASK-SMOKE-01", "Determine active smoke limiter (FlMng_qPresSmoke_MAP vs MAF-based) in BLS", "P2_HIGH", "completed", "BLS factory DPF calibration relies primarily on MAP-based smoke limiter", "A2L layout & VCDS MAF/MAP IQ channels", "Antigravity/Gemini"),
-        ("TASK-HOTSTART-01", "Verify hot-start cranking IQ maps (EngM_qStart_MAP) across coolant temp", "P2_HIGH", "pending", "BLS hot start hesitation is caused by 0 mg IQ threshold under 250 RPM when warm", "A2L EngM_qStart_MAP inspection", "OpenAI Codex"),
-        ("TASK-EGR-VNT-01", "Analyze VNT pre-control impact after DPF & EGR deactivation", "P1_CRITICAL", "in_progress", "Zero EGR flow increases turbine enthalpy during spool-up, shifting baseline required N75 duty", "SAE 2003-01-0357 & VCDS log correlation", "OpenAI Codex"),
+        ("TASK-BOOST-01", "Investigate 2310-2330 mbar peak boost spike in 1900-2600 rpm region", "P1_CRITICAL", "in_progress", "Test competing hypotheses A-G (N75 pre-control vs PID damping vs zero-EGR enthalpy) against 2214 mbar Stage 1 request", "VCDS MVB 011 single-group high-rate log", "Antigravity/Gemini"),
+        ("TASK-MAP-01", "Verify active address of PCR_rBPCtlBas_MAP (N75 pre-control) in SW 1037391847", "P1_CRITICAL", "completed", "A2L map confirmed at 0x1E9FD0, 16x13 (RPM x mg/stroke); pre-control unchanged from stock reference", "deep-audit / A2L matching line 394165", "Antigravity/Gemini"),
+        ("TASK-MAP-02", "Verify active boost target map PCR_pBDesBas_MAP", "P1_CRITICAL", "completed", "High-load Stage 1 request is 2214 mbar absolute (raised from 2050 mbar reference; 104 changed values)", "deep-audit / active-map-verification.json", "Antigravity/Gemini"),
+        ("TASK-SMOKE-01", "Verify active smoke limiter FlMng_qPresSmoke_MAP in BLS DPF software", "P2_HIGH", "completed", "Active address is 0x1D6490, 16x12 (RPM x corrected pressure hPa FlMng_pIATCorr_mp)", "deep-audit / A2L matching line 462199", "Antigravity/Gemini"),
+        ("TASK-HOTSTART-01", "Verify hot-start cranking torque maps StSys_trqStrtBas_MAP and HS-250 patch", "P2_HIGH", "completed", "Primary map is StSys_trqStrtBas_MAP @ 0x1F070C (9x9); HS-250 patch targets 4 cells at 250 rpm (0x1F0762-0x1F0768)", "calibration-enhancements-deep-audit-2026-09-11.md", "Antigravity/Gemini"),
+        ("TASK-EGR-VNT-01", "Investigate VNT pre-control impact after DPF & EGR deactivation", "P1_CRITICAL", "in_progress", "Zero EGR flow diverts 100% mass flow through turbine; numerical duty direction requires sign-test before editing", "SAE 2003-01-0357 & sign-test logging", "OpenAI Codex"),
         ("TASK-TORQUE-01", "Map active torque limiter (TrqLim_trqEng_MAP) vs Driver Wish", "P2_HIGH", "completed", "Torque limiter sets outer torque boundary; converted via duration maps", "diagnostic-review/active-map-verification.json", "Antigravity/Gemini"),
-        ("TASK-THERMAL-01", "Audit modeled exhaust temperature protection and thermal derating", "P2_HIGH", "pending", "Preserve Bauteilschutz (component protection) limits for BV39 turbo safety", "A2L thermal map inspection", "OpenAI Codex"),
+        ("TASK-THERMAL-01", "Audit modeled exhaust temperature protection and thermal derating", "P2_HIGH", "completed", "EngPrt_facTempPreTrbn_MAP (EGT > 805 C) restored in stage1_full_power to protect BV39 turbo", "README.md & deep-audit", "Antigravity/Gemini"),
     ]
     cur = conn.cursor()
     cur.execute("SELECT COUNT(*) FROM research_tasks;")
@@ -500,16 +500,35 @@ def update_verified_active_maps(conn):
         if cur.rowcount > 0:
             updated += 1
 
+    # Explicit deep-audit verified maps (Source of truth: calibration-enhancements-deep-audit-2026-09-11.md)
+    deep_audit_maps = [
+        ("PCR_rBPCtlBas_MAP", "0x1e9fd0", 16, 13, "A2L line 394165; 16x13 RPM x mg/stroke; N75 pre-control"),
+        ("FlMng_qPresSmoke_MAP", "0x1d6490", 16, 12, "A2L line 462199; 16x12 RPM x corrected pressure hPa; smoke limiter"),
+        ("StSys_trqStrtBas_MAP", "0x1f070c", 9, 9, "A2L line 268931; 9x9 RPM x coolant C; cranking torque base"),
+        ("StSys_trqStrt_MAP", "0x1f07ea", 9, 9, "A2L line 345331; 9x9 RPM x coolant C; cranking torque term 50"),
+        ("InjCrv_phiBasGear56_MAP", "0x1dacf8", 16, 14, "A2L line 462268; 16x14 RPM x mg/stroke; cruise SOI 5-6 gear"),
+    ]
+    for mname, maddr, dx, dy, reason in deep_audit_maps:
+        cur.execute("""
+        UPDATE map_definitions
+        SET is_verified_active = 1,
+            active_reason = ?,
+            dim_x = ?,
+            dim_y = ?,
+            address_hex = ?
+        WHERE name = ?;
+        """, (reason, dx, dy, maddr, mname))
+
     conn.commit()
-    print(f"Marked {updated} maps as verified active with physical dimensions.")
+    print(f"Marked {updated} maps as verified active with physical dimensions (including deep-audit ground truth).")
 
 
 def ingest_firmware_metadata(conn):
     bins = [
-        ("reference-from-hex.analysis-only.bin", "factory_hex", "Clean factory binary reconstituted from official Bosch/VAG HEX dataset"),
-        ("03G906021QJ_stage1_refined_CS_OK.bin", "stage1_refined", "Stage 1 refined calibration with validated checksum OLS242"),
-        ("03G906021QJ_ideal_stage1_dpf_egr_off.bin", "dpf_egr_off", "Stage 1 calibration with complete DPF switch and EGR hysteresis off"),
-        ("03G906021QJ_stage1_full_power_dpf_egr_off.bin", "experimental", "Full power aggressive calibration (higher boost request and IQ)")
+        ("reference-from-hex.analysis-only.bin", "factory_hex_reference", "Clean factory binary reconstituted from official Bosch/VAG HEX dataset; stock boost request 2050 mbar"),
+        ("03G906021QJ_stage1_full_power_dpf_egr_off.bin", "currently_installed_in_car", "Currently active in vehicle; Stage 1 target 2214 mbar, PoI2 zeroed, CTSCD restored to 0x0B, EGT limiter active"),
+        ("03G906021QJ_stage1_refined_CS_OK.bin", "candidate_refined", "Candidate build with HS-250 hot start fix & Gear 5/6 cruise SOI +0.703; checksum OLS242 OK; requires logging plan before flash"),
+        ("03G906021QJ_ideal_stage1_dpf_egr_off.bin", "rejected_test_build", "Rejected test build with stock duration maps; drove too sluggishly; not active")
     ]
 
     cur = conn.cursor()
@@ -526,11 +545,16 @@ def ingest_firmware_metadata(conn):
             size = len(content)
 
         cur.execute("SELECT id FROM firmware_versions WHERE sha256 = ?;", (sha256,))
-        if not cur.fetchone():
+        existing = cur.fetchone()
+        if not existing:
             cur.execute("""
             INSERT INTO firmware_versions (filename, sha256, size_bytes, ecu_hw, ecu_sw, variant_type, checksum_status, notes)
             VALUES (?, ?, ?, '03G906021QJ', '1037391847', ?, 'VERIFIED_OK', ?);
             """, (p.name, sha256, size, vtype, notes))
+        else:
+            cur.execute("""
+            UPDATE firmware_versions SET variant_type = ?, notes = ? WHERE sha256 = ?;
+            """, (vtype, notes, sha256))
     conn.commit()
     print("Firmware versions indexed.")
 
@@ -618,16 +642,16 @@ def seed_initial_claims(conn):
             "Normal engine operation"
         ),
         (
-            "Closing or blanking EGR causes higher exhaust gas enthalpy and mass flow to pass through the turbine during transient acceleration, causing premature spool-up and overboost if N75 pre-control (PCR_rBPCtlBas_MAP) is not relaxed.",
+            "Closing or blanking EGR causes higher exhaust gas enthalpy and mass flow to pass through the turbine during transient acceleration, hypothesized to contribute to boost spike if N75 pre-control feed-forward is not calibrated for zero-EGR flow.",
             17, # SAE 2003-01-0357
             "SAE 2003-01-0357: Coordinated VGT/EGR control in diesel air path",
             4, 4,
             "PCR_rBPCtlBas_MAP",
-            "corroborated",
-            "EGR disabled / 100% duty cycle"
+            "raw",
+            "Hypothesis; requires sign-test validation"
         ),
         (
-            "The BV39 turbocharger (54399880072) has a reliable continuous absolute pressure limit of approximately 2350–2400 mbar; transients up to 2450 mbar are tolerated briefly, but sustained pressure ratio above 2.45 at 3500+ RPM exceeds compressor efficiency islands.",
+            "The BV39 turbocharger (54399880072) has a continuous safe pressure ratio boundary corresponding to ~2300–2350 mbar absolute at sea level; Stage 1 target is 2214 mbar.",
             16, # BorgWarner
             "BorgWarner BV39 Compressor & Turbine sizing guidelines",
             5, 5,
@@ -636,22 +660,31 @@ def seed_initial_claims(conn):
             "Pumpe-Düse 1.9 TDI BLS"
         ),
         (
-            "In Bosch EDC16U34, higher N75 duty cycle percentage in diagnostic logging corresponds to the VNT vanes being commanded more closed (maximum turbine expansion ratio / maximum spool drive), while lower duty cycle opens vanes to dump exhaust energy.",
-            3, # VW SSP 304
-            "VW SSP 304 Charge Pressure Control Actuator Description",
+            "In Bosch EDC16U34, numerical polarity of N75 duty cycle in SW 1037391847 is not proved from static data. Deep-audit requires a controlled runtime sign-test before any N75-A pre-control modification can be approved.",
+            18, # Deep Audit
+            "calibration-enhancements-deep-audit-2026-09-11.md Section 2",
             5, 5,
             "PCR_rBPCtlBas_MAP",
-            "project_matched",
-            "EDC16 diagnostic block 011"
+            "raw",
+            "UNVERIFIED_POLARITY: Requires runtime sign-test"
         ),
         (
-            "The observed 2310–2330 mbar peak boost in 1900–2600 rpm under full load represents a transient overshoot of ~160–180 mbar above the requested 2150 mbar target, attributable to a combination of closed EGR enthalpy and aggressive N75 pre-control feed-forward.",
+            "Observed actual boost reaches ~2310–2320 mbar in 1900–2600 rpm pull versus Stage 1 target of 2214 mbar (~+100 mbar delta). Competing hypotheses A–G (pre-control duty vs PID damping vs zero-EGR enthalpy) require isolated MVB 011 logging to establish root cause.",
             21, # VCDS log
-            "VCDS WOT Log 2026-09-14 11:49:36: 1281-3400 RPM pull, peak actual 2330 mbar at 2180 RPM",
+            "VCDS WOT Log 2026-09-14 11:49:36 & deep-audit",
             5, 5,
             "PCR_rBPCtlBas_MAP",
-            "experiment_supported",
-            "3rd gear WOT acceleration from 1300 RPM"
+            "raw",
+            "HYPOTHESIS: Root cause unverified"
+        ),
+        (
+            "Warm start extended cranking is caused by StSys_trqStrtBas_MAP @ 0x1F070C (9x9) delivering 0 Nm at 250 rpm across 40–100 C. Populating cells 0x1F0762–0x1F0768 with 125/112/108/108 Nm (HS-250) enables immediate warm start without bulk copy.",
+            18, # Deep Audit
+            "calibration-enhancements-deep-audit-2026-09-11.md Section 1",
+            5, 5,
+            "StSys_trqStrtBas_MAP",
+            "project_matched",
+            "Coolant > 70 C, cranking speed 250-279 rpm"
         )
     ]
 
@@ -668,7 +701,7 @@ def seed_initial_claims(conn):
     """)
 
     conn.commit()
-    print(f"Seeded {len(claims)} foundational claims with epistemic status.")
+    print(f"Seeded {len(claims)} foundational claims with sanitized epistemic status.")
 
 
 def search_knowledge(conn, query):
