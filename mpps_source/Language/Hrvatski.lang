@@ -1,0 +1,150 @@
+;Croatian language file for MPPS
+
+[Discription]
+Name=Hrvatski
+File=Hrvatski.Lang
+
+[Menu]
+M0=Datoteka
+M1=ECU identifikacija
+M2=Proèitaj
+M3=Upiši
+M4=Dodatni podaci
+M5=Izlaz
+M6=Opcije
+M7=Upravitelj boja
+M8=Upravitelj klijenata
+M9=Izbriši Log datoteke
+M10=Aplikacije
+M11=Pregled programiranja
+M12=BCB obratitelj
+M13=Opcije brzine
+M14=Brzo (na stolu)
+M15=Srednje (podrazumevano)
+M16=Sporo (obnavljanje)
+M17=Opcije isèitavanja
+M18=Puno isèitavanje (samo K-line)
+M19=Samo podaci (podrazumevano)
+M20=Zaobidji zaštitu (samo VAG EDC15)
+M21=Informacije o programu
+M22=Informacije o verziji 
+M23=Dozvola
+
+
+
+[Commands]
+C0=ECU identifikacija
+C1=Proèitaj
+C2=Upiši
+C3=Dodatni podaci
+C4=Checksum
+C5=Izlaz
+
+
+
+[Labels]
+L0=Jezik
+L1=Odaberite proizvodjaèa
+L2=Odaberite model
+L3=Odaberite ECU
+L4=ECU podaci
+L5=Komentari
+L6=Obavijest za korisnika 
+L7=Volti
+L8=Vrijeme
+L9=Napredak
+
+
+[Errors]
+10=Opæe odbijeno
+11=Mod nije podržan
+12=Podfunkcija nije podržana ili nije ispravan format 
+13=Podfunkcija nije podržana ili nije ispravan format 
+21=Zauzeto:ponovite zahtijev
+22=Odredbe nisu toène
+23=Èekaj! Rutina nije završena
+24=Request sequence error
+31=Zahtijev izvan raspona
+33=Sigurnosni pristup nije dozvoljen
+34=Sigurnosni pristup dopušten
+35=Nevažeæi kljuè
+36=Prekoraèen broj pokušaja
+37=Zahtevano kašnjenje nije isteklo
+40=Preuzimanje nije prihvaæeno
+41=Nepravilan tip preuzimanja
+42=Ne mogu preneti na navedene adrese
+43=Ne mogu preuzeti broj zatraženih bajtova 
+44=Spreman za preuzimanje
+50=Upload nije prihvaæen
+51=Nepravilan tip upload-a
+52=Ne mogu uèitati sa navedenih adresa
+53=Ne mogu uèitati broj traženih bajtova
+54=Spreman za upload
+61=Normalan izlaz sa rezultatima
+62=Normalan izlaz bez rezultata
+63=Abnormalan izlaz sa rezultatima
+64=Abnormalan izlaz bez rezultata
+71=Prijenos suspendiran
+72=Prijenos pobaèen
+73=Blok prijenos kompletan
+74=Ilegalna adresa u bloku
+75=Ilegalno byte odbrojavanje u blok prijenosu
+76=Ilegalni blok tip prijenosa
+77=Blok podaci checksum greška 
+78=Blok poruka ispravno primljena
+79=Neispravno byte brojanje tijekom blok prijenosa
+7F=Usluga nije podržana u aktivnom dijagnostickom modu
+80=Usluga nije podržana u aktivnom dijagnostickom modu
+90=Usluga nije podržana u aktivnom dijagnostickom modu
+
+300=Istijklo vrijeme prenosa
+301=Nema odgovora iz Ecu
+302=Programiranje ECU-a sada ...
+303=Nema informacija
+304=Preuzimanje podataka sad!!!
+
+
+[Message]
+1=Interna hardverska greška 
+2=Budjenje ECU-a molim prièekajte ...
+3=Primanje ECU informacije
+4=ECU informacija kompletna
+5=Nema informacija
+6=Sigurnosni pristup
+7=Preuzimanje datoteke sad
+8=Brisanje flash-a sad
+9=Programiranje završeno
+10=Iskljuèite paljenje za nastavak ...
+11=Prièekajte  1 sekundu
+12=Zahtijev za preuzimanje podataka
+13=Prelazak na veliku brzinu
+14=Kontrolisanje checksum-a sada ...
+15=Flash checksum OK ...
+16=Flash checksum greška
+17=Èitanje Flash-a sad ...
+18=ECU flash ispravno proèitan
+19=Kontrola flash-a
+20=ECU nije pronadjen
+21=Pogreška pri èitanju flash-a!
+22=Kontrolisanje ECU postavki sad: molim prièekajte!
+23=Nastavi programiranje
+24=Datoteka skremblovana ne može se nastaviti
+25=Ne mogu pronaæi ECU kontrolne brojeve
+26=Neispravna velièina datoteke
+27=Pogreška programiranja flash-a!
+28=Zahtijev za uèitavanje podataka
+29=Zahtijev za prijenos-izlaz
+30=Datoteka ispravno kompresovana
+31=Pogreška pri kompresovanju datoteke!
+32=Datoteka dekompresovana ispravno
+33=Pogreška dekompresije datoteke!
+34=Pogreška pri otvaranju datoteke
+35=Èišæenje ECU podataka molim pricekajte!
+36=Èitanje DTC kodova pogrešaka
+37=Brisanje DTC kodova pogrešaka
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Pojavila se greška molimo vas idite u C:\\MPPS\\Logs\\ i pošaljite sve podatke iz te fascikle na 'support@amtcartech.com' kako bismo mogli pregledati. Molimo Vas da to uèinite što je prije moguæe kako bismo mogli riješiti problem!

@@ -1,0 +1,149 @@
+;Finnish language file for MPPS
+
+[Discription]
+Name=Suomea
+File=Suomea.Lang
+
+[Menu]
+M0=Tiedosto
+M1=Ecu tunnus
+M2=lukea
+M3=Kirjoita
+M4=lis‰tilastoja
+M5=Lopeta
+M6=Valinnat
+M7=V‰ri Manager
+M8=Asiakasjohtajan
+M9=Tyhjenn‰ loki tiedostot
+M10=apuohjelmat
+M11=ohjelmointi Yhteenveto
+M12=BCB Muuntimen
+M13=Nopeus Valinnat
+M14=Nopea (Bench Vilkkuu)
+M15=v‰lineell‰ (oletus)
+M16=hidas (takaisin tila)
+M17=Read Valinnat
+M18=t‰ydellinen lukea (Kline vain)
+M19=Data Vain (oletus)
+M20=turvallisuus ohitus (VAG Edc15 vain)
+M21=Ohjelman tiedot
+M22=Versiotiedot
+M23=Lisenssi
+
+
+
+[Commands]
+C0=Ecu tunnus
+C1=lukea
+C2=Kirjoita
+C3=lis‰tilastoja
+C4=Tarkistussumma
+C5=Lopeta
+
+
+
+[Labels]
+L0=Kieli
+L1=Valitse Merkki
+L2=Valitse malli
+L3=Valitse Ecu
+L4=Ecu Data
+L5=Kommentit
+L6=K‰ytt‰j‰n tiedot
+L7=volttia
+L8=Temne
+L9=edistymisen
+
+
+[Errors]
+10=yleens‰ hyl‰t‰
+11=tilan tueta
+12=Alitoiminto ei ole tuettu tai v‰‰r‰n muotoinen
+13=Alitoiminto ei ole tuettu tai v‰‰r‰n muotoinen
+21=Varattu: toista pyyntˆ
+22=edellytykset eiv‰t oikein
+23=Odota! Rutiininomainen ole t‰ydellinen
+31=pyyt‰‰ alueen ulkopuolella
+33=turvallisuus p‰‰sy ev‰tty
+34=turvallisuus p‰‰sy sallittu
+35=Virheellinen avain
+36=ylittynyt useita yrityksi‰
+37=Vaadittu viivett‰ ei ole p‰‰ttynyt
+40=ladata ei hyv‰ksytty
+41=Virheellinen Lataa tyyppi
+42=ei voi ladata osoitetta
+43=ei voi ladata tavujen pyynnˆn
+44=valmis ladattavaksi
+50=l‰het‰ ei hyv‰ksytty
+51=Virheellinen Lataa tyyppi
+52=ei voi ladata osoitteesta osoitetta
+53=Ei voida ladata tavujen pyynnˆn
+54=Valmis l‰het‰
+61=normaali poistumista tulokset
+62=Normaali poistu tulokset
+63=Ep‰normaali poistumista tulokset
+64=Ep‰normaali poistu tulokset
+71=Siirto keskeytetty
+72=Siirto keskeytetty
+73=Block siirto valmis
+74=Laiton osoite kent‰ss‰
+75=Laiton tavu m‰‰r‰ kent‰ss‰ siirto
+76=Laiton est‰‰ siirron tyyppi
+77=est‰‰ tietojen checksum error
+78=Est‰ siirt‰‰ viestin oikein saanut
+79=Virheellinen tavu luottaa aikana est‰‰ siirron
+7F=Palvelu ei tue aktiivista diagnostiikkaan tilassa
+80=Palvelu ei tue aktiivista diagnostiikkaan tilassa
+90=Palvelu ei tue aktiivista diagnostiikkaan tilassa
+
+300=L‰het‰ Time Out
+301=Ei vastausta Ecu
+302=Ohjelmointi ECU nyt ...
+303=Ei tietoja
+304=datapalvelujen nyt!
+
+
+[Message]
+1=Sis‰inen Laitevika
+2=her‰‰ ECU odota ...
+3=vastaanottaminen ECU tiedot
+4=ECU tiedot t‰ydelliset
+5=Ei tietoja
+6=turvallisuus k‰ytt‰‰
+7=Data lataa nyt
+8=poistaminen Flash!
+9=ohjelma valmis
+10=Katkaise virta jatkaa ...
+11=Odota 1 sekunti
+12=pyyt‰minen tietojen lataus
+13=Virran nopeita
+14=valvonta tarkiste nyt ...
+15=Flash tarkistussumma ok ...
+16=Flash checksum virheest‰
+17=k‰sittelyss‰‰n Flash ...
+18=ECU flash lukea oikein
+19=valvontaa Flash
+20=ECU ei lˆytynyt
+21=Virhe luettaessa Flash!
+22=hallinta ECU setup nyt: Odota!
+23=Jatka ohjelma
+24=Tiedoston salattu ei voi jatkaa
+25=ei lˆydy ecua valvonnan numerot
+26=Virheellinen tiedoston koko
+27=Virhe ohjelma Flash!
+28=pyydett‰ess‰ tietoja l‰het‰
+29=pyynnˆn siirt‰‰ poistumista
+30=Tiedosto pakattu oikein
+31=Virhe puristamalla file!
+32=Tiedosto puretaan oikein
+33=Virhe puretaan tiedosto!
+34=Virhe avattaessa tiedostoa
+35=Siivous ECU tiedot Odota!
+36=k‰sittelyss‰‰n DTC virhekoodeja
+37=selvityksen DTC virhekoodeja
+40=You need to checksum this file before writing!!
+41=Checksum is calculated by the program.
+
+
+100=Virhe mene C:\\MPPS\\Logs\\ ja l‰hett‰‰ kaikki tiedostosi, ett‰ kansion 'errors@amtcartech.com' jotta voimme tarkistaa. Tee t‰m‰n mahdollisimman pian, jotta voimme ratkaista ongelman!
+

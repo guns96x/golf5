@@ -1,0 +1,149 @@
+;Latvian language file for MPPS
+
+[Discription]
+Name=Latviešu
+File=Latviešu.Lang
+
+[Menu]
+M0=fails
+M1=Ecu Id
+M2=lasit
+M3=rakstit
+M4=papildu datus
+M5=Iziet
+M6=opcijas
+M7=krasu vaditajs
+M8=klientu menedžeris
+M9=skaidrs log faili
+M10=Utilities
+M11=programmas kopsavilkums
+M12=BCB parveidotajs
+M13=atrums opcijas
+M14=Fast (Bench Flashing)
+M15=Videjs (noklusejums)
+M16=ens (atgušana mode)
+M17=lasit opcijas
+M18=pilna lasit (Kline tikai)
+M19=datus tikai (noklusejums)
+M20=drošibas apvedcelš (VAG Edc15 tikai)
+M21=programma informacija
+M22=versija Informacija
+M23=Licence
+
+
+
+[Commands]
+C0=Ecu Id
+C1=lasit
+C2=rakstit
+C3=papildu datus
+C4=Checksum
+C5=izejas
+
+
+[Labels]
+L0=Valoda
+L1=Izvelieties Marka
+L2=Izvelieties modeli
+L3=Izvelieties Ecu
+L4=Ecu Dati
+L5=Komentari
+L6=Lietotaja informacija
+L7=V
+L8=laiks
+L9=Progress
+
+
+[Errors]
+10=vispareja noraidit
+11=Mode nav atbalstits
+12=Sub funkcija netiek atbalstits vai nepareizs formats
+13=Sub funkcija netiek atbalstits vai nepareizs formats
+21=Aiznemts: atkartojiet pieprasijumu
+22=nosacijumi nav pareiza
+23=Pagaidiet! Parasta nav pilnigs
+24=Request sequence error
+31=pieprasijums arpus diapazona
+33=drošibas access denied
+34=drošibas piekluves atlauts
+35=Nepareizs galvena
+36=Nokavejums skaits meginajumiem
+37=Nepieciešamais laika kavejums nav beidzies
+40=lejupielade nav pienemts
+41=Nepareiza download tips
+42=Nevar ieladet uz noteiktu adresi
+43=Nevar ieladet baitu skaitu pieprasijuma
+44=Gatavs lejupieladet
+50=Augšupieladet nepienem
+51=Nepareiza augšupielades veidu
+52=Nevar augšupieladet no noteiktu adresi
+53=Nevar augšupieladet baitu skaitu pieprasijuma
+54=Gatavs augšupielades
+61=normalas izejas ar rezultatiem
+62=normalas izejas bez rezultatiem
+63=Nenormala izejas ar rezultatiem
+64=Nenormala izejas bez rezultatiem
+71=nodošana partraukta
+72=nodošana partraukta
+73=blokveida parveduma pilnigs
+74=Illegal adresi bloks
+75=Illegal baitu skaits blokveida parveduma
+76=Illegal blokveida parveduma veidu
+77=bloka datu kontrolsumma kluda
+78=blokveida parveduma message pareizi sanema
+79=Nepareizs baitu skaits laika blokveida parveduma
+7F=Pakalpojums nav atbalstits aktiva diagnostikas režima
+80=Pakalpojums nav atbalstits aktiva diagnostikas režima
+90=Pakalpojums nav atbalstits aktiva diagnostikas režima
+
+300=nosutit arpus laika
+301=Nav atbildes no ECU
+302=programmas ECU tagad ...
+303=Nav informacijas
+304=lejupieladet datus tulit!
+
+
+[Message]
+1=iekšejais aparaturas kluda
+2=pamošanas ECU ludzu uzgaidiet ...
+3=sanemšana ECU informacija
+4=ECU informacija butu pilniga
+5=Nav informacijas
+6=drošibas piekluves
+7=Data lejupieladet tagad
+8=Dzeš flash tagad
+9=programmešana pabeigta
+10=Izsledziet aizdedzi, lai turpinatu ...
+11=Sagaidiet 1 sekunde
+12=pieprasot datus download
+13=Pareja uz atrgaitas
+14=kontroles kontrolsumma tagad ...
+15=Flash kontrolsumma ok ...
+16=Flash kontrolsumma kluda
+17=Readinga flash tagad ...
+18=ECU flash lasit pareizi
+19=Kontrolet flash
+20=ECU nav atrasts
+21=Kluda lasot flash!
+22=kontroles ECU Uzstadit tagad: ludzu uzgaidiet!
+23=Turpinat programmešana
+24=fails scrambled nevar turpinaties
+25=Nevar atrast ECU kontroles numuri
+26=Nepareizs faila izmers
+27=Kluda planošanas flash!
+28=Pieprasijuma datu augšupielades
+29=Pieprasijuma nodošana izejas
+30=File saspiesta pareizi
+31=Kluda saspiežot failu!
+32=File atspiests pareizi
+33=Kluda decompressing failu!
+34=Kluda atverot failu
+35=Tirišana ECU datus, ludzu uzgaidiet!
+36=lasijums DTC kludu kodus
+37=mijieskaita DTC kludu kodus
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Kluda, ludzu, dodieties uz C:\\MPPS\\Logs\\ un nosutit visus datus, failus šaja mape uz  'support@amtcartech.com' lai mes varetu parskatit. Ludzu, tas, cik driz vien iespejams, lai mes varetu atrisinat problemu!

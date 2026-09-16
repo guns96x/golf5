@@ -1,0 +1,62 @@
+[Date]
+0=05.04.2016
+1=05.04.2016
+2=2019/10/21
+3=2020/1/13
+4=2020/1/13
+5=2020/3/20
+[Device]
+0=41363130
+1=41363130
+2=41363130
+3=41363130
+4=41363130
+5=41363130
+[Auto]
+0=Series 5
+1=Series 5
+2=Jetta
+3=Jetta
+4=Jetta
+5=Jetta
+[EcuType]
+0=EDC16C31
+1=EDC16C31
+2=EDC15
+3=ME7.1
+4=ME7.1
+5=ME7.1
+[Action]
+0=Read
+1=Write
+2=Read
+3=Read
+4=Read
+5=Read
+[Hardware No']
+0=1037390905
+1=1037390905
+2=038906012G
+3=0261207660
+4=0261207660
+5=0261207503
+[FileName]
+0=1037390905.Bin
+1=WinOLS (1016.ols (dpf off) - 390905).bin
+2=038906012GC-SG 4212 .Bin
+3=3B0907551CM 0004 123
+4=3B0907551CM 0004.Bin
+5=3B0907552BM 0002.Bin
+[Comments]
+0=Compleated
+1=Compleated
+2=Compleated
+3=Compleated
+4=Compleated
+5=Compleated
+[Software No']
+2=SG 4212 
+
+3=1037366488
+4=1037366488
+5=1037363446

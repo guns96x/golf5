@@ -1,0 +1,294 @@
+{
+  "supplied_first": {
+    "length": 2097152,
+    "sha256": "a1fc76a6ca961604999980733f89f13a77aa903af52b1ca43567be3dc76e5bc4",
+    "identifiers": [
+      {
+        "offset": "0x180010",
+        "text": "1037391847P447HAXN"
+      },
+      {
+        "offset": "0x1c0010",
+        "text": "1037391847P447HAXN"
+      },
+      {
+        "offset": "0x1c0cbe",
+        "text": "03G906021AB "
+      },
+      {
+        "offset": "0x1c0cd2",
+        "text": "03G906021QJ "
+      },
+      {
+        "offset": "0x1c0ce4",
+        "text": "R4 1,9L EDC         "
+      }
+    ],
+    "ff_bytes": 1798379,
+    "zero_bytes": 93918
+  },
+  "archive_image": {
+    "length": 2097152,
+    "sha256": "8b0f9b9a89435d72d93960bf77b3e154342979c6ed070768eb11493ca67dd134",
+    "identifiers": [
+      {
+        "offset": "0x180010",
+        "text": "1037391847P447HAXN"
+      },
+      {
+        "offset": "0x1c0010",
+        "text": "1037391847P447HAXN"
+      },
+      {
+        "offset": "0x1c0cbe",
+        "text": "03G906021AB "
+      },
+      {
+        "offset": "0x1c0cd2",
+        "text": "03G906021QJ "
+      },
+      {
+        "offset": "0x1c0ce4",
+        "text": "R4 1,9L EDC         "
+      }
+    ],
+    "ff_bytes": 1798352,
+    "zero_bytes": 94143
+  },
+  "equal_lengths": true,
+  "differing_bytes": 311,
+  "contiguous_differing_ranges": 29,
+  "changed_64KiB_blocks": [
+    {
+      "start": "0x180000",
+      "end": "0x18ffff",
+      "differing_bytes": 68
+    },
+    {
+      "start": "0x1c0000",
+      "end": "0x1cffff",
+      "differing_bytes": 126
+    },
+    {
+      "start": "0x1d0000",
+      "end": "0x1dffff",
+      "differing_bytes": 85
+    },
+    {
+      "start": "0x1e0000",
+      "end": "0x1effff",
+      "differing_bytes": 32
+    }
+  ],
+  "ranges": [
+    {
+      "start": "0x189e34",
+      "end": "0x189e4f",
+      "length": 28,
+      "first_hex": "0a 28 0a 28 0a 28 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4",
+      "archive_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "start": "0x189f26",
+      "end": "0x189f4d",
+      "length": 40,
+      "first_hex": "ff ff ff ff 08 98 08 98 08 98 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c ff ff ff ff ff ff ff ff ff ff",
+      "archive_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "start": "0x1c9dd8",
+      "end": "0x1c9df3",
+      "length": 28,
+      "first_hex": "0a 28 0a 28 0a 28 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4 0c e4",
+      "archive_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "start": "0x1c9eca",
+      "end": "0x1c9ef1",
+      "length": 40,
+      "first_hex": "ff ff ff ff 08 98 08 98 08 98 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c 0c 1c ff ff ff ff ff ff ff ff ff ff",
+      "archive_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "start": "0x1cf2bd",
+      "end": "0x1cf2bf",
+      "length": 3,
+      "first_hex": "01 01 01",
+      "archive_hex": "00 00 00"
+    },
+    {
+      "start": "0x1cf2c8",
+      "end": "0x1cf2cb",
+      "length": 4,
+      "first_hex": "04 04 0e 0e",
+      "archive_hex": "00 00 00 00"
+    },
+    {
+      "start": "0x1cf2f6",
+      "end": "0x1cf2f6",
+      "length": 1,
+      "first_hex": "0b",
+      "archive_hex": "00"
+    },
+    {
+      "start": "0x1cf31c",
+      "end": "0x1cf325",
+      "length": 10,
+      "first_hex": "0c 0b 03 03 04 03 0e 0d 01 01",
+      "archive_hex": "00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "start": "0x1cf327",
+      "end": "0x1cf327",
+      "length": 1,
+      "first_hex": "0e",
+      "archive_hex": "00"
+    },
+    {
+      "start": "0x1cf3c2",
+      "end": "0x1cf3c7",
+      "length": 6,
+      "first_hex": "0f 0f 0f 11 01 0f",
+      "archive_hex": "00 00 00 00 00 00"
+    },
+    {
+      "start": "0x1cf3cc",
+      "end": "0x1cf3d1",
+      "length": 6,
+      "first_hex": "01 11 0d 0d 19 0d",
+      "archive_hex": "00 00 00 00 00 00"
+    },
+    {
+      "start": "0x1cf3dc",
+      "end": "0x1cf3dc",
+      "length": 1,
+      "first_hex": "01",
+      "archive_hex": "00"
+    },
+    {
+      "start": "0x1cf3e3",
+      "end": "0x1cf3e4",
+      "length": 2,
+      "first_hex": "0b 0b",
+      "archive_hex": "00 00"
+    },
+    {
+      "start": "0x1cf3e8",
+      "end": "0x1cf3ef",
+      "length": 8,
+      "first_hex": "0d 01 1a 1a 01 01 01 0e",
+      "archive_hex": "00 00 00 00 00 00 00 00"
+    },
+    {
+      "start": "0x1cf3f1",
+      "end": "0x1cf3ff",
+      "length": 15,
+      "first_hex": "01 1a 18 0d 0d 0d 0d 0d 18 0d 18 18 18 0d 0d",
+      "archive_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    {
+      "start": "0x1cf406",
+      "end": "0x1cf406",
+      "length": 1,
+      "first_hex": "01",
+      "archive_hex": "00"
+    },
+    {
+      "start": "0x1d4274",
+      "end": "0x1d4274",
+      "length": 1,
+      "first_hex": "01",
+      "archive_hex": "00"
+    },
+    {
+      "start": "0x1d4922",
+      "end": "0x1d4947",
+      "length": 38,
+      "first_hex": "14 82 15 7c 16 76 17 70 18 6a 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 09 c4 07 d0",
+      "archive_hex": "20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20"
+    },
+    {
+      "start": "0x1d4988",
+      "end": "0x1d49b5",
+      "length": 46,
+      "first_hex": "14 82 15 7c 16 76 17 70 18 6a 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 27 10 09 c4 07 d0",
+      "archive_hex": "20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20"
+    },
+    {
+      "start": "0x1e8598",
+      "end": "0x1e8598",
+      "length": 1,
+      "first_hex": "01",
+      "archive_hex": "00"
+    },
+    {
+      "start": "0x1eca82",
+      "end": "0x1eca85",
+      "length": 4,
+      "first_hex": "03 03 03 03",
+      "archive_hex": "00 00 00 00"
+    },
+    {
+      "start": "0x1eca8a",
+      "end": "0x1eca8d",
+      "length": 4,
+      "first_hex": "03 03 03 03",
+      "archive_hex": "00 00 00 00"
+    },
+    {
+      "start": "0x1eca92",
+      "end": "0x1eca95",
+      "length": 4,
+      "first_hex": "03 03 03 03",
+      "archive_hex": "00 00 00 00"
+    },
+    {
+      "start": "0x1eca9a",
+      "end": "0x1eca9d",
+      "length": 4,
+      "first_hex": "03 03 03 03",
+      "archive_hex": "00 00 00 00"
+    },
+    {
+      "start": "0x1ecaa2",
+      "end": "0x1ecaa5",
+      "length": 4,
+      "first_hex": "03 03 03 03",
+      "archive_hex": "00 00 00 00"
+    },
+    {
+      "start": "0x1ecaaa",
+      "end": "0x1ecaad",
+      "length": 4,
+      "first_hex": "01 02 03 06",
+      "archive_hex": "00 00 00 00"
+    },
+    {
+      "start": "0x1ecab4",
+      "end": "0x1ecab4",
+      "length": 1,
+      "first_hex": "03",
+      "archive_hex": "00"
+    },
+    {
+      "start": "0x1ecaba",
+      "end": "0x1ecabd",
+      "length": 4,
+      "first_hex": "01 02 04 06",
+      "archive_hex": "00 00 00 00"
+    },
+    {
+      "start": "0x1ef60e",
+      "end": "0x1ef60f",
+      "length": 2,
+      "first_hex": "01 f4",
+      "archive_hex": "ff fa"
+    }
+  ],
+  "limitations": [
+    "No verified stock reference or calibration definitions supplied.",
+    "No ECU-specific checksum validation performed.",
+    "Neither image confirmed as currently installed.",
+    "Byte differences alone do not establish map functions, successful DPF/EGR deactivation or symptom cause."
+  ]
+}

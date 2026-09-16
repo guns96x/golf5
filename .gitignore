@@ -1,0 +1,15 @@
+# Memory / disassembly dumps
+mpps_dump/
+
+# Archives and binaries
+*.zip
+*.rar
+*.7z
+*.tmp
+*.log
+*.exe
+*.apk
+*.dll
+*.sys
+__pycache__/
+.vscode/

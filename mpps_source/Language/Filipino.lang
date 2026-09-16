@@ -1,0 +1,149 @@
+;Filipino language file for MPPS
+
+[Discription]
+Name=Filipino
+File=Filipino.Lang
+
+[Menu]
+M0=File
+M1=Ecu Id
+M2=Basahin
+M3=Sumulat
+M4=karagdagang data
+M5=Lumabas
+M6=Opsyon
+M7=kulay Manager
+M8=Client Manager
+M9=malinaw na mag-log ng mga file
+M10=Utilities
+M11=Buod ng Programming
+M12=Bcb Converter
+M13=bilis ng opsyon
+M14=mabilis (Bench flashing)
+M15=daluyan ng (Default)
+M16=Mabagal (bawing mode)
+M17=Basahin ang Mga Opsyon
+M18=buong basahin (Kline lamang)
+M19=Data lamang (Default)
+M20=magpasikut-sikot sa seguridad (Vag Edc15 lamang)
+M21=programa ng impormasyon
+M22=Bersyon ng impormasyon
+M23=lisensiya
+
+
+
+[Commands]
+C0=Ecu Id
+C1=Basahin
+C2=Sumulat
+C3=karagdagang data
+C4=Checksum
+C5=Lumabas
+
+
+
+[Labels]
+L0=Wika
+L1=Piliin ang Gumawa ng
+L2=Pumili ng Modelo
+L3=Pumili ng Ecu
+L4=Ecu Data
+L5=mga tala
+L6=User Impormasyon
+L7=Volts
+L8=oras
+L9=pag-unlad
+
+[Errors]
+10=pangkalahatang tanggihan
+11=Mode hindi suportado
+12=Sub function hindi suportado o hindi wastong format
+13=Sub function hindi suportado o hindi wastong format
+21=abala: ulitin ang kahilingan
+22=Patakaran hindi tama
+23=Maghintay! Karaniwang hindi pa kumpleto
+24=Request sequence error
+31=kahilingan sa labas ng saklaw ng
+33=seguridad ipinagkakait
+34=seguridad pinapayagan
+35=Hindi wastong susi
+36=Lumampas na bilang ng mga pagtatangka
+37=Kinakailangan oras ng antala sa hindi natapos na
+40=I-download ang hindi tinanggap
+41=hindi dapat i-download ang uri ng
+42=Hindi kayang i-download sa tinukoy na address
+43=Hindi-download ang bilang ng mga bytes hiniling
+44=Maghanda para sa pag-download
+50=I-upload ang hindi tinanggap
+51=malaswa uri ng upload
+52=Hindi-upload mula sa address na tinukoy
+53=Hindi mag-upload ng bilang ng mga bytes hiniling
+54=Maghanda para sa mga mag-upload
+61=normal na lumabas sa mga resulta
+62=Normal lumabas kahit walang mga resulta
+63=Abnormal lumabas sa resulta ng
+64=Abnormal lumabas kahit walang mga resulta
+71=Maglipat ng mga suspendido
+72=paglilipat iniurong
+73=Block paglilipat kumpleto
+74=Ipinagbabawal address sa block
+75=Ipinagbabawal byte count sa block transfer
+76=Ipinagbabawal blockpaglilipat uri ng
+77=Block data checksum error
+78=Block paglilipat ng tama ang mensahe na natanggap
+79=Maling byte count sa panahon ng block transfer
+7F=Serbisyo ay hindi suportado sa aktibong dyagnostiko mode
+80=Serbisyo ay hindi suportado sa aktibong dyagnostiko mode
+90=Serbisyo ay hindi suportado sa aktibong dyagnostiko mode
+
+300=ihatid ng oras sa labas
+301=Walang sumagot mula sa Ecu
+302=Programming ECU ngayon ...
+303=Walang impormasyon
+304=Nagda-download ng data na ngayon!
+
+
+[Message]
+1=panloob na error sa hardware
+2=paggising ECU mangyaring maghintay ...
+3=Tumatanggap ng ECU impormasyon
+4=ECU kumpletong impormasyon
+5=Walang impormasyon
+6=seguridad ng access
+7=Data download ngayon
+8=Binubura ang flash ngayon
+9=Programming natapos
+10=Lumipat off pagpapasiklab para magpatuloy ...
+11=Maghintay para sa 1 segundo
+12=Ang paghiling ng data download
+13=Lumipat sa mataas na bilis
+14=Pagkontrol checksum ngayon ...
+15=Flash checksum ok ...
+16=Flash checksum error
+17=Pagbabasa ng flash ngayon ...
+18=ECU flash basahin ng tama
+19=Pagkontrol ng flash
+20=ECU hindi natagpuan
+21=Error sa pagbabasa ng flash!
+22=Pagkontrol ECU setup ngayon: mangyaring maghintay!
+23=Magpatuloy programming
+24=File piniritong ay hindi maaaring magpatuloy
+25=Hindi mahanap ECU mga numero ng kontrol
+26=Maling sukat ng file
+27=Error sa programming ng flash!
+28=Ang paghiling ng mag-upload ng data
+29=Ang paghiling ng paglipat sa exit
+30=File compressed tama
+31=Error pigain ng file!
+32=File decompressed tama
+33=error decompressing file!
+34=Error sa pagbukas ng file
+35=Nililinis ecu data mangyaring maghintay!
+36=Pagbabasa DTC mga code error
+37=Paglilinis DTC error code
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=May naganap na error mangyaring pumunta sa  C:\\MPPS\\Logs\\ at ipadala ang lahat ng mga data file sa folder na iyon sa 'support@amtcartech.com' upang maaari naming repasuhin. Mangyari lamang na gawin ito sa lalong madaling panahon upang maaari naming malutas ang problema!

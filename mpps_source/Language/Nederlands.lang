@@ -1,0 +1,151 @@
+;Dutch language file for MPPS
+
+[Discription]
+Name=Nederlands
+File=Nederlands.Lang
+
+[Menu]
+M0=Bestand
+M1=Ecu Id
+M2=Lezen
+M3=Schrijven
+M4=Extra gegevens
+M5=Afsluiten
+M6=Opties
+M7=Kleuren Manager
+M8=Klantenbeheerder
+M9=Wissen Logbestanden
+M10=Gereedschap
+M11=Programmering Samenvatting
+M12=BCB Converter
+M13=Snelheidsopties
+M14=Snel (Werkbank Schrijven)
+M15=Medium (Standaard)
+M16=Langzaam (herstelmodus)
+M17=Lees Opties
+M18=Volledig uitlezen (Enkel K-line)
+M19=Gedeeltelijke gegevens (Standaard)
+M20=Beveiliging omzeilen (Enkel Vag Edc15)
+M21=programma informatie
+M22=Versie informatie
+M23=Licentie
+
+
+
+[Commands]
+C0=Ecu Id
+C1=Lees
+C2=schrijven
+C3=Extra gegevens
+C4=Checksum
+C5=Afsluiten
+
+
+
+[Labels]
+L0=Taal
+L1=Selecteer Merk
+L2=Selecteer Model
+L3=Selecteer Ecu
+L4=ECU-gegevens
+L5=Commentaar
+L6=Gebruikersinformatie
+L7=Volt
+L8=Tijd
+L9=Voortgang
+
+
+[Errors]
+10=Algemeen afwijzen
+11=Modus niet ondersteund
+12=Sub-functie niet ondersteund of ongeldig formaat
+13=Sub-functie niet ondersteund of ongeldig formaat
+21=Bezet: Herhaal verzoek
+22=Voorwaarden niet correct
+23=Wacht! Routine niet afgewerkt
+24=Request sequence error
+31=Verzoek buiten bereik
+33=Beveiligde toegang geweigerd
+34=Beveiligde toegang toegestaan
+35=Ongeldige sleutel
+36=Overschreden aantal pogingen
+37=Benodigde tijd vertraging niet is verstreken
+40=Download niet aanvaard
+41=Verkeerd type geladen
+42=Kan niet downloaden naar opgegeven adres
+43=Kan het aantal gevraagde bytes niet downloaden
+44=Klaar voor download
+50=Upload niet geaccepteerd
+51=Verkeerd uploaden type
+52=Kan niet uploaden van opgegeven adres
+53=Kan niet uploaden aantal bytes gevraagd
+54=Klaar voor uploaden
+61=Normaal afgesloten met resultaten
+62=Normaal afgesloten zonder resultaten
+63=Abnormale afsluiting met resultaten
+64=Abnormale afsluiting zonder resultaten
+71=Overdracht geschorst
+72=Overdracht afgebroken
+73=Gedeeltelijke overdracht voltooid
+74=Ongeldig adres in blokken
+75=Illegale aantal bytes in blok overdracht
+76=Illegale bloktransfer type
+77=Gegevens blok checksum fout
+78=Gegevens blok overdracht bericht goed ontvangen
+79=Verkeerd aantal bytes tijdens bloktransfer
+7F=Service niet ondersteund in actieve diagnostische modus
+80=Dienst niet ondersteund in actieve diagnostische modus
+90=Dienst niet ondersteund in actieve diagnostische modus
+
+300=Verzending time-out
+301=Geen antwoord van Ecu
+302=Programmering ECU nu ...
+303=Geen informatie
+304=Downloaden gegevens nu!
+
+
+
+[Message]
+1=Interne hardware fout
+2=ECU wekken even geduld ...
+3=Ontvangen ECU informatie
+4=ECU informatie compleet
+5=Geen informatie
+6=Security Access
+7=Data download
+8=Flash wissen
+9=Programmeren afgerond
+10=Schakel contact nu uit ...
+11=Wacht 1 seconde
+12=Aanvragen gegevens downloaden
+13=Overschakelen op hoge snelheid
+14=Checksum nu controleren ...
+15=Flash checksum ok ...
+16=Flash checksum fout
+17=Geheugen Lezen nu ...
+18=ECU correct gelezen
+19=Geheugen Controlleren
+20=ECU niet gevonden
+21=Fout bij het lezen flash!
+22=ECU Controle nu: even geduld aub!
+23=Doorgaan programmering
+24=Bestand beschadigd kan niet doorgaan
+25=ECU controle nummers niet gevonden
+26=Onjuiste bestandsgrootte
+27=Fout programmering geheugen!
+28=Aangevraagde gegevens uploaden
+29=Aanvragen Transfer Exit
+30=Gecomprimeerd bestand juist
+31=Fout bij het comprimeren van bestanden!
+32=Bestand correct gedecomprimeerd
+33=Fout bij decomprimeren file!
+34=Fout bij openen bestand
+35=Reiniging ECU gegevens even geduld aub!
+36=DTC foutcodes Lezen
+37=DTC foutcodes Wissen
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Er is een fout opgetreden ga naar  C:\\MPPS\\Logs\\  Stuur alle bestanden uit deze map naar 'support@amtcartech.com'. Gelieve dit zo spoedig mogelijk, zodat we het probleem kunnen oplossen!

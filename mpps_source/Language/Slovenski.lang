@@ -1,0 +1,149 @@
+;Slovenian language file for MPPS
+
+[Discription]
+Name=Slovenski
+File=Slovenski.Lang
+
+[Menu]
+M0=Datoteka
+M1=Ecu Id
+M2=brati
+M3=Pisanje
+M4=dodatnih podatkov
+M5=Izhod
+M6=Možnosti
+M7=barva menedžer
+M8=upravitelj kupcev
+M9=jasno log files
+M10=Utilities
+M11=programiranje Povzetek
+M12=BCB pretvornik
+M13=Hitrost možnosti
+M14=hiter (Bench Flashing)
+M15=srednje (privzet)
+M16=pocasen (Nacin predelave)
+M17=preberite Možnosti
+M18=celoti preberete (Kline samo)
+M19=Data Samo (privzet)
+M20=varnosti bypass (VAG Edc15 samo)
+M21=Program Info
+M22=informacije o razlicici
+M23=licence
+
+
+
+[Commands]
+C0=Ecu Id
+C1=brati
+C2=Pisanje
+C3=dodatnih podatkov
+C4=Checksum
+C5=izstop
+
+
+[Labels]
+L0=jezik
+L1=da izberejo
+L2=izberite model
+L3=Izberi Ecu
+L4=Ecu Data
+L5=Komentarji
+L6=Podatki o uporabniku
+L7=voltov
+L8=cas
+L9=napredek
+
+
+[Errors]
+10=Splošne zavrne
+11=Nacin ni podprta
+12=Sub funkcija ni podprta ali ni veljavna oblika
+13=Sub funkcija ni podprta ali ni veljavna oblika
+21=Zasedeno: zahtevo za ponavljanje
+22=Pogoji ni pravilna
+23=Pocakajte! Rutinsko ni popolna
+24=Request sequence error
+31=Zahtevek izven obmocja
+33=varnosti dostop zavrnjen
+34=varnosti dostop dovoljen
+35=Neveljaven kljuc
+36=Preseženo število poskusov
+37=obvezno casovni zamik ni potekel
+40=Prenos ni sprejet
+41=Nepravilen download tip
+42=Ne morem prenesti na dolocen naslov
+43=Ne morem prenesti število bajtov zahtevanih
+44=Pripravljen za nalaganje
+50=Upload ni sprejel
+51=Nepravilno vrsto nalaganja
+52=Ne morem naložiti iz dolocen naslov
+53=Ne morem naložiti število bajtov zahtevanih
+54=Pripravljen za nalaganje
+61=Normal izstopa z rezultati
+62=Normal izhod brez rezultatov
+63=Nenormalna izstopa z rezultati
+64=Nenormalna izhod brez rezultatov
+71=Prenos prekinjena
+72=Prekinjen prenos
+73=Block prenos popolne
+74=nezakonitega naslov v bloku
+75=nezakonitega byte count v bloku prenosu
+76=nezakonitega blok vrsto prenosa
+77=Blokiraj podatkov checksum Napaka
+78=Blokiraj prenosa sporocila o prejetih pravilno
+79=Napacna byte count blok med prenosom
+7F=Ponudnik ne podpira aktivno diagnosticno nacinu
+80=Ponudnik ne podpira aktivno diagnosticno nacinu
+90=Ponudnik ne podpira aktivno diagnosticno nacinu
+
+300=Transmit pavza
+301=Ni odgovora Ecu
+302=programiranje ECU zdaj ...
+303=Ni podatkov
+304=Prenos podatkov se zdaj!
+
+
+[Message]
+1=Notranja napaka strojne opreme
+2=prebujal ECU prosimo pocakajte ...
+3=Prejemanje ECU informacije
+4=ECU informacije popolne
+5=Ni podatkov
+6=varnosti dostop
+7=Podatki download now
+8=Brisanje flash zdaj
+9=Programiranje koncan
+10=izklopite vžig še naprej ...
+11=pocakajte 1 sekundo
+12=prosilka prenosa podatkov
+13=Prehod na visoke hitrosti
+14=nadzorovanje checksum zdaj ...
+15=Flash checksum ok ...
+16=Flash checksum Napaka
+17=Branje flash zdaj ...
+18=flash ECU pravilno glasi
+19=nadzorovanje flash
+20=ECU ni bilo mogoce najti
+21=Napaka pri branju flash!
+22=nadzorujejo ECU, ki se zdaj: prosim pocakajte!
+23=Nadaljuj programiranje
+24=Datoteka umešana ne more nadaljevati
+25=Ne najdem ECU kontrolnih številk
+26=Napacna velikost datoteke
+27=Napaka pri nacrtovanju flash!
+28=prosilke podatkov upload
+29=Zahteva za prenos izhod
+30=Datoteka stisnjenega pravilno
+31=Napaka stiskanje!
+32=Datoteka dekompresirana pravilno
+33=Napaka decompressing datoteko!
+34=Napaka pri odpiranju datoteke
+35=Cišcenje ecu podatkov prosim pocakajte!
+36=Branje DTC kode napak
+37=kliring DTC kode napak
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Prišlo je do napake pojdi na C:\\MPPS\\Logs\\ in poslati vse podatke, datoteke v mapo 'support@amtcartech.com' tako bomo lahko pregleda. Prosimo vas, da to cim prej, da bomo lahko rešili problem!

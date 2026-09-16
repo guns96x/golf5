@@ -1,0 +1,152 @@
+;Estonian language file for MPPS
+
+[Discription]
+Name=Eesti
+File=Eesti.Lang
+
+[Menu]
+M0=Fail
+M1=Ecu Id
+M2=Loe
+M3=kirjutamine
+M4=Lisaandmete
+M5=Välju
+M6=Valikud
+M7=värv juhataja
+M8=kliendihalduriga
+M9=Selge Logifailid
+M10=kommunaalteenused
+M11=Programmeerimine kokkuvõte
+M12=BCB muundur
+M13=kiirus valikud
+M14=Kiire (Bench Vilkuv)
+M15=Keskmine (Vaikimisi)
+M16=aeglane (taaskasutamise ¾)
+M17=Loe Valikud
+M18=täielik loe (Kline ainult)
+M19=andmeid ainult (Vaikimisi)
+M20=Turvalisus ümbersõit (VAG Edc15 ainult)
+M21=Programmi teave
+M22=versiooni
+M23=Litsents
+
+
+
+[Commands]
+C0=Ecu Id
+C1=Loe
+C2=kirjutamine
+C3=Lisaandmete
+C4=Kontrollsumma
+C5=Välju
+
+
+
+[Labels]
+L0=Keel
+L1=Vali Mark
+L2=Valige mudel
+L3=Vali Ecu
+L4=Ecu Andmed
+L5=Kommentaarid
+L6=Kasutaja info
+L7=volti
+L8=aeg
+L9=edu
+
+
+
+[Errors]
+10=Üldine tagasi
+11=olek ei toetata
+12=Allfunktsioon ei toetata või vale formaat
+13=Allfunktsioon ei toetata või vale formaat
+21=Hõivatud: korrata taotlus
+22=tingimused ei ole õige
+23=Oota! Rutiinne ole täielik
+24=Request sequence error
+31=taotlus välja vahemik
+33=Turvalisus juurdepääs keelatud
+34=Turvalisus juurdepääs lubatud
+35=Vigane võti
+36=ületatud mitmeid katseid
+37=nõutud aja viivitus ei ole lõppenud
+40=Lae alla ei võeta
+41=vale lae tüüp
+42=Ei saa laadida määratud aadress
+43=ei saa allalaadida baitide arvu, mida taotletakse
+44=Valmis laadida
+50=Fail ei nõustunud
+51=vale laadida tüüp
+52=Ei saa alla laadida alates nimetatud aadressi
+53=Ei saa laadida baitide arvu, mida taotletakse
+54=Valmis laadida
+61=normaalne väljapääsu, mille tulemused
+62=normaalne lahkuvad tulemused
+63=Ebanormaalne väljapääsu, mille tulemused
+64=Ebanormaalne lahkuvad tulemused
+71=üleandmine peatati
+72=trnsfer katkestatud
+73=Blokeeri üleandmise lõpule
+74=Ebaseaduslik aadressi blokeerida
+75=Ebaseaduslik byte count plokkide üleandmine
+76=Ebaseaduslik blokeerida üleandmise tüüp
+77=Blokeeri andmete kontrollsumma vea
+78=Blokeeri üleandmise sõnumi õigesti vastu
+79=Vigane byte count ajal plokk üle
+7F=Teenusepakkuja ei toeta aktiivne diagnostika reiimis
+80=Teenusepakkuja ei toeta aktiivne diagnostika reiimis
+90=Teenusepakkuja ei toeta aktiivne diagnostika reiimis
+
+300=Transmit aja maha
+301=ei vastanud Ecu
+302=Programmeerimine eküüd nüüd ...
+303=Teave puudub
+304=allalaadimine andmed nüüd!
+
+
+[Message]
+1=Sisemine riistvara viga
+2=ärkamine eküüd palun oodake ...
+3=vastuvõtmine eküüd teave
+4=eküüd teabe täielik
+5=puudub teave
+6=Turvalisus juurdepääs
+7=Data laadida nüüd
+8=kustutamine flash nüüd
+9=Programmeerimine lõpetatud
+10=lülitage süüde jätkata ...
+11=Oota 1 sekund
+12=Taotluse andmete allalaadimiseks
+13=üleminek kiire
+14=kontrolli kontrollsumma nüüd ...
+15=Flash kontrollsumma ok ...
+16=Flash kontrollsumma vea
+17=Lugemine flash nüüd ...
+18=ECU Flash loe õigesti
+19=kontrolli Flash
+20=ECU ei leitud
+21=Viga Flash!
+22=kontroll ECU häälestus Nüüd: oodake!
+23=Jätka programmeerimine
+24=Fail Segipaisatud ei saa jätkata
+25=Ei leia eküüd kontrolli numbrid
+26=Vale faili suurus
+27=Viga programmeerimine Flash!
+28=andmete taotlemise laadida
+29=taotlemine transfer exit
+30=Fail suru õigesti
+31=Viga pakkimist fail!
+32=Fail hõrendatakse õigesti
+33=Viga mahalaadimine fail!
+34=Viga faili avamisel
+35=puhastamine eküüd andmete palun oodake!
+36=Lugemine DTC veakoodid
+37=Kliiring DTC veakoodid
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=On tekkinud viga, siis mine C:\\MPPS\\Logs\\ ja saadab kõik andmefailid, et kaust 'support@amtcartech.com' et saaksime kontrollida. Palun tehke seda võimalikult kiiresti, et saaksime probleemi lahendada!
+

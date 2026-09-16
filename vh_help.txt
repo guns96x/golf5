@@ -1,0 +1,72 @@
+
+VirtualHere Client (v6.0.2) API commands (<> = required, [] = optional, | = OR):
+
+List devices:
+    "LIST"
+Get the detailed full client state as an XML Document:
+    GET CLIENT STATE
+Use a device:
+    "USE,<address>[,password]"
+Stop using a device:
+    "STOP USING,<address>"
+Stop using all devices on all clients:
+    "STOP USING ALL[,<address>[:port] | <EasyFind address>]"
+Stop using all devices just for this client:
+    "STOP USING ALL LOCAL"
+Device Information:
+    "DEVICE INFO,<address>"
+Server Information:
+    "SERVER INFO,<server name>"
+Set device nickname:
+    "DEVICE RENAME,<address>,<nickname>"
+Rename server:
+    "SERVER RENAME,<hubaddress:port>,<new name>"
+Turn auto-use all devices on:
+    "AUTO USE ALL"
+Turn Auto-use all devices on this hub on/off:
+    "AUTO USE HUB,<server name>"
+Turn Auto-use any device on this port on/off:
+    "AUTO USE PORT,<address>"
+Turn Auto-use this device on any port on/off:
+    "AUTO USE DEVICE,<address>"
+Turn Auto-use this device on this port on/off:
+    "AUTO USE DEVICE PORT,<address>"
+Clear all auto-use settings:
+    "AUTO USE CLEAR ALL"
+Specify server to connect to:
+    "MANUAL HUB ADD,<address>[:port] | <EasyFind address>"
+Remove a manually specified hub:
+    "MANUAL HUB REMOVE,<address>[:port] | <EasyFind address>"
+Remove all manually specified hubs:
+    "MANUAL HUB REMOVE ALL"
+Add a reverse client to the server:
+    "ADD REVERSE,<server serial>,<client address[:port]>"
+Remove a reverse client from the server:
+    "REMOVE REVERSE,<server serial>,<client address[:port]>"
+List all reverse clients:
+    "LIST REVERSE,<server serial>"
+List manually specified hubs:
+    "MANUAL HUB LIST"
+List licenses:
+    "LIST LICENSES"
+License server:
+    "LICENSE SERVER,<license key>"
+Get path of the client log:
+    "GET LOG PATH"
+Clear client log:
+    "CLEAR LOG"
+Set a custom device event:
+    "CUSTOM EVENT,<address>,<event>"
+Turn auto-find off:
+    "AUTOFIND"
+Turn reverse lookup on:
+    "REVERSE"
+Turn reverse SSL lookup on:
+    "SSLREVERSE"
+Shutdown the client:
+    "EXIT"
+Help:
+    "HELP"
+
+E.g: To get a list of devices, C:\Users\pavlo\golf5\vhui64.exe -t "LIST"
+E.g: Use a device, C:\Users\pavlo\golf5\vhui64.exe -t "USE,QNAP.114"

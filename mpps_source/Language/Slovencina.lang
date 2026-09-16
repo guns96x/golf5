@@ -1,0 +1,150 @@
+;Slovak language file for MPPS
+
+[Discription]
+Name=Slovencina
+File=Slovencina.Lang
+
+[Menu]
+M0=Súbor
+M1=Ecu Id
+M2=Cítat
+M3=písat
+M4=dalšie informácie
+M5=Koniec
+M6=Možnosti
+M7=farba manažér
+M8=Klient manažer
+M9=Vycistit log súbory
+M10=Utility
+M11=programovanie Zhrnutie
+M12=BCB prevodník
+M13=Rýchlost volby
+M14=rýchly (Bench Bliká)
+M15=stredná (predvolené)
+M16=pomalý (Oddych Režim)
+M17=Precítajte si Volby
+M18=cítat celé (Kline jenom)
+M19=Data Only (predvolené)
+M20=Bezpecnostné Bypass (Vag EDC15 jenom)
+M21=informácie o programe
+M22=Informácie o verzii
+M23=Licencia
+
+
+
+[Commands]
+C0=Ecu Id
+C1=Cítat
+C2=písat
+C3=dalšie informácie
+C4=Kontrolný
+C5=Koniec
+
+
+
+[Labels]
+L0=Jazyk
+L1=Vybrat Znacka
+L2=Vybrat model
+L3=Vybrat Ecu
+L4=Ecu dáta
+L5=Komentáre
+L6=Informácie o užívatelovi
+L7=Volts
+L8=cas
+L9=Pokrok
+
+
+[Errors]
+10=Hlavné zamietnut
+11=režim nie je podporovaný
+12=Sub funkcie nie sú podporované alebo neplatný formát
+13=Sub funkcie nie sú podporované alebo neplatný formát
+21=Obsadené: zopakovat otázku
+22=podmienky nie sú správne
+23=Pockat! Rutinné nie je kompletný
+24=Request sequence error
+31=Žiadost z oblasti
+33=bezpecnostné prístup zamietnutý
+34=bezpecnostné prístup umožnený
+35=Neplatný klúc
+36=prekrocený pocet pokusov
+37=Povinné casové oneskorenie neuplynula
+40=Download nie je prijaté
+41=Nesprávne stiahnut typ
+42=Nemožno stiahnut na zadanú adresu
+43=Nemožno stiahnut pocet bytov požadovaných
+44=Pripravený na stiahnutie
+50=Upload neprijala
+51=Nesprávne upload Typ
+52=Nemožno presúvat z zadanú adresu
+53=Nemožno nahrat pocet bytov požadovaných
+54=Pripravený pre upload
+61=Normálna výstup s výsledkami
+62=Normálna výstup bez výsledkov
+63=Abnormálne výstupu s výsledkami
+64=Abnormálne výstup bez výsledkov
+71=Transfer pozastavené
+72=transfer zrušený
+73=Blokovat prenos kompletný
+74=ilegálny adresa v bloku
+75=ilegálny pocet bytov v bloku prenosu
+76=ilegálny bloku typu prenosu
+77=blok dát checksum Chyba
+78=Blokovat prenosu správ správne Prijatý
+79=Nesprávny pocet bytov v bloku prenosu
+7F=Služba nie je podporovaná v aktívnom diagnostickom režime
+80=Služba nie je podporovaná v aktívnom diagnostickom režime
+90=Služba nie je podporovaná v aktívnom diagnostickom režime
+
+300=Vysielací cas
+301=žiadna odpoved od Ecu
+302=programovanie ECU teraz ...
+303=žiadne informácie
+304=Stahovanie dát teraz!
+
+
+[Message]
+1=vnútorný hardvérovej chybe
+2=prebudení ECU, prosím cakajte ...
+3=Príjem ECU informácie
+4=ECU kompletné informácie
+5=žiadne informácie
+6=Zabezpecenie prístupu
+7=Data ke stažení teraz
+8=Vymazanie flash teraz
+9=programovanie ukoncené
+10=Vypnite zapalovanie aj nadalej ...
+11=Pockajte na 1 sekundu
+12=žiadajúci stahovanie dát
+13=Prechod na vysokorýchlostné
+14=Kontrola kontrolného súctu teraz ...
+15=Flash kontrolné ok ...
+16=Flash checksum Chyba
+17=Cítanie flash teraz ...
+18=ECU flash cítate správne
+19=ovládajúci flash
+20=ECU nebola nájdená
+21=Chyba pri cítaní flash!
+22=Kontrola nastavenia ECU teraz: cakajte prosím!
+23=Pokracovat v programovaní
+24=Súbor kódovaný nemôže pokracovat
+25=Nemožno nájst ECU kontrolných císiel
+26=Nesprávna velkost súboru
+27=Chyba pri programovaní flash!
+28=žiadostí o poskytnutie údajov upload
+29=žiadajúci prenos výjazdu
+30=Súbor komprimovaný správne
+31=Chyba pri komprimácii súboru!
+32=Súbor rozbalia správne
+33=Chyba pri dekompresiu súboru!
+34=Chyba pri otváraní súboru
+35=cistenie dát ECU cakajte prosím!
+36=cítaní chybových kódov DTC
+37=Vymazanie chybových kódov DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Došlo k chybe nájdete na C:\\Multi Protocol Programming System\\Logs\\ a poslat všetky dátové súbory v tejto zložke 'support@amtcartech.com' aby sme mohli preskúmat. Prosím ta, to co najskôr, aby sme mohli vyriešit problém!

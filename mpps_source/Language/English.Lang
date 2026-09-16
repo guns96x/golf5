@@ -1,0 +1,145 @@
+;English language file for MPPS
+
+[Discription]
+Name=English
+File=English.Lang
+
+[Menu]
+M0=File
+M1=Ecu Id
+M2=Read
+M3=Write
+M4=Extra Data
+M5=Exit
+M6=Options
+M7=Colour Manager
+M8=Client Manager
+M9=Clear Log Files
+M10=Utilities
+M11=Programming Summary
+M12=Bcb Converter
+M13=Speed Options
+M14=Fast (Bench Flashing)
+M15=Medium (Default)
+M16=Slow (Recovery Mode)
+M17=Read Options
+M18=Full Read (K-line Only)
+M19=Data Only (Default)
+M20=Security Bypass (VAG EDC15 Only)
+M21=Program Info
+M22=Version Information
+M23=Licence
+
+
+[Commands]
+C0=Ecu Id
+C1=Read
+C2=Write
+C3=Extra Data
+C4=Checksum
+C5=Exit
+
+
+[Labels]
+L0=Language
+L1=Select Make
+L2=Select Model
+L3=Select ECU
+L4=ECU Data
+L5=Comments
+L6=User Information
+L7=Volts
+L8=Time
+L9=Progress
+
+[Errors]
+10=General reject
+11=Mode not supported
+12=Sub function not supported or invalid format
+13=Sub function not supported or invalid format
+21=Busy: repeat request
+22=Conditions not correct
+23=Wait! Routine not complete
+24=Request sequence error
+31=Request out of range
+33=Security access denied
+34=Security access allowed
+35=Invalid key
+36=Exceeded number of attempts
+37=Required time delay not expired
+40=Download not accepted
+41=Improper download type
+42=Cannot download to specified address
+43=Cannot download number of bytes requested
+44=Ready for download
+50=Upload not accepted
+51=Improper upload type
+52=Cannot upload from specified address
+53=Cannot upload number of bytes requested
+54=Ready for upload
+61=Normal exit with results
+62=Normal exit without results
+63=Abnormal exit with results
+64=Abnormal exit without results
+71=Transfer suspended
+72=Transfer aborted
+73=Block transfer complete
+74=Illegal address in block
+75=Illegal byte count in block transfer
+76=Illegal block transfer type
+77=Block data checksum error
+78=Block transfer message correctly received
+79=Incorrect byte count during block transfer
+7F=Service not supported in active diagnostic mode
+80=Service not supported in active diagnostic mode
+90=Service not supported in active diagnostic mode
+
+300=Transmit time out
+301=No reply from ECU
+302=Programming ECU now...
+303=No information
+304=Downloading data now!!!
+
+[Message]
+1=Internal hardware error
+2=Waking ECU please wait...
+3=Receiving ECU information
+4=ECU information complete
+5=No information
+6=Security access
+7=Data download now
+8=Erasing flash now
+9=Programming completed
+10=Switch off ignition to continue...
+11=Wait for 1 second
+12=Requesting data download
+13=Switching to high speed
+14=Controlling checksum now...
+15=Flash checksum ok...
+16=Flash checksum error
+17=Reading flash now...
+18=ECU flash read correctly
+19=Controlling flash
+20=ECU not found
+21=Error reading flash!!!
+22=Controlling ECU setup now: please wait!!!
+23=Continue programming
+24=File scrambled cannot continue
+25=Cannot find ECU control numbers
+26=Incorrect file size
+27=Error programming flash!!!
+28=Requesting data upload
+29=Requesting transfer exit
+30=File compressed correctly
+31=Error compressing file!!!
+32=File decompressed correctly
+33=Error decompressing file!!!
+34=Error opening file
+35=Cleaning ECU data please wait!!!
+36=Reading DTC error codes
+37=Clearing DTC error codes
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+100=An error has occurred please go to C:\MPPS\Logs\ and send all the data files in that folder to 'support@amtcartech.com' so we can review. Please do this as soon as possible so we can resolve the problem!

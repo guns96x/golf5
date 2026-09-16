@@ -1,0 +1,148 @@
+;Swahili language file for MPPS
+
+[Discription]
+Name=Kiswahili
+File=Kiswahili.Lang
+
+[Menu]
+M0=Picha
+M1=ECU Id
+M2=soma
+M3=Andika
+M4=Kinga ya ziada ya Data
+M5=ondoka
+M6=chaguzi
+M7=rangi meneja
+M8=Mteja Meneja
+M9=wazi Files Ingia
+M10=yanayotoa
+M11=programplanering muhtasari
+M12=Bcb Converter
+M13=kasi chaguzi
+M14=kasi (Bench Flashing)
+M15=Kati (default)
+M16=polepole (ahueni mode)
+M17=kusoma chaguzi
+M18=Kamili Soma (Kline tu)
+M19=Data tu (default)
+M20=Usalama bypass (Vag Edc15 tu)
+M21=program habari
+M22=Version Habari
+M23=leseni
+
+
+
+[Commands]
+C0=Ecu Id
+C1=soma
+C2=Andika
+C3=Kinga ya ziada ya Data
+C4=Checksum
+C5=ondoka
+
+
+[Labels]
+L0=lugha
+L1=kuchagua kufanya
+L2=kuchagua mtindo
+L3=Chagua ECU
+L4=ECU Data
+L5=inabainisha
+L6=User Habari
+L7=Volts
+L8=wakati
+L9=maendeleo
+
+
+[Errors]
+10=ujumla kukataa
+11=Mode si mkono
+12=Sub kazi sio mkono au invalid format
+13=Sub kazi sio mkono au invalid format
+21=mashughuli: kurudia ombi
+22=Masharti si sahihi
+23=ngoja! utaratibu si kamili
+24=Request sequence error
+31=Kuomba nje ya anuwai
+33=Usalama upatikanaji akakana
+34=Usalama zinazoruhusiwa
+35=Invalid ufunguo
+36=ulizidi idadi ya majaribio
+37=Required wakati kuchelewa si itakapotimia
+40=Download si accepteras
+41=yasiyofaa shusha aina
+42=Can't anwani shusha ili maalum
+43=Je, si shusha idadi ya bytes requested
+44=Tayari kwa shusha
+50=Upload si accepteras
+51=yasiyofaa upload aina
+52=hawezi upload kutoka anwani maalum
+53=hawezi upload idadi ya bytes requested
+54=Tayari kwa upload
+61=kawaida ondoka na matokeo
+62=kawaida ondoka bila matokeo
+63=usiokuwa wa kawaida na matokeo ondoka
+64=usiokuwa wa kawaida bila matokeo ondoka
+71=kuhamisha suspended
+72=kuhamisha kusimamishwa
+73=Block kuhamisha kukamilisha
+74=Olagligt anwani katika block
+75=Olagligt Byte block kuhesabu katika kuhamisha
+76=Olagligt block aina ya kuhamisha
+77=Block data checksum kosa
+78=Block kuhamisha alipokea ujumbe wa usahihi
+79=sahihi kuhesabu wakati block Byte kuhamisha
+7F=Service si mkono katika kazi diagnostiksamarbetet mode
+80=Service si mkono katika kazi diagnostiksamarbetet mode
+90=Service si mkono katika kazi diagnostiksamarbetet mode
+
+300=vidarebefordra wakati nje
+301=Hakuna jibu kutoka ECU
+302=programplanering ECU sasa ...
+303=Hakuna taarifa
+304=mapakuzi data sasa!!!!
+
+[Message]
+1=interna vifaa kosa
+2=kuamka ECU tafadhali ngoja ...
+3=Kupokea ECU habari
+4=ECU taarifa kamili
+5=Hakuna taarifa
+6=Usalama upatikanaji
+7=Data shusha sasa
+8=futa flash sasa
+9=programplanering kukamilika
+10=Switch off la kuendelea ...
+11=ngoja 1 pili
+12=kuomba takwimu shusha
+13=Byte kwa kasi kasi
+14=Kudhibiti checksum sasa ...
+15=Kiwango cha checksum ok ...
+16=Kiwango cha checksum kosa
+17=Masomo flash sasa ...
+18=ECU flash kusoma korrekt
+19=Kudhibiti flash
+20=ECU hakuonekana
+21=upotofu kusoma flash!
+22=Kudhibiti ECU kuanzisha sasa: tafadhali kusubiri!
+23=Kuendelea programplanering
+24=Picha scrambled haiwezi kuendelea
+25=Haiwezi kutafuta ECU kudhibiti idadi
+26=sahihi faili
+27=upotofu programplanering flash!
+28=kuomba takwimu upload
+29=kuomba uhamisho ondoka
+30=Picha Komprimerade korrekt
+31=compressing faili upotofu!
+32=Picha decompressed korrekt
+33=decompressing faili upotofu
+34=upotofu kufungua faili
+35=kusafisha ECU data tafadhali kusubiri!
+36=Masomo DTC kosa kificho
+37=Clearing DTC kosa kificho
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=tatizo limekuwa aligundua tafadhali nenda C:\\MPPS\\Logs\\ na kutuma data files wote katika folder kwa 'support@amtcartech.com' ili tuweze kurekebisha. Tafadhali kufanya hili mapema iwezekanavyo ili tuweze kutatua tatizo!

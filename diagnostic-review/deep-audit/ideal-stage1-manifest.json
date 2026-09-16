@@ -1,0 +1,77 @@
+{
+  "title": "VW Golf 5 1.9 TDI BLS EDC16U34 Ideal Stage 1 + DPF EGR OFF",
+  "target_ecu": "03G906021QJ",
+  "software_version": "391847",
+  "base_off_sha256": "8b0f9b9a89435d72d93960bf77b3e154342979c6ed070768eb11493ca67dd134",
+  "ideal_stage1_sha256": "55c80596de4d8b622d0c1227e03e30e4b99ef22d3b9a3e0078ce6b5f0d84e3b7",
+  "differing_bytes_from_off": 1321,
+  "modifications": [
+    {
+      "name": "DSM_ClaDfp_CTSCD_C",
+      "address": "0x1cf2f6",
+      "bytes_count": 1,
+      "description": "Restore Coolant Temperature Sensor error class diagnostic path (00 -> 0B)"
+    },
+    {
+      "name": "EngPrt_facTempPreTrbn_MAP",
+      "address": "0x1D4EBC",
+      "bytes_count": 19,
+      "description": "Restore factory turbine exhaust temperature protection factor (0.96-0.99) at EGT > 805-820 C"
+    },
+    {
+      "name": "InjVlv_phiInjMI1_MAP1..4",
+      "address": "0x1E5032..0x1E5A3A",
+      "bytes_count": 209,
+      "description": "Restore factory duration calibration; corrects EOI from late 15-17 ATDC back to optimal ~11 ATDC"
+    },
+    {
+      "name": "InjCrv_qPoI2HCAvrgCor_MAP",
+      "address": "0x1e15f2",
+      "bytes_count": 126,
+      "description": "Zero out post-injection delivery values (126 bytes zeroed)"
+    },
+    {
+      "name": "InjCrv_qPoI2HCFBCCor_MAP",
+      "address": "0x1e16e6",
+      "bytes_count": 200,
+      "description": "Zero out post-injection delivery values (200 bytes zeroed)"
+    },
+    {
+      "name": "InjCrv_qPoI2HCTrqCor_MAP",
+      "address": "0x1e18a2",
+      "bytes_count": 200,
+      "description": "Zero out post-injection delivery values (200 bytes zeroed)"
+    },
+    {
+      "name": "InjVlv_phiInjPoI2_MAP0",
+      "address": "0x1e608c",
+      "bytes_count": 504,
+      "description": "Zero out post-injection delivery values (504 bytes zeroed)"
+    },
+    {
+      "name": "InjVlv_phiInjPoI2_MAP1",
+      "address": "0x1e630e",
+      "bytes_count": 504,
+      "description": "Zero out post-injection delivery values (504 bytes zeroed)"
+    }
+  ],
+  "preserved_stage1_features": [
+    "PCR_pBDesBas_MAP (Boost request up to 2214 mbar)",
+    "EngPrt_trqLimP_MAP (Torque request up to 380.7 Nm)",
+    "FMTC_trq2qBas_MAP (Torque-to-fuel delivery up to 63.14 mg)",
+    "FlMng_qPresSmoke_MAP (Smoke limiter up to 67.8 mg)",
+    "InjCrv_phiBasGear12/34/56_MAP (Calibrated SOI advance +1.0..+2.1 deg)",
+    "AFSCD_mAirPerCylDfl_MAP (MAF default 560 mg)",
+    "AirCtl_qHigh_CUR & AirCtl_qMiddle_CUR = 0 (Tested, error-free EGR shutoff hysteresis)",
+    "EGT_swtEGTActv_C = 0 (DPF master switch off)",
+    "LSU_swtVal_C = 0 (Lambda switch off)",
+    "PFlt_numEngPOp1_CA = 0 (Regen state matrix neutralized)"
+  ],
+  "solved_symptoms": [
+    "White/grey smoke and diesel smell after warmup completely eliminated via factory duration + PoI zeroing",
+    "Droning / strained sound under load eliminated by correcting EOI from 16 ATDC to ~11 ATDC",
+    "Power loss at 87-89 C eliminated by removing late combustion cycle and enabling proper coolant monitoring",
+    "Turbine protected from over-temp thermal exhaustion via restored EngPrt_facTempPreTrbn_MAP",
+    "Zero unneeded changes to air mass maps, eliminating any possibility of MAF deviation faults"
+  ]
+}

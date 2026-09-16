@@ -1,0 +1,145 @@
+;Italian language file for MPPS
+
+[Discription]
+Name=Italiano
+File=Italian.Lang
+
+[Menu]
+M0=File
+M1=Ecu Id
+M2=Leggi
+M3=Scrivi
+M4=Dati Extra
+M5=Esci
+M6=Opzioni
+M7=Cambia Colori
+M8=Admin Clienti
+M9=Pulisci File Log
+M10=Utilita
+M11=Sumario
+M12=Covertitore Bcb
+M13=Opzioni Velocita
+M14=Veloce (A Banco)
+M15=Medium (Default)
+M16=Slow (Modo Recovery)
+M17=Opzioni Lettura
+M18=Completo (Kline Only)
+M19=Solo Dati (Default)
+M20=Security Bypass (Vag Edc15 Only)
+M21=Info Programma
+M22=Informazioni Versione
+M23=Licenza
+
+
+[Commands]
+C0=Ecu Id
+C1=Leggi
+C2=Scrivi
+C3=Dati Extra
+C4=Checksum
+C5=Esci
+
+
+[Labels]
+L0=Linguaggio
+L1=Selezione Marca
+L2=Selezione Modello
+L3=Selezione Ecu
+L4=Dati Ecu
+L5=Commenti
+L6=Informazioni Utente
+L7=Volts
+L8=Tempo
+L9=Progresso
+
+[Errors]
+10=Respinta generale
+11=Modalità non supportata
+12=Funzione non supportato o formato invalido
+13=Funzione non supportato o formato invalido
+21=Occupati: ripeti richiesta
+22=Condizioni non corretta
+23=Attendere! Routine non completa
+24=Sequenza richiesta errata
+31=Richiesta fuori gamma
+33=Accesso di sicurezza negato
+34=Accesso consentito di sicurezza
+35=Chiave non valida
+36=Superato il numero di tentativi
+37=Tempo richiesto non scaduto
+40=Download non accettati
+41=Tipo improprio download
+42=Non può scaricare dal all'indirizzo specificato
+43=Non può scaricare i numero byte richiesti
+44=Pronto per il download
+50=Upload non accettati
+51=Tipo improprio upload
+52=Non può caricare dal all'indirizzo specificato
+53=Non può caricare i numero byte richiesti
+54=Pronto per l'upload
+61=Uscita normale con risultati
+62=Uscita normale senza risultati
+63=Uscita anomala con risultati
+64=Uscita anomala senza risultati
+71=Trasferimento sospesa
+72=Trasferimento annullato
+73=Trasferimento blocco completo
+74=Indirizzo non valido nel blocco
+75=Illegale conteggio durante trasferimento
+76=Tipo di trasferimento blocco illegale
+77=Blocco dati controllo di errore
+78=Messaggio di trasferimento bloccho ricevuto correttamente
+79=Conteggio errato nel blocco durante il trasferimento
+7F=Servizio non è supportato in modalità diagnostica attiva
+80=Servizio non è supportato in modalità diagnostica attiva
+90=Servizio non è supportato in modalità diagnostica attiva
+
+300=Errore tempo di trasmissione
+301=Nessuna risposta da ECU
+302=Programmazione ECU ora...
+303=No Informazioni
+304=Scarica dati ora!!!
+
+[Message]
+1=Errore hardware interno
+2=Sveglia ECU attendi...
+3=Ricevere informazioni ECU
+4=ECU Informazioni completa
+5=No Informazioni
+6=Accesso di sicurezza
+7=Scarica dati ora
+8=Cancellazione flash ora
+9=Programmazione completata
+10=Spegnere accensione per continuare...
+11=Aspettare per 1 secondo
+12=Richiesta caricamento dati
+13=Cambio ad alta velocità
+14=Controllo checksum now...
+15=Flash checksum ok...
+16=Errore flash checksum
+17=Lettura flash ora...
+18=ECU flash letto correttamente
+19=Controllo flash
+20=ECU non trovato
+21=Errore durante ettura!!!
+22=Controllo ECU ora: attendi!!!
+23=Continua la programmazione
+24=File criptato non può continuare
+25=Non riesci a trovare i numeri di controllo ECU
+26=Lungezza file non coretto
+27=Errore programmzione flash!!!
+28=Richiesta di caricare i dati
+29=Richiesta uscita di trasferimento
+30=File corettamente compressed
+31=Errore compressing file!!!
+32=File corettamente decompressed
+33=Errore decompressing file!!!
+34=Errore appertura file
+35=Pulitura dati ecu attendi!!!
+36=Lettura Codici DTC
+37=Pulisco Codici DTC
+40=Devi coreggere il checksum prima di scrivere questo file!!! (Usa il pulsante checksum)
+41=Checksum e corretto in automatico della programma.
+42=Devi coreggere il checksum prima di scrivere questo file!!! (No checksum)
+
+100=E sucesso un errore Vai alla cartella C:\\MPPS\\Logs\\ e mandare i files a 'support@amtcartech.com' cosi risolvo i problemi al piu presto.

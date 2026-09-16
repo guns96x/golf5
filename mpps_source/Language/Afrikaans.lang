@@ -1,0 +1,151 @@
+;Afrikaans language file for MPPS
+
+[Discription]
+Name=Afrikaans
+File=Afrikaans.Lang
+
+[Menu]
+M0=Lêer
+M1=ECU id
+M2=lees
+M3=Skryf
+M4=bykomende inligting
+M5=Verlaat
+M6=Opsies
+M7=Kleur Bestuurder
+M8=klantenbeheer
+M9=Wissen Teken Files
+M10=Aanwendings
+M11=Programmering Oorsig
+M12=BCB omrekenaar
+M13=Spoed Opsies
+M14=vinnig(BENCH Knippert)
+M15=middel (verstek)
+M16=stadig(Herstel af)
+M17=Lees Opsies
+M18=Volledige lees (Kline Enkel)
+M19=Data Slegs (Standaard)
+M20=Sekuriteit Bypass (Vag Edc15 Enkel)
+M21=inligting oor die program
+M22=Weergawe Inligting
+M23=Lisensie
+
+
+
+[Commands]
+C0=ECU id
+C1=lees
+C2=Skryf
+C3=bykomende inligting
+C4=Checksum
+C5=Verlaat
+
+
+
+[Labels]
+L0=Taal
+L1=kies maak
+L2=Kies Model
+L3=Kies ECU
+V4=ECU besonderhede
+L5=Kommentaar
+L6=Gebruiker Inligting
+L7=Volt
+L8=Tyd
+L9=vooruitgang
+
+
+[Errors]
+10=Algemeen verwerp
+11=af nie ondersteun nie
+12=Sub-funksie nie ondersteun of ongeldige formaat
+13=Sub-funksie nie ondersteun of ongeldige formaat
+21=Drukke: herhaal versoek
+22=voorwaardes nie korrek
+23=Wag! Roetine nog nie voltooi nie
+24=Request sequence error
+31=Versoek buite die omvang
+33=Sekuriteit toegang geweier
+34=Sekuriteit toegang toegelaat
+35=Ongeldige sleutel
+36=oorskry aantal pogings
+37=Required tyd vertraag nie verouderd
+40=aflaai nie aanvaar
+41=Onbehoorlike aflaai tipe
+42=Kan nie af te laai na gespesifiseerde adres
+43=Kan nie aflaai aantal grepe versoek
+44=Gereed vir aflaai
+50=oplaai nie aanvaar
+51=Onbehoorlike oplaai tipe
+52=Kan nie oplaai van die gespesifiseerde adres
+53=Kan nie oplaai aantal grepe versoek
+54=Gereed vir oplaai
+61=Normaal afrit met resultate
+62=Normaal sluit sonder om die resultate
+63=Abnormale afrit met resultate
+64=Abnormale sluit sonder om die resultate
+71=Oordrag geskors
+72=Oordrag geaborteerde
+73=Blok oordrag voltooi
+74=Onwettige adres in blok
+75=Onwettige byte tel in blok die oordrag
+76=Onwettige blok die oordrag tipe
+77=Blok inligting checksum fout
+78=Blok oordrag boodskap korrek ontvang
+79=Verkeerde byte Telling tydens die blok die oordrag
+7F=diens nie ondersteun in aktiewe diagnostiese af
+80=diens nie ondersteun in aktiewe diagnostiese af
+90=diens nie ondersteun in aktiewe diagnostiese af
+
+300=Verzend' tyd uit
+301=Geen antwoord van ECU
+302=Programmering ecu nou ...
+303=Geen data
+304=laai data nou!
+
+
+[Message]
+1=Interne hardeware fout
+2=Wakker ecu, geduld ...
+3=Ontvangende ecu inligting
+4=ecu inligting voltooi
+5=Geen data
+6=Sekuriteit toegang
+7=data aflaai nou
+8=skoonmaak flits nou
+9=Programmering voltooi
+10=Skakel ontsteking om voort te gaan ...
+11=Wag vir 1 sekonde
+12=Versoeke data te laai
+13=oorskakel na die hoë spoed
+14=beherende checksum nou ...
+15=Flash checksum ok ...
+16=Flash checksum fout
+17=Lesing flits nou ...
+18=ecu korrek lees flits
+19=beherende flits
+20=ecu nie gevind
+21=Fout met lees flits!
+22=Controlling ecu setup nou: geduld!
+23=Gaan voort programmeertale
+24=Lêer scrambled kan nie voortgaan
+25=Kan nie ecu beheer nommers vind
+26=Verkeerde lêergrootte
+27=Fout programmeertale flits!
+28=Versoeke data oplaai
+29=Versoeke oordrag afrit
+30=Lêer korrek saamgeperste
+31=Fout comprimeren lêer!
+32=Lêer korrek gedecomprimeerd
+33=Fout decompressie lêer!
+34=Fout met oopmaak van lêer
+35=Reiniging ECU inligting geduld!
+36=Lesing DTC fout kodes
+37=verrekening DTC fout kodes
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100='n Fout het voorgekom gaan asseblief na C:\\MPPS\\Logs\\ en al die data-lêers in die gids te stuur na 'support@amtcartech.com' sodat ons kan sien. Doen dit asseblief so gou as moontlik sodat ons dit kan die probleem opgelos!
+

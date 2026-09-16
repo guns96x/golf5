@@ -1,0 +1,1106 @@
+[
+  {
+    "name": "AirCtl_qHigh_CUR",
+    "offset": "0x1c9daa",
+    "reserved_bytes": 82,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          20
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1c9dd4",
+        "end_exclusive": "0x1c9dfc"
+      },
+      "on": {
+        "dimensions": [
+          20
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1c9dd4",
+        "end_exclusive": "0x1c9dfc"
+      },
+      "off": {
+        "dimensions": [
+          20
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1c9dd4",
+        "end_exclusive": "0x1c9dfc"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 0,
+    "on_to_off_active_changed_bytes": 28
+  },
+  {
+    "name": "AirCtl_qMiddle_CUR",
+    "offset": "0x1c9ea0",
+    "reserved_bytes": 82,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          20
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1c9eca",
+        "end_exclusive": "0x1c9ef2"
+      },
+      "on": {
+        "dimensions": [
+          20
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1c9eca",
+        "end_exclusive": "0x1c9ef2"
+      },
+      "off": {
+        "dimensions": [
+          20
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1c9eca",
+        "end_exclusive": "0x1c9ef2"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 0,
+    "on_to_off_active_changed_bytes": 40
+  },
+  {
+    "name": "EngPrt_trqNLimSpr_CUR",
+    "offset": "0x1d48f8",
+    "reserved_bytes": 102,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          6
+        ],
+        "active_bytes": 26,
+        "values_offset": "0x1d4906",
+        "end_exclusive": "0x1d4912",
+        "rpm_axis": [
+          441,
+          462,
+          1000,
+          2000,
+          4470,
+          5355
+        ],
+        "torque_Nm": [
+          0.0,
+          150.0,
+          150.0,
+          150.0,
+          84.0,
+          0.0
+        ]
+      },
+      "on": {
+        "dimensions": [
+          6
+        ],
+        "active_bytes": 26,
+        "values_offset": "0x1d4906",
+        "end_exclusive": "0x1d4912",
+        "rpm_axis": [
+          441,
+          462,
+          1000,
+          2000,
+          4470,
+          5355
+        ],
+        "torque_Nm": [
+          0.0,
+          150.0,
+          150.0,
+          150.0,
+          84.0,
+          0.0
+        ]
+      },
+      "off": {
+        "dimensions": [
+          6
+        ],
+        "active_bytes": 26,
+        "values_offset": "0x1d4906",
+        "end_exclusive": "0x1d4912",
+        "rpm_axis": [
+          441,
+          462,
+          1000,
+          2000,
+          4470,
+          5355
+        ],
+        "torque_Nm": [
+          0.0,
+          150.0,
+          150.0,
+          150.0,
+          84.0,
+          0.0
+        ]
+      }
+    },
+    "reference_to_on_active_changed_bytes": 0,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "EngPrt_trqNLim_CUR",
+    "offset": "0x1d495e",
+    "reserved_bytes": 102,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          2
+        ],
+        "active_bytes": 10,
+        "values_offset": "0x1d4964",
+        "end_exclusive": "0x1d4968",
+        "rpm_axis": [
+          0,
+          6000
+        ],
+        "torque_Nm": [
+          3000.0,
+          3000.0
+        ]
+      },
+      "on": {
+        "dimensions": [
+          2
+        ],
+        "active_bytes": 10,
+        "values_offset": "0x1d4964",
+        "end_exclusive": "0x1d4968",
+        "rpm_axis": [
+          0,
+          6000
+        ],
+        "torque_Nm": [
+          3000.0,
+          3000.0
+        ]
+      },
+      "off": {
+        "dimensions": [
+          2
+        ],
+        "active_bytes": 10,
+        "values_offset": "0x1d4964",
+        "end_exclusive": "0x1d4968",
+        "rpm_axis": [
+          0,
+          6000
+        ],
+        "torque_Nm": [
+          3000.0,
+          3000.0
+        ]
+      }
+    },
+    "reference_to_on_active_changed_bytes": 0,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "PFlt_numEngPOp1_CA",
+    "offset": "0x1eca6e",
+    "reserved_bytes": 82,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1eca80",
+        "end_exclusive": "0x1ecac0"
+      },
+      "on": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1eca80",
+        "end_exclusive": "0x1ecac0"
+      },
+      "off": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 82,
+        "values_offset": "0x1eca80",
+        "end_exclusive": "0x1ecac0"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 0,
+    "on_to_off_active_changed_bytes": 29
+  },
+  {
+    "name": "AccPed_trqEng0Cold_MAP",
+    "offset": "0x1c2b78",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2bac",
+        "end_exclusive": "0x1c2cac"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2bac",
+        "end_exclusive": "0x1c2cac"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2bac",
+        "end_exclusive": "0x1c2cac"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AccPed_trqEng0_MAP",
+    "offset": "0x1c2cce",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2d02",
+        "end_exclusive": "0x1c2e02"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2d02",
+        "end_exclusive": "0x1c2e02"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2d02",
+        "end_exclusive": "0x1c2e02"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AccPed_trqEng1_MAP",
+    "offset": "0x1c2e24",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2e58",
+        "end_exclusive": "0x1c2f58"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2e58",
+        "end_exclusive": "0x1c2f58"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2e58",
+        "end_exclusive": "0x1c2f58"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AccPed_trqEng2_MAP",
+    "offset": "0x1c2f7a",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2fae",
+        "end_exclusive": "0x1c30ae"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2fae",
+        "end_exclusive": "0x1c30ae"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c2fae",
+        "end_exclusive": "0x1c30ae"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AccPed_trqEng3_MAP",
+    "offset": "0x1c30d0",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c3104",
+        "end_exclusive": "0x1c3204"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c3104",
+        "end_exclusive": "0x1c3204"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c3104",
+        "end_exclusive": "0x1c3204"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AccPed_trqEng4_MAP",
+    "offset": "0x1c3226",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c325a",
+        "end_exclusive": "0x1c335a"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c325a",
+        "end_exclusive": "0x1c335a"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c325a",
+        "end_exclusive": "0x1c335a"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AccPed_trqEng5_MAP",
+    "offset": "0x1c337c",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c33b0",
+        "end_exclusive": "0x1c34b0"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c33b0",
+        "end_exclusive": "0x1c34b0"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c33b0",
+        "end_exclusive": "0x1c34b0"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AccPed_trqEng6_MAP",
+    "offset": "0x1c34d2",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c3506",
+        "end_exclusive": "0x1c3606"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c3506",
+        "end_exclusive": "0x1c3606"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c3506",
+        "end_exclusive": "0x1c3606"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AccPed_trqEngLow_MAP",
+    "offset": "0x1c369a",
+    "reserved_bytes": 342,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c36ce",
+        "end_exclusive": "0x1c37ce"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c36ce",
+        "end_exclusive": "0x1c37ce"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          8
+        ],
+        "active_bytes": 308,
+        "values_offset": "0x1c36ce",
+        "end_exclusive": "0x1c37ce"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 107,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "AFSCD_mAirPerCylDfl_MAP",
+    "offset": "0x1c441c",
+    "reserved_bytes": 164,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 164,
+        "values_offset": "0x1c4440",
+        "end_exclusive": "0x1c44c0"
+      },
+      "on": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 164,
+        "values_offset": "0x1c4440",
+        "end_exclusive": "0x1c44c0"
+      },
+      "off": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 164,
+        "values_offset": "0x1c4440",
+        "end_exclusive": "0x1c44c0"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 64,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "EngPrt_facTempPreTrbn_MAP",
+    "offset": "0x1d4ebc",
+    "reserved_bytes": 164,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 164,
+        "values_offset": "0x1d4ee0",
+        "end_exclusive": "0x1d4f60"
+      },
+      "on": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 164,
+        "values_offset": "0x1d4ee0",
+        "end_exclusive": "0x1d4f60"
+      },
+      "off": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "active_bytes": 164,
+        "values_offset": "0x1d4ee0",
+        "end_exclusive": "0x1d4f60"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 19,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "EngPrt_trqLimP_MAP",
+    "offset": "0x1d4732",
+    "reserved_bytes": 262,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          3,
+          21
+        ],
+        "active_bytes": 178,
+        "values_offset": "0x1d4766",
+        "end_exclusive": "0x1d47e4"
+      },
+      "on": {
+        "dimensions": [
+          3,
+          21
+        ],
+        "active_bytes": 178,
+        "values_offset": "0x1d4766",
+        "end_exclusive": "0x1d47e4"
+      },
+      "off": {
+        "dimensions": [
+          3,
+          21
+        ],
+        "active_bytes": 178,
+        "values_offset": "0x1d4766",
+        "end_exclusive": "0x1d47e4"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 102,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "FlMng_pIATCorr_MAP",
+    "offset": "0x1d605a",
+    "reserved_bytes": 376,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          10
+        ],
+        "active_bytes": 376,
+        "values_offset": "0x1d6092",
+        "end_exclusive": "0x1d61d2"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          10
+        ],
+        "active_bytes": 376,
+        "values_offset": "0x1d6092",
+        "end_exclusive": "0x1d61d2"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          10
+        ],
+        "active_bytes": 376,
+        "values_offset": "0x1d6092",
+        "end_exclusive": "0x1d61d2"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 18,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "FlMng_qPresSmoke_MAP",
+    "offset": "0x1d6490",
+    "reserved_bytes": 478,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          12
+        ],
+        "active_bytes": 444,
+        "values_offset": "0x1d64cc",
+        "end_exclusive": "0x1d664c"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          12
+        ],
+        "active_bytes": 444,
+        "values_offset": "0x1d64cc",
+        "end_exclusive": "0x1d664c"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          12
+        ],
+        "active_bytes": 444,
+        "values_offset": "0x1d64cc",
+        "end_exclusive": "0x1d664c"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 64,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "FMTC_trq2qBas_MAP",
+    "offset": "0x1d729c",
+    "reserved_bytes": 648,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          15,
+          16
+        ],
+        "active_bytes": 546,
+        "values_offset": "0x1d72de",
+        "end_exclusive": "0x1d74be"
+      },
+      "on": {
+        "dimensions": [
+          15,
+          16
+        ],
+        "active_bytes": 546,
+        "values_offset": "0x1d72de",
+        "end_exclusive": "0x1d74be"
+      },
+      "off": {
+        "dimensions": [
+          15,
+          16
+        ],
+        "active_bytes": 546,
+        "values_offset": "0x1d72de",
+        "end_exclusive": "0x1d74be"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 60,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "InjCrv_phiBasGear12_MAP",
+    "offset": "0x1da8f8",
+    "reserved_bytes": 512,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1da938",
+        "end_exclusive": "0x1daaf8"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1da938",
+        "end_exclusive": "0x1daaf8"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1da938",
+        "end_exclusive": "0x1daaf8"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 42,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "InjCrv_phiBasGear34_MAP",
+    "offset": "0x1daaf8",
+    "reserved_bytes": 512,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1dab38",
+        "end_exclusive": "0x1dacf8"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1dab38",
+        "end_exclusive": "0x1dacf8"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1dab38",
+        "end_exclusive": "0x1dacf8"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 42,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "InjCrv_phiBasGear56_MAP",
+    "offset": "0x1dacf8",
+    "reserved_bytes": 512,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1dad38",
+        "end_exclusive": "0x1daef8"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1dad38",
+        "end_exclusive": "0x1daef8"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          14
+        ],
+        "active_bytes": 512,
+        "values_offset": "0x1dad38",
+        "end_exclusive": "0x1daef8"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 42,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "InjVlv_phiInjMI1_MAP1",
+    "offset": "0x1e5032",
+    "reserved_bytes": 642,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e507a",
+        "end_exclusive": "0x1e52b4"
+      },
+      "on": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e507a",
+        "end_exclusive": "0x1e52b4"
+      },
+      "off": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e507a",
+        "end_exclusive": "0x1e52b4"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 54,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "InjVlv_phiInjMI1_MAP2",
+    "offset": "0x1e52b4",
+    "reserved_bytes": 642,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e52fc",
+        "end_exclusive": "0x1e5536"
+      },
+      "on": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e52fc",
+        "end_exclusive": "0x1e5536"
+      },
+      "off": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e52fc",
+        "end_exclusive": "0x1e5536"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 52,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "InjVlv_phiInjMI1_MAP3",
+    "offset": "0x1e5536",
+    "reserved_bytes": 642,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e557e",
+        "end_exclusive": "0x1e57b8"
+      },
+      "on": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e557e",
+        "end_exclusive": "0x1e57b8"
+      },
+      "off": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e557e",
+        "end_exclusive": "0x1e57b8"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 53,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "InjVlv_phiInjMI1_MAP4",
+    "offset": "0x1e57b8",
+    "reserved_bytes": 642,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e5800",
+        "end_exclusive": "0x1e5a3a"
+      },
+      "on": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e5800",
+        "end_exclusive": "0x1e5a3a"
+      },
+      "off": {
+        "dimensions": [
+          19,
+          15
+        ],
+        "active_bytes": 642,
+        "values_offset": "0x1e5800",
+        "end_exclusive": "0x1e5a3a"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 50,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "PCR_pBDesBas_MAP",
+    "offset": "0x1eb0b2",
+    "reserved_bytes": 376,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          16,
+          10
+        ],
+        "active_bytes": 376,
+        "values_offset": "0x1eb0ea",
+        "end_exclusive": "0x1eb22a"
+      },
+      "on": {
+        "dimensions": [
+          16,
+          10
+        ],
+        "active_bytes": 376,
+        "values_offset": "0x1eb0ea",
+        "end_exclusive": "0x1eb22a"
+      },
+      "off": {
+        "dimensions": [
+          16,
+          10
+        ],
+        "active_bytes": 376,
+        "values_offset": "0x1eb0ea",
+        "end_exclusive": "0x1eb22a"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 143,
+    "on_to_off_active_changed_bytes": 0
+  },
+  {
+    "name": "PCR_pBDesMaxAP_MAP",
+    "offset": "0x1eb22a",
+    "reserved_bytes": 376,
+    "layouts": {
+      "reference": {
+        "dimensions": [
+          11,
+          10
+        ],
+        "active_bytes": 266,
+        "values_offset": "0x1eb258",
+        "end_exclusive": "0x1eb334"
+      },
+      "on": {
+        "dimensions": [
+          11,
+          10
+        ],
+        "active_bytes": 266,
+        "values_offset": "0x1eb258",
+        "end_exclusive": "0x1eb334"
+      },
+      "off": {
+        "dimensions": [
+          11,
+          10
+        ],
+        "active_bytes": 266,
+        "values_offset": "0x1eb258",
+        "end_exclusive": "0x1eb334"
+      }
+    },
+    "reference_to_on_active_changed_bytes": 181,
+    "on_to_off_active_changed_bytes": 0
+  }
+]

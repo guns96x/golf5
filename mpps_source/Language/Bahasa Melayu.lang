@@ -1,0 +1,150 @@
+;Malay language file for MPPS
+
+[Discription]
+Name=Bahasa Melayu
+File=Bahasa Melayu.Lang
+
+[Menu]
+M0=Gambar
+M1=ECU Id
+M2=membaca
+M3=Tulis
+M4=data tambahan
+M5=Keluar
+M6=Pilihan
+M7=Warna pengurus
+M8=pengurus klien
+M9=jelas fail log
+M10=Utiliti
+M11=pengaturcaraan abstrak
+M12=BCB Converter
+M13=pilihan kelajuan
+M14=cepat (Bench Berkedip)
+M15=Sedang (Default)
+M16=lambat (Recovery Mode)
+M17=Read Pilihan
+M18=baca lengkap (Kill hanya)
+M19=data hanya (Default)
+M20=keselamatan bypass (väg Edc15 hanya)
+M21=Program Maklumat
+M22=Sejarah Maklumat
+M23=lesen
+
+
+
+[Commands]
+C0=Ecu Id
+C1=membaca
+C2=Write
+C2=Tulis
+C3=data tambahan
+C4=Checksum
+C5=Keluar
+
+
+
+[Labels]
+L0=BAHASA
+L1=Pilih Make
+L2=Pilih Model
+L3=Pilih ECU
+L4=ECU Data
+L5=Komen
+L6=Maklumat Pengguna
+L7=Volts
+L8=Sisa
+L9=Kemajuan
+
+
+[Errors]
+10=Jeneral menolak
+11=Mode tidak disokong
+12=Sub fungsi tidak disokong atau format tidak sah
+13=Sub fungsi tidak disokong atau format tidak sah
+21=sibuk, ulangi permintaan
+22=Kondisi tidak benar
+24=Request sequence error
+23=Tunggu! Rutin tidak lengkap
+31=Permintaan luar liputan
+33=Keselamatan akses ditolak
+34=Keselamatan akses dibenarkan
+35=kunci tidak sah
+36=Melebihi batas jumlah upaya
+37=Diperlukan waktu tunda tidak kadaluarsa
+40=line tidak diterima
+41=Layak download jenis
+42=Tidak dapat download ke alamat tertentu
+43=Tidak boleh men-download jumlah byte yang diminta
+44=Siap untuk di-download
+50=Gambar tidak diterima
+51=Layak jenis upload
+52=Tidak dapat meng-upload dari alamat tertentu
+53=Tidak dapat meng-upload jumlah byte yang diminta
+54=Siap untuk di-upload
+61=muzik keluar dengan keputusan
+62=muzik keluar tanpa keputusan
+63=biasa keluar dengan keputusan
+64=biasa keluar tanpa keputusan
+71=pemindahan ditangguhkan
+72=pemindahan dibatalkan
+73=Blok pemindahan Tamat
+74=alamat haram di blok
+75=haram byte count di blok pemindahan
+76=haram jenis pemindahan blok
+77=error checksum data blok
+78=Blok mesej memindahkan benar diterima
+79=Salah byte count selama pemindahan blok
+7F=Perkhidmatan tidak disokong dalam mod diagnostik aktif
+80=Perkhidmatan tidak disokong dalam mod diagnostik aktif
+90=Perkhidmatan tidak disokong dalam mod diagnostik aktif
+
+300=menghantar waktu
+301=Tidak ada jawapan daripada ECU
+302=Pemrograman ECU sekarang ...
+303=Tidak ada maklumat
+304=Mendownload data sekarang!!!
+
+[Message]
+1=kesalahan hardware dalaman
+2=bangun ECU berharap tunggu ...
+3=Menerima maklumat ECU
+4=ECU maklumat lengkap
+5=Tidak ada maklumat
+6=Keselamatan akses
+7=Data download sekarang
+8=Menghapus flash sekarang
+9=program selesai
+10=Matikan enjin untuk meneruskan ...
+11=Tunggu selama 1 detik
+12=Meminta download data
+13=Berpindah ke kelajuan tinggi
+14=Mengawal checksum yang sekarang ...
+15=Flash checksum ok ...
+16=Flash checksum kesalahan
+17=Membaca kilat sekarang ...
+18=ECU flash dibaca dengan benar
+19=Mengawal kilat
+20=ECU tidak dijumpai
+21=Ralat membaca kilat!
+22=Mengawal ECU setup sekarang: silakan tunggu!
+23=Teruskan pengaturcaraan
+24=Fail orak tidak boleh dilanjutkan
+25=Tidak dapat mencari nombor kawalan ECU
+26=Salah saiz fail
+27=Ralat pengaturcaraan flash!
+28=Meminta upload data
+29=Meminta pemindahan keluar
+30=File dikompresi dengan benar
+31=Perhatian mengompresi fail!
+32=File didekompresi benar
+33=Perhatian fail dekompresi!
+34=Ralat membuka fail
+35=Pembersihan data ECU please wait!
+36=Membaca kod kesalahan DTC
+37=kliring kod kesalahan DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Sebuah kesalahan telah terjadi silakan pergi ke C:\\MPPS\\Logs\\ dan menghantar semua data fail dalam folder itu untuk 'support@amtcartech.com' sehingga kami boleh meninjau. Sila lakukan ini secepat mungkin sehingga kami dapat menyelesaikan masalah!

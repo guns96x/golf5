@@ -1,0 +1,148 @@
+;Finnish language file for MPPS
+
+[Discription]
+Name=Finnish
+File=Finnish.Lang
+
+[Menu]
+M0=Tiedosto
+M1=Ecu tunnus
+M2=Lue
+M3=Kirjoita
+M4=Lis‰tiedot
+M5=Lopeta
+M6=Asetukset
+M7=V‰rienhallinta
+M8=Asiakashallinta
+M9=Tyhjenn‰ lokitiedostot
+M10=Apuohjelmat
+M11=ohjelmoinnin yhteenveto
+M12=BCB muunto
+M13=Nopeusasetukset
+M14=Nopea ("bench flash")
+M15=Keskinopeus (Oletus)
+M16=Hidas (ECU elvytys)
+M17=Lukuvalinnat
+M18=Koko luku (Vain K-linja)
+M19=Vain data-alue (Oletus)
+M20=Security Bypass (Vain VAG EDC15)
+M21=Ohjelman tiedot
+M22=Versiotiedot
+M23=Lisenssi
+
+
+
+[Commands]
+C0=Ecu tunnus
+C1=Lue
+C2=Kirjoita
+C3=Lis‰tiedot
+C4=Tarkistussumma
+C5=Lopeta
+
+
+
+[Labels]
+L0=Kieli
+L1=Valitse Merkki
+L2=Valitse malli
+L3=Valitse Ecu
+L4=Ecun tiedot
+L5=Kommentit
+L6=K‰ytt‰j‰n tiedot
+L7=volttia
+L8=Aika
+L9=Edistyminen
+
+
+[Errors]
+10=Yleisvirhe
+11=Tila ei tuettu
+12=Alitoiminto ei ole tuettu tai v‰‰r‰n muotoinen
+13=Alitoiminto ei ole tuettu tai v‰‰r‰n muotoinen
+21=Varattu: toista pyyntˆ
+22=Edellytykset eiv‰t t‰yttyneet
+23=Odota! Rutiini ei ole valmis
+31=Pyyntˆ alueen ulkopuolella
+33=Turvaoikeudet ei sallittu
+34=Turvaoikeudet hyv‰ksytty
+35=Virheellinen avain
+36=Liian monta yrityst‰
+37=Vaadittu viive ei ole p‰‰ttynyt
+40=Lataus ei hyv‰ksytty
+41=Virheellinen lataustyyppi
+42=Osoitetta ei voi ladata
+43=Ei voi ladata pyyntˆ‰
+44=Valmis ladattavaksi
+50=Latausta ei hyv‰ksytty
+51=Virheellinen lataustyyppi
+52=Ei voi ladata osoitteesta osoitetta
+53=Ei voida ladata tavupyyntˆ‰
+54=Valmis lataus
+61=Normaalit EXIT tulokset
+62=Normaali poistu tulokset
+63=Ep‰normaali EXIT tulokset
+64=Ep‰normaali poistu tulokset
+71=Siirto keskeytetty
+72=Siirto keskeytetty
+73=Lohkon siirto valmis
+74=Laiton osoite kent‰ss‰
+75=Laiton tavum‰‰r‰ siirtokent‰ss‰
+76=Siirron tyyppi ei sallittu
+77=Lohkon tarkastussummavirhe
+78=Lohkon siirtoviesti vastaanotettu oikein
+79=V‰‰r‰ tavujen m‰‰r‰ lohkon siirrossa
+7F=Palvelu ei tue aktiivista diagnostiikkaan tilassa
+80=Palvelu ei tue aktiivista diagnostiikkaan tilassa
+90=Palvelu ei tue aktiivista diagnostiikkaan tilassa
+
+300=L‰hetyksen aikakatkaisu
+301=ECU ei vastaa
+302=Ohjelmoidaan ECU nyt ...
+303=Ei dataa
+304=Luetaan tietoja nyt!
+
+
+[Message]
+1=Sis‰inen Laitevika
+2=Her‰tet‰‰n ECU odota ...
+3=Luetaan ECUn tiedot
+4=ECU tiedot luettu
+5=Ei tietoja
+6=Sis‰‰nkirjaus...
+7=Luetaan tietoja nyt
+8=Tyhjennet‰‰n muisti
+9=Ohjelmointi valmis
+10=Katkaise virta jatkaaksesi ...
+11=Odota 1 sekunti
+12=Pyydet‰‰n tietojen latausta...
+13=Vaihdetaan nopeutta...
+14=Lasketaan tarkastussumma ...
+15=Muistin tarkistussumma ok ...
+16=Muistin tarkastussumma v‰‰rin!
+17=Luetaan muisti ...
+18=ECUn muisti luettu oikein
+19=Tarkastetaan muisti
+20=ECUa ei lˆytynyt
+21=Virhe luettaessa muistia!
+22=Tarkastetaan ECUn asetukset nyt: Odota!
+23=Jatka ohjelmointia
+24=Tiedosto salattu, ei voi jatkaa
+25=ECUn valvontanumeroita ei lˆytynyt
+26=Virheellinen tiedoston koko
+27=Virhe muistia ohjelmoidessa!
+28=Pyydet‰‰n tiedonsiirtoyhteytt‰
+29=Pyydet‰‰n latauksesta poistumista
+30=Tiedosto pakattu oikein
+31=Virhe tiedoston pakkauksessa!
+32=Tiedosto purettu oikein
+33=Virhe tiedostoa purettaessa!
+34=Virhe avattaessa tiedostoa
+35=Siivotaan ECUn tiedot, odota!
+36=Luetaan vikakoodit
+37=Tyhjennet‰‰n vikakoodit
+40=You need to checksum this file before writing!!
+41=Checksum is calculated by the program.
+
+
+100=Virhe! Mene C:\\MPPS\\ ja l‰het‰ kaikki tiedostosi osoitteeseen 'errors@amtcartech.com' jotta voimme ihmetell‰, mik‰ meni pieleen!

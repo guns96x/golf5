@@ -1,0 +1,149 @@
+;Haitian Creole Alpha language file for MPPS
+
+[Discription]
+Name=Kreyòl ayisyen alfa
+File=Kreyòl ayisyen alfa.Lang
+
+[Menu]
+M0=dosye
+M1=eku Id
+M2=Li
+M3=Ekri
+M4=enfòmasyon siplemantè
+M5=Sòti
+M6=Opsyon
+M7=kouleur Manadjè
+M8=Klyan Manadjè
+M9=dosye Log Efase
+M10=itilite
+M11=rezime pwogram
+M12=Bcb konvèrtiseur
+M13=Options vitès
+M14=rapid (ban ekla)
+M15=mwayen (defo)
+M16=dousman (Mode Rekiperasyon)
+M17=Li Opsyon
+M18=Li Full (Kline Sèlman)
+M19=Done Sèlman (defo)
+M20=Sekirite rokad (Vag Edc15 Sèlman)
+M21=pwogram enfòmasyon
+M22=enfòmasyon Creole
+M23=lisans
+
+
+[Commands]
+C0=eku Id
+C1=Li
+C2=Ekri
+C3=enfòmasyon siplemantè
+C4=cheksom
+C5=Sòti
+
+
+
+[Labels]
+L0=Lang
+L1=Chwazi Asire
+L2=Modèl Chwazi
+L3=eku Chwazi
+L4=eku Done
+L5=Kòmantè
+L6=Itilizatè Enfòmasyon
+L7=volt
+L8=Tan
+L9=Pwogrè
+
+
+[Errors]
+10=Jeneral rejete
+11=Mode pa sipòte
+12=sub pa fonksyon sipòte oswa envalid fòma
+13=sub pa fonksyon sipòte oswa envalid fòma
+21=Okipasyon: demann repete
+22=pa Kondisyon kòrèk
+23=Tann! Pa konplè woutin
+24=Request sequence error
+31=Demand deyò ranje
+33=Sekirite aksè demanti
+34=Sekirite aksè pèmèt
+35=enkorèkt kle
+36=depase kantite tantativ
+37=Ekzije reta tan pa ekspire
+40=Download pa aksepte
+41=inadekwat Download tip
+42=pa Èske Download adrès espesifye
+43=pa Èske Download kantite bytes mande
+44=pare pou Download
+50=Upload pa aksepte
+51=inadekwat Upload tip
+52=pa Èske Upload sòti adrès espesifye
+53=pa Èske Upload kantite bytes mande
+54=pare pou Upload
+61=Normale sòti avèk rezilta
+62=Normale sòti san rezilta
+63=anormal sòti avèk rezilta
+64=anormal sòti san rezilta
+71=Transfè sispandi
+72=Transfè avorte
+73=Block transfè konplè
+74=Ilegal adrès nan blòk
+75=Ilegal multiple konte nan transfè blòk
+76=Ilegal transfè blòk tip
+77=Block done cheksom erè
+78=mesaj transfè Block kòrèkteman resevwa
+79=inègzakt multiple konte pandan transfè blòk
+7F=Sèvis pa sipòte nan dyagnostik mòd aktif
+80=Sèvis pa sipòte nan dyagnostik mòd aktif
+90=Sèvis pa sipòte nan dyagnostik mòd aktif
+
+300=transmissions tan deyò
+301=Pa Reply sòti eku
+302=pwogram eku kounye ...
+303=Pa enfòmasyon
+304=Téléchargez done kounye!!
+
+
+[Message]
+1=Entèn kenkayri erè
+2=Rêverie eku tanpri tann ...
+3=Resevwa eku enfòmasyon
+4=eku enfòmasyon konplè
+5=Pa enfòmasyon
+6=Sekirite aksè
+7=Done Download kounye
+8=efasman Flash kounye
+9=pwogram ranpli
+10=enterupteur fèmen kontakt kontinye ...
+11=tann 1 dezyèm
+12=Mande done Download
+13=oblije chanje vitès wo
+14=controlling cheksom kounye ...
+15=Flash cheksom ok ...
+16=Flash cheksom erè
+17=Lekti Flash kounye ...
+18=eku Flash li kòrèkteman
+19=kontwole Flash
+20=eku pa jwenn
+21=Erè lekti Flash!!
+22=kontwole eku pyèj kounye: tanpri tann!!
+23=Kontinye pwogramasyon
+24=File grenpe pa kontinye
+25=kapab jwenn kontwòl nonb eku
+26=erone dosye gwosè
+27=Erè pwogramasyon Flash!!
+28=mande enfòmasyon Upload
+29=Mande transfè sòti
+30=File konprime kòrèkteman
+31=Erè konpresan dosye!!
+32=File dekonprime kòrèkteman
+33=Erè dekonpresyon dosye!!
+34=Erè ouvèti dosye
+35=netwayaj done eku tanpri tann!!
+36=Lekti dTC erè kòd
+37=netwaye kòd erè dTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Yon erè gen 100 rive tanpri Go C:\\MPPS\\Logs\\ ak voye tout done lime nan ke folder 'support@amtcartech.com' tèlman nou revize. Tanpri èske sa leplivit posib nou rezoud pwoblèm!

@@ -1,0 +1,88 @@
+; AMTFLASH.INF
+; Copyright (c) 2011 Amt-Cartech Ltd.
+;
+
+[Version]
+Signature="$Windows NT$"
+DriverPackageType=PlugAndPlay
+DriverPackageDisplayName=%DESC%
+Class=USB
+ClassGUID={36fc9e60-c465-11cf-8056-444553540000}
+Provider=%Amt%
+CatalogFile=AmtFlash.cat
+DriverVer=09/05/2011,6.0.2.0
+
+[SourceDisksNames]
+1=%DriversDisk%,,,
+
+[SourceDisksFiles]
+AmtFlash.sys = 1,i386
+
+[SourceDisksFiles.amd64]
+AmtFlash.sys = 1,amd64
+
+[DestinationDirs]
+Amtc.NT.Copy = 10,system32\drivers
+Amtc.NTamd64.Copy = 10,system32\drivers
+
+[Manufacturer]
+%Amt%=AmtcHw,NTamd64
+
+[AmtcHw]
+%USB\VID_1C43&PID_0500.DeviceDesc%=Amtc.NT,USB\VID_1C43&PID_0500
+
+[AmtcHw.NTamd64]
+%USB\VID_1C43&PID_0500.DeviceDesc%=Amtc.NTamd64,USB\VID_1C43&PID_0500
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Amtc.NT]
+CopyFiles=Amtc.NT.Copy
+AddReg=Amtc.NT.AddReg
+
+[Amtc.NTamd64]
+CopyFiles=Amtc.NTamd64.Copy
+AddReg=Amtc.NT.AddReg
+
+[Amtc.NT.Services]
+AddService = AMTFLASH, 0x00000002, Amtc.NT.AddService
+
+[Amtc.NTamd64.Services]
+AddService = AMTFLASH, 0x00000002, Amtc.NT.AddService
+
+[Amtc.NT.AddService]
+DisplayName = %SvcDesc%
+ServiceType = 1 ; SERVICE_KERNEL_DRIVER
+StartType = 3 ; SERVICE_DEMAND_START
+ErrorControl = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary = %10%\system32\drivers\AmtFlash.sys
+LoadOrderGroup = Base
+AddReg = Amtc.NT.AddService.AddReg
+
+[Amtc.NT.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,AmtFlash.sys
+
+[Amtc.NT.AddService.AddReg]
+
+[Amtc.NT.HW] 
+AddReg=Amtc.NT.HW.AddReg
+[Amtc.NTamd64.HW]
+AddReg=Amtc.NT.HW.AddReg
+[Amtc.NT.HW.AddReg]
+HKR,,"ConfigData",0x00010001,0
+
+[Amtc.NT.Copy]
+AmtFlash.sys
+
+[Amtc.NTamd64.Copy]
+AmtFlash.sys
+
+[Strings]
+Amt="Amt-Cartech Ltd"
+USB\VID_1C43&PID_0500.DeviceDesc="Amt Flash"
+DESC="AMT Driver Package"
+DriversDisk="AMT Cartech Drivers Disk"
+SvcDesc="AMT Flash Driver"
+ClassName="USB"

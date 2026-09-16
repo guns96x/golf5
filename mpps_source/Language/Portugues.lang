@@ -1,0 +1,151 @@
+;Portuguese language file for MPPS
+
+[Discription]
+Name=Português
+File=Português.Lang
+
+[Menu]
+M0=Arquivo
+M1=Id Ecu
+M2=Ler
+M3=Escrever
+M4=dados extra
+M5=Sair
+M6=Opções
+M7=Cor Manager
+M8=client Manager
+M9=limpar Log
+M10=utilidades
+M11=Síntese Programação
+M12=Bcb Converter
+M13=Opções Velocidade
+M14=rápido  (Piscamento do banco)
+M15=Média (Padrão)
+M16=lento (modalidade da recuperação)
+M17=Ler Opções
+M18=cheio lido (Kline somente)
+M19=dados somente (defeito )
+M20=desvio da segurança (VAG EDC15 somente )
+M21=Programa Info
+M22=Versão de informações
+M23=licença
+
+
+
+[Commands]
+C0=Id Ecu
+C1=Ler
+C2=Escrever
+C3=dados extra
+C4=Checksum
+C5=Sair
+
+
+
+[Labels]
+L0=Linguagem
+L1=Selecione Tornar
+L2=Selecione o Modelo
+L3=Selecione Ecu
+L4=Ecu Dados
+L5=Comentários
+L6=Informações do Usuário
+L7=Volts
+L8=Time
+L9=Progresso
+
+
+[Errors]
+10=rejeitar Geral
+11=Modo não suportado
+12=Sub-função não suportada ou inválida formato
+13=Sub-função não suportada ou inválida formato
+21=ocupado: pedido de repetição
+22=circunstâncias nao corretas
+23=espera! Rotina nao completa
+24=Request sequence error
+31=Request fora do intervalo
+33=acesso negado Segurança
+34=acesso permitido Segurança
+35=chave inválida
+36=número de tentativas excedido
+37=intervalo de tempo necessário não terminou
+40=transferência nao aceitável 
+41=Tipo impróprio de transferência
+42=Não pode transferir ao endereço especific
+43=Não é possível transferir o número de bytes solicitado
+44=Apronte para transferência
+50=transferência de arquivo pela rede não aceitada
+51=tipo de carregamento impróprio
+52=Não é possível carregar a partir do endereço especificado
+53=número não é possível fazer upload de bytes solicitado
+54=Pronto para upload
+61=normal sair com os resultados
+62=saída normal sem resultados
+63=saída anormal com resultados
+64=saída anormal sem resultados
+71=Transferência de suspensão
+72=Transferência abortada
+73=transferência de bloco completa
+74=endereço ilegal no bloco
+75=count ilegal em bloco byte de transferência
+76=Illegal tipo de transferência de bloco
+77=Bloco de erro de soma de dados
+78=mensagem de transferir o bloco recebido corretamente
+79=count byte incorretas durante o bloqueio de transferência
+7F=Serviço não suportado no modo de diagnóstico ativos
+80=Serviço não suportado no modo de diagnóstico ativos
+90=serviço não é suportado no modo de diagnóstico ativos
+
+
+300=tempo de transmissão para fora
+301=Sem resposta do Ecu
+302=ECU de programação agora…
+303=Sem informação
+304=Importar dados agora!
+
+
+[Message]
+1=erro de ferragem interno
+2=acordo ECU por favor aguarde ...
+3=receber informações ECU
+4=informação ECU completo
+5=Sem informação
+6=acesso de Segurança
+7=os dados transferem agora
+8=apagando o flash agora
+9=programação completa
+10=desligue a ignição para continuar ...
+11=Espere por 1 segundo
+12=pedindo transferência dos dados
+13=Mudar para alta velocidade
+14=checksum Controlando agora ...
+15=ok checksum Flash ...
+16=Erro de checksum Flash
+17=Reading flash now...
+18=ECU flash ler corretamente
+19=Controle de flash
+20=ECU não encontrada
+21=Erro ao ler o flash!
+22=Controle de configuração ECU agora: por favor, aguarde!
+23=Continuar programação
+24=Arquivo mexidos não pode continuar
+25=Não foi possível encontrar números de controle ECU
+26=tamanho do arquivo incorreta
+27=Erro de programação flash!
+28=Solicitando carregar dados
+29=Solicitando saída de transferência
+30=Arquivo comprimido corretamente
+31=Erro ao comprimir!
+32=O arquivo descompactado corretamente
+33=Erro ao descomprimir!
+34=Lima de abertura do erro
+35=limpeza de dados ecu por favor aguarde!
+36=Lendo códigos de erro DTC
+37=erro Clearing códigos DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Ocorreu um erro, por favor vá para  C:\\MPPS\\Logs\\ e enviar todos os arquivos de dados em que a pasta  'support@amtcartech.com' para que possamos rever. Por favor, faça isso o mais rapidamente possível para que possamos resolver o problema!

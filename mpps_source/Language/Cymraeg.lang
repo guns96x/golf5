@@ -1,0 +1,149 @@
+;Welsh language file for MPPS
+
+[Discription]
+Name=Cymraeg
+File=Cymraeg.Lang
+
+[Menu]
+M0=Ffeil
+M1=Ecu Id
+M2=Darllen
+M3=Ysgrifennu
+M4=Data Ychwanegol
+M5=Gadael
+M6=Dewisiadau
+M7=Lliw Rheolwr
+M8=Rheolwr Cleientiaid
+M9=Clear Mewngofnodi Ffeiliau
+M10=cyfleustodau
+M11=crynodeb rhaglenni
+M12=Bcb trawsnewidydd
+M13=opsiynau cyflymder
+M14=cyflym (Fainc sy'n fflachio)
+M15=Canolig (diofyn)
+M16=Araf (Adfer Modd)
+M17=Dewisiadau Darllen
+M18=Llawn Darllen (Kline yn unig)
+M19=Data yn unig (diofyn)
+M20=Osgoi'r Ddiogelwch (Vag Edc15 yn unig)
+M21=Rhaglen Gwybodaeth
+M22=Fersiwn Gwybodaeth
+M23=Trwydded
+
+
+
+[Commands]
+Id=UHC C0
+C1=Darllen
+C2=Ysgrifennu
+C3=Data Ychwanegol
+C4=Checksum
+C5=Gadael
+
+
+
+[Labels]
+L0=Iaith
+L1=Dewis Gwneud
+L2=Dewis Model
+L3=Dewis ECU
+L4=ECU Data
+L5=Sylwadau
+L6=User Gwybodaeth
+L7=Volts
+L8=Amser
+L9=Cynnydd
+
+
+[Errors]
+10=Cyffredinol gwrthod
+11=Modd ddim wedi ei gefnogi
+12=Nid yw Is-swyddogaeth gefnogi annilys neu fformat
+13=Nid yw Is-swyddogaeth gefnogi annilys neu fformat
+21=Busy: repeat request
+22=Nid amodau cywir
+23=Aros! Rheolaidd â llenwi'r
+24=Request sequence error
+31=Cais allan o amrediad
+33=Diogelwch gwrthodwyd mynediad
+34=Diogelwch caniatáu mynediad
+35=allweddol annilys
+36=rhagori ar nifer o ymdrechion
+37=oedi amser Angenrheidiol na dod i ben
+40=Lawrlwytho na dderbynnir
+41=math lawrlwytho amhriodol
+42=Methu llwytho i lawr i fynd i'r afael a nodir
+43=Gall nifer Nid lawrlwytho bytes gofynnwyd
+44=barod i'w lawrlwytho
+50=Upload na dderbynnir
+51=math llwytho i fyny amhriodol
+52=Methu llwytho i'r cyfeiriad a nodir
+53=Gall nifer Nid llwytho o bytes gofynnwyd
+54=barod ar gyfer llwytho i fyny
+61=arferol ymadael gyda chanlyniadau
+62=arferol ymadael heb canlyniadau
+63=Annormal ymadael gyda chanlyniadau
+64=Annormal ymadael heb canlyniadau
+71=Trosglwyddo atal
+72=Trosglwyddo Erthylu
+73=Bloc trosglwyddo gwblhau
+74=cyfeiriad Anghyfreithlon mewn bloc
+75=Anghyfreithlon cyfrif beit yn trosglwyddo bloc
+76=Anghyfreithlon bloc math trosglwyddo
+77=Bloc data checksum amryfusedd
+78=Bloc trosglwyddo neges gywir a dderbyniwyd
+79=cyfrif beit anghywir yn ystod trosglwyddo bloc
+7F=Gwasanaeth ddim wedi ei gefnogi mewn modd gweithredol diagnostig
+80=Gwasanaeth ddim wedi ei gefnogi mewn modd gweithredol diagnostig
+90=Gwasanaeth ddim wedi ei gefnogi mewn modd gweithredol diagnostig
+
+300=Drosglwyddo amser
+301=Dim ymateb gan yr ECU
+302=Rhaglennu ECU nawr...
+303=Dim gwybodaeth
+304=Llwytho data nawr!!!
+
+[Message]
+1=Gwall caledwedd mewnol
+2=deffro ECU arhoswch ...
+3=Derbyn gwybodaeth ECU
+4=ECU gwybodaeth gyflawn
+5=Dim gwybodaeth
+6=Diogelwch mynediad
+7=Data lawrlwytho nawr
+8=Erasing fflachia nawr
+9=Rhaglennu cwblhau
+10=Diffoddwch tanio i barhau ...
+11=Aros am 1 ail
+12=Gofyn am download data
+13=Newid i cyflymder uchel
+14=Rheoli checksum nawr...
+15=Iawn checksum Flash...
+16=Gwall checksum Flash
+17=Darllen flash nawr...
+18=ECU flash darllen yn gywir
+19=Rheoli flash
+20=ECU Ni chanfuwyd
+21=Flash Gwall wrth ddarllen!!!
+22=Rheoli ECU setup bellach: arhoswch!!!
+23=Parhau rhaglenni
+24=Ffeil sgramblo Ni all barhau
+25=Methu dod o hyd rhifau rheoli ECU
+26=Maint y ffeil anghywir
+27=Flash rhaglenni Gwall!!!
+28=Gofyn am lanlwytho data
+29=Gofyn am ymadael trosglwyddo
+30=Ffeil cywasgedig yn gywir
+31=Gwall ffeil gywasgu!!!
+32=Ffeil decompressed gywir
+33=Gwall ffeil decompressing!!!
+34=Gwall wrth agor y ffeil
+35=Glanhau data ECU arhoswch!!!
+36=Darllen Codau Gwall DTC
+37=Codau Clirio Gwall DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+100=Mae gwall wedi digwydd ewch i C:\\MPPS\\Logs\\ ac anfon yr holl ffeiliau data yn y ffolder i 'support@amtcartech.com' fel y gallwn adolygu. Wneud hyn os gwelwch yn dda cyn gynted â phosibl fel y gallwn ddatrys y broblem!
+

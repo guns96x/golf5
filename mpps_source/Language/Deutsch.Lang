@@ -1,0 +1,145 @@
+;Deutsch language file for MPPS
+
+[Discription]
+Name=Deutsch
+File=Deutsch.Lang
+
+[Menu]
+M0=Datei
+M1=Id abfragen
+M2=Lesen
+M3=Schreiben
+M4=Extra-Daten
+M5=Beenden
+M6=Optionen
+M7=Farbe Manager
+M8=Client Manager
+M9=Lösche Log-Dateien
+M10=Admin
+M11=History
+M12=bcb Converter
+M13=Speed-Optionen
+M14=Schnell (Tisch Programmierung)
+M15=Normal (Standard)
+M16=Langsam (Recovery Mode)
+M17=Lese Optionen
+M18=Vollständig Lesen (nur Kline)
+M19=Data Only (Voreinstellung)
+M20=Security Bypass (VAG Edc15 Only)
+M21=Programm-Info
+M22=Version Informationen
+M23=Lizenz
+
+
+[Commands]
+C0= Id abfragen
+C1=Lesen
+C2=Schreiben
+C3=Extra-Daten
+C4=Checksumme
+C5=Beenden
+
+
+[Labels]
+L0=Sprache
+L1=Hersteller
+L2=Modellauswahl
+L3=Steuergerät Auswahl
+L4=Steuergerät Infomationen
+L5=Info
+L6=Benutzer Information
+L7=Volt
+L8=Zeit
+L9=Fortschritt
+
+[Errors]
+10=General ablehnen
+11=Modus nicht unterstützt
+12=Sub-Funktion nicht unterstützt oder ungültiges Format
+13=Sub-Funktion nicht unterstützt oder ungültiges Format
+21=Belegt: Repeat Request
+22=Bedingungen nicht korrekt
+23=Warten Sie! Routine nicht vollständig
+24=Request sequence error
+31=Anforderung ausser Bereich
+33=Sicherheit Zugriff verweigert
+34=Sicherheits-Zugriff erlaubt
+35=Ungültiger Schlüssel
+36=Anzahl der Versuche überschritten
+37=Required time delay not expired
+40=Download nicht akzeptiert
+41=Unkorrekt Download-Typ
+42=Cannot download to specified address
+43=Cannot download number of bytes requested
+44=Zum Download bereit
+50=Upload nicht akzeptiert
+51=Unkorrekt Upload-Typ
+52=Cannot upload from specified address
+53=Cannot upload number of bytes requested
+54=Bereit zum Hochladen
+61=Normal exit with results
+62=Normal exit without results
+63=Normal exit without results
+64=Abnormal exit without results
+71=Übertragung unterbrochen
+72=Übertragung abgebrochen
+73=Block Übertragung abgeschlossen
+74=Illegal address in bloc
+75=Illegal byte count in block transfer
+76=Illegal block transfer type
+77=Checksummenfehler im datenblock
+78=Blocktransfer-Nachricht korrekt empfangen
+79=Incorrect byte count during block transfer
+7F=Service nicht unterstützt im aktiven Diagnose-Modus
+80=Service nicht unterstützt im aktiven Diagnose-Modus
+90=Service nicht unterstützt im aktiven Diagnose-Modus
+
+300=Transmit time out
+301=Keine Antwort vom Steuergerät
+302=Steuergerät Programming
+303=Keine Angaben
+304=Herunterladen von Daten.
+
+[Message]
+1=Interner Hardwarefehler
+2=Verbindung mit Steuergerät, bitte warten ...
+3=Empfangen von Informationen ECU
+4=ECU Informationen vollständig
+5=keine Angaben
+6=Sicherheits-Zugang
+7=Daten Download
+8=Lösche flash
+9=Programmierung abgeschlossen
+10=Zündung ausschalten
+11=Warten für 1 Sekunde
+12=Daten anfordern download
+13=Umschalten auf High-Speed
+14=Checksummenüberprüfung
+15=Flash-Prüfsumme ok ...
+16=Flash Checksummenfehler
+17=Lese-Flash
+18=ECU-Flash, richtig gelesen
+19=Flash-Controlling
+20=Steuergerät nicht gefunden
+21=Fehler beim Lesen der Flash!
+22=Controlling ECU Setup jetzt: Bitte warten!
+23=Weiter Programmierung
+24=verschlüsselte Datei kann nicht fortgesetzt werden
+25=Nicht gefunden ECU Kontrollnummern
+26=Falsche Dateigröße
+27=Fehler Programmierung Flash!
+28=Anfordern von Daten-Upload
+29=Anforderte übertragung beenden
+30=Datei ordnungsgemäss komprimiert
+31=Fehler beim Komprimieren der Datei!
+32=File richtig entpackt
+33=Fehler beim Dekomprimieren von Dateien!
+34=Fehler beim Öffnen der Datei
+35=Cleaning ecu data please wait!!!
+36=Lese Fehlerspeicher
+37=Lösche Fehlerspeicher
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+100 = Ein Fehler ist aufgetreten gehen Sie bitte zu C:\\MPPS\\Logs\\ und schicken Sie alle Dateien in diesen Ordner zu "support@amtcartech.com ', damit wir überprüfen können. Tun Sie dies bitte so bald wie möglich, damit wir das Problem lösen Können!

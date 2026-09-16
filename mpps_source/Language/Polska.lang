@@ -1,0 +1,149 @@
+;Polish language file for MPPS
+
+[Discription]
+Name=Polska
+File=Polska.Lang
+
+[Menu]
+M0=Plik
+M1=Identyfikacja
+M2=Odczyt
+M3=Programowanie
+M4=Dodatkowe dane
+M5=Wyjœcie
+M6=Opcje
+M7=Zarz¹dzanie kolorem
+M8=Mened¿er klienta
+M9=Wyczyœc Logi
+M10=narzêdzia
+M11=Podsumowanie Programowania
+M12=BCB konwerter
+M13=Ustawienia prêdkoœci
+M14=Szybko (Bench Flashing)
+M15=Œrednio (Domyœlna)
+M16=Wolny (tryb odzyskiwania)
+M17=Opcje odczytu
+M18=Pe³en odczyt (Tylko linia K)
+M19=Tylko dane (domyœlnie)
+M20=Pomiñ security (tylko VAG EDC15)
+M21=Informacje o programie
+M22=Informacje o wersji
+M23=Licencja
+
+
+
+[Commands]
+C0=Identyfikacja
+C1=Odczyt
+C2=Programowanie
+C3=Dodatkowe dane
+C4=Checksum
+C5=Wyjœcie
+
+
+
+[Labels]
+L0=Jêzyk
+L1=Wybierz Markê
+L2=Wybierz Model
+L3=Wybierz Ecu
+L4=Dane ECU
+L5=Komentarze
+L6=Informacja o uzytkowniku
+L7=Napiêcie
+L8=czas
+L9=postêp
+
+
+[Errors]
+10=ogólne odmowa
+11=tryb nie jest obslugiwany
+12=Podfunkcja nie dzia³a lub nieprawidlowy format
+13=Podfunkcja nie dzia³a lub nieprawidlowy format
+21=Zajety: powtórz
+22=warunki nie s¹ w³aœciwe
+23=Czekaj! Algorytm nie kompletny
+24=Request sequence error
+31=zadanie poza zasiegiem
+33=Odmowa dostepu
+34=dostêp dozwolony
+35=Niewlasciwy klucz
+36=Przekroczono liczbê prób
+37=Wymagane opóznienie czasowe nie minê³o
+40=Odczyt niedozwolony
+41=Niewlasciwy typ odczytu
+42=Nie mozna pobrac na podany adres
+43=Nie mozna pobrac liczby zadanych bajtów
+44=gotowe do pobrania
+50=upload nie jest akceptowany
+51=Niewlasciwy typ uploadu
+52=Nie mozna zaladowac z okreœlonego adresu
+53=Nie mozna zaladowac liczby zadanych bajtów
+54=Gotowy do wyslania
+61=normalne wyjœcie z wynikami
+62=normalne wyjœce bez wyników
+63=nieprawid³owe wyjœcie z wynikami
+64=nieprawid³owe wyjœcie bez wyników
+71=Transfer zawieszony
+72=transfer przerwany
+73=Transfer bloku kompletny
+74=Niepoprawny adres w polu
+75=Niepoprawna liczba bajtów w polu transferu
+76=niepoprawny typ pola transferu
+77=B³¹d sumy kontrolnej bloku danych
+78=przekaz komunikatów grupowych poprawnie odebrany
+79=Nieprawidlowa liczba bajtów podczas transferu bloku
+7F=Usluga nie jest obslugiwana w aktywnym trybie diagnostycznym
+80=Usluga nie jest obslugiwana w aktywnym trybie diagnostycznym
+90=Usluga nie jest obslugiwana w aktywnym trybie diagnostycznym
+
+300=Min¹³ czas na transmisje danych
+301=Brak odpowiedzi Ecu
+302=Programowanie ECU w trakcie ...
+303=Brak informacji
+304=Odczyt danych w trakcie!
+
+[Message]
+1=Wewnêtrzny b³¹d sprzêtu
+2="Budzenie" ECU proszê czekaæ ...
+3=Odbieranie informacji z ECU
+4=Informacje z ECU kompletne
+5=Brak informacji
+6=Dostêp zabezpieczony
+7=Pobieranie danych w trakcie
+8=Kasowanie pamiêci flash w trakcie
+9=Programowanie zakoñczone
+10=Wy³¹cz zap³on, aby kontynuowaæ ...
+11=Czekaj 1 sekundê
+12=Rozpoczynanie pobierania danych
+13=Przelaczanie na wy¿sz¹ prêdkoœæ
+14=Sprawdzanie sumy kontrolnej w trakcie ...
+15=Suma kontrolna poprawna ...
+16=B³¹d sumy kontrolnej
+17=Odczyt pamiêci w trakcie ...
+18=Pamiêæ ECU odczytana poprawnie
+19=Sprawdzanie pamiêci
+20=Nie znaleziono ECU
+21=Blad odczytu pamiêci!
+22=Sprawdzanie konfiguracji ECU w trakcie: proszê czekaæ!
+23=Kontynuowanie programowania
+24=Plik kodowany nie mo¿na kontynuowaæ
+25=Nie mo¿na znaleŸæ numerów kontrolnych ECU
+26=Nieprawid³owy rozmiar pliku
+27=B³¹d programowania pamiêci!
+28=Rozpoczynanie procedury programowania
+29=Rozpoczynanie procedury koñczenia transferu
+30=Plik skompresowany prawid³owo
+31=B³¹d kompresji pliku!
+32=Plik zdekompresowany prawid³owo
+33=B³¹d podczas dekompresji pliku!
+34=B³¹d podczas otwierania pliku
+35=Czyszczenie danych ECU proszê czekaæ!
+36=odczyt kodów bledów DTC
+37=Czyszczenie kodów b³êdów DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Wyst¹pi³ b³¹d, prosze przejœæ do katalogu C:\\MPPS\\Logs\\ i wys³aæ wszystkie pliki z tego folderu na adres 'support@amtcartech.com' dziêki czemu bêdziemy mogli je przeanalizowaæ. Proszê to zrobiæ jak najszybciej, abyœmy mogli rozwi¹zaæ problem!

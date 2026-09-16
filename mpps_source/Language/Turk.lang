@@ -1,0 +1,151 @@
+;Turkish language file for MPPS
+
+[Discription]
+Name=Türk
+File=Türk.Lang
+
+[Menu]
+M0=Dosya
+M1=Ecu No
+M2=Okuma
+M3=yaz
+M4=Ekstra Veri
+M5=Çikis
+M6=Seçenekler
+M7=Renk Yöneticisi
+M8=Müsteri Yöneticisi
+M9=sifresiz Log Dosyalari
+M10=yarar
+M11=Programlama Özeti
+M12=BCB Dönüstürücü
+M13=Hiz Seçenekleri
+M14=Hizli (Bench Flashing)
+M15=Orta (Varsayilan)
+M16=Yavas (kurtarma modu)
+M17=Okuma Seçenekler
+M18=okuma (Kline yalnizca)
+M19=Veri (Sadece Varsayilan)
+M20=Güvenlik Bypass (Vag Edc15 yalnizca)
+M21=Program Bilgileri
+M22=Sürüm Bilgileri
+M23=Lisans
+
+
+
+[Commands]
+C0=Ecu No
+C1=Okuma
+C2=yaz
+C3=Ekstra Veri
+C4=Kontrol
+C5=Çikis
+
+
+
+[Labels]
+L0=Dil
+L1=Seç olun
+L2=Model Seçiniz
+L3=Seç Ecu
+L4=Ecu Veri
+L5=Yorumlar
+L6=Kullanici Bilgileri
+L7=Volt
+L8=Zaman
+L9=Ilerleme
+
+
+[Errors]
+10=Genel reddetmek
+11=Modu desteklenmez
+12=Alt desteklenmiyor veya geçersiz islev biçimi
+13=Alt desteklenmiyor veya geçersiz islev biçimi
+21=Dolu: tekrarlama istegi
+22=Kosullar dogru degil
+23=Bekle! Rutin tamamlayamayan
+24=Request sequence error
+31=Istek menzil disinda
+33=Güvenlik erisim engellendi
+34=Güvenlik erisime izin
+35=Geçersiz anahtar
+36=deneme sayisi asildi
+37=Required time delay not expired
+37=Gerekli zaman gecikme süresi degil
+40=Indirme kabul
+41=Uygun olmayan yükleme türü
+42=Belirtilen adres indirme Can't
+43=Byte yükleyemiyor numarasi talep
+44=indirmek için hazir
+50=yükle kabul
+51=Uygun olmayan yükleme türünü
+52=Can belirttiginiz adresten yüklenmedi
+53=Byte miyim yüklenmedi numarasi talep
+54=yüklemek için hazir
+61=Sonuçlar Normal çikmak
+62=Disari sonuçlar Normal çikmaks
+63=Sonuçlar anormal çikis
+64=Disari sonuçlar anormal çikis
+71=transferi askiya
+72=Aktarma iptal edildi
+73=Blok tamamlamak transferi
+74=Blogundaki Yasadisi adresi
+75=Blogundaki Yasadisi bayt sayisi transferi
+76=Blogundaki Yasadisi bayt sayisi transferi
+77=Blok veri checksum hatasi
+78=Blok transferi mesaji dogru aldi
+79=Incorrect byte count during block transfer
+7F=Hizmet etkin tani modunda desteklenen
+80=Hizmet etkin tani modunda desteklenen
+90=Hizmet etkin tani modunda desteklenen
+
+300=Iletim zaman asimi
+301=Ecu hiçbir cevap
+302=Programlama ECU simdi ...
+303=hiçbir bilgi
+304=Simdi veri indirme!
+
+
+[Message]
+1=Iç donanim hatasi
+2=Waking ECU lütfen bekleyin ...
+3=alma ECU bilgi
+4=ECU bilgileri eksiksiz
+5=hiçbir bilgi
+6=Güvenlik erisim
+7=Veri simdi indir
+8=silme simdi flas
+9=Programlama tamamlandi
+10=Switch kontagini kapatin devam etmek için ...
+11=saniye bekleyin
+12=download veri isteme
+13=yüksek hizli geçis
+14=Kontrol checksum simdi ...
+15=flas checksum ok ...
+16=flas checksum hatasi
+17=Okuma flas simdi ...
+18=ECU dogru okumak flas
+19=Kontrol flas
+20=ECU bulunamadi
+21=Hata okuma flas!
+22=Kontrol ECU kurulum simdi: lütfen bekleyin!
+23=Devam programlama
+24=Dosya olabilir devam edemiyor sifreli
+25=ECU kontrol numaralari bulunamiyor
+26=Yanlis dosya boyutu
+27=Hata programlama flas!
+28=veri yüklemek isteme
+29=transferi çikmak isteme
+30=Dosya düzgün sikistirilmis
+31=Hata sikistirarak dosya!
+32=Dosya dogru dekomprese
+33=Hata decompressing dosya!
+34=Hata dosya opening
+35=ECU veri lütfen bekleyiniz Temizleme!
+36=DTC hata kodlari Okuma
+37=Takas DTC hata kodlari
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=dosya C:\\MPPS\\Logs\\ ve 'support@amtcartech.com' ve

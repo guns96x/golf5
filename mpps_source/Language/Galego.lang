@@ -1,0 +1,148 @@
+;Galician language file for MPPS
+
+[Discription]
+Name=Galego 
+File=Galego.Lang
+
+[Menu]
+M0=Arquivo
+M1=Id Ecu
+M2=Ler
+M3=Escribir
+M4=dados extra
+M5=Saír
+M6=Opcións
+M7=Xestor de cores 
+M8=xerente clent 
+M9=Limpar Log
+M10=utilidades 
+M11=Síntese Programación
+M12=Bcb conversor 
+M13=Opcións de Velocidade
+M14=rápido  (Bench Flashing)
+M15=Media (por defecto)
+M16=lento (Modo de recuperación)
+M17=Ler Opcións
+M18=lectura completa (Kline só)
+M19=só os datos. (por defecto)
+M20=desvío de seguridade  (vag EDC15 só)
+M21=información sobre o programa 
+M22=Versión de información
+M23=Licencia
+
+
+
+[Commands]
+C0=Id Ecu
+C1=Ler
+C2=Escribir
+C3=dados extra
+C4=Checksum
+C5=Saír
+
+
+[Labels]
+L0=Linguaxe
+L1=Seleccione Facer
+L2=Seleccione o Modelo
+L3=Seleccione Ecu
+L4=Ecu Datos
+L5=comentarios
+L6=Información do Usuario
+L7=voltios
+L8=tempo 
+L9=Progreso
+
+
+[Errors]
+10=rexeitar Xeral
+11=Modo sen soporte
+12=Sub-función non funciona ou non válida formato
+13=Sub-función non funciona ou non válida formato
+21=Busy: demanda de repetición
+22=condicións non corrixir
+23=Agardar! Rutina non completo 
+24=Request sequence error
+31=Request fóra do rango
+33=ingreso Seguridade
+34=acceso permitido Seguridade
+35=chave non válida
+36=número de intentos excedido
+37=intervalo de tempo necesario non rematou
+40=descarga non aceptou 
+41=tipo de descarga impropio
+42=Non se pode baixar o enderezo especificado
+43=Non se pode transferir o número de bytes solicitado
+44=listo para descargar
+50=subida non aceites 
+51=tipo de carga é adecuado
+52=Non se puido cargar a partir do enderezo especificado
+53=número non é posíbel subir bytes solicitado
+54=Rematado a subir
+61=normal saír cos resultados
+62=saída normal, sen resultados 
+63=saída anormal con resultados
+64=saída anormal sen resultados
+71=Transferencia de suspensión
+72=Transferencia abortar
+73=Block transferencia completa
+74=enderezo ilegal no bloque
+75=count ilegal en bloque byte de transferencia
+76=Illegal tipo de transferencia de bloque
+77=Bloco de erros de suma de datos
+78=mensaxe de transferir o bloque recibido correctamente
+79=count byte incorrectas durante o bloqueo de transferencia
+7F=Servizo non soportado no modo de diagnóstico activos
+80=Servizo non soportado no modo de diagnóstico activos
+90=servizo non está soportado no modo de diagnóstico activos
+
+300=tempo de transmisión para fóra
+301=Sen resposta do Ecu
+302=ecu programación agora 
+303=Sen información
+304=Importar datos agora!
+
+[Message]
+1=erro de hardware interno
+2=Waking ECU por favor, agarde ...
+3=recibir información ECU
+4=información ECU completo
+5=Sen información
+6=acceso de Seguridade
+7=Data descargar agora
+8=Borrar o Flash agora
+9=programación completa 
+10=desactive a ignición para continuar ...
+11=Espere por 1 segundo
+12=Solicitando datos descarga
+13=Cambiar a alta velocidade
+14=checksum Controlados agora ...
+15=ok checksum Flash ...
+16=Erro de checksum Flash
+17=lectura Flash agora ...
+18=ECU flash ler correctamente
+19=Control de flash
+20=ECU non atopada
+21=Erro ao ler o flash!
+22=Control de configuración ECU agora: por favor, agarda!
+23=Continuar programación
+24=Arquivo mexidos non pode seguir
+25=Non se puido atopar os números de control ECU
+26=tamaño do arquivo incorrecta
+27=Erro de programación flash!
+28=Solicitando cargar datos
+29=Solicitando saída de transferencia
+30=Arquivo comprimido correctamente
+31=Erro ao comprimir!
+32=O arquivo descomprimido correctamente
+33=Erro ao descomprimir!
+33=arquivo de erro descomprimir !!!
+35=limpeza de datos ecu por favor, agarde!
+36=Lendo código de erro DTC
+37=erro Clearing códigos DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Houbo un erro, por favor, consulte  C:\\MPPS\\Logs\\ e enviar os arquivos de datos en que o directorio 'support@amtcartech.com' para que poidamos revisar. Por favor, fai que o máis axiña posible para que poidamos resolver o problema!

@@ -1,0 +1,292 @@
+{
+  "source_sha256": {
+    "reference": "cf891152a97fb63609b40fc590fd86f38b034119b516e936eb8c0173e2551d26",
+    "on": "a1fc76a6ca961604999980733f89f13a77aa903af52b1ca43567be3dc76e5bc4",
+    "off": "8b0f9b9a89435d72d93960bf77b3e154342979c6ed070768eb11493ca67dd134",
+    "minimal20": "29b5f585c78973046a9cf2161c86eda9f1541d8066e481c93ce4eda746c2e492",
+    "duration229": "c41a1b3eb0b50d8944a0932f2cf0bb904548e0b416559c0232d5f9c17c086b81"
+  },
+  "minimal20_diff_exact": true,
+  "duration229_diff_exact": true,
+  "minimal20_preserves_all_other_bytes_including_power_maps": true,
+  "duration_axes": [
+    {
+      "address": "0x1e5032",
+      "last_rpm": 5000,
+      "changed_iq_columns": [
+        55.0,
+        60.0
+      ]
+    },
+    {
+      "address": "0x1e52b4",
+      "last_rpm": 5000,
+      "changed_iq_columns": [
+        55.0,
+        60.0
+      ]
+    },
+    {
+      "address": "0x1e5536",
+      "last_rpm": 5000,
+      "changed_iq_columns": [
+        55.0,
+        60.0
+      ]
+    },
+    {
+      "address": "0x1e57b8",
+      "last_rpm": 4500,
+      "changed_iq_columns": [
+        50.0,
+        55.0
+      ]
+    }
+  ],
+  "angle_proxies": [
+    {
+      "rpm": 2000,
+      "same_numeric_iq_not_same_runtime_signal": 55,
+      "reference": {
+        "duration_deg": 29.6015625,
+        "soi_deg": 14.7890625,
+        "duration_minus_soi_proxy_deg": 14.8125
+      },
+      "off": {
+        "duration_deg": 31.9453125,
+        "soi_deg": 15.9609375,
+        "duration_minus_soi_proxy_deg": 15.984375
+      },
+      "duration229": {
+        "duration_deg": 29.6015625,
+        "soi_deg": 15.9609375,
+        "duration_minus_soi_proxy_deg": 13.640625
+      }
+    },
+    {
+      "rpm": 2000,
+      "same_numeric_iq_not_same_runtime_signal": 60,
+      "reference": {
+        "duration_deg": 31.265625,
+        "soi_deg": 14.7890625,
+        "duration_minus_soi_proxy_deg": 16.4765625
+      },
+      "off": {
+        "duration_deg": 33.7265625,
+        "soi_deg": 15.9609375,
+        "duration_minus_soi_proxy_deg": 17.765625
+      },
+      "duration229": {
+        "duration_deg": 31.265625,
+        "soi_deg": 15.9609375,
+        "duration_minus_soi_proxy_deg": 15.3046875
+      }
+    },
+    {
+      "rpm": 3000,
+      "same_numeric_iq_not_same_runtime_signal": 55,
+      "reference": {
+        "duration_deg": 34.171875,
+        "soi_deg": 20.6015625,
+        "duration_minus_soi_proxy_deg": 13.5703125
+      },
+      "off": {
+        "duration_deg": 36.8671875,
+        "soi_deg": 22.2421875,
+        "duration_minus_soi_proxy_deg": 14.625
+      },
+      "duration229": {
+        "duration_deg": 34.171875,
+        "soi_deg": 22.2421875,
+        "duration_minus_soi_proxy_deg": 11.9296875
+      }
+    },
+    {
+      "rpm": 3000,
+      "same_numeric_iq_not_same_runtime_signal": 60,
+      "reference": {
+        "duration_deg": 36.3515625,
+        "soi_deg": 20.6015625,
+        "duration_minus_soi_proxy_deg": 15.75
+      },
+      "off": {
+        "duration_deg": 39.234375,
+        "soi_deg": 22.2421875,
+        "duration_minus_soi_proxy_deg": 16.9921875
+      },
+      "duration229": {
+        "duration_deg": 36.3515625,
+        "soi_deg": 22.2421875,
+        "duration_minus_soi_proxy_deg": 14.109375
+      }
+    },
+    {
+      "rpm": 4000,
+      "same_numeric_iq_not_same_runtime_signal": 55,
+      "reference": {
+        "duration_deg": 39.09375,
+        "soi_deg": 27.0,
+        "duration_minus_soi_proxy_deg": 12.09375
+      },
+      "off": {
+        "duration_deg": 42.1875,
+        "soi_deg": 29.15625,
+        "duration_minus_soi_proxy_deg": 13.03125
+      },
+      "duration229": {
+        "duration_deg": 39.09375,
+        "soi_deg": 29.15625,
+        "duration_minus_soi_proxy_deg": 9.9375
+      }
+    },
+    {
+      "rpm": 4000,
+      "same_numeric_iq_not_same_runtime_signal": 60,
+      "reference": {
+        "duration_deg": 40.1953125,
+        "soi_deg": 27.0,
+        "duration_minus_soi_proxy_deg": 13.1953125
+      },
+      "off": {
+        "duration_deg": 43.3828125,
+        "soi_deg": 29.15625,
+        "duration_minus_soi_proxy_deg": 14.2265625
+      },
+      "duration229": {
+        "duration_deg": 40.1953125,
+        "soi_deg": 29.15625,
+        "duration_minus_soi_proxy_deg": 11.0390625
+      }
+    },
+    {
+      "rpm": 4500,
+      "same_numeric_iq_not_same_runtime_signal": 55,
+      "reference": {
+        "duration_deg": 39.75,
+        "soi_deg": 27.0,
+        "duration_minus_soi_proxy_deg": 12.75
+      },
+      "off": {
+        "duration_deg": 42.890625,
+        "soi_deg": 29.15625,
+        "duration_minus_soi_proxy_deg": 13.734375
+      },
+      "duration229": {
+        "duration_deg": 39.75,
+        "soi_deg": 29.15625,
+        "duration_minus_soi_proxy_deg": 10.59375
+      }
+    },
+    {
+      "rpm": 4500,
+      "same_numeric_iq_not_same_runtime_signal": 60,
+      "reference": {
+        "duration_deg": 42.09375,
+        "soi_deg": 27.0,
+        "duration_minus_soi_proxy_deg": 15.09375
+      },
+      "off": {
+        "duration_deg": 45.4453125,
+        "soi_deg": 29.15625,
+        "duration_minus_soi_proxy_deg": 16.2890625
+      },
+      "duration229": {
+        "duration_deg": 42.09375,
+        "soi_deg": 29.15625,
+        "duration_minus_soi_proxy_deg": 12.9375
+      }
+    }
+  ],
+  "thermal_cells": [
+    {
+      "temp_c": 804.96,
+      "rpm": 2500,
+      "reference_factor": 1.0,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 0.048804294777937685
+    },
+    {
+      "temp_c": 804.96,
+      "rpm": 3000,
+      "reference_factor": 1.0,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 0.048804294777937685
+    },
+    {
+      "temp_c": 804.96,
+      "rpm": 3500,
+      "reference_factor": 1.0,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 0.048804294777937685
+    },
+    {
+      "temp_c": 804.96,
+      "rpm": 4000,
+      "reference_factor": 1.0,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 0.048804294777937685
+    },
+    {
+      "temp_c": 804.96,
+      "rpm": 4500,
+      "reference_factor": 0.989990234375,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 1.0492923377257157
+    },
+    {
+      "temp_c": 804.96,
+      "rpm": 5000,
+      "reference_factor": 0.97998046875,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 2.0497803806734938
+    },
+    {
+      "temp_c": 819.96,
+      "rpm": 2500,
+      "reference_factor": 1.0,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 0.048804294777937685
+    },
+    {
+      "temp_c": 819.96,
+      "rpm": 3000,
+      "reference_factor": 0.97998046875,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 2.0497803806734938
+    },
+    {
+      "temp_c": 819.96,
+      "rpm": 3500,
+      "reference_factor": 0.97998046875,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 2.0497803806734938
+    },
+    {
+      "temp_c": 819.96,
+      "rpm": 4000,
+      "reference_factor": 0.9599609375,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 4.0507564665690605
+    },
+    {
+      "temp_c": 819.96,
+      "rpm": 4500,
+      "reference_factor": 0.9599609375,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 4.0507564665690605
+    },
+    {
+      "temp_c": 819.96,
+      "rpm": 5000,
+      "reference_factor": 0.9599609375,
+      "off_factor": 1.00048828125,
+      "factor_reduction_percent": 4.0507564665690605
+    }
+  ],
+  "maximum_factor_reduction_percent": 4.0507564665690605,
+  "limits": [
+    "No hydraulic EOI or real torque/power inferred.",
+    "No checksum validation, ECU readback or vehicle test.",
+    "Unchanged bytes do not guarantee unchanged runtime outputs."
+  ]
+}

@@ -1,0 +1,148 @@
+;Lithuanian language file for MPPS
+
+[Discription]
+Name=Lietuviškai
+File=Lietuviškai.Lang
+
+[Menu]
+M0=Failas
+M1=Ecu ID
+M2=Skaityti
+M3=Rašyti
+M4=Papildomi duomenys
+M5=Išeiti
+M6=Funkcijos
+M7=spalvos vadybininkas
+M8=klientu vadybininkas
+M9=Valyti Prisijungti failai
+M10=Utilities
+M11=Programavimas santrauka
+M12=BCB skaiciuokle
+M13=greitis puslapi
+M14=greitas (Bench mirksi)
+M15=terpeje (Nebuvimas)
+M16=letai (Atkurimo režimas)
+M17=Skaityti Funkcijos
+M18=Pilnas Skaityti (Kline tik)
+M19=tik duomenis (pagal nutylejima)
+M20=Saugumas aplinkkelio (VAG Edc15 tik)
+M21=Programa Info
+M22=Versija Informacija
+M23=Licencija
+
+
+
+[Commands]
+C0=Ecu ID
+C1=Skaityti
+C2=Rašyti
+C3=Papildomi duomenys
+C4=Kontroline
+C5=Išeiti
+
+
+
+[Labels]
+L0=Kalba
+L1=Pasirinkite Marke
+L2=Pasirinkite modeli
+L3=Pasirinkti Ecu
+L4=Ecu duomenys
+L5=Komentarai
+L6=Vartotojo informacija
+L7=V
+L8=Laikas
+L9=pažanga
+
+[Errors]
+10=Bendra atmesti
+11=režimas nepalaikomas
+12=pagal subrangos funkcija nepalaikoma ar netinkamas formatas
+13=pagal subrangos funkcija nepalaikoma ar netinkamas formatas
+21=Užimta: Pakartotinis prašymas
+22=salygos nera teisinga
+23=Palauk! Iprastiniai ne visiškai
+24=Request sequence error
+31=Prašymas diapazono
+33=Saugumo Access Denied
+34=Access Security leidžiama
+35=Neteisingas raktas
+36=Viršytas bandymai
+37=Reikalinga laikui nesibaige
+40=Download nepritare
+41=Neteisingas parsisiusti tipas
+42=Nepavyko ikelti i nurodyta adresa
+43=Nepavyko atsisiusti baitu skaicius papraše
+44=pasirenges atsisiusti
+50=open nepritare
+51=Neteisingas ikelimo buda
+52=Nepavyko ikelti iš nurodytu adresu
+53=Nepavyko ikelti baitu skaicius papraše
+54=paruošta ikelimui
+61=Normalus išeiti su rezultatais
+62=Normalus išeiti be rezultatu
+63=Nenormalus išeiti su rezultatais
+64=Nenormalus išeiti be rezultatu
+71=perdavimas sustabdomas
+72=Perkelimas nutrauktas
+73=Blokuoti perduoti visa
+74=Nelegali adresas blokas
+75=Nelegali baitu skaicius bloko perdavimas
+76=Nelegali bloko tipas
+77=Blokuoti duomenu kontroline klaidos
+78=Blokuoti perkelti prane ¹ im ±, gavo
+79=Neteisingas baitu skaicius per bloko
+7F=Service nepalaiko aktyvu diagnostikos režimu
+80=Service nepalaiko aktyvu diagnostikos režimu
+90=Service nepalaiko aktyvu diagnostikos režimu
+
+300=perduoti Time Out
+301=Nera atsakymo iš Ecu
+302=Programavimas ekiu dabar ...
+303=Nera informacijos
+304=atsisiuncia duomenis dabar!
+
+[Message]
+1=vidinis aparaturos klaidos
+2=budintis ekiu Prašome palaukti ...
+3=gavimas ekiu informacija
+4=ekiu informacija pilnas
+5=Nera informacijos
+6=Access Security
+7=duomenys Atsisiusti dabar
+8=trinamas Flash dabar
+9=programavimas baigtas
+10=Išjunkite uždegimo toliau ...
+11=Palaukite 1 sekunde
+12=prašoma duomenu Atsisiusti
+13=Persijungti i didelio greicio
+14=valdymas Kontroline dabar ...
+15=Flash Kontroline ok ...
+16=Flash kontroline klaidos
+17=Skaitymas Flash dabar ...
+18=ekiu Flash skaityti teisingai
+19=valdymas Flash
+20=ekiu nerastas
+21=Klaida skaitant Flash!
+22=valdymas ekiu setup dabar: Palaukite!
+23=Testi programavimas
+24=Failas plakta negali testi
+25=Negali rasti ekiu kontroles numeriai
+26=Neteisingas failo dydis
+27=Klaida programavimo Flash!
+28=prašoma duomenu ikelimo
+29=prašanciosios perkelti išvažiavima
+30=Failas suspaustas teisingai
+31=Klaida glaudinti faila!
+32=Failas Išspausti teisingai
+33=Klaida dekompresowania faila!
+34=Klaida atidarant byla
+35=Valymas ekiu duomenu Prašome palaukti!
+36=Skaitymas DTC klaidu kodai
+37=Kliringo DTC klaidu kodai
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Ivyko klaida eikite i C:\\MPPS\\Logs\\ ir siusti visus duomenis, failus šiame aplanke 'support@amtcartech.com' kad galetume peržiureti. Prašome tai padaryti kuo greiciau, kad galetume išspresti problema!

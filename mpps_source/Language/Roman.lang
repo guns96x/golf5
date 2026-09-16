@@ -1,0 +1,150 @@
+;Romanian language file for MPPS
+
+[Discription]
+Name=Român
+File=Român.Lang
+
+[Menu]
+M0=dosar
+M1=Ecu de identificare a
+M2=Citeste
+M3=Scrie
+M4=date suplimentare
+M5=Iesire
+M6=Optiuni
+M7=manager de culoare
+M8=administrator clienti
+M9=dosar clar log
+M10=Utilitati
+M11=Sumar de programare
+M12=BCB convertor
+M13=optiuni de viteza
+M14=rapid (Bench clipeste)
+M15=medie (implicit)
+M16=încet (modul de recuperare)
+M17=Optiuni Citeste
+M18=Full Read (Kline numai)
+M19=doar datele (implicit)
+M20=Bypass de Securitate (VAG EDC15 numai)
+M21=de informatii program
+M22=Versiunea de informare
+M23=de licenta
+
+
+
+[Commands]
+C0=Ecu de identificare a
+C1=Citeste
+C2=Scrie
+C3=date suplimentare
+C4=Checksum
+C5=Iesire
+
+
+
+[Labels]
+L0=Limba
+L1=Selecteaza face de
+L2=Selectare model
+L3=Selecteaza Ecu
+L4=Ecu de date
+L5=Comentarii
+L6=User Information
+L7=volti
+L8=Timp
+L9=progresul
+
+
+[Errors]
+10=General respinga
+11=Mod nu sunt suportate
+12=Sub function not supported or invalid format
+13=Sub function not supported or invalid format
+21=Ocupati: cerere se repeta
+22=Conditii nu corecta
+23=Stai! De rutina nu complet
+24=Request sequence error
+31=Cerere în afara intervalului
+33=acces de Securitate a negat
+34=permis de acces de Securitate
+35=Tasta nevalabil
+36=numarul depasita de încercari de
+37=întârziere Necesar de timp nu a expirat
+40=Descarcati nu sunt acceptate
+41=tip improprie download
+42=Nu se poate descarca de a aborda specificate
+43=numar nu poate descarca de bytes solicitate
+44=Gata pentru download
+50=Incarca nu sunt acceptate
+51=tip improprie upload
+52=Nu poate fi încarcat de la adresa specificata
+53=numar nu poate încarca de bytes solicitate
+54=Gata pentru upload
+61=iesire Normal, cu rezultate
+62=iesire normal, fara rezultate
+63=anormale de iesire, cu rezultate
+64=anormale de iesire fara rezultate
+71=de transfer suspendat
+72=Transfer de avortat
+73=Bloc de transfer complet
+74=adresa ilegala în bloc
+75=ilegala a numarului de octeti în bloc de transfer
+76=bloc ilegala a tipului de transfer
+77=bloc de date de eroare de control
+78=Bloc mesaj de transfer mod corect au primit
+79=numarul de octeti incorecta în timpul bloc de transfer
+7F=Serviciul nu a sprijinit în mod activ de diagnosticare
+80=de servicii nu a sprijinit în mod activ de diagnosticare
+90=de servicii nu a sprijinit în mod activ de diagnosticare
+
+300=timp de transmitere în
+301=Nu raspuns de la ECU
+302=ECU de programare acum ...
+303=Nu exista informatii
+304=descarcarea datelor acum!
+
+
+[Message]
+1=Eroare interna de hardware-ul
+2=trezirea ECU, va rog, asteptati ...
+3=informatii Primirea ECU,
+4=ECU, informatii completa
+5=Nu exista informatii
+6=acces de Securitate
+7=descarcarea de date cu intreprinderea
+8=Stergerea Flash acum
+9=Programare finalizat
+10=Opriti aprindere pentru a continua ...
+11=Asteptati 1 secunda
+12=solicitant, descarcarea de date
+13=Trecerea la mare viteza
+14=Controlul de control acum ...
+15=Flash ok suma de control ...
+16=Flash checksum error
+17=Flash Reading acum ...
+18=ECU flash citit corect
+19=flash Controlling
+20=ECU nu a fost gasit
+21=eroare de flash lectura!
+22=Controlul ECU de instalare acum: va rog, asteptati!
+23=Continua de programare
+24=File scrambled nu pot continua
+25=Nu pot gasi numere de control ECU,
+26=dimensiunea fisierului incorecta
+27=eroare de flash de programare!
+28=solicitant, încarcati de date
+29=solicitant, cu iesire de transfer
+30=fisier comprimat în mod corect
+31=Eroare la comprimarea!
+32=File decomprimat în mod corect
+33=Eroare fisier decompressing!
+34=Eroare la deschiderea fisierului
+35=chimica de date ECU, va rog, asteptati!
+36=citire codurile de eroare DTC
+37=cliring codurile de eroare DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=O eroare a aparut va rugam sa mergeti la  C:\\MPPS\\Logs\\ si trimite toate fisierele de date în acest dosar pentru a 'support@amtcartech.com' si trimite toate fisierele de date în acest dosar pentru a

@@ -1,0 +1,141 @@
+;English language file for MPPS
+
+[Discription]
+Name=Espanol
+File=Spanish.Lang
+
+[Menu]
+M0=Fichero
+M1=Id UCE
+M2=Leer
+M3=Escritura
+M4=Datos Extra
+M5=Salir
+M6=Opciones
+M7=Configurador de Color
+M8=Configurador Cliente
+M9=Borrar de Log de Ficheros
+M10=Utilidades
+M11=Sumario de Programa
+M12=Convertidor Bcb
+M13=Opciones de Velocidad
+M14=Rapido(Flash en banco)
+M15=Medio (Defecto)
+M16=Baja  (Modo Recuperacion)
+M17=Opciones de Lectura
+M18=Lectura Total (Solo Kline)
+M19=Solo Datos (Por defecto)
+M20=Bypass Seguridad ( Solo Vag Edc15 )
+M21=Info Programa
+M22=Informacion de Version
+M23=Licencia
+
+
+[Commands]
+C0=Id UCE
+C1=Leer
+C2=Escribir
+C3=Datos Extra
+C4=Checksum
+C5=Salir
+
+
+[Labels]
+L0=Lenguaje
+L1=Seleccion Marca
+L2=Seleccion Modelo
+L3=Seleccion UCE
+L4=Datos UCE
+L5=Comentarios
+L6=Informacion de usuario
+L7=Tension
+L8=Tiempo
+L9=Progreso
+
+[Errors]
+10=General reject
+11=Modo no soportado
+12=Sub funcion no soportado o formato invalido
+13=Sub funcion no soportado o formato invalido
+21=Ocupado: repetir conexion
+22=Condiciones no correctas
+23=Atencion! Rutina no completada
+31=Peticion fuera de rangoe
+33=Acceso de Seguridad denegada
+34=Acceso de Seguridad permitida
+35=Llave Invalida
+36=Numero excesivo de intentos
+37=Tiempo requerido de retardo no expirado
+40=Descarga no aceptada
+41=Tipo de descarga impropia
+42=Imposible descargar la direccion especifica
+43=Imposible descargar el numero de bytes requeridos
+44=Listo para la descarga
+50=Carga no aceptada
+51=Tipo de carga impropia
+52=Imposible cargar desde la direccion especifica
+53=Imposible cargar numeros de bytes requeridos
+54=Listo para la carga
+61=Salida normal de datos
+62=Salida normal de sin datos
+63=Salida anormal con resultados
+64=Salida anormal sin resultados
+71=Transferencia suspendida
+72=Transferencia abortada
+73=Transferencia de bloque completada
+74=Direccion de bloque erroneo
+75=Byte erroneo en la transferencia de bloque
+76=Tipo de transferencia de bloque incorrecto
+77=Error de Checksum en bloque de datos
+78=Mensaje de transferencia de bloque correctamente recibido
+79=Byte incorrecto durante la carga del bloque
+7F=Servicio no soportado en modo activo de diagnosis
+80=Servicio no soportado en modo activo de diagnosis
+90=Servicio no soportado en modo activo de diagnosis
+
+300=Transmision en espera
+301=Sin respuesta desde la UCE
+302=Programacion de UCE ahora….
+303=Sin informacion
+304=Descargar datos ahora!!!
+
+[Message]
+1=Error interno en hardware
+2=Dialogando con UCE espere por favor...
+3=Recepcion de informacion de UCE
+4=Informacion UCE completada
+5=Sin Informacion
+6=Acceso de Seguridad
+7=Descargar datos ahora
+8=Borrado de flash ahora
+9=Programacion completada
+10=Cortar el contacto y continuar...
+11=Espere 1 segundo
+12=Peticion de descarga de datos
+13=Conmutador de alta velocidad
+14=Controlando checksum ahora...
+15=Checksum Flash ok...
+16=Checksum Flash error
+17=Leyendo Flash ahora...
+18=Lectura  de flash UCE correta
+19=Controlando flash
+20=UCE no encontrada
+21=Error de lectura de flash!!!
+22=Control de configuracion UCE ahora: espere por favor!!!
+23=Siga programando
+24=Fichero alterado imposible continuar
+25=Imposible localizar numeros de control UCE
+26=Medida de fichero incorrecto
+27=Error programacion flash!!!
+28=Peticion de datos de carga
+29=Peticion de transferencia de salida
+30=Fichero comprimido correctamente
+31=Error de compresion de fichero!!!
+32=Fichero descomprimido correctamente
+33=Error de descompresion de fichero!!!
+34=Error de apertura de fichero
+35=Borrando datos UCE espere por favor!!!
+36=Lectura de codigos de error DTC
+37=Borrado de codigos de error DTC
+
+100=Ha ocurrido un error de funcionamiento, por favor ir a C:\\Multi Protocol Programming System\\Logs\\ y enviar fichero losg de error a errors@amtcartech.com' para poder verlo y dar solucion al mismo en el menor tiempo posible!

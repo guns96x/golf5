@@ -1,0 +1,150 @@
+;Norwegianlanguage file for MPPS
+
+[Discription]
+Name=Norsk
+File=Norsk.Lang
+
+[Menu]
+M0=Fil
+M1=Ecu Id
+M2=lese
+M3=Skrive
+M4=Ekstra Data
+M5=Avslutt
+M6=Alternativer
+M7=Farge Manager
+M8=kundebehandler
+M9=klare loggfiler
+M10=Utilities
+M11=Programmering Oppsummering
+M12=Bcb omformer
+M13=Speed Options
+M14=Rask (Bench Flashing)
+M15=Middels (Standard)
+M16=Langsom (recovery mode)
+M17=Les Valg
+M18=full lese (Kline bare)
+M19=Data Only (Standard)
+M20=sikkerhet bypass (Vag Edc15 bare)
+M21=informasjon om programmet
+M22=Versjonsinformasjon
+M23=Licence
+
+
+
+[Commands]
+C0=Ecu Id
+C1=lese
+C2=Skrive
+C3=ekstra data
+C4=Checksum
+C5=Avslutt
+
+
+
+[Labels]
+L0=Språk
+L1=Velg Lag
+L2=Velg modell
+L3=Velg Ecu
+L4=Ecu Data
+L5=Kommentarer
+L6=Brukerinformasjon
+L7=Volt
+L8=Tid
+L9=Fremgang
+
+
+[Errors]
+10=Generelle avvise
+11=Mode støttes ikke
+12=Sub funksjonen støttes ikke eller ugyldig format
+13=Sub funksjonen støttes ikke eller ugyldig format
+21=Opptatt: gjenta anmodning
+22=Conditions ikke riktig
+23=Vent! Rutinemessig ikke fullstendig
+24=Request sequence error
+31=anmodning utenfor rekkevidde
+33=sikkerhet Tilgang ikke tillatt
+34=sikkerhet tilgang tillatt
+35=Ugyldig nøkkel
+36=oversteget antall forsøk
+37=Nødvendig tidsforsinkelse ikke utløpt
+40=Download ikke tillatt
+41=Feil nedlasting type
+42=Kan ikke laste ned til angitt adresse
+43=Kan ikke laste ned antall byte forespurt
+44=Klar for nedlasting
+50=Upload ikke tillatt
+51=Feil laste type
+52=Kan ikke laste opp fra oppgitte adressen
+53=Kan ikke laste opp antall byte forespurt
+54=Klar for opplasting
+61=Normal avslutte med resultater
+62=Normal avslutte uten resultater
+63=Unormal avslutte med resultater
+64=Unormal avslutte uten resultater
+71=Transfer suspendert
+72=Overføring avbrutt
+73=Block overføre komplett
+74=Ulovlig adresse i blokk
+75=Ulovlig byte telle i blokk overføring
+76=Ulovlig blokk overføringstype
+77=Block data checksum error
+78=Block overføre melding korrekt mottatt
+79=Feil byte teller under blokkere overføring
+7F=Tjenesten støttes ikke i aktiv diagnostic modus
+80=Tjenesten støttes ikke i aktiv diagnostic modus
+90=Tjenesten støttes ikke i aktiv diagnostic modus
+
+300=Transmit tid ut
+301=Ingen svar fra Ecu
+302=Programmering ECU nå ...
+303=Ingen informasjon
+304=Nedlasting av data nå!
+
+
+[Message]
+1=Intern maskinvarefeil
+2=våkner ECU vennligst vent ...
+3=Motta ECU informasjon
+4=ECU informasjon komplett
+5=Ingen informasjon
+6=sikkerhet Access
+7=Data nedlasting nå
+8=Slette flash nå
+9=Programmering fullført
+10=Slå av tenningen til å fortsette ...
+11=Vent i 1 sekund
+12=ber data nedlasting
+13=Bytte til høy fart
+14=Controlling checksum nå ...
+15=Flash checksum ok ...
+16=Flash checksum error
+17=Reading flash nå ...
+18=ECU flash leste riktig
+19=Styring flash
+20=ECU ikke funnet
+21=Feil ved lesing flash!
+22=Controlling ECU installasjonen nå: vent litt!
+23=Fortsett programmering
+24=File eggerøre kan ikke fortsette
+25=Kan ikke finne ECU kontroll tall
+26=Feil filstørrelse
+27=Feil programmering flash!
+28=ber data upload
+29=ber overføre Avslutt
+30=File komprimert riktig
+31=Feil komprimere filen!
+32=File pakket riktig
+33=Feil dekomprimere filen!
+34=Feil ved opning av fil
+35=Rengjøring ECU data vent litt!
+36=lesing DTC feilkoder
+37=avregning DTC feilkoder
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=En feil har oppstått kan du gå til C:\\MPPS\\Logs\\ og sender alle data filene i mappen for 'support@amtcartech.com' slik at vi kan vurdere. Vennligst gjør dette så snart som mulig slik at vi kan løse problemet!

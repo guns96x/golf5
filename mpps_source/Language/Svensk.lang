@@ -1,0 +1,151 @@
+;Swedish language file for MPPS
+
+[Discription]
+Name=Svensk
+File=Svensk.Lang
+
+[Menu]
+M0=Arkiv
+M1=Ecu ID
+M2=Läs
+M3=Skriv
+M4=Extra info
+M5=Avsluta
+M6=Alternativ
+M7=Färgval
+M8=Kundhanterare
+M9=Radera loggfiler
+M10=Verktyg
+M11=Sammanfattning
+M12=bcb konverterare
+M13=Hastighetsval
+M14=Snabb (Fristående)
+M15=Medel (Standard)
+M16=Långsam (Återställning)
+M17=Läsalternativ
+M18=Full läsning (Endast K-line)
+M19=Endast data (standard)
+M20=Kringgå säkerhetsmode (Endast VAG EDC15)
+M21=Programinformation
+M22=Versionsinformation
+M23=Licens
+
+
+
+[Commands]
+C0=Ecu Id
+C1=Läs
+C2=Skriv
+C3=Extra Data
+C4=Kontrollsumma
+C5=Avsluta
+
+
+
+[Labels]
+L0=Språk
+L1=Välj Märke
+L2=Välj Modell
+L3=Välj Ecu
+L4=Ecu Information
+L5=Anmärkning
+L6=Användarinformation
+L7=Spänning
+L8=Tid
+L9=Progress
+
+
+[Errors]
+10=Generellt hinder
+11=Inställning stödjs ej.
+12=Ogiltigt format eller delfunktion stödjs ej
+13=Ogiltigt format eller delfunktion stödjs ej
+21=Upptagen: upprepa begäran
+22=Felaktiga förutsättningar
+24=Request sequence error
+23=Vänta! Rutinen ej klar
+31=Begäran utanför område
+33=Säkerhetsåtkomst nekad
+34=Säkerhetsåtkomst tillåten
+35=Ogiltig nyckel
+36=Antal försök överskridet
+37=Obligatorisk tid har ej förflutit.
+40=Nedladdning ej godkänd
+41=Felaktig nedladdningstyp
+42=Kan inte ladda ner till angiven adress
+43=Kan inte ladda ner begärt antal bytes
+44=Klar för nedladdning
+50=Uppladdning accepteras inte
+51=Felaktig uppladdningstyp
+52=Kan inte ladda upp från angiven adress
+53=Kan inte ladda begärt antal bytes
+54=Klar för uppladdning
+61=Normal avslutning med resultat
+62=Normal avslutning utan resultat
+63=Onormal avslutning med resultat
+64=Onormal avslutning utan resultat
+71=Överföring avbruten
+72=Överföring stoppad
+73=Blocköverföring klar
+74=Ogiltig blockadress
+75=Ogiltig byteräkning vid blocköverföring
+76=Ogiltig typ av blocköverföring
+77=Felaktig kontrollsumma i block.
+78=Meddelande om blocköverföring korrekt mottaget
+79=Felaktigt antal bytes under blocköverföring
+7F=Tjänsten stöds inte i aktivt diagnostik läge
+80=Tjänsten stöds inte i aktivt diagnostik läge
+90=Tjänsten stöds inte i aktivt diagnostik läge
+
+300=Timeout vid sändning
+301=Inget svar från ECU
+302=Programmerar ECU...
+303=Ingen information
+304=Laddar ner data nu!
+
+
+[Message]
+1=Internt hårdvarufel
+2=Väcker ECU vänligen vänta...
+3=Tar emot ECU information
+4=ECU information mottagen
+5=Ingen informationen
+6=Säkerhetsaccess
+7=Dataöverföring pågår
+8=Radering av flash pågår
+9=Programmering avslutad
+10=Slå av tändningen för att fortsätta...
+11=Vänta i 1 sekund
+12=Begär data nedladdning
+13=Växla till hög hastighet
+14=Kontrollerar kontrollsumman nu...
+15=Kontrollsumma i flash ok...
+16=Kontrollsumma i flash felaktig
+17=Läser flash nu...
+18=ECU flash lästes korrekt
+19=Kontrollerar flash
+20=ECU kan inte hittas
+21=Fel vid läsning av flash!
+22=Kontrollerar ECU uppsättning nu: Vänta!
+23=Fortsätt programmering
+24=Filen krypterad kan inte fortsätta
+25=Kan inte hitta kontrollnummer i ECU
+26=Felaktig filstorlek
+27=Fel vid programmering av flash!
+28=Begär uppladdning av data
+29=Begär avslut av överföring
+30=Fil komprimerad korrekt
+31=Fel vid komprimering av fil!
+32=Fil uppackad korrekt
+33=Fel vid uppackning av fil!
+34=Fel vid öppning av fil
+35=Nollställer ECU data: Vänta!
+36=Läser DTC felkoder
+37=Nollställer DTC felkoder
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Ett fel har uppstått gå till  C:\\MPPS\\Logs\\ och skicka alla data filer i mappen till 'support@amtcartech.com' så att vi kan granska dem. Vänligen gör detta så snart som möjligt så vi kan lösa problemet!
+

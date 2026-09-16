@@ -1,0 +1,148 @@
+;Danish language file for MPPS
+
+[Discription]
+Name=Dansk
+File=Dansk.Lang
+
+[Menu]
+M0=Fil
+M1=Ecu Id
+M2=Læs
+M3=Skriv
+M4=Ekstra Data
+M5=Afslut
+M6=Indstillinger
+M7=Farve chef
+M8=kundeadministrator
+M9=Ryd Logfiler
+M10=Utilities
+M11=Programmering Resumé
+M12=BCB konverter
+M13=hastighed valg
+M14=hurtig (Bench Blinker)
+M15=Medium (standard)
+M16=Langsomt (nyttiggørelse mode)
+M17=Læs valg
+M18=fuld læse (Kline kun)
+M19=data kun (Standard)
+M20=sikkerhed bypass (Vag Edc15 kun)
+M21=Programmet oplysninger
+M22=Version Information
+M23=Licens
+
+
+
+[Commands]
+C0=Ecu Id
+C1=Læs
+C2=Skriv
+C3=Ekstra Data
+C4=Checksum
+C5=Afslut
+
+
+[Labels]
+L0=Sprog
+L1=Vælg Make
+L2=Vælg model
+L3=Vælg Ecu
+L4=Ecu Data
+L5=Kommentarer
+L6=brugeroplysninger
+L7=Volt
+L8=Tid
+L9=fremskridt
+
+
+[Errors]
+10=Generelle afvise
+11=mode ikke understøttet
+12=delfunktion understøttes ikke eller ugyldigt format
+13=delfunktion understøttes ikke eller ugyldigt format
+21=Optaget: Gentag anmodningen
+22=betingelser ikke korrekt
+23=Vent! Rutinemæssig ikke komplet
+24=Request sequence error
+31=forespørgsel uden for rækkevidde
+33=sikkerhed adgang nægtet
+34=sikkerhed adgang tilladt
+35=Ugyldig nøgle
+36=overskredet antallet af forsøg
+37=Påkrævet tidsforsinkelse ikke er udløbet
+40=Download ikke accepteret
+41=Forkert download type
+42=Kan ikke hente til angiven adresse
+43=Kan ikke hente antal bytes anmodet
+44=Klar til download
+50=Upload ikke accepteret
+51=Forkert upload type
+52=Kan ikke uploade fra den angivne adresse
+53=Kan ikke uploade antal bytes anmodet
+54=Klar til upload
+61=Normal exit med resultater
+62=Normal afslutte uden resultater
+63=Abnorm exit med resultater
+64=Abnorm afslutte uden resultater
+71=Overførsel afbrudt
+72=Overførsel afbrudt
+73=Block overføre komplette
+74=Ulovlig adresse i blok
+75=Ulovlig byte tælle i bloktilskud
+76=Ulovlig bloktilskud type
+77=Block data checksum error
+78=bloktilskud besked korrekt modtaget
+79=Forkert byte tælle i bloktilskud
+7F=Service understøttes ikke i aktiv diagnostisk tilstand
+80=Service understøttes ikke i aktiv diagnostisk tilstand
+90=Service understøttes ikke i aktiv diagnostisk tilstand
+
+300=Transmit time-out
+301=Ingen svar fra Ecu
+302=Programmering ECU nu ...
+303=Uoplyst
+304=Downloading data nu!
+
+[Message]
+1=Intern hardware fejl
+2=vågne ECU vent venligst ...
+3=Modtagelse ECU oplysninger
+4=ECU oplysninger komplet
+5=Ingen oplysninger
+6=Security adgang
+7=Data download nu
+8=Sletning flash nu
+9=Programmering afsluttet
+10=Sluk tændingen til at fortsætte ...
+11=Vent i 1 sekund
+12=Anmodning om dataoverførsel
+13=Skift til høj hastighed
+14=Styring checksum nu ...
+15=Flash checksum ok ...
+16=Flash checksum error
+17=læsning flash nu ...
+18=ECU flash læses korrekt
+19=Styring flash
+20=ECU ikke fundet
+21=Fejl ved læsning flash!
+22=Styring ECU opsætning nu: vent venligst!
+23=Fortsæt programmering
+24=Fil scrambled kan ikke fortsætte
+25=Kan ikke finde ECU kontrol numre
+26=forkert filstørrelse
+27=Fejl programmering flash!
+28=begærende data upload
+29=Anmodning om at forlade overførsel
+30=Fil komprimeret korrekt
+31=Fejl komprimere fil!
+32=Fil dekomprimeret korrekt
+33=Fejl dekomprimere filen!
+34=Fejl ved åbning af fil
+35=Rengøring ECU data, vent venligst!
+36=læsning DTC fejlkoder
+37=Clearing DTC fejlkoder
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Der opstod en fejl bedes du gå til C:\\MPPS\\Logs\\ og sende alle de data filer i denne mappe til 'support@amtcartech.com' så vi kan gennemgå. Undlad venligst at dette så hurtigt som muligt, så vi kan løse problemet!

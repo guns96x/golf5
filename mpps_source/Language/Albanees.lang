@@ -1,0 +1,150 @@
+;Albanian language file for MPPS
+
+[Discription]
+Name=Albanees
+File=Albanees.Lang
+
+[Menu]
+M0=dosja
+M1=Ecu Id
+M2=Lexuar
+M3=shkruani
+M4=dhëna shtesë
+M5=Dil
+M6=zgjedhje
+M7=menaxher ngjyra
+M8=menaxher klientit
+M9=fotografi të qartë log
+M10=shërbimet
+M11=përmbledhje programimit
+M12=Bcb Converter
+M13=opsionet e shpejtësisë
+M14=shpejte (Vend ndezje)
+M15=Mesem (mungesa)
+M16=ngadalë (Recovery Mode)
+M17=Lexuar Options
+M18=lexo të plotë (Kline vetëm)
+M19=Data Vetëm anëtarët (mungesa)
+M20=Sigurimit Bypass (Vag Edc15 vetëm)
+M21=informacion program
+M22=Versioni Informacione
+M23=patentë
+
+
+
+[Commands]
+C0=Ecu Id
+C1=Lexuar
+C2=shkruani
+C3=dhëna shtesë
+C4=Checksum
+C5=Dil
+
+
+
+[Labels]
+L0=Gjuha
+L1=Zgjidh bëj
+L2=Zgjidh Modeli
+L3=Zgjidh Ecu
+L4=Ecu dhënave
+L5=Komentet
+L5=Komente
+L6=informacionet
+L7=Volts
+L8=Koha
+L9=përparim
+
+
+[Errors]
+10=Përgjithshëm të refuzojë
+11=Regjimi nuk mbështetje
+12=Nen nuk funksion i mbështetur ose Formati invalid
+13=Nen nuk funksion i mbështetur ose Formati invalid
+21=i zënë: Kerkesa përsëritur
+23=Prisni! Rutinë jo i plotë
+24=Request sequence error
+31=Kërkesë nga gamë
+33=akses të Sigurimit të mohuar
+34=akses të Sigurimit të lejuar
+35=kyç invalid
+36=Numri i tentimeve Tejkaluar
+37=vonesë e kërkuar kohë nuk skaduar
+40=Shkarko nuk pranohen
+41=Lloji i pavend shkarko
+42=Nuk mund ta shkarkoni në adresën e specifikuar
+43=A numër nuk shkarko të bytes kërkuar
+44=gati për shkarkim
+50=Ngarko nuk pranohen
+51=Lloji i pavend upload
+52=Nuk mund të ngarkoj nga adresa e specifikuar
+53=Numri nuk mund të ngarkoj e bytes kërkuar
+54=gati për upload
+61=dalje normale me rezultate
+62=dalje normale pa rezultate
+63=dalje parregullt me rezultatet
+64=dalje parregullt pa rezultate
+71=Transferimi pezulluar
+72=Transferimi nderpre
+73=Blloku transferim i plotë
+74=Adresa e paligjshëm në bllok
+75=count bajt paligjshme në bllokun e transferimit
+76=transferimin ilegal bllok tip
+77=Blloku të dhënave checksum gabim
+78=Blloku mesazh transferimit drejt pranuar
+79=count pasaktë bajt bllok gjatë transferimit
+7F=Shërbimi nuk mbështeten në mënyrë aktive diagnostik
+80=Shërbimi nuk mbështeten në mënyrë aktive diagnostik
+90=Shërbimi nuk mbështeten në mënyrë aktive diagnostik
+
+300=Koha e transmetimit jashtë
+301=Nuk ka përgjigje nga Ecu
+302=ECU Programim tani ...
+303=Nuk ka informata
+304=Shkarkim dhëna tani!
+
+
+[Message]
+1=Gabim i brendshëm hardware
+2=zgjuar ECU ju lutem prisni ...
+3=Marrja e informacionit ECU
+4=informacion i plotë ECU
+5=Nuk ka informata
+6=akses të Sigurimit
+7=Të dhëna shkarko tani
+8=fshirja flash tani
+9=programimin përfunduar
+10=fik ndezjen të vazhdojë ...
+11=Prisni për 1 dytë
+12=Kërkesa të dhënave shkarko
+13=Switching to shpejtësi të lartë
+14=checksum Kontrolli tani ...
+15=checksum Flash ok ...
+16=checksum gabim Flash
+17=flash Lexim tani ...
+18=ECU flash lexuar korrekt
+19=flash Kontrolli
+20=ECU nuk u gjet
+21=Gabim leximi flash!
+22=Kontrollimi setup ECU tani: ju lutem prisni!
+23=Vazhdo programimit
+24=Skedari nuk mund të vazhdojë të fërguara
+25=Nuk mund të gjeni numrat e kontrollit ECU
+26=Madhësia e gabuar file
+27=Gabim programimit flash!
+28=Kërkesa të dhënave upload
+29=Kërkesa për dalje transferimi
+30=Skedari i ngjeshur korrekt
+31=Gabim compressing file!
+32=Skedari dekompresohen korrekt
+33=Gabim decompressing file!
+34=Gabim hapjes skedar
+35=Pastrimi dhënave ECU ju lutem prisni!
+36=Leximi DTC kodet gabim
+37=Pastrimi DTC kodet gabim
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=një gabim ka ndodhur, ju lutem shkoni C:\\MPPS\\Logs\\ dhe dërgoni fotografi të gjitha të dhënat në atë dosje të 'support@amtcartech.com' kështu që ne mund të shqyrtimit. Ju lutem bëni këtë sa më shpejt të jetë e mundur kështu që ne mund të zgjidhin problemin!

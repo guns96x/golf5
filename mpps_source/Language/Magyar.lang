@@ -1,0 +1,149 @@
+;Hungarian language file for MPPS
+
+[Discription]
+Name=Magyar
+File=Magyar.Lang
+
+[Menu]
+M0=Fájl
+M1=Ecu Id
+M2=Olvasás
+M3=írása
+M4=további adatok
+M5=Kilép
+M6=Beállítások
+M7=Szín Manager
+M8=ügyfélkezelomet
+M9=Napló törlése Fájlok
+M10=Segédprogramok
+M11=programozás összefoglaló
+M12=BCB átalakítót
+M13=sebesség lehetoségeket
+M14=gyors (pad villog)
+M15=Közepes (alapértelmezett)
+M16=Lassú (hasznosítási mód)
+M17=Olvasás Beállítások
+M18=teljes olvasni (Kline csak)
+M19=Csak adatok (alapértelmezett)
+M20=biztonsági elkerülo (Vág Edc15 csak)
+M21=programajánló
+M22=Verzió információ
+M23=engedélyezési
+
+
+
+[Commands]
+C0=Ecu Id
+C1=Olvasás
+C2=írása
+C3=további adatok
+C4=Checksum
+C5=Kilépés a
+
+
+
+[Labels]
+L0=Nyelv
+L1=Válassza Make
+L2=Modell kiválasztása
+L3=Válassza ki Ecu
+L4=Ecu adatokhoz
+L5=Megjegyzések
+L6=Ufelhasználói adatok
+L7=Vlts
+L8=Ido
+L9=haladást
+
+
+[Errors]
+10=Általános elutasítja
+11=mód nem támogatott
+12=albekezdésében funkciót nem támogatott vagy érvénytelen formátuma
+13=albekezdésében funkciót nem támogatott vagy érvénytelen formátuma
+21=Foglalt: ismétlés kérés
+22=feltételei nem megfelelo
+23=Várjon! A rutin nem teljes
+24=Request sequence error
+31=kérés a megengedett tartományon kívül
+33=Biztonság hozzáférés megtagadva
+34=biztonsági hozzáférés megengedett
+35=Érvénytelen kulcs
+36=Meghaladta számos kísérlet
+37=Kötelezo késés nem járt le
+40=letöltés nem fogadta el
+41=Nem megfelelo típusú download
+42=Nem lehet letölteni a megadott címre
+43=Nem lehet letölteni a bájtok száma kért
+44=bármikor letöltheto
+50=feltöltése nem fogadott
+51=Nem megfelelo feltöltési típust
+52=Nem lehet feltölteni a megadott címre
+53=Nem sikerült feltölteni a bájtok száma kért
+54=kész feltöltése
+61=Normál kilépteto eredmények
+62=Normál kilépés nem járt eredménnyel
+63=Abnormális kilépés az eredményeket
+64=Abnormális kilépés nem járt eredménnyel
+71=transzfer felfüggesztett
+72=Átvitel megszakítva
+73=teljes blokk átadása
+74=Érvénytelen blokk cím
+75=Érvénytelen bájt szám blokk átadása
+76=Érvénytelen blokk átvitel típusára
+77=block adatok checkum hiba
+78=Block át helyesen üzenet érkezett
+79=Érvénytelen bájt szám alatt tömb átadása
+7F=A szolgáltatás nem támogatott aktív diagnosztikai üzemmódban
+80=A szolgáltatás nem támogatott aktív diagnosztikai üzemmódban
+90=A szolgáltatás nem támogatott aktív diagnosztikai üzemmódban
+
+300=idotúllépéssel
+301=Nincs válasz Ecu
+302=Programming ECU most ...
+303=Nincs információ
+304=adat letöltése most!!
+
+[Message]
+1=belso hardver hiba
+2=ébrenléti ECU egy kis türelmet kérek ...
+3=fogadása ECU információk
+4=ECU információk teljes köru
+5=Nincs információ
+6=Biztonsági hozzáférés
+7=Adatok töltse le most
+8=flash most törlése
+9=A programozás befejezodött
+10=Kikapcsol gyújtás, hogy továbbra is ...
+11=Várjon 1 másodperc
+12=kérése adatletöltést
+13=Váltás a nagy sebességu
+14=irányítást checksum most ...
+15=Flash checksum Rendben ...
+16=Flash checksum hibaüzenet
+17=Reading flash most ...
+18=ECU flash olvassa helyesen
+19=Controlling flash
+20=ECU nem található
+21=Hiba történt a flash!!
+22=irányítást ECU beállítás most: egy kis türelmet kérek!
+23=Folytat programozás
+24=Fájl torzított nem lehet folytatni
+25=Nem találom ECU-ellenorzési számokról
+26=Érvénytelen fájl mérete
+27=Hiba programozás flash!!
+28=megkereso adatok feltöltése
+29=kérése transzfer kilépés
+30=Fájl tömörített helyesen
+31=Hiba a fájl tömörítése!!
+32=Fájl kibontja helyesen
+33=Hiba kicsomagoláskor file!
+34=Hiba a fájl megnyitásakor
+35=Takarítás ecu adatokat kérjük várjon!
+36=olvasatot DTC hibakódok
+37=elszámoló DTC hibakódok
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Hiba történt, látogass el a C:\\MPPS\\Logs\\ és elküldi az összes adat fájlokat ebben a mappában 'support@amtcartech.com' így tudunk felülvizsgálatot. Kérjük, ezt a leheto leghamarabb így tudjuk megoldani a problémát!

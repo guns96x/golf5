@@ -1,0 +1,146 @@
+;Maltese language file for MPPS
+
+[Discription]
+Name=Malti
+File=Malti.Lang
+
+[Menu]
+M0=fajl
+M1=Ecu Id
+M2=aqra
+M3=ikteb
+M4=data ekstra
+M5=hrug
+M6=ghazliet
+M7=kulur manager
+M8=manager klijentr
+M9=log fajls car
+M10=utilitajiet
+M11=sommarju ta 'programmazzjoni
+M12=Bcb konvertitur
+M13=velocità ghazliet
+M14=mghaggel (bank ma jteptipx)
+M15=medju (nuqqas)
+M16=bil-mod(Mod ta 'rkupru)
+M17=aqra l-ghazliet
+M18=shiha jinqara (Kline biss)
+M19=data biss (nuqqas)
+M20=bypass ta 'sigurtà (Vag Edc15 biss)
+M21=programm ta 'informazzjoni
+M22=informazzjoni version
+M23=licenzja
+
+
+[Commands]
+C0=Ecu Id
+C1=aqra
+C2=ikteb
+C3=data ekstra
+C4=Checksum
+C5=hrug
+
+
+[Labels]
+L0=Lingwa
+L1=jaghzlu jaghmlu
+L2=jaghzlu mudell
+L3=jaghzlu Ecu
+L4=Ecu Data
+L5=Kummenti
+L6=Informazzjoni lill-Utent
+L7=Volts
+L8=Hin
+L9=Progress
+
+[Errors]
+10=Generali tirrifjuta
+11=Mode mhijiex sostnuta
+12=Sub-funzjoni mhux sostnut jew invalidi format
+13=Sub-funzjoni mhux sostnut jew invalidi format
+21=imhabbat: talba ripetuta
+22=kondizzjonijiet mhux korretti
+23=Stenna! Rutina mhux kompluta
+24=Request sequence error
+31=Talba minn firxa
+33=michud l-access tas-Sigurtà
+34=l-access tas-Sigurtà permessi
+35=invalidu ewlenin
+36=in-numru jinqabez ta 'attentati
+37=hin ta 'dewmien Mehtiega jkunx skada
+40=Download mhux accettati
+41=it-tip mhux kif suppost download
+42=Ma tistax download ghal indirizz specifikat
+43=Jistghu numru ta 'bytes mhux download mitluba
+44=lesti ghall-download
+50=Upload mhux accettata
+51=it-tip mhux kif suppost upload
+52=Jistghu ma ittella 'mill-indirizz specifikat
+53=Jistghu in-numru ma upload ta 'bytes mitluba
+54=lesti ghall-upload
+61=hrug normali mal-rizultati
+62=hrug normali minghajr ir-rizultati
+63=hrug anormali ma 'rizultati
+64=hrug mhux normali minghajr ir-rizultati
+71=Trasferiment sospiza
+72=Trasferiment abortiti
+73=Blokk trasferiment komplut
+74=L-indirizz illegali fil-blokk
+75=l-ghadd illegali byte fil-blokk ta 'trasferiment
+76=illegali blokk trasferiment tat-tip
+77=Blokk data checksum zball
+78=trasferiment Blokk messagg b'mod korrett ircivew
+79=skorretti byte ghadd matul blokk trasferiment
+7F=Servizz kinitx appoggjata fil-modalità attiva dijanjostici
+80=Servizz kinitx appoggjata fil-modalità attiva dijanjostici
+90=Servizz kinitx appoggjata fil-modalità attiva dijanjostici
+
+300=jittrasmettu hin stipulat fir -
+301=L-ebda risposta mill Ecu
+302=Ipprogrammar ECU issa ...
+303=L-ebda informazzjoni
+304=Tnizzil data issa!!!!
+
+[Message]
+1=zball hardware Intern
+2=qawmien ECU jekk joghgbok stenna ...
+3=ECU Jircievu informazzjoni
+4=ECU informazzjoni kompluta
+5=L-ebda informazzjoni
+6=access tas-Sigurtà
+7=Data download issa
+8=Tnehhija flash issa
+9=Programming mimlija
+10=Itfi ignition li jkompli ...
+11=Stenna ghal 1 tieni
+12=Talba data download
+13=Il-bidla ghal velocità gholja
+14=checksum Kontroll issa ...
+15=ok checksum Flash ...
+16=zball checksum Flash
+17=Qari flash issa ...
+18=ECU flash jinqara sewwa
+19=flash Kontroll
+20=ECU ma sabet
+21=flash qari zball!
+22=Jikontrolla setup ECU issa: jekk joghgbok stenna!
+23=Tkompli l-ipprogrammar
+24=File scrambled ma tistax tkompli
+25=Ma jistghux isibu numri ta 'kontroll ECU
+26=daqs zbaljata fajl
+27=programmazzjoni flash zball!
+28=Talba data upload
+29=it-Talba tal-hrug tat-trasferiment
+30=File kompressata korrettament
+31=fajl kompressjoni zball!
+32=File decompressed korrettament
+33=fajl decompressing zball!
+34 ftuh Error=fajl
+35=It-tindif tad-data f'ecu jekk joghgbok stenna!
+36=Qari kodicijiet zball DTC
+37=ikklerjar zball kodicijiet DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Sar zball jekk joghgbok mur ghall C:\\MPPS\\Logs\\ u jibghat il-fajls ta 'data f'dak l-folder biex 'support@amtcartech.com' hekk nistghu revizjoni. Jekk joghgbok jaghmlu dan mill-aktar fis possibbli sabiex inkunu nistghu issolvi l-problema!

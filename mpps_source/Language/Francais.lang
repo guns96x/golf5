@@ -1,0 +1,147 @@
+;French language file for MPPS
+
+[Discription]
+Name=Français
+File=Français.Lang
+
+[Menu]
+M0=Fichier
+M1=Id Ecu
+M2=Lire
+M3=Rédiger
+M4=données supplémentaires
+M5=sortie
+M6=Options
+M7=directeur de couleur
+M8=directeur de client
+M9=Effacer les fichiers journaux
+M10=Utilitaires
+M11=Programmation Sommaire
+M12=Bcb Converter
+M13=Vitesse Options 
+M14=rapide (Banc de clignotant)
+M15=Moyenne (par défaut)
+M16=lent (mode de rétablissement) 
+M17=Lire Options
+M18=Full Read (Kline seulement)
+M19=données uniquement (par défaut)
+M20=contournement de sécurité (VAG Edc15 seulement)
+M21=l'information de programme
+M22=Informations sur la version
+M23=permis
+
+
+
+[Commands]
+Id=C0 Ecu
+C1=Lire
+C2=Rédiger
+C3=données supplémentaires
+C4=Checksum
+C5=sortie
+
+
+[Labels]
+L0= Langue
+L1=choisi faites
+L2=Sélectionnez un modèle
+L3=Sélectionnez Ecu
+L4=Ecu données
+L5=Commentaires
+L6=Informations utilisateur
+L7=Volts
+L8=temps
+L9=progrès
+
+[Errors]
+10=général de rejeter la
+11=Mode non pris en charge
+12=function sub pas supporté ou format non valide
+13=function sub pas supporté ou format non valide
+21=Occupé: demande de répéter
+22=conditions non correctes
+23=Attendez! Routine pas terminé
+24=Request sequence error
+31=Demande hors de portée
+33=refusé l'accès de sécurité
+34=accès de sécurité a autorisé
+35=clef inadmissible
+36=nombre dépassait de tentatives
+37=délai requis n'est pas expiré
+40=Télécharger pas accepté
+41=télécharger Type Mauvaise
+42=Impossible de télécharger à l'adresse spécifiée
+43=Can nombre téléchargez pas d'octets demandé
+44=prêt pour le téléchargement
+50=téléchargement refusé
+51=type de transfert Mauvaise
+52=Impossible de télécharger de l'adresse spécifiée
+53=Can nombre d'octets pas télécharger demandé
+54=prêt pour le téléchargement
+61=sortie normale avec des résultats
+62=sortie normale sans résultats
+63=sortie anormale avec des résultats
+64=sortie anormale sans résultats
+71=Transfert suspendu
+72=transfert interrompu
+73=Block transfert complet
+74=adresse illégale dans le bloc
+75=nombre d'octets illégale dans les transferts en bloc
+76=transfert illégal Type de bloc
+77=données Block checksum error
+78=Bloc de transfert de message bien reçu
+79=nombre d'octets incorrect lors de transferts en bloc
+7F=Service non pris en charge en mode de diagnostic en cours
+80=Service non pris en charge dans le mode de diagnostic en cours
+90=Service non pris en charge dans le mode de diagnostic en cours
+
+300=temps de transmission des
+301=Pas de réponse de Ecu
+302=ECU programmation qui sont maintenant ...
+303=Pas d'information
+304=Téléchargement des données maintenant
+
+[Message]
+1=interne Erreur matérielle
+2=Réveil d'ECU attendez svp...
+3=Réception écus d'information
+4=information complète ECU
+5=Pas d'information
+6=accès sécuritaire
+7=downlaod de données maintenant
+8=Effacement Flash
+9=Programmation terminée
+10=Eteindre allumage pour continuer ...
+11=Attendre 1 seconde
+12=Demande des données de téléchargement
+13=Passage à grande vitesse
+14=checksum Controlling maintenant ...
+15=checksum Flash ok ...
+16=Erreur checksum Flash
+17=flash en train de lire ...
+18=ECU Flash lire correctement
+19=Contrôle de flash
+20=ECU introuvable
+21=Erreur de lecture du flash!
+22=Contrôle d'écus en ordre maintenant: s'il vous plaît attendre!
+23=continuer la programmation
+24=Fichier codé ne peut pas continuer
+25=Impossible de trouver les numéros de contrôle ECU
+26=taille de fichier incorrect
+27=Erreur de programmation Flash!
+28=Demande des données upload
+29=Demande de fin de transfert
+30=Fichier correctement compressé
+31=Erreur de compression de fichiers!
+32=fichier décompressé correctement
+33=Erreur de décompression de fichiers!
+34=Erreur d'ouverture du fichier
+35=Nettoyage des données écu patienter s'il vous plaît!
+36=Lecture des codes d'erreur DTC
+37=Centre d'échange pour les codes d'erreur DTC
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Une erreur s'est produite s'il vous plaît aller à C:\\MPPS\\Logs\\ et envoyer tous les fichiers de données dans ce dossier pour 'support@amtcartech.com' afin que nous puissions examen. S'il vous plaît le faire dès que possible afin que nous puissions régler le problème!

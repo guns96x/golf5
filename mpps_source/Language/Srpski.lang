@@ -1,0 +1,150 @@
+;Serbian language file for MPPS
+
+[Discription]
+Name=Srpski
+File=Srpski.Lang
+
+[Menu]
+M0=Datoteka
+M1=ECU identifikacija
+M2=Proèitaj
+M3=Upiši
+M4=Dodatni podaci
+M5=Izlaz
+M6=Opcije
+M7=Menadžer boja
+M8=Menadžer klijenata
+M9=Izbriši Log datoteke
+M10=Aplikacije
+M11=Pregled programiranja
+M12=BCB konvertor
+M13=Opcije brzine
+M14=Brzo (na stolu)
+M15=Srednje (podrazumevano)
+M16=Sporo (obnavljanje)
+M17=Opcije isèitavanja
+M18=Puno isèitavanje (samo K-line)
+M19=Samo podaci (podrazumevano)
+M20=Zaobidji zaštitu (samo VAG EDC15)
+M21=Informacije o programu
+M22=Informacije o verziji 
+M23=Dozvola
+
+
+
+[Commands]
+C0=ECU identifikacija
+C1=Proèitaj
+C2=Upiši
+C3=Dodatni podaci
+C4=Checksum
+C5=Izlaz
+
+
+
+[Labels]
+L0=Jezik
+L1=Odaberite proizvodjaèa
+L2=Odaberite model
+L3=Odaberite ECU
+L4=ECU podaci
+L5=Komentari
+L6=Informacija za korisnika 
+L7=Napon
+L8=Vreme
+L9=Napredak
+
+
+[Errors]
+10=Opšta greška
+11=Mod nije podržan
+12=Podfunkcija nije podržana ili nije ispravan format 
+13=Podfunkcija nije podržana ili nije ispravan format 
+21=Zauzeto:ponovite zahtev
+22=Uslovi nisu taèni
+23=Èekaj! Rutina nije završena
+24=Request sequence error
+31=Zahtev izvan raspona
+33=Sigurnosni pristup nije dozvoljen
+34=Sigurnosni pristup dopušten
+35=Nevažeæi kljuè
+36=Prekoraèen broj pokušaja
+37=Zahtevano kašnjenje nije isteklo
+40=Preuzimanje nije prihvaæeno
+41=Nepravilan tip preuzimanja
+42=Ne mogu preneti na navedene adrese
+43=Ne mogu preuzeti broj zatraženih bajtova 
+44=Spreman za preuzimanje
+50=Upload nije prihvaæen
+51=Nepravilan tip upload-a
+52=Ne mogu uèitati sa navedenih adresa
+53=Ne mogu uèitati broj traženih bajtova
+54=Spreman za upload
+61=Normalan izlaz sa rezultatima
+62=Normalan izlaz bez rezultata
+63=Abnormalan izlaz sa rezultatima
+64=Abnormalan izlaz bez rezultata
+71=Prenos suspendovan
+72=Prenos pobaèen
+73=Blok prenos kompletan
+74=Ilegalna adresa u bloku
+75=Ilegalno byte odbrojavanje u blok prenosu
+76=Ilegalni blok tip prenosa
+77=Blok podaci checksum greška 
+78=Blok poruka ispravno primljena
+79=Neispravno byte brojanje tokom blok prenosa
+7F=Usluga nije podržana u aktivnom dijagnostickom modu
+80=Usluga nije podržana u aktivnom dijagnostickom modu
+90=Usluga nije podržana u aktivnom dijagnostickom modu
+
+300=Isteklo vreme prenosa
+301=Nema odgovora iz Ecu
+302=Programiranje ECU-a sada ...
+303=Nema informacija
+304=Preuzimanje podataka sad!!!
+
+
+[Message]
+1=Interna hardverska greška 
+2=Budjenje ECU-a molim prièekajte ...
+3=Primanje ECU informacije
+4=ECU informacija kompletna
+5=Nema informacija
+6=Sigurnosni pristup
+7=Preuzimanje datoteke sad
+8=Brisanje flash-a sad
+9=Programiranje završeno
+10=Iskljuèite paljenje za nastavak ...
+11=Prièekajte  1 sekundu
+12=Zahtev za preuzimanje podataka
+13=Prelazak na veliku brzinu
+14=Kontrolisanje checksum-a sada ...
+15=Flash checksum OK ...
+16=Flash checksum greška
+17=Èitanje Flash-a sad ...
+18=ECU flash ispravno proèitan
+19=Kontrola flash-a
+20=ECU nije pronadjen
+21=Greška pri èitanju flash-a!
+22=Kontrolisanje ECU postavki sad: molim prièekajte!
+23=Nastavi programiranje
+24=Datoteka skremblovana ne može se nastaviti
+25=Ne mogu pronaæi ECU kontrolne brojeve
+26=Neispravna velièina datoteke
+27=Greška programiranja flash-a!
+28=Zahtev za uèitavanje podataka
+29=Zahtev za prenos-izlaz
+30=Datoteka ispravno kompresovana
+31=Greška pri kompresovanju datoteke!
+32=Datoteka dekompresovana ispravno
+33=Greška dekompresije datoteke!
+34=Pogreška pri otvaranju datoteke
+35=Èišæenje ECU podataka molim prièekajte!
+36=Èitanje DTC kodova grešaka
+37=Brisanje DTC kodova grešaka
+40=You need to checksum this file before writing!! (Use the checksum button)
+41=Checksum is calculated by the program.
+42=You need to checksum this file before writing!! (No Checksum)
+
+
+100=Pojavila se greška molimo vas idite u C:\\MPPS\\Logs\\ i pošaljite sve podatke iz te fascikle na 'support@amtcartech.com' kako bismo mogli pregledati. Molimo Vas da to uèinite što je pre moguæe kako bismo mogli rešiti problem!
