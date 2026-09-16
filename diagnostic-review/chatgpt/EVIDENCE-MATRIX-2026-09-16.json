@@ -1,0 +1,144 @@
+{
+  "generated_date": "2026-09-16",
+  "branch": "chatgpt-analysis-2026-09-16",
+  "calibration_change_status": "HOLD",
+  "hypotheses": {
+    "low_rpm_tip_in_transient_restriction": {
+      "assessment": {
+        "status": "CROSS_VALIDATED",
+        "independent_support_families": 2,
+        "support_families": ["air_boost", "runtime_torque"],
+        "contradict_families": [],
+        "missing_critical_families": [],
+        "evidence_count": 2
+      },
+      "evidence": [
+        {
+          "family": "runtime_torque",
+          "status": "MEASURED",
+          "direction": "supports",
+          "critical": false,
+          "note": "Group 008 smoke limitation ramps ~187.9->309.9 Nm while driver request is ~380 Nm."
+        },
+        {
+          "family": "air_boost",
+          "status": "MEASURED",
+          "direction": "supports",
+          "critical": false,
+          "note": "Group 011 requested-minus-actual boost peaks ~+520 mbar during initial pedal/load step and closes later."
+        }
+      ]
+    },
+    "steady_smoke_cap_1750_2500": {
+      "assessment": {
+        "status": "CROSS_VALIDATED",
+        "independent_support_families": 2,
+        "support_families": ["runtime_torque", "static_calibration"],
+        "contradict_families": [],
+        "missing_critical_families": [],
+        "evidence_count": 2
+      },
+      "evidence": [
+        {
+          "family": "runtime_torque",
+          "status": "MEASURED",
+          "direction": "supports",
+          "critical": false,
+          "note": "VCDS smoke limitation ~309.9 Nm is the minimum logged constraint through low/mid-rpm WOT."
+        },
+        {
+          "family": "static_calibration",
+          "status": "CALCULATED",
+          "direction": "supports",
+          "critical": false,
+          "note": "Existing math-engine inverse-FMTC mapping of static 56.5 mg smoke value matches runtime ~309.9 Nm within VCDS resolution."
+        }
+      ]
+    },
+    "asddc_is_primary_tip_in_cause": {
+      "assessment": {
+        "status": "HOLD",
+        "independent_support_families": 1,
+        "support_families": ["system_definition"],
+        "contradict_families": [],
+        "missing_critical_families": ["runtime_asd"],
+        "evidence_count": 2
+      },
+      "evidence": [
+        {
+          "family": "system_definition",
+          "status": "CALCULATED",
+          "direction": "supports",
+          "critical": false,
+          "note": "Exact A2L contains ASDdc/ASDrf torque intervention path and gear/state-dependent calibration."
+        },
+        {
+          "family": "runtime_asd",
+          "status": "UNKNOWN",
+          "direction": "unknown",
+          "critical": true,
+          "note": "Current VCDS log does not expose pre/post-ASD torque or ASDdc_trq."
+        }
+      ]
+    },
+    "dynamic_smoke_is_primary_tip_in_cause": {
+      "assessment": {
+        "status": "HOLD",
+        "independent_support_families": 1,
+        "support_families": ["runtime_torque"],
+        "contradict_families": [],
+        "missing_critical_families": ["runtime_dynamic_smoke"],
+        "evidence_count": 2
+      },
+      "evidence": [
+        {
+          "family": "runtime_torque",
+          "status": "MEASURED",
+          "direction": "supports",
+          "critical": false,
+          "note": "Final smoke limitation ramps strongly during tip-in."
+        },
+        {
+          "family": "runtime_dynamic_smoke",
+          "status": "UNKNOWN",
+          "direction": "unknown",
+          "critical": true,
+          "note": "FlMng_qDynSmoke_mp is not logged, so the dynamic sub-path contribution is unmeasured."
+        }
+      ]
+    },
+    "map0_duration_is_primary_high_rpm_cause": {
+      "assessment": {
+        "status": "HOLD",
+        "independent_support_families": 2,
+        "support_families": ["static_injection", "vehicle_response"],
+        "contradict_families": [],
+        "missing_critical_families": ["runtime_injection"],
+        "evidence_count": 3
+      },
+      "evidence": [
+        {
+          "family": "static_injection",
+          "status": "CALCULATED",
+          "direction": "supports",
+          "critical": false,
+          "note": "Stage1 MAP0/selector path predicts falling OEM-duration-equivalent IQ as selector moves toward MAP0."
+        },
+        {
+          "family": "vehicle_response",
+          "status": "CALCULATED",
+          "direction": "supports",
+          "critical": false,
+          "note": "Road-torque realization falls in the same 3000-4000 rpm region."
+        },
+        {
+          "family": "runtime_injection",
+          "status": "UNKNOWN",
+          "direction": "unknown",
+          "critical": true,
+          "note": "No direct runtime duration/selector/injected-mass channel proves physical fuel delivery."
+        }
+      ]
+    }
+  }
+}
