@@ -586,6 +586,139 @@ def build_candidate(write_bin=True):
     return plan
 
 
+MAP0_CANDIDATE_NAME = '03G906021QJ_v2_map0-duration-restore_CS_OK.bin'
+MAP0_FIX_TARGET_MG = 55.0  # the only column InjVlv_phiInjMI1_MAP0 shares with the scaled MAP1..4 axis
+MAP0_FIX_REFERENCE_MAP = 'InjVlv_phiInjMI1_MAP1'
+MAP0_PLAN_BINS = (3000, 3250, 3500, 3750, 4000)
+
+
+def _cell_address(characteristic, ix, iy):
+    ny = len(characteristic.y)
+    values_start = characteristic.address + 4 + 2 * len(characteristic.x) + 2 * ny
+    return values_start + 2 * (ix * ny + iy)
+
+
+def _encode_raw_s16(characteristic, value):
+    conv = a2l.db()['compu'][characteristic.conversion]['coeffs']
+    return int(round((value * conv[1] + conv[2]) / conv[5]))
+
+
+def map0_duration_fix_cells(cur, stock):
+    """Rule from DECISION-2026-09-16.md #4b: Stage 1 scaled InjVlv_phiInjMI1_MAP1..4 by
+    ~x1.079 at their 55 mg column but left MAP0 (axis ending at 55 mg) untouched. Apply the
+    SAME per-rpm ratio, measured directly from MAP1 cur/stock at 55 mg, to MAP0's 55 mg column
+    only (its only column shared with the scaled maps). No other column or map is touched."""
+    map0 = cur['InjVlv_phiInjMI1_MAP0']
+    ref_cur, ref_stock = cur[MAP0_FIX_REFERENCE_MAP], stock[MAP0_FIX_REFERENCE_MAP]
+    iy = map0.y.index(MAP0_FIX_TARGET_MG)
+    cells, ratios = [], []
+    for ix, rpm in enumerate(map0.x):
+        ratio = ref_cur.lookup(rpm, MAP0_FIX_TARGET_MG) / ref_stock.lookup(rpm, MAP0_FIX_TARGET_MG)
+        old_deg = map0.grid[ix][iy]
+        new_deg = old_deg * ratio
+        addr = _cell_address(map0, ix, iy)
+        old_raw = struct.unpack_from('>h', cur.data, addr)[0]
+        new_raw = _encode_raw_s16(map0, new_deg)
+        ratios.append(ratio)
+        cells.append({'map': map0.name, 'rpm_node': rpm, 'q_node_mg': MAP0_FIX_TARGET_MG, 'address': '0x%X' % addr,
+                      'old_raw': old_raw, 'new_raw': new_raw, 'old_raw_hex': '%04X' % (old_raw & 0xFFFF),
+                      'new_raw_hex': '%04X' % (new_raw & 0xFFFF), 'old_deg': old_deg, 'new_deg': new_deg,
+                      'ratio_source': '%s(rpm,%.0fmg) cur/stock' % (MAP0_FIX_REFERENCE_MAP, MAP0_FIX_TARGET_MG),
+                      'ratio': ratio})
+    return cells, ratios
+
+
+def build_map0_candidate(write_bin=True):
+    cur, stock = Firmware(CURRENT_BIN), Firmware(STOCK_BIN)
+    cells, ratios = map0_duration_fix_cells(cur, stock)
+
+    buf = bytearray(cur.data)
+    for c in cells:
+        struct.pack_into('>h', buf, int(c['address'], 16), c['new_raw'])
+    fix_checksums(buf)
+    new = bytes(buf)
+
+    diff = [i for i in range(len(new)) if new[i] != cur.data[i]]
+    allowed = set()
+    for c in cells:
+        a = int(c['address'], 16)
+        allowed |= {a, a + 1}
+    for _, cs in CHECKSUM_BLOCKS:
+        allowed |= set(range(cs, cs + 4))
+    verify = {
+        'size_bytes': len(new),
+        'checksum_block_sums': ['%08X' % s for s in block_sums(new)],
+        'checksum_ok': all(s == CHECKSUM_TARGET for s in block_sums(new)),
+        'changed_bytes_outside_cells_and_checksums': sorted('0x%X' % i for i in diff if i not in allowed),
+        'ratio_min': min(ratios), 'ratio_max': max(ratios),
+    }
+    if not verify['checksum_ok'] or verify['changed_bytes_outside_cells_and_checksums']:
+        raise SystemExit('MAP0 candidate verification FAILED: %s' % verify)
+
+    # predicted effect: re-derive the WOT chain at each 250-rpm bin with the patched MAP0,
+    # against the same VCDS runtime evidence used for the smoke-column candidate.
+    cur_patched = Firmware(CURRENT_BIN)
+    cur_patched.data = new
+    cur_patched._c = {}
+    with open(os.path.join(OUT_DIR, 'vcds-analysis.json'), encoding='utf-8') as f:
+        vres = json.load(f)
+    effects = []
+    for rpm in MAP0_PLAN_BINS:
+        c_before = chain(cur, rpm, PLAN_GEAR)
+        c_after = chain(cur_patched, rpm, PLAN_GEAR)
+        eq_before, status_before, _ = stock_equivalent_q(cur, stock, rpm, c_before['q_cmd_clamp_mg'], PLAN_GEAR)
+        eq_after, status_after, _ = stock_equivalent_q(cur_patched, stock, rpm, c_after['q_cmd_clamp_mg'], PLAN_GEAR)
+        air = [r['maf_act_mg'] for r in vres['rows'] if r['rpm'] == rpm and r['gear'] == PLAN_GEAR]
+        air_med = statistics.median(air) if air else None
+        row = {'rpm': rpm, 'q_cmd_mg': c_before['q_cmd_clamp_mg'],
+               'stock_eq_before_mg': eq_before, 'stock_eq_before_status': status_before,
+               'stock_eq_after_mg': eq_after, 'stock_eq_after_status': status_after,
+               'delivered_fuel_gain_mg': eq_after - eq_before,
+               'duration_selector_before': c_before['duration_map_selector'],
+               'duration_selector_after': c_after['duration_map_selector'],
+               'air_mg_stroke_median': air_med,
+               'lambda_before': ph.lambda_from(air_med, eq_before, 14.5) if air_med else None,
+               'lambda_after': ph.lambda_from(air_med, eq_after, 14.5) if air_med else None}
+        effects.append(row)
+
+    plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256}, 'candidate_bin': None,
+            'rule': 'DECISION-2026-09-16.md #4b: scale InjVlv_phiInjMI1_MAP0 55 mg column by the SAME per-rpm '
+                    'cur/stock ratio already present in InjVlv_phiInjMI1_MAP1 at its 55 mg column (Stage 1 scaled '
+                    'MAP1..4 but left MAP0 stock). Only the 55 mg column of MAP0 changes; no other map, column or '
+                    'switch is touched.',
+            'cells': cells, 'predicted_effect': effects, 'verification': None,
+            'status': 'PROVISIONAL — supported by static calculation and the 2026-09-16 VCDS air data used above; '
+                      'NOT yet cross-validated by a runtime Duration/selector measurement (per '
+                      'diagnostic-review/chatgpt/EVIDENCE-MATRIX-2026-09-16.md this hypothesis remains HOLD until '
+                      'one exists). Do not flash from this plan alone.',
+            'validation_protocol': [
+                'Flash, clear DTCs, same road both directions, gear 4 WOT 2750->4100, VCDS groups 011+003+008.',
+                'Pass: at 3000-4000 rpm road torque P50 measurably higher than the current vcds-analysis baseline, '
+                'by more than the pull-to-pull spread.',
+                'Pass: no new smoke reported at 3000-4000 rpm; EGT (if logged) does not exceed prior readings.'],
+            'abort_criteria': ['visible smoke appears above 3000 rpm where none was present before',
+                               'road torque P50 at any 3000-3750 bin lower than the current baseline',
+                               'new DTC'],
+            'rollback': CURRENT_BIN}
+    if not write_bin:
+        plan['verification'] = 'NOT BUILT (plan only; BIN creation requires explicit approval)'
+        with open(os.path.join(OUT_DIR, 'candidate-map0-v2.json'), 'w', encoding='utf-8') as f:
+            json.dump(plan, f, indent=1, ensure_ascii=False)
+        return plan
+
+    os.makedirs(CANDIDATE_DIR, exist_ok=True)
+    out_path = os.path.join(CANDIDATE_DIR, MAP0_CANDIDATE_NAME)
+    with open(out_path, 'wb') as f:
+        f.write(new)
+    verify['sha256'] = hashlib.sha256(new).hexdigest()
+    plan['verification'] = verify
+    plan['candidate_bin'] = out_path.replace('\\', '/')
+    with open(os.path.join(OUT_DIR, 'candidate-map0-v2.json'), 'w', encoding='utf-8') as f:
+        json.dump(plan, f, indent=1, ensure_ascii=False)
+    return plan
+
+
 def candidate_plan_record(cur, stock, vres, cons, report, checks, cells, fitted, smoke):
     # predicted lambda per logged VCDS pull (same stock-equivalent basis, measured air)
     lam = []
@@ -940,6 +1073,8 @@ def main():
     v.add_argument('path')
     b = sub.add_parser('build')
     b.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
+    b0 = sub.add_parser('build-map0')
+    b0.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     c = sub.add_parser('chain')
     c.add_argument('--rpm', type=float, required=True)
     c.add_argument('--gear', type=int, default=4)
@@ -971,6 +1106,20 @@ def main():
                 p['pull'], p['gear'], p['rpm'], p['air_mg'], p['q_runtime_now'], p['q_cmd_new'], p['q_stock_eq_now'],
                 p['q_stock_eq_new'], _f(p['burned_p50']), _f(p['burned_p95']), p['lambda_now'], p['lambda_new'],
                 p['end_proxy_now'], p['end_proxy_new']))
+    elif args.cmd == 'build-map0':
+        plan = build_map0_candidate(write_bin=not args.plan_only)
+        print(plan['status'])
+        for c in plan['cells']:
+            print('%s rpm=%-6.0f %-6s %s(%s) -> %s(%s) ratio=%.4f' % (
+                c['map'], c['rpm_node'], c['address'], _f(c['old_deg'], 3), c['old_raw_hex'],
+                _f(c['new_deg'], 3), c['new_raw_hex'], c['ratio']))
+        for e in plan['predicted_effect']:
+            print('rpm=%-5.0f q_cmd=%.1f eq %.1f(%s)->%.1f(%s) delta=%+.1f mg  lambda %s->%s  selector %.2f->%.2f' % (
+                e['rpm'], e['q_cmd_mg'], e['stock_eq_before_mg'], e['stock_eq_before_status'],
+                e['stock_eq_after_mg'], e['stock_eq_after_status'], e['delivered_fuel_gain_mg'],
+                _f(e['lambda_before'], 3), _f(e['lambda_after'], 3),
+                e['duration_selector_before'], e['duration_selector_after']))
+        print(plan['verification'])
     else:
         for label, path in (('current', CURRENT_BIN), ('stock', STOCK_BIN)):
             print(label, json.dumps(chain(Firmware(path), args.rpm, args.gear), indent=1))
