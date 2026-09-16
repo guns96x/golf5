@@ -1,0 +1,3434 @@
+{
+ "generated_utc": "2026-09-16T12:52:02Z",
+ "firmware": {
+  "current": {
+   "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
+   "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
+  },
+  "stock_reference": {
+   "path": "diagnostic-review/reference-from-hex.analysis-only.bin",
+   "sha256": "cf891152a97fb63609b40fc590fd86f38b034119b516e936eb8c0173e2551d26"
+  }
+ },
+ "conditions": {
+  "baro_mbar": 1005.5,
+  "coolant_c": 90.0,
+  "mc_draws": 10000
+ },
+ "parameters": {
+  "vehicle": {
+   "mass_kg": {
+    "min": 1360,
+    "max": 1520,
+    "status": "ENGINEERING_RANGE",
+    "source": "Golf V 1.9 TDI curb mass ~1.28-1.35 t by trim/body, plus driver, fuel and cargo. Replace with a weighbridge figure to shrink the dominant uncertainty."
+   },
+   "cda_m2": {
+    "min": 0.66,
+    "max": 0.76,
+    "status": "PUBLISHED",
+    "source": "Golf V Cd ~0.32 x frontal area ~2.2 m2; +/-7 % for mirrors, roof, ride height."
+   },
+   "crr": {
+    "min": 0.008,
+    "max": 0.013,
+    "status": "ENGINEERING_RANGE",
+    "source": "Passenger-car tyres on asphalt, warm, typical label classes B-E."
+   },
+   "eta_driveline": {
+    "min": 0.9,
+    "max": 0.95,
+    "status": "ENGINEERING_RANGE",
+    "source": "Manual FWD transaxle incl. CV joints, direct/indirect gears 3-4."
+   },
+   "inertia_engine_kgm2": {
+    "min": 0.15,
+    "max": 0.3,
+    "status": "ENGINEERING_RANGE",
+    "source": "1.9 TDI crank train + dual-mass flywheel + clutch."
+   },
+   "inertia_wheels_kgm2": {
+    "min": 2.4,
+    "max": 4.0,
+    "status": "ENGINEERING_RANGE",
+    "source": "Four 16\" wheel/tyre assemblies incl. discs and drive shafts."
+   },
+   "wheel_radius_m": {
+    "min": 0.3,
+    "max": 0.315,
+    "status": "PUBLISHED",
+    "source": "205/55 R16 dynamic rolling radius; only used for wheel inertia term."
+   },
+   "ambient_temp_k": {
+    "min": 283.0,
+    "max": 303.0,
+    "status": "UNKNOWN_RANGE",
+    "source": "Ambient temperature on 2026-09-16 not logged (IAT is post-intercooler)."
+   },
+   "grade_frac": {
+    "min": -0.015,
+    "max": 0.015,
+    "status": "UNKNOWN_RANGE",
+    "source": "Road gradient not logged. +/-1.5 % mean grade over a pull. Dominant for absolute torque."
+   },
+   "speed_scale": {
+    "min": 0.97,
+    "max": 1.03,
+    "status": "ENGINEERING_RANGE",
+    "source": "OBD PID 0x0D vs true speed; tyre wear and ECU speed scaling."
+   }
+  },
+  "fuel": {
+   "lhv_j_kg": {
+    "min": 42600000.0,
+    "max": 43100000.0,
+    "status": "PUBLISHED",
+    "source": "EN 590 diesel lower heating value, typical 42.6-43.1 MJ/kg."
+   },
+   "afr_stoich": {
+    "min": 14.4,
+    "max": 14.6,
+    "status": "PUBLISHED",
+    "source": "Diesel stoichiometric air/fuel mass ratio ~14.5 (composition dependent)."
+   },
+   "eta_brake_full_load": {
+    "min": 0.35,
+    "max": 0.41,
+    "status": "ENGINEERING_RANGE",
+    "source": "Brake efficiency of a small turbo-DI diesel near full load (BSFC ~205-245 g/kWh). Not measured on this engine."
+   }
+  },
+  "engine": {
+   "displacement_m3": {
+    "value": 0.001896,
+    "status": "PUBLISHED",
+    "source": "BLS 1.9 TDI: 1896 cm3, 4 cylinders."
+   },
+   "n_cyl": {
+    "value": 4,
+    "status": "PUBLISHED",
+    "source": "BLS inline-4."
+   },
+   "coolant_c_for_friction": {
+    "value": 90.0,
+    "status": "MEASURED",
+    "source": "Coolant 91 C in session snapshot of 2026-09-16 logs."
+   }
+  },
+  "air": {
+   "charge_temp_c": {
+    "min": 35.0,
+    "max": 65.0,
+    "status": "UNKNOWN_RANGE",
+    "source": "Logged IAT 35 C was a stale snapshot (age > 8 s); WOT charge temperature bracketed."
+   },
+   "ve_expected": {
+    "min": 0.8,
+    "max": 0.95,
+    "status": "ENGINEERING_RANGE",
+    "source": "Volumetric efficiency of an 8-valve turbo diesel referenced to manifold conditions."
+   },
+   "maf_scale": {
+    "min": 0.95,
+    "max": 1.12,
+    "status": "ENGINEERING_RANGE",
+    "source": "True air / OBD PID 0x10 reading. Hot-film MAF sensors drift low with age; apparent VE 0.71-0.94 from these logs cannot separate sensor drift from real VE. Asymmetric on purpose."
+   }
+  }
+ },
+ "segments": [
+  {
+   "name": "20260916_102349@11.9s",
+   "file": "logs/20260916/Event_RAW_20260916_102349.csv",
+   "kmh_per_rpm": 0.025488793184413272,
+   "ratio_mad": 4.289128403763519e-05,
+   "speed_pairs": 2,
+   "gear": 3,
+   "rpm_start": 1670.0,
+   "rpm_end": 3270.0,
+   "t_start_s": 11.865,
+   "t_end_s": 17.568,
+   "n_rpm_samples": 11,
+   "bins": [
+    2250,
+    2500,
+    2750,
+    3000,
+    3250
+   ]
+  },
+  {
+   "name": "20260916_102349@24.3s",
+   "file": "logs/20260916/Event_RAW_20260916_102349.csv",
+   "kmh_per_rpm": 0.025394745260719963,
+   "ratio_mad": 0.0,
+   "speed_pairs": 1,
+   "gear": 3,
+   "rpm_start": 1998.0,
+   "rpm_end": 3344.0,
+   "t_start_s": 24.251,
+   "t_end_s": 28.513,
+   "n_rpm_samples": 9,
+   "bins": [
+    2250,
+    2500,
+    2750,
+    3000,
+    3250
+   ]
+  },
+  {
+   "name": "20260916_110755@0.4s",
+   "file": "logs/20260916/Event_RAW_20260916_110755.csv",
+   "kmh_per_rpm": 0.025498330723303677,
+   "ratio_mad": 0.0,
+   "speed_pairs": 1,
+   "gear": 3,
+   "rpm_start": 1869.0,
+   "rpm_end": 3988.0,
+   "t_start_s": 0.424,
+   "t_end_s": 7.3605,
+   "n_rpm_samples": 14,
+   "bins": [
+    2000,
+    2250,
+    2500,
+    2750,
+    3000,
+    3250,
+    3500
+   ]
+  },
+  {
+   "name": "20260916_111930@2.1s",
+   "file": "logs/20260916/Event_RAW_20260916_111930.csv",
+   "kmh_per_rpm": 0.03570122188849837,
+   "ratio_mad": 4.3313893737899345e-05,
+   "speed_pairs": 5,
+   "gear": 4,
+   "rpm_start": 1411.0,
+   "rpm_end": 4084.0,
+   "t_start_s": 2.1025,
+   "t_end_s": 23.3015,
+   "n_rpm_samples": 40,
+   "bins": [
+    1750,
+    2000,
+    2250,
+    2500,
+    2750,
+    3000,
+    3250,
+    3500,
+    3750,
+    4000
+   ]
+  },
+  {
+   "name": "20260916_112035@2.1s",
+   "file": "logs/20260916/Event_RAW_20260916_112035.csv",
+   "kmh_per_rpm": 0.0357642829333753,
+   "ratio_mad": 7.748408106435234e-05,
+   "speed_pairs": 5,
+   "gear": 4,
+   "rpm_start": 1386.0,
+   "rpm_end": 4072.0,
+   "t_start_s": 2.12,
+   "t_end_s": 22.772,
+   "n_rpm_samples": 38,
+   "bins": [
+    1750,
+    2000,
+    2250,
+    2500,
+    2750,
+    3000,
+    3250,
+    3500,
+    3750,
+    4000
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "gear": 3,
+   "rpm": 1500,
+   "chain_current": {
+    "rpm": 1500,
+    "gear": 3,
+    "driver_wish_nm": 373.82142857142856,
+    "trq_lim_p_nm": 337.5,
+    "inner_torque_request_nm": 337.5,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 66.12,
+    "q_fmtc_extrap_mg": 66.52909090909091,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 12.91406249999999,
+    "duration_map_selector": 2.34765625,
+    "duration_deg_hyp": 26.46093749999998,
+    "duration_ms_hyp": 2.9401041666666643,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 13.54687499999999,
+    "friction_nm": -26.3,
+    "ecu_inner_torque_at_q_cmd_nm": 306.4867924528302,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 280.18679245283016
+   },
+   "chain_stock": {
+    "rpm": 1500,
+    "gear": 3,
+    "driver_wish_nm": 336.8392857142857,
+    "trq_lim_p_nm": 250.0,
+    "inner_torque_request_nm": 250.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 41.46727272727273,
+    "q_fmtc_extrap_mg": 41.46727272727273,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 41.46727272727273,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 41.46727272727273,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 11.695048295454537,
+    "duration_map_selector": 2.5508252840909087,
+    "duration_deg_hyp": 19.59439367762137,
+    "duration_ms_hyp": 2.177154853069041,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 7.899345382166832,
+    "friction_nm": -26.3,
+    "ecu_inner_torque_at_q_cmd_nm": 250.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 223.7
+   },
+   "duration_ratio_current_vs_stock": 1.0792943361188485,
+   "telemetry": [],
+   "map_mbar_median": null,
+   "air_mg_stroke_median": null,
+   "road_torque_nm": null
+  },
+  {
+   "gear": 3,
+   "rpm": 1750,
+   "chain_current": {
+    "rpm": 1750,
+    "gear": 3,
+    "driver_wish_nm": 368.8611111111111,
+    "trq_lim_p_nm": 367.2,
+    "inner_torque_request_nm": 367.2,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 64.24,
+    "q_fmtc_extrap_mg": 72.53636363636362,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 14.32031249999999,
+    "duration_map_selector": 2.11328125,
+    "duration_deg_hyp": 27.959371948242165,
+    "duration_ms_hyp": 2.662797328404016,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 13.639059448242175,
+    "friction_nm": -27.15,
+    "ecu_inner_torque_at_q_cmd_nm": 309.70454545454544,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 282.55454545454546
+   },
+   "chain_stock": {
+    "rpm": 1750,
+    "gear": 3,
+    "driver_wish_nm": 332.375,
+    "trq_lim_p_nm": 272.0,
+    "inner_torque_request_nm": 272.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 44.946363636363635,
+    "q_fmtc_extrap_mg": 44.946363636363635,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 44.946363636363635,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 44.946363636363635,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 13.26562499999999,
+    "duration_map_selector": 2.2890625,
+    "duration_deg_hyp": 21.770546098188902,
+    "duration_ms_hyp": 2.073385342684657,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 8.504921098188913,
+    "friction_nm": -27.15,
+    "ecu_inner_torque_at_q_cmd_nm": 272.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 244.85
+   },
+   "duration_ratio_current_vs_stock": 1.0793895903351802,
+   "telemetry": [],
+   "map_mbar_median": null,
+   "air_mg_stroke_median": null,
+   "road_torque_nm": null
+  },
+  {
+   "gear": 3,
+   "rpm": 2000,
+   "chain_current": {
+    "rpm": 2000,
+    "gear": 3,
+    "driver_wish_nm": 363.9007936507937,
+    "trq_lim_p_nm": 375.2,
+    "inner_torque_request_nm": 363.9007936507937,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 63.14,
+    "q_fmtc_extrap_mg": 70.21665584415585,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 15.960937499999988,
+    "duration_map_selector": 1.8628762541806019,
+    "duration_deg_hyp": 30.038691471571884,
+    "duration_ms_hyp": 2.5032242892976573,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 14.077753971571896,
+    "friction_nm": -28.0,
+    "ecu_inner_torque_at_q_cmd_nm": 311.63248730964466,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 283.63248730964466
+   },
+   "chain_stock": {
+    "rpm": 2000,
+    "gear": 3,
+    "driver_wish_nm": 327.9107142857143,
+    "trq_lim_p_nm": 278.0,
+    "inner_torque_request_nm": 278.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 45.22181818181818,
+    "q_fmtc_extrap_mg": 45.22181818181818,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 45.22181818181818,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 45.22181818181818,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 14.78906249999999,
+    "duration_map_selector": 2.03515625,
+    "duration_deg_hyp": 22.87127330433237,
+    "duration_ms_hyp": 1.9059394420276974,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 8.08221080433238,
+    "friction_nm": -28.0,
+    "ecu_inner_torque_at_q_cmd_nm": 278.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 250.0
+   },
+   "duration_ratio_current_vs_stock": 1.0790685772773798,
+   "telemetry": [
+    {
+     "t_in_pull_s": 0.271679802955665,
+     "map_mbar": 2334.579377256838,
+     "maf_g_s": null,
+     "maf_bracket_s": null,
+     "air_mg_stroke": null,
+     "segment": "20260916_110755@0.4s"
+    }
+   ],
+   "map_mbar_median": 2334.579377256838,
+   "air_mg_stroke_median": null,
+   "road_torque_nm": null
+  },
+  {
+   "gear": 3,
+   "rpm": 2250,
+   "chain_current": {
+    "rpm": 2250,
+    "gear": 3,
+    "driver_wish_nm": 358.9404761904762,
+    "trq_lim_p_nm": 373.9,
+    "inner_torque_request_nm": 358.9404761904762,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 62.57,
+    "q_fmtc_extrap_mg": 67.94015692640693,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 17.249999999999986,
+    "duration_map_selector": 1.6789297658862876,
+    "duration_deg_hyp": 31.17136548913041,
+    "duration_ms_hyp": 2.308990036231882,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 13.921365489130423,
+    "friction_nm": -29.65,
+    "ecu_inner_torque_at_q_cmd_nm": 312.0482160077146,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 282.3982160077146
+   },
+   "chain_stock": {
+    "rpm": 2250,
+    "gear": 3,
+    "driver_wish_nm": 323.44642857142856,
+    "trq_lim_p_nm": 277.0,
+    "inner_torque_request_nm": 277.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 44.79318181818182,
+    "q_fmtc_extrap_mg": 44.79318181818182,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 44.79318181818182,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 44.79318181818182,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 15.984374999999988,
+    "duration_map_selector": 1.8595317725752507,
+    "duration_deg_hyp": 23.880202272252188,
+    "duration_ms_hyp": 1.7689038720186805,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 7.8958272722522,
+    "friction_nm": -29.65,
+    "ecu_inner_torque_at_q_cmd_nm": 277.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 247.35
+   },
+   "duration_ratio_current_vs_stock": 1.0793742757821554,
+   "telemetry": [
+    {
+     "t_in_pull_s": 2.3151091954022984,
+     "map_mbar": 2242.841070630762,
+     "maf_g_s": 73.99937554811545,
+     "maf_bracket_s": 2.2110000000000003,
+     "air_mg_stroke": 986.6583406415393,
+     "segment": "20260916_102349@11.9s"
+    },
+    {
+     "t_in_pull_s": 0.7437653061224481,
+     "map_mbar": 2385.358960686412,
+     "maf_g_s": null,
+     "maf_bracket_s": null,
+     "air_mg_stroke": null,
+     "segment": "20260916_102349@24.3s"
+    },
+    {
+     "t_in_pull_s": 0.9578411214953271,
+     "map_mbar": 2352.483403905091,
+     "maf_g_s": null,
+     "maf_bracket_s": null,
+     "air_mg_stroke": null,
+     "segment": "20260916_110755@0.4s"
+    }
+   ],
+   "map_mbar_median": 2352.483403905091,
+   "air_mg_stroke_median": 986.6583406415393,
+   "road_torque_nm": {
+    "p05": 180.2986361445839,
+    "p50": 214.1140236931309,
+    "p95": 247.00415791465565,
+    "n": 10000,
+    "std": 20.191970051629205
+   },
+   "implied_burned_q_mg": {
+    "p05": 34.42556872295818,
+    "p50": 41.32176482609772,
+    "p95": 48.44661109693443,
+    "n": 4000,
+    "std": 4.36065831607079
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.421707533242687,
+    "p50": 1.7035685459538847,
+    "p95": 2.0738590823202014,
+    "n": 4000,
+    "std": 0.20323020265893876
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.0991677753236053,
+    "p50": 1.19800096917821,
+    "p95": 1.302523254195775,
+    "n": 4000,
+    "std": 0.06251557540163026
+   },
+   "fuel_model_torque_nm": {
+    "p05": 279.65065010470295,
+    "p50": 304.4204373085919,
+    "p95": 329.62763641437283,
+    "n": 4000,
+    "std": 15.426254297821712
+   },
+   "residual_fuel_model_minus_road_nm": 90.306413615461,
+   "ecu_brake_model_minus_road_nm": 68.28419231458372,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 64.80514552653788,
+     "torque_nm_eta_min": 309.3702071539023,
+     "torque_nm_eta_max": 362.40509980885696
+    },
+    "1.10": {
+     "q_mg": 61.859457093513434,
+     "torque_nm_eta_min": 295.30792501054304,
+     "torque_nm_eta_max": 345.93214072663625
+    },
+    "1.15": {
+     "q_mg": 59.169915480751996,
+     "torque_nm_eta_min": 282.4684500100847,
+     "torque_nm_eta_max": 330.8916128689564
+    },
+    "1.20": {
+     "q_mg": 56.704502335720655,
+     "torque_nm_eta_min": 270.6989312596645,
+     "torque_nm_eta_max": 317.10446233274985
+    },
+    "1.25": {
+     "q_mg": 54.43632224229182,
+     "torque_nm_eta_min": 259.8709740092779,
+     "torque_nm_eta_max": 304.42028383943983
+    },
+    "1.30": {
+     "q_mg": 52.34261754066521,
+     "torque_nm_eta_min": 249.87593654738257,
+     "torque_nm_eta_max": 292.7118113840767
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.78267525753304,
+    "65C": 0.8588727513704283
+   },
+   "power_kw_p50": 50.44942828986682,
+   "power_ps_p05_p95": [
+    57.759262415206415,
+    79.1285961985811
+   ],
+   "bmep_bar_p50": 14.191119068879555
+  },
+  {
+   "gear": 3,
+   "rpm": 2500,
+   "chain_current": {
+    "rpm": 2500,
+    "gear": 3,
+    "driver_wish_nm": 353.9825396825397,
+    "trq_lim_p_nm": 364.5,
+    "inner_torque_request_nm": 353.9825396825397,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 61.76,
+    "q_fmtc_extrap_mg": 65.11946536796538,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 18.867187499999986,
+    "duration_map_selector": 1.4481605351170566,
+    "duration_deg_hyp": 32.68954326923075,
+    "duration_ms_hyp": 2.179302884615383,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 13.82235576923076,
+    "friction_nm": -31.3,
+    "ecu_inner_torque_at_q_cmd_nm": 311.6041666666667,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 280.3041666666667
+   },
+   "chain_stock": {
+    "rpm": 2500,
+    "gear": 3,
+    "driver_wish_nm": 318.984126984127,
+    "trq_lim_p_nm": 270.0,
+    "inner_torque_request_nm": 270.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 43.0,
+    "q_fmtc_extrap_mg": 43.0,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 43.0,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 43.0,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 17.484374999999986,
+    "duration_map_selector": 1.645484949832776,
+    "duration_deg_hyp": 24.15953177257523,
+    "duration_ms_hyp": 1.6106354515050154,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 6.675156772575246,
+    "friction_nm": -31.3,
+    "ecu_inner_torque_at_q_cmd_nm": 270.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 238.7
+   },
+   "duration_ratio_current_vs_stock": 1.0793920284582423,
+   "telemetry": [
+    {
+     "t_in_pull_s": 3.329942060085836,
+     "map_mbar": 2163.660951403066,
+     "maf_g_s": 82.65723791533503,
+     "maf_bracket_s": 2.1984999999999992,
+     "air_mg_stroke": 991.8868549840205,
+     "segment": "20260916_102349@11.9s"
+    },
+    {
+     "t_in_pull_s": 1.4011201298701295,
+     "map_mbar": 2328.411964829429,
+     "maf_g_s": null,
+     "maf_bracket_s": null,
+     "air_mg_stroke": null,
+     "segment": "20260916_102349@24.3s"
+    },
+    {
+     "t_in_pull_s": 1.6330747663551404,
+     "map_mbar": 2350.0,
+     "maf_g_s": 81.28610325317588,
+     "maf_bracket_s": 2.1975000000000002,
+     "air_mg_stroke": 975.4332390381106,
+     "segment": "20260916_110755@0.4s"
+    }
+   ],
+   "map_mbar_median": 2328.411964829429,
+   "air_mg_stroke_median": 983.6600470110656,
+   "road_torque_nm": {
+    "p05": 230.53215136213132,
+    "p50": 273.1345842883025,
+    "p95": 338.3513608601633,
+    "n": 17521,
+    "std": 34.30327032344081
+   },
+   "implied_burned_q_mg": {
+    "p05": 43.908719199491905,
+    "p50": 52.78075282833102,
+    "p95": 66.18638501363134,
+    "n": 4000,
+    "std": 6.96870997895844
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.0402155516353382,
+    "p50": 1.3280127421535726,
+    "p95": 1.6330530598999249,
+    "n": 4000,
+    "std": 0.18090190263014744
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.0955557397089284,
+    "p50": 1.1959138067813522,
+    "p95": 1.2985414994708868,
+    "n": 4000,
+    "std": 0.06289386264505804
+   },
+   "fuel_model_torque_nm": {
+    "p05": 279.4135134332462,
+    "p50": 304.6364781772186,
+    "p95": 329.9187553614786,
+    "n": 4000,
+    "std": 15.472444978729614
+   },
+   "residual_fuel_model_minus_road_nm": 31.501893888916072,
+   "ecu_brake_model_minus_road_nm": 7.169582378364169,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 64.60821326837869,
+     "torque_nm_eta_min": 308.43008159740543,
+     "torque_nm_eta_max": 361.30380987124636
+    },
+    "1.10": {
+     "q_mg": 61.6714763016342,
+     "torque_nm_eta_min": 294.410532433887,
+     "torque_nm_eta_max": 344.8809094225534
+    },
+    "1.15": {
+     "q_mg": 58.990107766780554,
+     "torque_nm_eta_min": 281.6100745019789,
+     "torque_nm_eta_max": 329.8860872737467
+    },
+    "1.20": {
+     "q_mg": 56.532186609831356,
+     "torque_nm_eta_min": 269.8763213977298,
+     "torque_nm_eta_max": 316.14083363734056
+    },
+    "1.25": {
+     "q_mg": 54.2708991454381,
+     "torque_nm_eta_min": 259.0812685418206,
+     "torque_nm_eta_max": 303.4952002918469
+    },
+    "1.30": {
+     "q_mg": 52.18355687061355,
+     "torque_nm_eta_min": 249.11660436713515,
+     "torque_nm_eta_max": 291.82230797292976
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7883636498344562,
+    "65C": 0.8651149381519432
+   },
+   "power_kw_p50": 71.50646695345277,
+   "power_ps_p05_p95": [
+    82.05748289120388,
+    120.43552641551035
+   ],
+   "bmep_bar_p50": 18.102903026190578
+  },
+  {
+   "gear": 3,
+   "rpm": 2750,
+   "chain_current": {
+    "rpm": 2750,
+    "gear": 3,
+    "driver_wish_nm": 349.6174603174603,
+    "trq_lim_p_nm": 357.7,
+    "inner_torque_request_nm": 349.6174603174603,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 61.99,
+    "q_fmtc_extrap_mg": 64.91156421356422,
+    "q_smoke_last_column_mg": 62.15,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 61.99,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 62.15,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 20.578124999999982,
+    "duration_map_selector": 1.2040133779264215,
+    "duration_deg_hyp": 37.248066471571875,
+    "duration_ms_hyp": 2.257458574034659,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 16.669941471571892,
+    "friction_nm": -33.75,
+    "ecu_inner_torque_at_q_cmd_nm": 336.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 302.25
+   },
+   "chain_stock": {
+    "rpm": 2750,
+    "gear": 3,
+    "driver_wish_nm": 315.015873015873,
+    "trq_lim_p_nm": 265.0,
+    "inner_torque_request_nm": 265.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 42.22272727272727,
+    "q_fmtc_extrap_mg": 42.22272727272727,
+    "q_smoke_last_column_mg": 55.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 42.22272727272727,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 42.22272727272727,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 19.054687499999986,
+    "duration_map_selector": 1.4214046822742472,
+    "duration_deg_hyp": 25.242762142748536,
+    "duration_ms_hyp": 1.52986437228779,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 6.18807464274855,
+    "friction_nm": -33.75,
+    "ecu_inner_torque_at_q_cmd_nm": 265.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 231.25
+   },
+   "duration_ratio_current_vs_stock": 1.0795454545454546,
+   "telemetry": [
+    {
+     "t_in_pull_s": 4.077500000000001,
+     "map_mbar": 2365.9911894273127,
+     "maf_g_s": 88.86132525128518,
+     "maf_bracket_s": 2.1984999999999992,
+     "air_mg_stroke": 969.3962754685655,
+     "segment": "20260916_102349@11.9s"
+    },
+    {
+     "t_in_pull_s": 2.069139610389609,
+     "map_mbar": 2380.8939851689097,
+     "maf_g_s": 89.36370887776852,
+     "maf_bracket_s": 2.1660000000000004,
+     "air_mg_stroke": 974.876824121111,
+     "segment": "20260916_102349@24.3s"
+    },
+    {
+     "t_in_pull_s": 2.3384265734265735,
+     "map_mbar": 2369.73833678059,
+     "maf_g_s": 87.35327150991813,
+     "maf_bracket_s": 2.1975000000000002,
+     "air_mg_stroke": 952.9447801081978,
+     "segment": "20260916_110755@0.4s"
+    }
+   ],
+   "map_mbar_median": 2369.73833678059,
+   "air_mg_stroke_median": 969.3962754685655,
+   "road_torque_nm": {
+    "p05": 270.26218229642643,
+    "p50": 306.8960381589734,
+    "p95": 345.6219317967602,
+    "n": 25006,
+    "std": 23.013579136517126
+   },
+   "implied_burned_q_mg": {
+    "p05": 51.310799725937876,
+    "p50": 59.201821114252965,
+    "p95": 68.27922823184743,
+    "n": 4000,
+    "std": 5.232078602729759
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 0.9912442770082491,
+    "p50": 1.1701655882339996,
+    "p95": 1.3752966729950826,
+    "n": 4000,
+    "std": 0.11822816735520977
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.0172825784752302,
+    "p50": 1.1099668190985743,
+    "p95": 1.2042012176111585,
+    "n": 4000,
+    "std": 0.05774923748032201
+   },
+   "fuel_model_torque_nm": {
+    "p05": 296.5616569865038,
+    "p50": 323.1544832979249,
+    "p95": 349.5564411498024,
+    "n": 4000,
+    "std": 16.140606069222134
+   },
+   "residual_fuel_model_minus_road_nm": 16.258445138951515,
+   "ecu_brake_model_minus_road_nm": -4.646038158973397,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 63.67134814243451,
+     "torque_nm_eta_min": 303.95762565685163,
+     "torque_nm_eta_max": 356.0646471980262
+    },
+    "1.10": {
+     "q_mg": 60.77719595414203,
+     "torque_nm_eta_min": 290.14136994517656,
+     "torque_nm_eta_max": 339.8798905072068
+    },
+    "1.15": {
+     "q_mg": 58.13470917352718,
+     "torque_nm_eta_min": 277.5265277736472,
+     "torque_nm_eta_max": 325.1025039634153
+    },
+    "1.20": {
+     "q_mg": 55.712429624630204,
+     "torque_nm_eta_min": 265.96292244974524,
+     "torque_nm_eta_max": 311.55656629827297
+    },
+    "1.25": {
+     "q_mg": 53.483932439644995,
+     "torque_nm_eta_min": 255.32440555175543,
+     "torque_nm_eta_max": 299.0943036463421
+    },
+    "1.30": {
+     "q_mg": 51.42685811504326,
+     "torque_nm_eta_min": 245.50423610745707,
+     "torque_nm_eta_max": 287.59067658302115
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7633827356764977,
+    "65C": 0.8377020024955628
+   },
+   "power_kw_p50": 88.37971439880398,
+   "power_ps_p05_p95": [
+    105.81924341477561,
+    135.32581961531042
+   ],
+   "bmep_bar_p50": 20.340555672912313
+  },
+  {
+   "gear": 3,
+   "rpm": 3000,
+   "chain_current": {
+    "rpm": 3000,
+    "gear": 3,
+    "driver_wish_nm": 345.2523809523809,
+    "trq_lim_p_nm": 348.2,
+    "inner_torque_request_nm": 345.2523809523809,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 62.57,
+    "q_fmtc_extrap_mg": 64.76954329004329,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 62.57,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 64.76954329004329,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 22.242187499999982,
+    "duration_map_selector": 0.9665551839464883,
+    "duration_deg_hyp": 39.160691889632076,
+    "duration_ms_hyp": 2.175593993868449,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 16.918504389632094,
+    "friction_nm": -36.2,
+    "ecu_inner_torque_at_q_cmd_nm": 336.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 299.8
+   },
+   "chain_stock": {
+    "rpm": 3000,
+    "gear": 3,
+    "driver_wish_nm": 311.04761904761904,
+    "trq_lim_p_nm": 258.0,
+    "inner_torque_request_nm": 258.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 41.195454545454545,
+    "q_fmtc_extrap_mg": 41.195454545454545,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 41.195454545454545,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 41.195454545454545,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 20.601562499999982,
+    "duration_map_selector": 1.2006688963210705,
+    "duration_deg_hyp": 26.370157627698365,
+    "duration_ms_hyp": 1.4650087570943535,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.768595127698383,
+    "friction_nm": -36.2,
+    "ecu_inner_torque_at_q_cmd_nm": 258.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 221.8
+   },
+   "duration_ratio_current_vs_stock": 1.078875171467764,
+   "telemetry": [
+    {
+     "t_in_pull_s": 4.733130434782607,
+     "map_mbar": 2384.802371541502,
+     "maf_g_s": 95.06541258723531,
+     "maf_bracket_s": 2.1984999999999992,
+     "air_mg_stroke": 950.6541258723532,
+     "segment": "20260916_102349@11.9s"
+    },
+    {
+     "t_in_pull_s": 2.755030303030299,
+     "map_mbar": 2378.336788076202,
+     "maf_g_s": 94.779417659303,
+     "maf_bracket_s": 2.1660000000000004,
+     "air_mg_stroke": 947.79417659303,
+     "segment": "20260916_102349@24.3s"
+    },
+    {
+     "t_in_pull_s": 3.0147972972972976,
+     "map_mbar": 2350.8330952517,
+     "maf_g_s": 93.42043976666037,
+     "maf_bracket_s": 2.1975000000000002,
+     "air_mg_stroke": 934.2043976666037,
+     "segment": "20260916_110755@0.4s"
+    }
+   ],
+   "map_mbar_median": 2378.336788076202,
+   "air_mg_stroke_median": 947.79417659303,
+   "road_torque_nm": {
+    "p05": 264.39255550397036,
+    "p50": 297.16130717231033,
+    "p95": 335.96528432583983,
+    "n": 15006,
+    "std": 21.84705267298897
+   },
+   "implied_burned_q_mg": {
+    "p05": 49.85546950844035,
+    "p50": 57.30109281413729,
+    "p95": 66.24032598778504,
+    "n": 4000,
+    "std": 5.0278427456078605
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 0.999852412264554,
+    "p50": 1.177971435281898,
+    "p95": 1.3816984672408674,
+    "n": 4000,
+    "std": 0.11738782826715562
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.082715240220148,
+    "p50": 1.1809654541345034,
+    "p95": 1.284641131272019,
+    "n": 4000,
+    "std": 0.06215800357607983
+   },
+   "fuel_model_torque_nm": {
+    "p05": 272.5262026453315,
+    "p50": 295.50740069622213,
+    "p95": 320.6523318140255,
+    "n": 4000,
+    "std": 14.911446569207364
+   },
+   "residual_fuel_model_minus_road_nm": -1.6539064760881956,
+   "ecu_brake_model_minus_road_nm": 2.638692827689681,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 62.252491073433816,
+     "torque_nm_eta_min": 297.1842112652618,
+     "torque_nm_eta_max": 348.1300760535924
+    },
+    "1.10": {
+     "q_mg": 59.42283238827774,
+     "torque_nm_eta_min": 283.6758380259318,
+     "torque_nm_eta_max": 332.3059816875201
+    },
+    "1.15": {
+     "q_mg": 56.83923098009176,
+     "torque_nm_eta_min": 271.3421059378478,
+     "torque_nm_eta_max": 317.85789552719314
+    },
+    "1.20": {
+     "q_mg": 54.4709296892546,
+     "torque_nm_eta_min": 260.0361848571042,
+     "torque_nm_eta_max": 304.6138165468935
+    },
+    "1.25": {
+     "q_mg": 52.292092501684415,
+     "torque_nm_eta_min": 249.63473746282,
+     "torque_nm_eta_max": 292.42926388501775
+    },
+    "1.30": {
+     "q_mg": 50.28085817469655,
+     "torque_nm_eta_min": 240.03340140655763,
+     "torque_nm_eta_max": 281.1819845048247
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7436730853623109,
+    "65C": 0.816073515545239
+   },
+   "power_kw_p50": 93.355977954367,
+   "power_ps_p05_p95": [
+    112.93203557927255,
+    143.50344838781365
+   ],
+   "bmep_bar_p50": 19.695353998811605
+  },
+  {
+   "gear": 3,
+   "rpm": 3250,
+   "chain_current": {
+    "rpm": 3250,
+    "gear": 3,
+    "driver_wish_nm": 342.1469098277609,
+    "trq_lim_p_nm": 341.5,
+    "inner_torque_request_nm": 341.5,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 63.22,
+    "q_fmtc_extrap_mg": 64.53999999999999,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 63.22,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 64.53999999999999,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 24.515624999999982,
+    "duration_map_selector": 0.6421404682274245,
+    "duration_deg_hyp": 39.87047972408024,
+    "duration_ms_hyp": 2.044639985850269,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 15.354854724080258,
+    "friction_nm": -37.95,
+    "ecu_inner_torque_at_q_cmd_nm": 336.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 298.05
+   },
+   "chain_stock": {
+    "rpm": 3250,
+    "gear": 3,
+    "driver_wish_nm": 308.2472137791287,
+    "trq_lim_p_nm": 253.0,
+    "inner_torque_request_nm": 253.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 40.49909090909091,
+    "q_fmtc_extrap_mg": 40.49909090909091,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 40.49909090909091,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 40.49909090909091,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 22.710937499999982,
+    "duration_map_selector": 0.8996655518394648,
+    "duration_deg_hyp": 28.053988194549994,
+    "duration_ms_hyp": 1.4386660612589741,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.343050694550012,
+    "friction_nm": -37.95,
+    "ecu_inner_torque_at_q_cmd_nm": 253.00000000000003,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 215.05
+   },
+   "duration_ratio_current_vs_stock": 1.0791884816753927,
+   "telemetry": [
+    {
+     "t_in_pull_s": 5.626333333333333,
+     "map_mbar": 2246.3340765514677,
+     "maf_g_s": null,
+     "maf_bracket_s": null,
+     "air_mg_stroke": null,
+     "segment": "20260916_102349@11.9s"
+    },
+    {
+     "t_in_pull_s": 3.6078524590163923,
+     "map_mbar": 2311.839958080695,
+     "maf_g_s": 100.19512644083746,
+     "maf_bracket_s": 2.1660000000000004,
+     "air_mg_stroke": 924.878090223115,
+     "segment": "20260916_102349@24.3s"
+    },
+    {
+     "t_in_pull_s": 3.7999095940959413,
+     "map_mbar": 2302.1079693782012,
+     "maf_g_s": 97.62097575891343,
+     "maf_bracket_s": 2.1369999999999996,
+     "air_mg_stroke": 901.116699313047,
+     "segment": "20260916_110755@0.4s"
+    }
+   ],
+   "map_mbar_median": 2302.1079693782012,
+   "air_mg_stroke_median": 912.997394768081,
+   "road_torque_nm": {
+    "p05": 232.31229815601384,
+    "p50": 262.30149919947644,
+    "p95": 293.1321020999206,
+    "n": 10000,
+    "std": 18.320703304378025
+   },
+   "implied_burned_q_mg": {
+    "p05": 43.98639575765614,
+    "p50": 50.61844720998679,
+    "p95": 57.7982113417734,
+    "n": 4000,
+    "std": 4.229263908553197
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.0988750018339037,
+    "p50": 1.284301864519414,
+    "p95": 1.5114135685584584,
+    "n": 4000,
+    "std": 0.1252186406874062
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.0442197563586324,
+    "p50": 1.1389328681290778,
+    "p95": 1.2389562634693183,
+    "n": 4000,
+    "std": 0.05940351155723866
+   },
+   "fuel_model_torque_nm": {
+    "p05": 271.91423996419456,
+    "p50": 296.08881679448706,
+    "p95": 320.79040244561344,
+    "n": 4000,
+    "std": 15.004221644798879
+   },
+   "residual_fuel_model_minus_road_nm": 33.78731759501062,
+   "ecu_brake_model_minus_road_nm": 35.74850080052357,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 59.96698816210712,
+     "torque_nm_eta_min": 286.2735574370339,
+     "torque_nm_eta_max": 335.34902442623974
+    },
+    "1.10": {
+     "q_mg": 57.241215972920436,
+     "torque_nm_eta_min": 273.26112300807785,
+     "torque_nm_eta_max": 320.10588695231974
+    },
+    "1.15": {
+     "q_mg": 54.75246745235869,
+     "torque_nm_eta_min": 261.3802046164223,
+     "torque_nm_eta_max": 306.1882396935233
+    },
+    "1.20": {
+     "q_mg": 52.47111464184374,
+     "torque_nm_eta_min": 250.48936275740473,
+     "torque_nm_eta_max": 293.4303963729598
+    },
+    "1.25": {
+     "q_mg": 50.37227005616999,
+     "torque_nm_eta_min": 240.46978824710854,
+     "torque_nm_eta_max": 281.6931805180414
+    },
+    "1.30": {
+     "q_mg": 48.434875054009595,
+     "torque_nm_eta_min": 231.2209502376043,
+     "torque_nm_eta_max": 270.8588274211936
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7400911851788332,
+    "65C": 0.8121428988097433
+   },
+   "power_kw_p50": 89.27148348198862,
+   "power_ps_p05_p95": [
+    107.49845960458161,
+    135.64176191495645
+   ],
+   "bmep_bar_p50": 17.3849042808157
+  },
+  {
+   "gear": 3,
+   "rpm": 3500,
+   "chain_current": {
+    "rpm": 3500,
+    "gear": 3,
+    "driver_wish_nm": 339.0567375886525,
+    "trq_lim_p_nm": 336.1,
+    "inner_torque_request_nm": 336.1,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 63.99,
+    "q_fmtc_extrap_mg": 64.01445454545456,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 63.99,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 64.01445454545456,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 25.89843749999998,
+    "duration_map_selector": 0.44481605351170594,
+    "duration_deg_hyp": 40.65191262541803,
+    "duration_ms_hyp": 1.9358053631151444,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 14.75347512541805,
+    "friction_nm": -39.7,
+    "ecu_inner_torque_at_q_cmd_nm": 336.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 296.3
+   },
+   "chain_stock": {
+    "rpm": 3500,
+    "gear": 3,
+    "driver_wish_nm": 305.4609929078014,
+    "trq_lim_p_nm": 249.0,
+    "inner_torque_request_nm": 249.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 39.957727272727276,
+    "q_fmtc_extrap_mg": 39.957727272727276,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 39.957727272727276,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 39.957727272727276,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 23.999999999999982,
+    "duration_map_selector": 0.7157190635451504,
+    "duration_deg_hyp": 29.325082897062156,
+    "duration_ms_hyp": 1.3964325189077216,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.325082897062174,
+    "friction_nm": -39.7,
+    "ecu_inner_torque_at_q_cmd_nm": 249.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 209.3
+   },
+   "duration_ratio_current_vs_stock": 1.0795957043588125,
+   "telemetry": [
+    {
+     "t_in_pull_s": 4.7001356589147285,
+     "map_mbar": 2204.26888758803,
+     "maf_g_s": 98.98423378108434,
+     "maf_bracket_s": 2.1369999999999996,
+     "air_mg_stroke": 848.4362895521515,
+     "segment": "20260916_110755@0.4s"
+    }
+   ],
+   "map_mbar_median": 2204.26888758803,
+   "air_mg_stroke_median": 848.4362895521515,
+   "road_torque_nm": {
+    "p05": 203.40596175678886,
+    "p50": 231.22824179264487,
+    "p95": 265.6842834805149,
+    "n": 10000,
+    "std": 18.874635358784708
+   },
+   "implied_burned_q_mg": {
+    "p05": 38.429138357197424,
+    "p50": 44.64777294269474,
+    "p95": 52.44774883858996,
+    "n": 4000,
+    "std": 4.267178922631421
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.1280887638692654,
+    "p50": 1.3569298232279317,
+    "p95": 1.6075530341619153,
+    "n": 4000,
+    "std": 0.1441617046724309
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 0.9701213666719584,
+    "p50": 1.0586237420494975,
+    "p95": 1.1480937176156227,
+    "n": 4000,
+    "std": 0.05540987555687565
+   },
+   "fuel_model_torque_nm": {
+    "p05": 272.45429765307847,
+    "p50": 296.5616558097951,
+    "p95": 320.4995748358321,
+    "n": 4000,
+    "std": 14.814196020291222
+   },
+   "residual_fuel_model_minus_road_nm": 65.33341401715026,
+   "ecu_brake_model_minus_road_nm": 65.07175820735515,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 55.72652148125789,
+     "torque_nm_eta_min": 266.03019489499115,
+     "torque_nm_eta_max": 311.6353711627039
+    },
+    "1.10": {
+     "q_mg": 53.19349777756435,
+     "torque_nm_eta_min": 253.93791330885523,
+     "torque_nm_eta_max": 297.4701270189447
+    },
+    "1.15": {
+     "q_mg": 50.88073700462679,
+     "torque_nm_eta_min": 242.89713446933985,
+     "torque_nm_eta_max": 284.5366432355124
+    },
+    "1.20": {
+     "q_mg": 48.760706296100665,
+     "torque_nm_eta_min": 232.77642053311732,
+     "torque_nm_eta_max": 272.680949767366
+    },
+    "1.25": {
+     "q_mg": 46.810278044256634,
+     "torque_nm_eta_min": 223.46536371179263,
+     "torque_nm_eta_max": 261.77371177667135
+    },
+    "1.30": {
+     "q_mg": 45.009882734862146,
+     "torque_nm_eta_min": 214.8705420305698,
+     "torque_nm_eta_max": 251.7054920929532
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7182837590457072,
+    "65C": 0.7882124066892938
+   },
+   "power_kw_p50": 84.74957700046336,
+   "power_ps_p05_p95": [
+    101.36275386963517,
+    132.39774488845325
+   ],
+   "bmep_bar_p50": 15.325420795743831
+  },
+  {
+   "gear": 3,
+   "rpm": 3750,
+   "chain_current": {
+    "rpm": 3750,
+    "gear": 3,
+    "driver_wish_nm": 335.96656534954406,
+    "trq_lim_p_nm": 330.7,
+    "inner_torque_request_nm": 330.7,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 63.90843181818181,
+    "q_fmtc_extrap_mg": 63.90843181818181,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 63.90843181818181,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 63.90843181818181,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 27.52734374999998,
+    "duration_map_selector": 0.2123745819397994,
+    "duration_deg_hyp": 41.346937709030065,
+    "duration_ms_hyp": 1.8376416759568917,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 13.819593959030087,
+    "friction_nm": -44.1,
+    "ecu_inner_torque_at_q_cmd_nm": 330.7,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 286.59999999999997
+   },
+   "chain_stock": {
+    "rpm": 3750,
+    "gear": 3,
+    "driver_wish_nm": 302.67477203647417,
+    "trq_lim_p_nm": 245.0,
+    "inner_torque_request_nm": 245.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 40.28954545454546,
+    "q_fmtc_extrap_mg": 40.28954545454546,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 40.28954545454546,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 40.28954545454546,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 25.49999999999998,
+    "duration_map_selector": 0.5016722408026759,
+    "duration_deg_hyp": 31.026109228916443,
+    "duration_ms_hyp": 1.3789381879518419,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.526109228916464,
+    "friction_nm": -44.1,
+    "ecu_inner_torque_at_q_cmd_nm": 245.00000000000003,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 200.90000000000003
+   },
+   "duration_ratio_current_vs_stock": 1.0788778206952632,
+   "telemetry": [],
+   "map_mbar_median": null,
+   "air_mg_stroke_median": null,
+   "road_torque_nm": null
+  },
+  {
+   "gear": 3,
+   "rpm": 4000,
+   "chain_current": {
+    "rpm": 4000,
+    "gear": 3,
+    "driver_wish_nm": 332.94444444444446,
+    "trq_lim_p_nm": 318.6,
+    "inner_torque_request_nm": 318.6,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 62.070454545454545,
+    "q_fmtc_extrap_mg": 62.070454545454545,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 62.070454545454545,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 62.070454545454545,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 29.15624999999998,
+    "duration_map_selector": 0.0,
+    "duration_deg_hyp": 42.140624999999964,
+    "duration_ms_hyp": 1.7558593749999984,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 12.984374999999986,
+    "friction_nm": -48.5,
+    "ecu_inner_torque_at_q_cmd_nm": 318.6,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 270.1
+   },
+   "chain_stock": {
+    "rpm": 4000,
+    "gear": 3,
+    "driver_wish_nm": 299.9503968253968,
+    "trq_lim_p_nm": 236.0,
+    "inner_torque_request_nm": 236.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 39.64,
+    "q_fmtc_extrap_mg": 39.64,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 39.64,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 39.64,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 26.99999999999998,
+    "duration_map_selector": 0.2876254180602008,
+    "duration_deg_hyp": 32.35182190635449,
+    "duration_ms_hyp": 1.3479925794314371,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.351821906354509,
+    "friction_nm": -48.5,
+    "ecu_inner_torque_at_q_cmd_nm": 236.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 187.5
+   },
+   "duration_ratio_current_vs_stock": 1.079136690647482,
+   "telemetry": [],
+   "map_mbar_median": null,
+   "air_mg_stroke_median": null,
+   "road_torque_nm": null
+  },
+  {
+   "gear": 4,
+   "rpm": 1500,
+   "chain_current": {
+    "rpm": 1500,
+    "gear": 4,
+    "driver_wish_nm": 373.82142857142856,
+    "trq_lim_p_nm": 337.5,
+    "inner_torque_request_nm": 337.5,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 66.12,
+    "q_fmtc_extrap_mg": 66.52909090909091,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 12.91406249999999,
+    "duration_map_selector": 2.34765625,
+    "duration_deg_hyp": 26.46093749999998,
+    "duration_ms_hyp": 2.9401041666666643,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 13.54687499999999,
+    "friction_nm": -26.3,
+    "ecu_inner_torque_at_q_cmd_nm": 306.4867924528302,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 280.18679245283016
+   },
+   "chain_stock": {
+    "rpm": 1500,
+    "gear": 4,
+    "driver_wish_nm": 336.8392857142857,
+    "trq_lim_p_nm": 250.0,
+    "inner_torque_request_nm": 250.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 41.46727272727273,
+    "q_fmtc_extrap_mg": 41.46727272727273,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 41.46727272727273,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 41.46727272727273,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 11.695048295454537,
+    "duration_map_selector": 2.5508252840909087,
+    "duration_deg_hyp": 19.59439367762137,
+    "duration_ms_hyp": 2.177154853069041,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 7.899345382166832,
+    "friction_nm": -26.3,
+    "ecu_inner_torque_at_q_cmd_nm": 250.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 223.7
+   },
+   "duration_ratio_current_vs_stock": 1.0792943361188485,
+   "telemetry": [],
+   "map_mbar_median": null,
+   "air_mg_stroke_median": null,
+   "road_torque_nm": null
+  },
+  {
+   "gear": 4,
+   "rpm": 1750,
+   "chain_current": {
+    "rpm": 1750,
+    "gear": 4,
+    "driver_wish_nm": 368.8611111111111,
+    "trq_lim_p_nm": 367.2,
+    "inner_torque_request_nm": 367.2,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 64.24,
+    "q_fmtc_extrap_mg": 72.53636363636362,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 14.32031249999999,
+    "duration_map_selector": 2.11328125,
+    "duration_deg_hyp": 27.959371948242165,
+    "duration_ms_hyp": 2.662797328404016,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 13.639059448242175,
+    "friction_nm": -27.15,
+    "ecu_inner_torque_at_q_cmd_nm": 309.70454545454544,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 282.55454545454546
+   },
+   "chain_stock": {
+    "rpm": 1750,
+    "gear": 4,
+    "driver_wish_nm": 332.375,
+    "trq_lim_p_nm": 272.0,
+    "inner_torque_request_nm": 272.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 44.946363636363635,
+    "q_fmtc_extrap_mg": 44.946363636363635,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 44.946363636363635,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 44.946363636363635,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 13.26562499999999,
+    "duration_map_selector": 2.2890625,
+    "duration_deg_hyp": 21.770546098188902,
+    "duration_ms_hyp": 2.073385342684657,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 8.504921098188913,
+    "friction_nm": -27.15,
+    "ecu_inner_torque_at_q_cmd_nm": 272.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 244.85
+   },
+   "duration_ratio_current_vs_stock": 1.0793895903351802,
+   "telemetry": [
+    {
+     "t_in_pull_s": 1.9558837209302329,
+     "map_mbar": 2154.5669223156856,
+     "maf_g_s": 53.93534759831255,
+     "maf_bracket_s": 2.246,
+     "air_mg_stroke": 924.6059588282152,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 2.1999932432432425,
+     "map_mbar": 2192.610738858659,
+     "maf_g_s": 53.39532969299667,
+     "maf_bracket_s": 2.2554999999999996,
+     "air_mg_stroke": 915.3485090227999,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2173.588830587172,
+   "air_mg_stroke_median": 919.9772339255076,
+   "road_torque_nm": {
+    "p05": 277.13450034890474,
+    "p50": 313.7827881208456,
+    "p95": 353.6467430652451,
+    "n": 17521,
+    "std": 23.19462929425268
+   },
+   "implied_burned_q_mg": {
+    "p05": 52.64391129600633,
+    "p50": 60.54041549290261,
+    "p95": 69.73638177009609,
+    "n": 4000,
+    "std": 5.219475241863056
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 0.9257867783552017,
+    "p50": 1.0859953774102795,
+    "p95": 1.274276708591718,
+    "n": 4000,
+    "std": 0.10695980908333606
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.0242768959958515,
+    "p50": 1.12051675882689,
+    "p95": 1.2187634431307168,
+    "n": 4000,
+    "std": 0.059339568226129076
+   },
+   "fuel_model_torque_nm": {
+    "p05": 279.4151153502604,
+    "p50": 304.4972674008152,
+    "p95": 329.2272721505236,
+    "n": 4000,
+    "std": 15.409084977985787
+   },
+   "residual_fuel_model_minus_road_nm": -9.285520720030433,
+   "ecu_brake_model_minus_road_nm": -31.22824266630016,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 60.425434083777176,
+     "torque_nm_eta_min": 288.4621106545843,
+     "torque_nm_eta_max": 337.9127581953702
+    },
+    "1.10": {
+     "q_mg": 57.67882344360549,
+     "torque_nm_eta_min": 275.3501965339214,
+     "torque_nm_eta_max": 322.5530873683079
+    },
+    "1.15": {
+     "q_mg": 55.171048511274826,
+     "torque_nm_eta_min": 263.3784488585336,
+     "torque_nm_eta_max": 308.52904009142503
+    },
+    "1.20": {
+     "q_mg": 52.872254823305035,
+     "torque_nm_eta_min": 252.40434682276128,
+     "torque_nm_eta_max": 295.67366342094897
+    },
+    "1.25": {
+     "q_mg": 50.757364630372834,
+     "torque_nm_eta_min": 242.30817294985087,
+     "torque_nm_eta_max": 283.846716884111
+    },
+    "1.30": {
+     "q_mg": 48.80515829843541,
+     "torque_nm_eta_min": 232.988627836395,
+     "torque_nm_eta_max": 272.92953546549126
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7898435357996306,
+    "65C": 0.8667388986877985
+   },
+   "power_kw_p50": 57.50369928236332,
+   "power_ps_p05_p95": [
+    69.05185055794655,
+    88.11592213059639
+   ],
+   "bmep_bar_p50": 20.796997932138634
+  },
+  {
+   "gear": 4,
+   "rpm": 2000,
+   "chain_current": {
+    "rpm": 2000,
+    "gear": 4,
+    "driver_wish_nm": 363.9007936507937,
+    "trq_lim_p_nm": 375.2,
+    "inner_torque_request_nm": 363.9007936507937,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 63.14,
+    "q_fmtc_extrap_mg": 70.21665584415585,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 15.960937499999988,
+    "duration_map_selector": 1.8628762541806019,
+    "duration_deg_hyp": 30.038691471571884,
+    "duration_ms_hyp": 2.5032242892976573,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 14.077753971571896,
+    "friction_nm": -28.0,
+    "ecu_inner_torque_at_q_cmd_nm": 311.63248730964466,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 283.63248730964466
+   },
+   "chain_stock": {
+    "rpm": 2000,
+    "gear": 4,
+    "driver_wish_nm": 327.9107142857143,
+    "trq_lim_p_nm": 278.0,
+    "inner_torque_request_nm": 278.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 45.22181818181818,
+    "q_fmtc_extrap_mg": 45.22181818181818,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 45.22181818181818,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 45.22181818181818,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 14.78906249999999,
+    "duration_map_selector": 2.03515625,
+    "duration_deg_hyp": 22.87127330433237,
+    "duration_ms_hyp": 1.9059394420276974,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 8.08221080433238,
+    "friction_nm": -28.0,
+    "ecu_inner_torque_at_q_cmd_nm": 278.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 250.0
+   },
+   "duration_ratio_current_vs_stock": 1.0790685772773798,
+   "telemetry": [
+    {
+     "t_in_pull_s": 3.3180853658536584,
+     "map_mbar": 2270.3228453398224,
+     "maf_g_s": 64.2991832085995,
+     "maf_bracket_s": 2.246,
+     "air_mg_stroke": 964.4877481289925,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 3.5041768292682924,
+     "map_mbar": 2313.8709806966344,
+     "maf_g_s": 65.79855498241986,
+     "maf_bracket_s": 2.2554999999999996,
+     "air_mg_stroke": 986.9783247362977,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2292.0969130182284,
+   "air_mg_stroke_median": 975.7330364326451,
+   "road_torque_nm": {
+    "p05": 273.6580433154635,
+    "p50": 314.0794450792614,
+    "p95": 356.6759085043129,
+    "n": 20000,
+    "std": 25.89799506180285
+   },
+   "implied_burned_q_mg": {
+    "p05": 51.69050623950542,
+    "p50": 60.53183678475405,
+    "p95": 70.38211268527418,
+    "n": 4000,
+    "std": 5.88731963956705
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 0.9641741760462502,
+    "p50": 1.1491818199475512,
+    "p95": 1.3731398814676095,
+    "n": 4000,
+    "std": 0.12788967866305215
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.08630593784633,
+    "p50": 1.1837621477331444,
+    "p95": 1.2906866829790264,
+    "n": 4000,
+    "std": 0.06271077972989658
+   },
+   "fuel_model_torque_nm": {
+    "p05": 279.49279896807366,
+    "p50": 304.57899236039134,
+    "p95": 329.71264570979247,
+    "n": 4000,
+    "std": 15.467221277924919
+   },
+   "residual_fuel_model_minus_road_nm": -9.500452718870065,
+   "ecu_brake_model_minus_road_nm": -30.446957769616745,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 64.08755575912282,
+     "torque_nm_eta_min": 305.94453943580714,
+     "torque_nm_eta_max": 358.3921747676598
+    },
+    "1.10": {
+     "q_mg": 61.17448504279906,
+     "torque_nm_eta_min": 292.0379694614523,
+     "torque_nm_eta_max": 342.1016213691299
+    },
+    "1.15": {
+     "q_mg": 58.51472482354694,
+     "torque_nm_eta_min": 279.3406664413892,
+     "torque_nm_eta_max": 327.22763783134167
+    },
+    "1.20": {
+     "q_mg": 56.07661128923248,
+     "torque_nm_eta_min": 267.7014720063313,
+     "torque_nm_eta_max": 313.59315292170237
+    },
+    "1.25": {
+     "q_mg": 53.83354683766318,
+     "torque_nm_eta_min": 256.99341312607805,
+     "torque_nm_eta_max": 301.04942680483424
+    },
+    "1.30": {
+     "q_mg": 51.76302580544536,
+     "torque_nm_eta_min": 247.10905108276734,
+     "torque_nm_eta_max": 289.470602696956
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7944003282736295,
+    "65C": 0.8717393185322985
+   },
+   "power_kw_p50": 65.78064515363778,
+   "power_ps_p05_p95": [
+    77.92644999742171,
+    101.56649156957457
+   ],
+   "bmep_bar_p50": 20.81665985874613
+  },
+  {
+   "gear": 4,
+   "rpm": 2250,
+   "chain_current": {
+    "rpm": 2250,
+    "gear": 4,
+    "driver_wish_nm": 358.9404761904762,
+    "trq_lim_p_nm": 373.9,
+    "inner_torque_request_nm": 358.9404761904762,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 62.57,
+    "q_fmtc_extrap_mg": 67.94015692640693,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 17.249999999999986,
+    "duration_map_selector": 1.6789297658862876,
+    "duration_deg_hyp": 31.17136548913041,
+    "duration_ms_hyp": 2.308990036231882,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 13.921365489130423,
+    "friction_nm": -29.65,
+    "ecu_inner_torque_at_q_cmd_nm": 312.0482160077146,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 282.3982160077146
+   },
+   "chain_stock": {
+    "rpm": 2250,
+    "gear": 4,
+    "driver_wish_nm": 323.44642857142856,
+    "trq_lim_p_nm": 277.0,
+    "inner_torque_request_nm": 277.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 44.79318181818182,
+    "q_fmtc_extrap_mg": 44.79318181818182,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 44.79318181818182,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 44.79318181818182,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 15.984374999999988,
+    "duration_map_selector": 1.8595317725752507,
+    "duration_deg_hyp": 23.880202272252188,
+    "duration_ms_hyp": 1.7689038720186805,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 7.8958272722522,
+    "friction_nm": -29.65,
+    "ecu_inner_torque_at_q_cmd_nm": 277.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 247.35
+   },
+   "duration_ratio_current_vs_stock": 1.0793742757821554,
+   "telemetry": [
+    {
+     "t_in_pull_s": 4.697214285714286,
+     "map_mbar": 2270.0,
+     "maf_g_s": 73.38809687697652,
+     "maf_bracket_s": 2.1899999999999995,
+     "air_mg_stroke": 978.5079583596869,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 4.868885057471264,
+     "map_mbar": 2323.9695591764557,
+     "maf_g_s": 74.53410138251574,
+     "maf_bracket_s": 2.246500000000001,
+     "air_mg_stroke": 993.7880184335432,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2296.984779588228,
+   "air_mg_stroke_median": 986.1479883966151,
+   "road_torque_nm": {
+    "p05": 257.2059964095423,
+    "p50": 306.9948601897205,
+    "p95": 363.503170635021,
+    "n": 20000,
+    "std": 32.70300350556701
+   },
+   "implied_burned_q_mg": {
+    "p05": 48.582667978273136,
+    "p50": 59.19931927899718,
+    "p95": 71.30643827460548,
+    "n": 4000,
+    "std": 6.995280435883865
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 0.970661980396915,
+    "p50": 1.188977956991261,
+    "p95": 1.4698556576712853,
+    "n": 4000,
+    "std": 0.1551505111171953
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.0965885118363348,
+    "p50": 1.1995330022941078,
+    "p95": 1.3010063491771509,
+    "n": 4000,
+    "std": 0.06289520467314066
+   },
+   "fuel_model_torque_nm": {
+    "p05": 279.7977186338897,
+    "p50": 304.9460751001825,
+    "p95": 329.5296714402817,
+    "n": 4000,
+    "std": 15.315762030385995
+   },
+   "residual_fuel_model_minus_road_nm": -2.0487850895380006,
+   "ecu_brake_model_minus_road_nm": -24.59664418200589,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 64.77162485363645,
+     "torque_nm_eta_min": 309.2101844051653,
+     "torque_nm_eta_max": 362.21764458890794
+    },
+    "1.10": {
+     "q_mg": 61.82746008756207,
+     "torque_nm_eta_min": 295.1551760231124,
+     "torque_nm_eta_max": 345.7532061985031
+    },
+    "1.15": {
+     "q_mg": 59.13930964897243,
+     "torque_nm_eta_min": 282.32234228297716,
+     "torque_nm_eta_max": 330.7204581029161
+    },
+    "1.20": {
+     "q_mg": 56.67517174693191,
+     "torque_nm_eta_min": 270.5589113545197,
+     "torque_nm_eta_max": 316.94043901529454
+    },
+    "1.25": {
+     "q_mg": 54.408164877054624,
+     "torque_nm_eta_min": 259.73655490033894,
+     "torque_nm_eta_max": 304.2628214546827
+    },
+    "1.30": {
+     "q_mg": 52.31554315101406,
+     "torque_nm_eta_min": 249.746687404172,
+     "torque_nm_eta_max": 292.5604052448872
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.8011712519113177,
+    "65C": 0.8791694266876915
+   },
+   "power_kw_p50": 72.33395980963888,
+   "power_ps_p05_p95": [
+    82.39678878918498,
+    116.44943894434685
+   ],
+   "bmep_bar_p50": 20.347105431684632
+  },
+  {
+   "gear": 4,
+   "rpm": 2500,
+   "chain_current": {
+    "rpm": 2500,
+    "gear": 4,
+    "driver_wish_nm": 353.9825396825397,
+    "trq_lim_p_nm": 364.5,
+    "inner_torque_request_nm": 353.9825396825397,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 61.76,
+    "q_fmtc_extrap_mg": 65.11946536796538,
+    "q_smoke_last_column_mg": 56.5,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 56.5,
+    "static_limiter_clamp": "smoke",
+    "q_cmd_extrap_mg": 56.5,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 18.867187499999986,
+    "duration_map_selector": 1.4481605351170566,
+    "duration_deg_hyp": 32.68954326923075,
+    "duration_ms_hyp": 2.179302884615383,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 13.82235576923076,
+    "friction_nm": -31.3,
+    "ecu_inner_torque_at_q_cmd_nm": 311.6041666666667,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 280.3041666666667
+   },
+   "chain_stock": {
+    "rpm": 2500,
+    "gear": 4,
+    "driver_wish_nm": 318.984126984127,
+    "trq_lim_p_nm": 270.0,
+    "inner_torque_request_nm": 270.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 43.0,
+    "q_fmtc_extrap_mg": 43.0,
+    "q_smoke_last_column_mg": 50.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 43.0,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 43.0,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 17.484374999999986,
+    "duration_map_selector": 1.645484949832776,
+    "duration_deg_hyp": 24.15953177257523,
+    "duration_ms_hyp": 1.6106354515050154,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 6.675156772575246,
+    "friction_nm": -31.3,
+    "ecu_inner_torque_at_q_cmd_nm": 270.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 238.7
+   },
+   "duration_ratio_current_vs_stock": 1.0793920284582423,
+   "telemetry": [
+    {
+     "t_in_pull_s": 6.154068493150686,
+     "map_mbar": 2275.186941762766,
+     "maf_g_s": 81.11091075613932,
+     "maf_bracket_s": 2.1899999999999995,
+     "air_mg_stroke": 973.3309290736719,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 6.302875862068965,
+     "map_mbar": 2313.877531551227,
+     "maf_g_s": 81.50789374372285,
+     "maf_bracket_s": 2.2399999999999984,
+     "air_mg_stroke": 978.0947249246742,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2294.5322366569962,
+   "air_mg_stroke_median": 975.7128269991731,
+   "road_torque_nm": {
+    "p05": 266.19716198222847,
+    "p50": 301.9245935495576,
+    "p95": 342.3472214017591,
+    "n": 20000,
+    "std": 23.322551576934163
+   },
+   "implied_burned_q_mg": {
+    "p05": 50.49060722825591,
+    "p50": 58.40540264473566,
+    "p95": 67.4628870970853,
+    "n": 4000,
+    "std": 5.236420563644758
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.0042944371659828,
+    "p50": 1.190954020293525,
+    "p95": 1.414944464273043,
+    "n": 4000,
+    "std": 0.1239787233629375
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.0855798306893172,
+    "p50": 1.1829734005271861,
+    "p95": 1.2874605190590984,
+    "n": 4000,
+    "std": 0.0623884294240028
+   },
+   "fuel_model_torque_nm": {
+    "p05": 279.78601990298597,
+    "p50": 304.2327646672965,
+    "p95": 329.8763923645287,
+    "n": 4000,
+    "std": 15.431736167850449
+   },
+   "residual_fuel_model_minus_road_nm": 2.3081711177389366,
+   "ecu_brake_model_minus_road_nm": -21.62042688289091,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 64.08622837432992,
+     "torque_nm_eta_min": 305.9382026965711,
+     "torque_nm_eta_max": 358.38475173026904
+    },
+    "1.10": {
+     "q_mg": 61.17321799367856,
+     "torque_nm_eta_min": 292.0319207558179,
+     "torque_nm_eta_max": 342.0945357425296
+    },
+    "1.15": {
+     "q_mg": 58.513512863518635,
+     "torque_nm_eta_min": 279.3348807229563,
+     "torque_nm_eta_max": 327.2208602754631
+    },
+    "1.20": {
+     "q_mg": 56.07544982753869,
+     "torque_nm_eta_min": 267.6959273594998,
+     "torque_nm_eta_max": 313.58665776398544
+    },
+    "1.25": {
+     "q_mg": 53.83243183443714,
+     "torque_nm_eta_min": 256.98809026511975,
+     "torque_nm_eta_max": 301.043191453426
+    },
+    "1.30": {
+     "q_mg": 51.76195368695878,
+     "torque_nm_eta_min": 247.10393294723048,
+     "torque_nm_eta_max": 289.46460716675574
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7935407477229139,
+    "65C": 0.8707960533587646
+   },
+   "power_kw_p50": 79.04367375278119,
+   "power_ps_p05_p95": [
+    94.75237590929751,
+    121.85784541132178
+   ],
+   "bmep_bar_p50": 20.011056646273722
+  },
+  {
+   "gear": 4,
+   "rpm": 2750,
+   "chain_current": {
+    "rpm": 2750,
+    "gear": 4,
+    "driver_wish_nm": 349.6174603174603,
+    "trq_lim_p_nm": 357.7,
+    "inner_torque_request_nm": 349.6174603174603,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 61.99,
+    "q_fmtc_extrap_mg": 64.91156421356422,
+    "q_smoke_last_column_mg": 62.15,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 61.99,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 62.15,
+    "static_limiter_extrap": "smoke",
+    "soi_deg_btdc_hyp": 20.578124999999982,
+    "duration_map_selector": 1.2040133779264215,
+    "duration_deg_hyp": 37.248066471571875,
+    "duration_ms_hyp": 2.257458574034659,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 16.669941471571892,
+    "friction_nm": -33.75,
+    "ecu_inner_torque_at_q_cmd_nm": 336.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 302.25
+   },
+   "chain_stock": {
+    "rpm": 2750,
+    "gear": 4,
+    "driver_wish_nm": 315.015873015873,
+    "trq_lim_p_nm": 265.0,
+    "inner_torque_request_nm": 265.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 42.22272727272727,
+    "q_fmtc_extrap_mg": 42.22272727272727,
+    "q_smoke_last_column_mg": 55.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 42.22272727272727,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 42.22272727272727,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 19.054687499999986,
+    "duration_map_selector": 1.4214046822742472,
+    "duration_deg_hyp": 25.242762142748536,
+    "duration_ms_hyp": 1.52986437228779,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 6.18807464274855,
+    "friction_nm": -33.75,
+    "ecu_inner_torque_at_q_cmd_nm": 265.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 231.25
+   },
+   "duration_ratio_current_vs_stock": 1.0795454545454546,
+   "telemetry": [
+    {
+     "t_in_pull_s": 7.698360655737704,
+     "map_mbar": 2321.450189155107,
+     "maf_g_s": 86.7815465557265,
+     "maf_bracket_s": 2.2225,
+     "air_mg_stroke": 946.7077806079254,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 7.788967105263159,
+     "map_mbar": 2309.2604304040283,
+     "maf_g_s": 86.75642705013318,
+     "maf_bracket_s": 2.2399999999999984,
+     "air_mg_stroke": 946.4337496378164,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2315.3553097795675,
+   "air_mg_stroke_median": 946.5707651228709,
+   "road_torque_nm": {
+    "p05": 249.04911178303536,
+    "p50": 288.10477786523984,
+    "p95": 330.1894030299745,
+    "n": 20000,
+    "std": 25.27105964435085
+   },
+   "implied_burned_q_mg": {
+    "p05": 47.46303433806903,
+    "p50": 55.683388932693546,
+    "p95": 65.03681731532954,
+    "n": 4000,
+    "std": 5.4247095669922105
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.0190685600177118,
+    "p50": 1.2107539167944004,
+    "p95": 1.460299849423917,
+    "n": 4000,
+    "std": 0.1327045791857438
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 0.9917179503196062,
+    "p50": 1.0823652389437375,
+    "p95": 1.17687504021308,
+    "n": 4000,
+    "std": 0.05677695030795207
+   },
+   "fuel_model_torque_nm": {
+    "p05": 297.07704115947394,
+    "p50": 323.109991715525,
+    "p95": 350.4169612946273,
+    "n": 4000,
+    "std": 16.25162858554586
+   },
+   "residual_fuel_model_minus_road_nm": 35.005213850285145,
+   "ecu_brake_model_minus_road_nm": 14.14522213476016,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 62.17213564025424,
+     "torque_nm_eta_min": 296.8006062782392,
+     "torque_nm_eta_max": 347.6807102116516
+    },
+    "1.10": {
+     "q_mg": 59.346129474788135,
+     "torque_nm_eta_min": 283.3096696292283,
+     "torque_nm_eta_max": 331.87704156566747
+    },
+    "1.15": {
+     "q_mg": 56.76586297588432,
+     "torque_nm_eta_min": 270.99185790621846,
+     "torque_nm_eta_max": 317.44760497585594
+    },
+    "1.20": {
+     "q_mg": 54.40061868522247,
+     "torque_nm_eta_min": 259.7005304934593,
+     "torque_nm_eta_max": 304.2206214351952
+    },
+    "1.25": {
+     "q_mg": 52.224593937813566,
+     "torque_nm_eta_min": 249.31250927372093,
+     "torque_nm_eta_max": 292.05179657778734
+    },
+    "1.30": {
+     "q_mg": 50.215955709436116,
+     "torque_nm_eta_min": 239.72356660934707,
+     "torque_nm_eta_max": 280.8190351709494
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7629161742945902,
+    "65C": 0.8371900189443962
+   },
+   "power_kw_p50": 82.96821991384267,
+   "power_ps_p05_p95": [
+    97.51341589145139,
+    129.28332227364808
+   ],
+   "bmep_bar_p50": 19.0951023967417
+  },
+  {
+   "gear": 4,
+   "rpm": 3000,
+   "chain_current": {
+    "rpm": 3000,
+    "gear": 4,
+    "driver_wish_nm": 345.2523809523809,
+    "trq_lim_p_nm": 348.2,
+    "inner_torque_request_nm": 345.2523809523809,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 62.57,
+    "q_fmtc_extrap_mg": 64.76954329004329,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 62.57,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 64.76954329004329,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 22.242187499999982,
+    "duration_map_selector": 0.9665551839464883,
+    "duration_deg_hyp": 39.160691889632076,
+    "duration_ms_hyp": 2.175593993868449,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 16.918504389632094,
+    "friction_nm": -36.2,
+    "ecu_inner_torque_at_q_cmd_nm": 336.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 299.8
+   },
+   "chain_stock": {
+    "rpm": 3000,
+    "gear": 4,
+    "driver_wish_nm": 311.04761904761904,
+    "trq_lim_p_nm": 258.0,
+    "inner_torque_request_nm": 258.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 41.195454545454545,
+    "q_fmtc_extrap_mg": 41.195454545454545,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 41.195454545454545,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 41.195454545454545,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 20.601562499999982,
+    "duration_map_selector": 1.2006688963210705,
+    "duration_deg_hyp": 26.370157627698365,
+    "duration_ms_hyp": 1.4650087570943535,
+    "duration_q_axis_end_mg": 60.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.768595127698383,
+    "friction_nm": -36.2,
+    "ecu_inner_torque_at_q_cmd_nm": 258.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 221.8
+   },
+   "duration_ratio_current_vs_stock": 1.078875171467764,
+   "telemetry": [
+    {
+     "t_in_pull_s": 9.400774193548386,
+     "map_mbar": 2193.2291396614937,
+     "maf_g_s": 90.8808208584436,
+     "maf_bracket_s": 2.1125000000000007,
+     "air_mg_stroke": 908.8082085844359,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 9.542357142857142,
+     "map_mbar": 2210.305903946161,
+     "maf_g_s": 90.31398327873094,
+     "maf_bracket_s": 2.2040000000000006,
+     "air_mg_stroke": 903.1398327873094,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2201.7675218038275,
+   "air_mg_stroke_median": 905.9740206858726,
+   "road_torque_nm": {
+    "p05": 218.20000903861086,
+    "p50": 251.59767400378144,
+    "p95": 288.22117194563396,
+    "n": 20000,
+    "std": 21.289109088332346
+   },
+   "implied_burned_q_mg": {
+    "p05": 41.367366620119824,
+    "p50": 48.538290071350815,
+    "p95": 56.750345259632994,
+    "n": 4000,
+    "std": 4.648206052339252
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.1198508736664554,
+    "p50": 1.3305660784994966,
+    "p95": 1.5912357355058224,
+    "n": 4000,
+    "std": 0.14455923964828438
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 1.0371059916072058,
+    "p50": 1.1303769272831343,
+    "p95": 1.2295205423002584,
+    "n": 4000,
+    "std": 0.0596488102231507
+   },
+   "fuel_model_torque_nm": {
+    "p05": 272.388976300298,
+    "p50": 295.9676457103978,
+    "p95": 320.6434771314385,
+    "n": 4000,
+    "std": 14.955149604777407
+   },
+   "residual_fuel_model_minus_road_nm": 44.369971706616354,
+   "ecu_brake_model_minus_road_nm": 48.202325996218576,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 59.505682803669785,
+     "torque_nm_eta_min": 284.0713536900718,
+     "torque_nm_eta_max": 332.7693000369413
+    },
+    "1.10": {
+     "q_mg": 56.800879039866615,
+     "torque_nm_eta_min": 271.1590194314323,
+     "torque_nm_eta_max": 317.64342276253495
+    },
+    "1.15": {
+     "q_mg": 54.33127560335069,
+     "torque_nm_eta_min": 259.369496847457,
+     "torque_nm_eta_max": 303.83283916416394
+    },
+    "1.20": {
+     "q_mg": 52.067472453211074,
+     "torque_nm_eta_min": 248.56243447881295,
+     "torque_nm_eta_max": 291.1731375323237
+    },
+    "1.25": {
+     "q_mg": 49.984773555082626,
+     "torque_nm_eta_min": 238.6199370996604,
+     "torque_nm_eta_max": 279.52621203103075
+    },
+    "1.30": {
+     "q_mg": 48.06228226450252,
+     "torque_nm_eta_min": 229.4422472112119,
+     "torque_nm_eta_max": 268.7752038759911
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7678664005769513,
+    "65C": 0.8426221754181279
+   },
+   "power_kw_p50": 79.04174043105596,
+   "power_ps_p05_p95": [
+    93.20145621035066,
+    123.11013667847081
+   ],
+   "bmep_bar_p50": 16.675472664779733
+  },
+  {
+   "gear": 4,
+   "rpm": 3250,
+   "chain_current": {
+    "rpm": 3250,
+    "gear": 4,
+    "driver_wish_nm": 342.1469098277609,
+    "trq_lim_p_nm": 341.5,
+    "inner_torque_request_nm": 341.5,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 63.22,
+    "q_fmtc_extrap_mg": 64.53999999999999,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 63.22,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 64.53999999999999,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 24.515624999999982,
+    "duration_map_selector": 0.6421404682274245,
+    "duration_deg_hyp": 39.87047972408024,
+    "duration_ms_hyp": 2.044639985850269,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 15.354854724080258,
+    "friction_nm": -37.95,
+    "ecu_inner_torque_at_q_cmd_nm": 336.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 298.05
+   },
+   "chain_stock": {
+    "rpm": 3250,
+    "gear": 4,
+    "driver_wish_nm": 308.2472137791287,
+    "trq_lim_p_nm": 253.0,
+    "inner_torque_request_nm": 253.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 40.49909090909091,
+    "q_fmtc_extrap_mg": 40.49909090909091,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 40.49909090909091,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 40.49909090909091,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 22.710937499999982,
+    "duration_map_selector": 0.8996655518394648,
+    "duration_deg_hyp": 28.053988194549994,
+    "duration_ms_hyp": 1.4386660612589741,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.343050694550012,
+    "friction_nm": -37.95,
+    "ecu_inner_torque_at_q_cmd_nm": 253.00000000000003,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 215.05
+   },
+   "duration_ratio_current_vs_stock": 1.0791884816753927,
+   "telemetry": [
+    {
+     "t_in_pull_s": 11.438415254237288,
+     "map_mbar": 2185.8343651679693,
+     "maf_g_s": 94.72234227050059,
+     "maf_bracket_s": 2.2095000000000002,
+     "air_mg_stroke": 874.3600824969286,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 11.482846153846154,
+     "map_mbar": 2174.660203054971,
+     "maf_g_s": 93.25998859338037,
+     "maf_bracket_s": 2.3255,
+     "air_mg_stroke": 860.861433169665,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2180.2472841114704,
+   "air_mg_stroke_median": 867.6107578332968,
+   "road_torque_nm": {
+    "p05": 204.3166860679595,
+    "p50": 237.72116492356403,
+    "p95": 279.1292944893583,
+    "n": 20000,
+    "std": 23.46838794184491
+   },
+   "implied_burned_q_mg": {
+    "p05": 38.814563920007735,
+    "p50": 45.95992950448341,
+    "p95": 54.72093499137854,
+    "n": 4000,
+    "std": 4.949927365540292
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.1097341233562343,
+    "p50": 1.3449294928090358,
+    "p95": 1.6266912841002379,
+    "n": 4000,
+    "std": 0.1562125360062156
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 0.9920733088520087,
+    "p50": 1.0843625855495962,
+    "p95": 1.1765541155569954,
+    "n": 4000,
+    "std": 0.05772551008873874
+   },
+   "fuel_model_torque_nm": {
+    "p05": 272.0148541703493,
+    "p50": 296.1071270142024,
+    "p95": 320.8326352287375,
+    "n": 4000,
+    "std": 15.068432897509052
+   },
+   "residual_fuel_model_minus_road_nm": 58.385962090638344,
+   "ecu_brake_model_minus_road_nm": 60.32883507643598,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 56.98592826491276,
+     "torque_nm_eta_min": 272.0424171403804,
+     "torque_nm_eta_max": 318.6782600787313
+    },
+    "1.10": {
+     "q_mg": 54.39565879832582,
+     "torque_nm_eta_min": 259.6768527249086,
+     "torque_nm_eta_max": 304.1928846206072
+    },
+    "1.15": {
+     "q_mg": 52.03063015492036,
+     "torque_nm_eta_min": 248.38655478034735,
+     "torque_nm_eta_max": 290.96710702840693
+    },
+    "1.20": {
+     "q_mg": 49.862687231798674,
+     "torque_nm_eta_min": 238.03711499783293,
+     "torque_nm_eta_max": 278.84347756888997
+    },
+    "1.25": {
+     "q_mg": 47.86817974252672,
+     "torque_nm_eta_min": 228.51563039791952,
+     "torque_nm_eta_max": 267.68973846613426
+    },
+    "1.30": {
+     "q_mg": 46.02709590627569,
+     "torque_nm_eta_min": 219.72656769030723,
+     "torque_nm_eta_max": 257.3939792943599
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7426095941244244,
+    "65C": 0.8149064879220319
+   },
+   "power_kw_p50": 80.9058320770566,
+   "power_ps_p05_p95": [
+    94.54397893764694,
+    129.16220719390654
+   ],
+   "bmep_bar_p50": 15.755760871870809
+  },
+  {
+   "gear": 4,
+   "rpm": 3500,
+   "chain_current": {
+    "rpm": 3500,
+    "gear": 4,
+    "driver_wish_nm": 339.0567375886525,
+    "trq_lim_p_nm": 336.1,
+    "inner_torque_request_nm": 336.1,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": true,
+    "q_fmtc_clamp_mg": 63.99,
+    "q_fmtc_extrap_mg": 64.01445454545456,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 63.99,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 64.01445454545456,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 25.89843749999998,
+    "duration_map_selector": 0.44481605351170594,
+    "duration_deg_hyp": 40.65191262541803,
+    "duration_ms_hyp": 1.9358053631151444,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 14.75347512541805,
+    "friction_nm": -39.7,
+    "ecu_inner_torque_at_q_cmd_nm": 336.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 296.3
+   },
+   "chain_stock": {
+    "rpm": 3500,
+    "gear": 4,
+    "driver_wish_nm": 305.4609929078014,
+    "trq_lim_p_nm": 249.0,
+    "inner_torque_request_nm": 249.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 39.957727272727276,
+    "q_fmtc_extrap_mg": 39.957727272727276,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 39.957727272727276,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 39.957727272727276,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 23.999999999999982,
+    "duration_map_selector": 0.7157190635451504,
+    "duration_deg_hyp": 29.325082897062156,
+    "duration_ms_hyp": 1.3964325189077216,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.325082897062174,
+    "friction_nm": -39.7,
+    "ecu_inner_torque_at_q_cmd_nm": 249.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 209.3
+   },
+   "duration_ratio_current_vs_stock": 1.0795957043588125,
+   "telemetry": [
+    {
+     "t_in_pull_s": 13.73359649122807,
+     "map_mbar": 2173.1790294449575,
+     "maf_g_s": 99.53373561805539,
+     "maf_bracket_s": 2.2029999999999994,
+     "air_mg_stroke": 853.1463052976176,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 13.778912280701753,
+     "map_mbar": 2153.74646958171,
+     "maf_g_s": 97.77520736409126,
+     "maf_bracket_s": 2.2230000000000008,
+     "air_mg_stroke": 838.073205977925,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2163.4627495133336,
+   "air_mg_stroke_median": 845.6097556377713,
+   "road_torque_nm": {
+    "p05": 200.066040560219,
+    "p50": 231.83350328403083,
+    "p95": 271.7576771971719,
+    "n": 20000,
+    "std": 22.351115549877022
+   },
+   "implied_burned_q_mg": {
+    "p05": 37.963902282945035,
+    "p50": 44.81388791945624,
+    "p95": 53.22579968200675,
+    "n": 4000,
+    "std": 4.747574421228602
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.1113329809147332,
+    "p50": 1.345671732139191,
+    "p95": 1.6119751309273844,
+    "n": 4000,
+    "std": 0.1543991353153349
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 0.9688584844040772,
+    "p50": 1.056765877633592,
+    "p95": 1.1479069564434587,
+    "n": 4000,
+    "std": 0.055158336787402444
+   },
+   "fuel_model_torque_nm": {
+    "p05": 272.4549636725162,
+    "p50": 296.24582713445056,
+    "p95": 321.3536764362636,
+    "n": 4000,
+    "std": 14.907723285007979
+   },
+   "residual_fuel_model_minus_road_nm": 64.41232385041974,
+   "ecu_brake_model_minus_road_nm": 64.46649671596919,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 55.5408706494431,
+     "torque_nm_eta_min": 265.1439252040556,
+     "torque_nm_eta_max": 310.5971695247509
+    },
+    "1.10": {
+     "q_mg": 53.01628561992296,
+     "torque_nm_eta_min": 253.0919286038713,
+     "torque_nm_eta_max": 296.47911636453495
+    },
+    "1.15": {
+     "q_mg": 50.711229723404585,
+     "torque_nm_eta_min": 242.0879317080509,
+     "torque_nm_eta_max": 283.5887200008596
+    },
+    "1.20": {
+     "q_mg": 48.59826181826272,
+     "torque_nm_eta_min": 232.00093455354875,
+     "torque_nm_eta_max": 271.77252333415714
+    },
+    "1.25": {
+     "q_mg": 46.654331345532206,
+     "torque_nm_eta_min": 222.72089717140676,
+     "torque_nm_eta_max": 260.90162240079076
+    },
+    "1.30": {
+     "q_mg": 44.859933986088656,
+     "torque_nm_eta_min": 214.15470881866037,
+     "torque_nm_eta_max": 250.86694461614496
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7293935933849808,
+    "65C": 0.8004038409966938
+   },
+   "power_kw_p50": 84.97141692352791,
+   "power_ps_p05_p95": [
+    99.69837979098018,
+    135.42428308398058
+   ],
+   "bmep_bar_p50": 15.365536514200347
+  },
+  {
+   "gear": 4,
+   "rpm": 3750,
+   "chain_current": {
+    "rpm": 3750,
+    "gear": 4,
+    "driver_wish_nm": 335.96656534954406,
+    "trq_lim_p_nm": 330.7,
+    "inner_torque_request_nm": 330.7,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 63.90843181818181,
+    "q_fmtc_extrap_mg": 63.90843181818181,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 63.90843181818181,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 63.90843181818181,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 27.52734374999998,
+    "duration_map_selector": 0.2123745819397994,
+    "duration_deg_hyp": 41.346937709030065,
+    "duration_ms_hyp": 1.8376416759568917,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 13.819593959030087,
+    "friction_nm": -44.1,
+    "ecu_inner_torque_at_q_cmd_nm": 330.7,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 286.59999999999997
+   },
+   "chain_stock": {
+    "rpm": 3750,
+    "gear": 4,
+    "driver_wish_nm": 302.67477203647417,
+    "trq_lim_p_nm": 245.0,
+    "inner_torque_request_nm": 245.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 40.28954545454546,
+    "q_fmtc_extrap_mg": 40.28954545454546,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 40.28954545454546,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 40.28954545454546,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 25.49999999999998,
+    "duration_map_selector": 0.5016722408026759,
+    "duration_deg_hyp": 31.026109228916443,
+    "duration_ms_hyp": 1.3789381879518419,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.526109228916464,
+    "friction_nm": -44.1,
+    "ecu_inner_torque_at_q_cmd_nm": 245.00000000000003,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 200.90000000000003
+   },
+   "duration_ratio_current_vs_stock": 1.0788778206952632,
+   "telemetry": [
+    {
+     "t_in_pull_s": 16.480853658536585,
+     "map_mbar": 2179.462551262681,
+     "maf_g_s": 103.40594279850744,
+     "maf_bracket_s": 2.210000000000001,
+     "air_mg_stroke": 827.2475423880595,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 16.49608,
+     "map_mbar": 2170.0,
+     "maf_g_s": 103.4823747412711,
+     "maf_bracket_s": 2.2654999999999994,
+     "air_mg_stroke": 827.8589979301688,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2174.7312756313404,
+   "air_mg_stroke_median": 827.5532701591142,
+   "road_torque_nm": {
+    "p05": 177.90044826411378,
+    "p50": 207.13699034985513,
+    "p95": 240.699328149134,
+    "n": 20000,
+    "std": 19.27479775452478
+   },
+   "implied_burned_q_mg": {
+    "p05": 33.65497208437404,
+    "p50": 39.96273550345849,
+    "p95": 47.92506858615872,
+    "n": 4000,
+    "std": 4.293854514083562
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.218463642115703,
+    "p50": 1.4773954187593081,
+    "p95": 1.7863261167830031,
+    "n": 4000,
+    "std": 0.17138815462470255
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 0.9476589989655709,
+    "p50": 1.034181386142372,
+    "p95": 1.1249061603958714,
+    "n": 4000,
+    "std": 0.05419562162252862
+   },
+   "fuel_model_torque_nm": {
+    "p05": 271.67379164055853,
+    "p50": 295.7476781410045,
+    "p95": 321.22725892359927,
+    "n": 4000,
+    "std": 15.225812818677467
+   },
+   "residual_fuel_model_minus_road_nm": 88.61068779114936,
+   "ecu_brake_model_minus_road_nm": 79.46300965014484,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 54.35489459173163,
+     "torque_nm_eta_min": 259.4822504146129,
+     "torque_nm_eta_max": 303.96492191426086
+    },
+    "1.10": {
+     "q_mg": 51.88421756483474,
+     "torque_nm_eta_min": 247.68760266849418,
+     "torque_nm_eta_max": 290.1483345545218
+    },
+    "1.15": {
+     "q_mg": 49.628382018537586,
+     "torque_nm_eta_min": 236.9185764655162,
+     "torque_nm_eta_max": 277.5331895738904
+    },
+    "1.20": {
+     "q_mg": 47.56053276776519,
+     "torque_nm_eta_min": 227.0469691127864,
+     "torque_nm_eta_max": 265.9693066749783
+    },
+    "1.25": {
+     "q_mg": 45.658111457054574,
+     "torque_nm_eta_min": 217.96509034827488,
+     "torque_nm_eta_max": 255.33053440797914
+    },
+    "1.30": {
+     "q_mg": 43.90203024716786,
+     "torque_nm_eta_min": 209.581817642572,
+     "torque_nm_eta_max": 245.51012923844146
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.7101199936233691,
+    "65C": 0.779253856380796
+   },
+   "power_kw_p50": 81.3425058962256,
+   "power_ps_p05_p95": [
+    94.98499170407682,
+    128.51470533384972
+   ],
+   "bmep_bar_p50": 13.728692978265924
+  },
+  {
+   "gear": 4,
+   "rpm": 4000,
+   "chain_current": {
+    "rpm": 4000,
+    "gear": 4,
+    "driver_wish_nm": 332.94444444444446,
+    "trq_lim_p_nm": 318.6,
+    "inner_torque_request_nm": 318.6,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 62.070454545454545,
+    "q_fmtc_extrap_mg": 62.070454545454545,
+    "q_smoke_last_column_mg": 67.8,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 62.070454545454545,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 62.070454545454545,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 29.15624999999998,
+    "duration_map_selector": 0.0,
+    "duration_deg_hyp": 42.140624999999964,
+    "duration_ms_hyp": 1.7558593749999984,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": true,
+    "electrical_command_end_proxy_deg_atdc": 12.984374999999986,
+    "friction_nm": -48.5,
+    "ecu_inner_torque_at_q_cmd_nm": 318.6,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 270.1
+   },
+   "chain_stock": {
+    "rpm": 4000,
+    "gear": 4,
+    "driver_wish_nm": 299.9503968253968,
+    "trq_lim_p_nm": 236.0,
+    "inner_torque_request_nm": 236.0,
+    "fmtc_axis_end_nm": 336.0,
+    "request_beyond_fmtc_axis": false,
+    "q_fmtc_clamp_mg": 39.64,
+    "q_fmtc_extrap_mg": 39.64,
+    "q_smoke_last_column_mg": 60.0,
+    "smoke_last_column_hpa": 2000.0,
+    "q_cmd_clamp_mg": 39.64,
+    "static_limiter_clamp": "torque_path",
+    "q_cmd_extrap_mg": 39.64,
+    "static_limiter_extrap": "torque_path",
+    "soi_deg_btdc_hyp": 26.99999999999998,
+    "duration_map_selector": 0.2876254180602008,
+    "duration_deg_hyp": 32.35182190635449,
+    "duration_ms_hyp": 1.3479925794314371,
+    "duration_q_axis_end_mg": 55.0,
+    "q_cmd_beyond_duration_axis": false,
+    "electrical_command_end_proxy_deg_atdc": 5.351821906354509,
+    "friction_nm": -48.5,
+    "ecu_inner_torque_at_q_cmd_nm": 236.0,
+    "ecu_inner_torque_inverse_status": "IN_RANGE",
+    "ecu_brake_torque_model_nm": 187.5
+   },
+   "duration_ratio_current_vs_stock": 1.079136690647482,
+   "telemetry": [
+    {
+     "t_in_pull_s": 19.71868253968254,
+     "map_mbar": 2170.0,
+     "maf_g_s": 108.02,
+     "maf_bracket_s": 0.0,
+     "air_mg_stroke": 810.15,
+     "segment": "20260916_111930@2.1s"
+    },
+    {
+     "t_in_pull_s": 19.95741346153846,
+     "map_mbar": 2164.8177674309413,
+     "maf_g_s": 108.5,
+     "maf_bracket_s": 0.0,
+     "air_mg_stroke": 813.7499999999999,
+     "segment": "20260916_112035@2.1s"
+    }
+   ],
+   "map_mbar_median": 2167.4088837154704,
+   "air_mg_stroke_median": 811.9499999999999,
+   "road_torque_nm": {
+    "p05": 155.73310173033596,
+    "p50": 182.59278426114082,
+    "p95": 212.22774523642636,
+    "n": 2515,
+    "std": 17.63370934186252
+   },
+   "implied_burned_q_mg": {
+    "p05": 29.54942488634448,
+    "p50": 35.234428820329754,
+    "p95": 41.938837676293325,
+    "n": 4000,
+    "std": 3.7702213739773516
+   },
+   "implied_lambda_if_all_fuel_burned": {
+    "p05": 1.3571494392178918,
+    "p50": 1.644510131224441,
+    "p95": 1.990777016727251,
+    "n": 4000,
+    "std": 0.19387943364041077
+   },
+   "lambda_of_commanded_fuel": {
+    "p05": 0.9311574601145062,
+    "p50": 1.0123063575104598,
+    "p95": 1.1035455243368237,
+    "n": 4000,
+    "std": 0.053205378711236255
+   },
+   "fuel_model_torque_nm": {
+    "p05": 272.69363306801745,
+    "p50": 296.18116628337475,
+    "p95": 321.01256634989755,
+    "n": 4000,
+    "std": 14.992512147660806
+   },
+   "residual_fuel_model_minus_road_nm": 113.58838202223393,
+   "ecu_brake_model_minus_road_nm": 87.5072157388592,
+   "air_limited_torque": {
+    "1.05": {
+     "q_mg": 53.33004926108374,
+     "torque_nm_eta_min": 254.58978995229654,
+     "torque_nm_eta_max": 298.2337539441188
+    },
+    "1.10": {
+     "q_mg": 50.90595611285266,
+     "torque_nm_eta_min": 243.01752677264668,
+     "torque_nm_eta_max": 284.6776742193861
+    },
+    "1.15": {
+     "q_mg": 48.69265367316342,
+     "torque_nm_eta_min": 232.451547347749,
+     "torque_nm_eta_max": 272.30038403593454
+    },
+    "1.20": {
+     "q_mg": 46.66379310344828,
+     "torque_nm_eta_min": 222.7660662082595,
+     "torque_nm_eta_max": 260.95453470110397
+    },
+    "1.25": {
+     "q_mg": 44.79724137931034,
+     "torque_nm_eta_min": 213.8554235599291,
+     "torque_nm_eta_max": 250.51635331305982
+    },
+    "1.30": {
+     "q_mg": 43.07427055702917,
+     "torque_nm_eta_min": 205.63021496147027,
+     "torque_nm_eta_max": 240.88110895486517
+    }
+   },
+   "apparent_ve_from_maf": {
+    "35C": 0.6990847342306852,
+    "65C": 0.7671442572776447
+   },
+   "power_kw_p50": 76.48428661777412,
+   "power_ps_p05_p95": [
+    88.69264442516507,
+    120.8673026881751
+   ],
+   "bmep_bar_p50": 12.101944085090844
+  }
+ ],
+ "smoke_axis_check": {
+  "raw_pressure_hpa_where_corrected_reaches_last_smoke_column": {
+   "35C": 1915,
+   "50C": 2005,
+   "65C": 2095,
+   "70C": 2130
+  },
+  "note": "FlMng_pIATCorr_MAP axis input is FlMng_pBPAPCorr_mp; identity with logged MAP is assumed (both are boost pressure in hPa abs)."
+ },
+ "findings": [
+  {
+   "id": "F1",
+   "status": "CALCULATED",
+   "text": "Commanded fuel exceeds what the measured air can burn cleanly (median lambda < 1.10).",
+   "where": [
+    "G3 3500 rpm: lambda_cmd 1.06 [0.97-1.15], air 848 mg",
+    "G4 2750 rpm: lambda_cmd 1.08 [0.99-1.18], air 947 mg",
+    "G4 3250 rpm: lambda_cmd 1.08 [0.99-1.18], air 868 mg",
+    "G4 3500 rpm: lambda_cmd 1.06 [0.97-1.15], air 846 mg",
+    "G4 3750 rpm: lambda_cmd 1.03 [0.95-1.12], air 828 mg",
+    "G4 4000 rpm: lambda_cmd 1.01 [0.93-1.10], air 812 mg"
+   ]
+  },
+  {
+   "id": "F2",
+   "status": "CALCULATED",
+   "text": "Measured torque is more than 15 % below the energy model of the commanded fuel.",
+   "where": [
+    "G3 2250 rpm: road 214 [180-247] Nm vs fuel model 304 Nm",
+    "G3 3500 rpm: road 231 [203-266] Nm vs fuel model 297 Nm",
+    "G4 3000 rpm: road 252 [218-288] Nm vs fuel model 296 Nm",
+    "G4 3250 rpm: road 238 [204-279] Nm vs fuel model 296 Nm",
+    "G4 3500 rpm: road 232 [200-272] Nm vs fuel model 296 Nm",
+    "G4 3750 rpm: road 207 [178-241] Nm vs fuel model 296 Nm",
+    "G4 4000 rpm: road 183 [156-212] Nm vs fuel model 296 Nm"
+   ]
+  }
+ ],
+ "candidate_plan": {
+  "status": "PROVISIONAL — no BIN generated",
+  "lambda_target": 1.1837621477331444,
+  "lambda_target_source": "median commanded-fuel lambda of gear-4 pulls at (2000, 2250, 2500) rpm (measured air, current smoke map)",
+  "cells": [
+   {
+    "map": "FlMng_qPresSmoke_MAP",
+    "rpm_node": 3000.0,
+    "pressure_node_hpa": 2000.0,
+    "address": "0x1D661A",
+    "current_mg": 67.8,
+    "candidate_mg": 54.0,
+    "candidate_raw_s16": 5400,
+    "candidate_raw_hex": "1518",
+    "q_air_at_node_mg": 52.78169019300182,
+    "formula": "q = max(air_mg_stroke / (lambda_target * 14.5), interpolation constraint of logged bins)",
+    "air_mg_stroke": 905.9740206858726
+   },
+   {
+    "map": "FlMng_qPresSmoke_MAP",
+    "rpm_node": 4000.0,
+    "pressure_node_hpa": 2000.0,
+    "address": "0x1D6632",
+    "current_mg": 67.8,
+    "candidate_mg": 47.5,
+    "candidate_raw_s16": 4750,
+    "candidate_raw_hex": "128E",
+    "q_air_at_node_mg": 47.303887720492675,
+    "formula": "q = max(air_mg_stroke / (lambda_target * 14.5), interpolation constraint of logged bins)",
+    "air_mg_stroke": 811.9499999999999
+   }
+  ],
+  "predicted_effect": [
+   {
+    "rpm": 2750,
+    "q_cmd_now_mg": 61.99,
+    "q_cmd_new_mg": 55.25,
+    "delta_torque_nm": {
+     "p05": -36.5049507104295,
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 4000,
+     "std": 12.761567938840436
+    },
+    "lambda_cmd_now_p50": 1.0823652389437375,
+    "lambda_cmd_new_p50": 1.1754192640112986,
+    "elec_end_proxy_now_deg": 16.669941471571892,
+    "elec_end_proxy_new_deg": 13.294279107441458,
+    "duration_ms_now": 2.257458574034659,
+    "duration_ms_new": 2.052872976208572
+   },
+   {
+    "rpm": 3000,
+    "q_cmd_now_mg": 62.57,
+    "q_cmd_new_mg": 54.0,
+    "delta_torque_nm": {
+     "p05": -1.1478365900896952,
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 4000,
+     "std": 1.4566433205515508
+    },
+    "lambda_cmd_now_p50": 1.1303769272831343,
+    "lambda_cmd_new_p50": 1.151309833343933,
+    "elec_end_proxy_now_deg": 16.918504389632094,
+    "elec_end_proxy_new_deg": 13.616325250836109,
+    "duration_ms_now": 2.175593993868449,
+    "duration_ms_new": 1.9830250139353383
+   },
+   {
+    "rpm": 3250,
+    "q_cmd_now_mg": 63.22,
+    "q_cmd_new_mg": 52.375,
+    "delta_torque_nm": {
+     "p05": 0.0,
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 4000,
+     "std": 1.1414490383061406
+    },
+    "lambda_cmd_now_p50": 1.0843625855495962,
+    "lambda_cmd_new_p50": 1.1387101137036333,
+    "elec_end_proxy_now_deg": 15.354854724080258,
+    "elec_end_proxy_new_deg": 11.88671079705789,
+    "duration_ms_now": 2.044639985850269,
+    "duration_ms_new": 1.8424925809388653
+   },
+   {
+    "rpm": 3500,
+    "q_cmd_now_mg": 63.99,
+    "q_cmd_new_mg": 50.75,
+    "delta_torque_nm": {
+     "p05": 0.0,
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 4000,
+     "std": 1.1235739480677915
+    },
+    "lambda_cmd_now_p50": 1.056765877633592,
+    "lambda_cmd_new_p50": 1.1452635127063557,
+    "elec_end_proxy_now_deg": 14.75347512541805,
+    "elec_end_proxy_new_deg": 10.90563375313544,
+    "duration_ms_now": 1.9358053631151444,
+    "duration_ms_new": 1.714154062649306
+   },
+   {
+    "rpm": 3750,
+    "q_cmd_now_mg": 63.90843181818181,
+    "q_cmd_new_mg": 49.125,
+    "delta_torque_nm": {
+     "p05": 0.0,
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 4000,
+     "std": 0.0
+    },
+    "lambda_cmd_now_p50": 1.034181386142372,
+    "lambda_cmd_new_p50": 1.1578621117115615,
+    "elec_end_proxy_now_deg": 13.819593959030087,
+    "elec_end_proxy_new_deg": 10.4718758757218,
+    "duration_ms_now": 1.8376416759568917,
+    "duration_ms_new": 1.635918007670968
+   },
+   {
+    "rpm": 4000,
+    "q_cmd_now_mg": 62.070454545454545,
+    "q_cmd_new_mg": 47.5,
+    "delta_torque_nm": {
+     "p05": 0.0,
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 4000,
+     "std": 0.0
+    },
+    "lambda_cmd_now_p50": 1.0123063575104598,
+    "lambda_cmd_new_p50": 1.172144203433164,
+    "elec_end_proxy_now_deg": 12.984374999999986,
+    "elec_end_proxy_new_deg": 9.83700877926421,
+    "duration_ms_now": 1.7558593749999984,
+    "duration_ms_new": 1.5573363033026744
+   }
+  ],
+  "validation_metric": "gear-4 WOT 2750-4000 rpm: road torque P50 must not fall by more than the pull-to-pull spread; logged IQ (VCDS) must equal the new smoke column within 1 mg where it binds",
+  "abort_criteria": [
+   "road torque P50 at any 3000-3750 rpm bin drops > 15 Nm vs this analysis",
+   "visible smoke unchanged AND logged IQ already below the new cap (cap had no effect)",
+   "any new DTC"
+  ],
+  "rollback": "03G906021QJ_stage1_full_power_dpf_egr_off.bin"
+ }
+}
