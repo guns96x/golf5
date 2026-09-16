@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-09-16T13:46:22Z",
+ "generated_utc": "2026-09-16T16:56:44Z",
  "source": "logs/vcds/LOG-01-011-003-008.CSV",
  "gear_reference_from_phone_logs": {
   "3": {
@@ -127,14 +127,14 @@
     "smoke_limit"
    ],
    "q_runtime_mg": 55.48740909090908,
-   "q_stock_equivalent_mg": 58.54329599660116,
+   "q_stock_equivalent_mg": 58.51781313120526,
    "q_stock_equivalent_status": "IN_OEM_AXIS",
    "lambda_runtime_cmd": 1.2248285275855402,
-   "lambda_stock_equivalent": 1.160894008774299,
-   "soi_deg_btdc_hyp": 17.249999999999986,
-   "duration_deg_hyp": 30.373902524275966,
-   "duration_ms_hyp": 2.2499187055019236,
-   "elec_end_proxy_deg_atdc": 13.12390252427598,
+   "lambda_stock_equivalent": 1.1613995455362105,
+   "soi_deg_btdc_hyp": 16.992187499999986,
+   "duration_deg_hyp": 30.29951584994486,
+   "duration_ms_hyp": 2.244408581477397,
+   "elec_end_proxy_deg_atdc": 13.307328349944875,
    "friction_nm": -29.65,
    "road_torque_nm": {
     "p05": 281.5800345613781,
@@ -164,7 +164,7 @@
     "n": 4000,
     "std": 4.453802202613897
    },
-   "unconverted_fuel_mg_p50": -1.3491075337930596
+   "unconverted_fuel_mg_p50": -1.3745903991889605
   },
   {
    "pull": "day14 20:23:44@0.6s",
@@ -185,14 +185,14 @@
     "smoke_limit"
    ],
    "q_runtime_mg": 56.44853714285715,
-   "q_stock_equivalent_mg": 59.7308870734995,
+   "q_stock_equivalent_mg": 59.5781052192914,
    "q_stock_equivalent_status": "IN_OEM_AXIS",
    "lambda_runtime_cmd": 1.1912613065037785,
-   "lambda_stock_equivalent": 1.125798751729259,
-   "soi_deg_btdc_hyp": 18.867187499999986,
-   "duration_deg_hyp": 32.649075972169115,
-   "duration_ms_hyp": 2.1766050648112745,
-   "elec_end_proxy_deg_atdc": 13.781888472169129,
+   "lambda_stock_equivalent": 1.1286857455354782,
+   "soi_deg_btdc_hyp": 17.999999999999986,
+   "duration_deg_hyp": 32.33397220968703,
+   "duration_ms_hyp": 2.155598147312469,
+   "elec_end_proxy_deg_atdc": 14.333972209687047,
    "friction_nm": -31.3,
    "road_torque_nm": {
     "p05": 280.2955388614483,
@@ -222,7 +222,7 @@
     "n": 4000,
     "std": 4.506840735791586
    },
-   "unconverted_fuel_mg_p50": 0.2801865643605481
+   "unconverted_fuel_mg_p50": 0.12740471015244736
   },
   {
    "pull": "day14 20:23:44@0.6s",
@@ -419,14 +419,14 @@
     "smoke_limit"
    ],
    "q_runtime_mg": 55.48740909090908,
-   "q_stock_equivalent_mg": 58.54329599660116,
+   "q_stock_equivalent_mg": 58.51781313120526,
    "q_stock_equivalent_status": "IN_OEM_AXIS",
    "lambda_runtime_cmd": 1.2739764990035443,
-   "lambda_stock_equivalent": 1.2074765174908808,
-   "soi_deg_btdc_hyp": 17.249999999999986,
-   "duration_deg_hyp": 30.373902524275966,
-   "duration_ms_hyp": 2.2499187055019236,
-   "elec_end_proxy_deg_atdc": 13.12390252427598,
+   "lambda_stock_equivalent": 1.208002339628064,
+   "soi_deg_btdc_hyp": 16.992187499999986,
+   "duration_deg_hyp": 30.29951584994486,
+   "duration_ms_hyp": 2.244408581477397,
+   "elec_end_proxy_deg_atdc": 13.307328349944875,
    "friction_nm": -29.65,
    "road_torque_nm": {
     "p05": 275.1678393106697,
@@ -456,7 +456,7 @@
     "n": 4000,
     "std": 4.3370749726453255
    },
-   "unconverted_fuel_mg_p50": 0.09931117002913226
+   "unconverted_fuel_mg_p50": 0.07382830463323131
   },
   {
    "pull": "day16 11:54:12@1.4s",
@@ -477,14 +477,14 @@
     "smoke_limit"
    ],
    "q_runtime_mg": 55.68199999999999,
-   "q_stock_equivalent_mg": 58.90638951792758,
+   "q_stock_equivalent_mg": 58.75343498813085,
    "q_stock_equivalent_status": "IN_OEM_AXIS",
    "lambda_runtime_cmd": 1.1904596435720842,
-   "lambda_stock_equivalent": 1.125296838184369,
-   "soi_deg_btdc_hyp": 18.867187499999986,
-   "duration_deg_hyp": 32.04631724498324,
-   "duration_ms_hyp": 2.1364211496655496,
-   "elec_end_proxy_deg_atdc": 13.179129744983257,
+   "lambda_stock_equivalent": 1.1282263562423518,
+   "soi_deg_btdc_hyp": 17.999999999999986,
+   "duration_deg_hyp": 31.707647752926384,
+   "duration_ms_hyp": 2.1138431835284255,
+   "elec_end_proxy_deg_atdc": 13.707647752926398,
    "friction_nm": -31.3,
    "road_torque_nm": {
     "p05": 275.43939417888345,
@@ -514,7 +514,7 @@
     "n": 4000,
     "std": 4.40508628517931
    },
-   "unconverted_fuel_mg_p50": 0.23682864000006276
+   "unconverted_fuel_mg_p50": 0.08387411020333246
   },
   {
    "pull": "day16 11:54:12@1.4s",
@@ -826,14 +826,14 @@
     "driver_request"
    ],
    "q_runtime_mg": 61.11181818181818,
-   "q_stock_equivalent_mg": 55.0,
-   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "q_stock_equivalent_mg": 56.29267010546374,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
    "lambda_runtime_cmd": 0.8858831670400166,
-   "lambda_stock_equivalent": 0.9843260188087775,
-   "soi_deg_btdc_hyp": 29.15624999999998,
-   "duration_deg_hyp": 42.140624999999964,
-   "duration_ms_hyp": 1.7558593749999984,
-   "elec_end_proxy_deg_atdc": 12.984374999999986,
+   "lambda_stock_equivalent": 0.9617225641110273,
+   "soi_deg_btdc_hyp": 28.00781249999998,
+   "duration_deg_hyp": 42.31926734949829,
+   "duration_ms_hyp": 1.7633028062290954,
+   "elec_end_proxy_deg_atdc": 14.311454849498311,
    "friction_nm": -48.5,
    "road_torque_nm": null
   },
@@ -914,14 +914,14 @@
     "smoke_limit"
    ],
    "q_runtime_mg": 55.48740909090908,
-   "q_stock_equivalent_mg": 58.54329599660116,
+   "q_stock_equivalent_mg": 58.51781313120526,
    "q_stock_equivalent_status": "IN_OEM_AXIS",
    "lambda_runtime_cmd": 1.2201830920511685,
-   "lambda_stock_equivalent": 1.1564910591707085,
-   "soi_deg_btdc_hyp": 17.249999999999986,
-   "duration_deg_hyp": 30.373902524275966,
-   "duration_ms_hyp": 2.2499187055019236,
-   "elec_end_proxy_deg_atdc": 13.12390252427598,
+   "lambda_stock_equivalent": 1.1569946785716305,
+   "soi_deg_btdc_hyp": 16.992187499999986,
+   "duration_deg_hyp": 30.29951584994486,
+   "duration_ms_hyp": 2.244408581477397,
+   "elec_end_proxy_deg_atdc": 13.307328349944875,
    "friction_nm": -29.65,
    "road_torque_nm": {
     "p05": 277.9213546647259,
@@ -951,7 +951,7 @@
     "n": 4000,
     "std": 4.752687670263681
    },
-   "unconverted_fuel_mg_p50": -1.15548520626335
+   "unconverted_fuel_mg_p50": -1.180968071659251
   },
   {
    "pull": "day16 11:54:46@1.3s",
@@ -972,14 +972,14 @@
     "smoke_limit"
    ],
    "q_runtime_mg": 55.68199999999999,
-   "q_stock_equivalent_mg": 58.90638951792758,
+   "q_stock_equivalent_mg": 58.75343498813085,
    "q_stock_equivalent_status": "IN_OEM_AXIS",
    "lambda_runtime_cmd": 1.1889736988171575,
-   "lambda_stock_equivalent": 1.123892230356238,
-   "soi_deg_btdc_hyp": 18.867187499999986,
-   "duration_deg_hyp": 32.04631724498324,
-   "duration_ms_hyp": 2.1364211496655496,
-   "elec_end_proxy_deg_atdc": 13.179129744983257,
+   "lambda_stock_equivalent": 1.1268180917577213,
+   "soi_deg_btdc_hyp": 17.999999999999986,
+   "duration_deg_hyp": 31.707647752926384,
+   "duration_ms_hyp": 2.1138431835284255,
+   "elec_end_proxy_deg_atdc": 13.707647752926398,
    "friction_nm": -31.3,
    "road_torque_nm": {
     "p05": 268.04244853356585,
@@ -1009,7 +1009,7 @@
     "n": 4000,
     "std": 4.6291102204758765
    },
-   "unconverted_fuel_mg_p50": 1.1918292536697948
+   "unconverted_fuel_mg_p50": 1.0388747238730645
   },
   {
    "pull": "day16 11:54:46@1.3s",
@@ -1321,14 +1321,14 @@
     "driver_request"
    ],
    "q_runtime_mg": 61.11181818181818,
-   "q_stock_equivalent_mg": 55.0,
-   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "q_stock_equivalent_mg": 56.29267010546374,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
    "lambda_runtime_cmd": 0.917838526308651,
-   "lambda_stock_equivalent": 1.0198323843644042,
-   "soi_deg_btdc_hyp": 29.15624999999998,
-   "duration_deg_hyp": 42.140624999999964,
-   "duration_ms_hyp": 1.7558593749999984,
-   "elec_end_proxy_deg_atdc": 12.984374999999986,
+   "lambda_stock_equivalent": 0.9964135834195949,
+   "soi_deg_btdc_hyp": 28.00781249999998,
+   "duration_deg_hyp": 42.31926734949829,
+   "duration_ms_hyp": 1.7633028062290954,
+   "elec_end_proxy_deg_atdc": 14.311454849498311,
    "friction_nm": -48.5,
    "road_torque_nm": {
     "p05": 167.4504921957851,
@@ -1358,7 +1358,7 @@
     "n": 4000,
     "std": 3.6115578425241943
    },
-   "unconverted_fuel_mg_p50": 17.742329736350953
+   "unconverted_fuel_mg_p50": 19.034999841814695
   }
  ],
  "smoke_torque_equivalence": [
@@ -1718,7 +1718,7 @@
    "rpm": 4000,
    "q_runtime_now": 61.11181818181818,
    "q_cap_new": 47.5,
-   "lambda_stock_eq_now": 0.9843260188087775,
+   "lambda_stock_eq_now": 0.9617225641110273,
    "lambda_stock_eq_new": 1.1397459165154264,
    "implied_burned_q_p50": null,
    "q_stock_eq_new": 47.5
@@ -1778,7 +1778,7 @@
    "rpm": 4000,
    "q_runtime_now": 61.11181818181818,
    "q_cap_new": 47.5,
-   "lambda_stock_eq_now": 1.0198323843644042,
+   "lambda_stock_eq_now": 0.9964135834195949,
    "lambda_stock_eq_new": 1.1808585503166784,
    "implied_burned_q_p50": 37.25767026364905,
    "q_stock_eq_new": 47.5
@@ -1786,8 +1786,8 @@
  ],
  "findings": [
   "Runtime smoke limitation equals inverse FMTC of FlMng_qPresSmoke_MAP last column: max |diff| 2.1 Nm over 9 in-range points (VCDS step 2.44 Nm).",
-  "1750-2500 rpm: binding {'smoke_limit': 7}; runtime inner 310-311 Nm; q runtime 55.5-56.4 mg, stock-equivalent 58.5-60.2 mg; air 960-1025 mg; lambda(stock-eq) 1.12-1.21; realization P50 1.07-1.12; unconverted fuel P50 -1.4-1.2 mg",
+  "1750-2500 rpm: binding {'smoke_limit': 7}; runtime inner 310-311 Nm; q runtime 55.5-56.4 mg, stock-equivalent 58.5-60.2 mg; air 960-1025 mg; lambda(stock-eq) 1.12-1.21; realization P50 1.07-1.12; unconverted fuel P50 -1.4-1.0 mg",
   "2750-3000 rpm: binding {'smoke_limit': 6}; runtime inner 334-334 Nm; q runtime 61.5-62.2 mg, stock-equivalent 64.2-66.2 mg; air 873-975 mg; lambda(stock-eq) 0.91-1.05; realization P50 0.89-1.02; unconverted fuel P50 5.1-15.3 mg",
-  "3250-4000 rpm: binding {'driver_request': 7, 'smoke_limit': 2}; runtime inner 315-334 Nm; q runtime 61.1-62.7 mg, stock-equivalent 55.0-62.4 mg; air 785-909 mg; lambda(stock-eq) 0.94-1.02; realization P50 0.77-0.93; unconverted fuel P50 10.2-17.7 mg"
+  "3250-4000 rpm: binding {'driver_request': 7, 'smoke_limit': 2}; runtime inner 315-334 Nm; q runtime 61.1-62.7 mg, stock-equivalent 56.3-62.4 mg; air 785-909 mg; lambda(stock-eq) 0.94-1.00; realization P50 0.77-0.93; unconverted fuel P50 10.2-19.0 mg"
  ]
 }

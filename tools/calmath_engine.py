@@ -74,14 +74,15 @@ def chain(fw, rpm, gear):
         out['q_cmd_%s_mg' % tag] = q_cmd
         out['static_limiter_%s' % tag] = 'smoke' if q_smoke < q_path else 'torque_path'
     q_cmd = out['q_cmd_clamp_mg']
-    soi = fw['InjCrv_phiBasGear34_MAP' if gear in (3, 4) else 'InjCrv_phiBasGear56_MAP'].lookup(rpm, q_cmd)
+    soi, soi_map, soi_max = soi_limited(fw, rpm, gear, q_cmd)
     sel = fw['InjVlv_numMI1_CUR'].lookup(soi)
     lo, hi = int(sel // 1), min(int(sel // 1) + 1, 6)
     dur_map = fw['InjVlv_phiInjMI1_MAP%d' % lo]
     d_lo = dur_map.lookup(rpm, q_cmd)
     d_hi = fw['InjVlv_phiInjMI1_MAP%d' % hi].lookup(rpm, q_cmd)
     dur = d_lo + (d_hi - d_lo) * (sel - lo)
-    out.update({'soi_deg_btdc_hyp': soi, 'duration_map_selector': sel, 'duration_deg_hyp': dur,
+    out.update({'soi_deg_btdc_hyp': soi, 'soi_map_deg': soi_map, 'soi_limiter_deg': soi_max,
+                'soi_limited': soi_map > soi_max, 'duration_map_selector': sel, 'duration_deg_hyp': dur,
                 'duration_ms_hyp': ph.injection_ms(dur, rpm),
                 'duration_q_axis_end_mg': dur_map.y[-1], 'q_cmd_beyond_duration_axis': q_cmd > dur_map.y[-1],
                 'electrical_command_end_proxy_deg_atdc': dur - soi,
@@ -285,11 +286,20 @@ def candidate_plan(cur, rows, rng):
             'rollback': CURRENT_BIN}
 
 
+def soi_limited(fw, rpm, gear, q):
+    """Base SOI from the gear map, capped by the SOI limiter InjCrv_phiMIMax_MAP (rpm x coolant).
+    Corrections between the two (atmospheric, IAT, dynamic advance) are not modelled."""
+    soi_map = fw['InjCrv_phiBasGear34_MAP' if gear in (3, 4) else 'InjCrv_phiBasGear56_MAP'].lookup(rpm, q)
+    soi_max = fw['InjCrv_phiMIMax_MAP'].lookup(rpm, COOLANT_C)
+    return min(soi_map, soi_max), soi_map, soi_max
+
+
 def chain_with_q(fw, rpm, gear, q):
-    soi = fw['InjCrv_phiBasGear34_MAP' if gear in (3, 4) else 'InjCrv_phiBasGear56_MAP'].lookup(rpm, q)
+    soi, soi_map, soi_max = soi_limited(fw, rpm, gear, q)
     sel = fw['InjVlv_numMI1_CUR'].lookup(soi)
     dur = duration_at(fw, rpm, q, sel)
-    return {'soi_deg_btdc_hyp': soi, 'duration_map_selector': sel, 'duration_deg_hyp': dur,
+    return {'soi_deg_btdc_hyp': soi, 'soi_map_deg': soi_map, 'soi_limiter_deg': soi_max, 'soi_limited': soi_map > soi_max,
+            'duration_map_selector': sel, 'duration_deg_hyp': dur,
             'duration_ms_hyp': ph.injection_ms(dur, rpm), 'electrical_command_end_proxy_deg_atdc': dur - soi}
 
 

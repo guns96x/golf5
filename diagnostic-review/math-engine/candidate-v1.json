@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-09-16T13:46:29Z",
+ "generated_utc": "2026-09-16T16:56:45Z",
  "base_bin": {
   "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
   "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
@@ -99,7 +99,7 @@
    "rpm": 4000,
    "q_runtime_now_mg": 61.11181818181818,
    "q_cmd_new_mg": 43.55,
-   "q_stock_eq_now_mg": 55.0,
+   "q_stock_eq_now_mg": 56.29267010546374,
    "q_stock_eq_new_mg": 43.55,
    "burned_p95_constraint_mg": 43.53256350416083
   }
@@ -240,13 +240,13 @@
    "air_mg": 785.0,
    "q_runtime_now": 61.11181818181818,
    "q_cmd_new": 43.55,
-   "q_stock_eq_now": 55.0,
+   "q_stock_eq_now": 56.29267010546374,
    "q_stock_eq_new": 43.55,
    "burned_p50": null,
    "burned_p95": null,
-   "lambda_now": 0.9843260188087775,
+   "lambda_now": 0.9617225641110273,
    "lambda_new": 1.2431212637079854,
-   "end_proxy_now": 12.984374999999986,
+   "end_proxy_now": 14.311454849498311,
    "end_proxy_new": 7.742294366638788
   },
   {
@@ -336,13 +336,13 @@
    "air_mg": 813.3163265306123,
    "q_runtime_now": 61.11181818181818,
    "q_cmd_new": 43.55,
-   "q_stock_eq_now": 55.0,
+   "q_stock_eq_now": 56.29267010546374,
    "q_stock_eq_new": 43.55,
    "burned_p50": 37.25767026364905,
    "burned_p95": 43.53256350416083,
-   "lambda_now": 1.0198323843644042,
+   "lambda_now": 0.9964135834195949,
    "lambda_new": 1.2879628275555048,
-   "end_proxy_now": 12.984374999999986,
+   "end_proxy_now": 14.311454849498311,
    "end_proxy_new": 7.742294366638788
   }
  ],
