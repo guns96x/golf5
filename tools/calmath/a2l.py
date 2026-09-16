@@ -28,7 +28,8 @@ def _blocks(text, kind):
 
 
 def parse_a2l(path=A2L_PATH):
-    text = open(path, encoding='cp1252', errors='replace').read()
+    with open(path, encoding='cp1252', errors='replace') as f:
+        text = f.read()
     compu = {}
     for body in _blocks(text, 'COMPU_METHOD'):
         t = _TOKEN.findall(body)
@@ -57,7 +58,25 @@ def parse_a2l(path=A2L_PATH):
             at = _TOKEN.findall(a)
             c['axes'].append({'attr': at[0], 'input': at[1], 'conversion': at[2], 'max_points': int(at[3])})
         chars[c['name']] = c
-    return {'compu': compu, 'layouts': layouts, 'characteristics': chars}
+    measurements = {}
+    for body in _blocks(text, 'MEASUREMENT'):
+        t = _TOKEN.findall(body)
+        if len(t) < 8:
+            continue
+        addr = re.search(r'\bECU_ADDRESS\s+(0x[0-9A-Fa-f]+|\d+)', body)
+        m = {
+            'name': t[0],
+            'desc': t[1].strip('"'),
+            'dtype': t[2],
+            'conversion': t[3],
+            'resolution': float(t[4]),
+            'accuracy': float(t[5]),
+            'lower': float(t[6]),
+            'upper': float(t[7]),
+            'address': int(addr.group(1), 0) if addr else None,
+        }
+        measurements[m['name']] = m
+    return {'compu': compu, 'layouts': layouts, 'characteristics': chars, 'measurements': measurements}
 
 
 _DB = None
@@ -69,6 +88,10 @@ def db():
         if os.path.exists(CACHE_PATH) and os.path.getmtime(CACHE_PATH) >= os.path.getmtime(A2L_PATH):
             with open(CACHE_PATH, encoding='utf-8') as f:
                 _DB = json.load(f)
+            if 'measurements' not in _DB:
+                _DB = parse_a2l()
+                with open(CACHE_PATH, 'w', encoding='utf-8') as f:
+                    json.dump(_DB, f)
         else:
             _DB = parse_a2l()
             os.makedirs(os.path.dirname(CACHE_PATH), exist_ok=True)
