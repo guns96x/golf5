@@ -60,16 +60,38 @@
 
 ---
 
-## 🧠 3. БАЗА ЗНАНЬ ТА ОФІЦІЙНИЙ A2L (EDC16U34 SW 391847)
+## 🧠 3. ІНЖЕНЕРНА БАЗА ЗНАНЬ ТА ОФІЦІЙНИЙ A2L (EDC16U34 SW 391847)
 
-Репозиторій містить повний комплект інженерної документації для глибокого аналізу:
-* **Офіційний A2L опис (12 МБ):**  
-  [`diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l`](./diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/)
+Репозиторій розгорнуто як повноцінну інженерну базу знань відповідно до **[EDC16U34 Knowledge Bootstrap Pack](./docs/knowledge/EDC16U34_KNOWLEDGE_BOOTSTRAP_PACK.md)** та **[Master Research Policy](./docs/knowledge/RESEARCH_POLICY.md)**.
+
+### 📚 Центр знань та технічні документи:
+* **Головний портал знань:** [`docs/knowledge/README.md`](./docs/knowledge/README.md)
+* **Політика та правила фактів (Епістемічний статус):** [`docs/knowledge/RESEARCH_POLICY.md`](./docs/knowledge/RESEARCH_POLICY.md)
+* **Каталог 21+ першоджерел (Tier A/B/C з рейтингами):** [`docs/knowledge/source-index.md`](./docs/knowledge/source-index.md)
+* **Архітектура ECU (MPC562, Flash 2MB, розбивка пам'яті):** [`docs/knowledge/ecu-architecture.md`](./docs/knowledge/ecu-architecture.md)
+* **Модель крутного моменту EDC16 (Indicated/Outer torque, втрати):** [`docs/knowledge/edc16-torque-model.md`](./docs/knowledge/edc16-torque-model.md)
+* **Керування наддувом (`PCR_pBDesBas_MAP`, PID, корекції):** [`docs/knowledge/boost-control.md`](./docs/knowledge/boost-control.md)
+* **Геометрія VNT та клапан N75 (`PCR_rBPCtlBas_MAP`, вплив EGR):** [`docs/knowledge/vnt-n75-control.md`](./docs/knowledge/vnt-n75-control.md)
+* **Ієрархія паливних лімітерів (Driver Wish, Torque, Smoke):** [`docs/knowledge/fueling-and-limiters.md`](./docs/knowledge/fueling-and-limiters.md)
+* **Димовий лімітер за тиском MAP (`FlMng_qPresSmoke_MAP`):** [`docs/knowledge/smoke-limiter.md`](./docs/knowledge/smoke-limiter.md)
+* **Тривалість впорскування насос-форсунок (`InjCrv_phiDur_MAP`):** [`docs/knowledge/injection-duration.md`](./docs/knowledge/injection-duration.md)
+* **Кути випередження впорскування SOI (`InjCrv_phiMI1Des_MAP`):** [`docs/knowledge/injection-timing.md`](./docs/knowledge/injection-timing.md)
+* **Фікс гарячого запуску (`EngM_qStart_MAP`, чому глухне на 250 RPM):** [`docs/knowledge/hot-start.md`](./docs/knowledge/hot-start.md)
+* **Температурний захист та модель EGT (Bauteilschutz):** [`docs/knowledge/thermal-protection.md`](./docs/knowledge/thermal-protection.md)
+* **Межі заліза (Турбіна BV39, шатуни BLS, маховик DMF):** [`docs/knowledge/hardware-limits.md`](./docs/knowledge/hardware-limits.md)
+* **Індекс активних карт у SW 1037391847:** [`docs/knowledge/a2l-map-index.md`](./docs/knowledge/a2l-map-index.md)
+* **Лінійка прошивок та контрольні суми:** [`docs/knowledge/firmware-lineage.md`](./docs/knowledge/firmware-lineage.md)
+* **Індекс логів VCDS та телеметрії:** [`docs/knowledge/log-index.md`](./docs/knowledge/log-index.md)
+* **Аналіз овербусту 2310–2330 мbar за логами:** [`docs/knowledge/experiment-results.md`](./docs/knowledge/experiment-results.md)
+* **Вирішення суперечливих даних (полярність N75, димність):** [`docs/knowledge/conflicting-evidence.md`](./docs/knowledge/conflicting-evidence.md)
+* **15 відкритих інженерних питань та гіпотези наддуву:** [`docs/knowledge/open-questions.md`](./docs/knowledge/open-questions.md)
+* **Рекомендовані протоколи діагностики VCDS:** [`docs/knowledge/recommended-tests.md`](./docs/knowledge/recommended-tests.md)
+
+### 🗄️ Реляційна база знань SQLite з FTS5:
+* **Файл БД:** [`knowledge/edc16_knowledge.db`](./knowledge/edc16_knowledge.db) (11 537 індексованих карт та характеристик з офіційного A2L).
+* **CLI інструмент пошуку:** `python tools/knowledge_manager.py search <термін_або_адреса>`
+* **Офіційний A2L опис (12 МБ):** [`diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/`](./diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/)
 * **Індекс характеристик A2L (JSON):** [`diagnostic-review/a2l-characteristics-index.json`](./diagnostic-review/a2l-characteristics-index.json)
-* **Побайтові карти та дослідження:**
-  * [`diagnostic-review/deep-audit/FINDINGS-AND-REPAIR.md`](./diagnostic-review/deep-audit/FINDINGS-AND-REPAIR.md) — звіт первинного аудиту дефектів DPF-OFF.
-  * [`diagnostic-review/calibration-enhancements-deep-audit-2026-09-11.md`](./diagnostic-review/calibration-enhancements-deep-audit-2026-09-11.md) — детальний аудит карт запуску, N75, димності та кутів випередження.
-  * [`diagnostic-review/wot-20260914/REVIEW.md`](./diagnostic-review/wot-20260914/REVIEW.md) — аудит WOT-логу від GPT-6 Astra High.
 
 ---
 
