@@ -1,6 +1,6 @@
 # Calibration math engine — current analysis
 
-Generated from `current-analysis.json` (2026-09-16T12:52:02Z). Current BIN sha256 `d8296554b0342a9a…`, stock reference `cf891152a97fb636…`.
+Generated from `current-analysis.json` (2026-09-16T13:46:21Z). Current BIN sha256 `d8296554b0342a9a…`, stock reference `cf891152a97fb636…`.
 
 Values in brackets are Monte Carlo P05–P95 (10000 draws). Uncertain inputs and their provenance are listed at the end.
 

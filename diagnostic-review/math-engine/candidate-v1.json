@@ -1,0 +1,362 @@
+{
+ "generated_utc": "2026-09-16T13:46:29Z",
+ "base_bin": {
+  "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
+  "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
+ },
+ "candidate_bin": null,
+ "rule": "Lower FlMng_qPresSmoke_MAP last-column nodes only as far as the stock-equivalent delivered fuel stays >= the highest P95 burned-fuel estimate of every logged pull (VCDS + phone, gears 3-4) at each rpm. No lambda constant is assumed.",
+ "constraints_burned_p95_mg": {
+  "2250": 71.30643827460548,
+  "2500": 67.4628870970853,
+  "2750": 68.27922823184743,
+  "3000": 66.24032598778504,
+  "3250": 59.10552101860884,
+  "3500": 53.22579968200675,
+  "3750": 47.92506858615872,
+  "2000": 70.38211268527418,
+  "4000": 43.53256350416083,
+  "1750": 69.73638177009609
+ },
+ "fit": [
+  {
+   "rpm_node": 3000.0,
+   "current_mg": 67.8,
+   "fitted_mg": 67.8,
+   "constrained_bins": [
+    2750,
+    3000
+   ]
+  },
+  {
+   "rpm_node": 4000.0,
+   "current_mg": 67.8,
+   "fitted_mg": 43.55,
+   "constrained_bins": [
+    3250,
+    3500,
+    3750,
+    4000
+   ]
+  }
+ ],
+ "cells": [
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 4000.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D6632",
+   "old_raw": 6780,
+   "new_raw": 4355,
+   "old_raw_hex": "1A7C",
+   "new_raw_hex": "1103",
+   "old_mg": 67.8,
+   "new_mg": 43.55
+  }
+ ],
+ "fit_checks": [
+  {
+   "rpm": 2750,
+   "q_runtime_now_mg": 61.59982798333742,
+   "q_cmd_new_mg": 61.59982798333742,
+   "q_stock_eq_now_mg": 64.176754868654,
+   "q_stock_eq_new_mg": 64.176754868654,
+   "burned_p95_constraint_mg": 68.27922823184743
+  },
+  {
+   "rpm": 3000,
+   "q_runtime_now_mg": 62.16586363636364,
+   "q_cmd_new_mg": 62.16586363636364,
+   "q_stock_eq_now_mg": 66.1722804882414,
+   "q_stock_eq_new_mg": 66.1722804882414,
+   "burned_p95_constraint_mg": 66.24032598778504
+  },
+  {
+   "rpm": 3250,
+   "q_runtime_now_mg": 62.212,
+   "q_cmd_new_mg": 61.7375,
+   "q_stock_eq_now_mg": 62.449009754655634,
+   "q_stock_eq_new_mg": 62.449009754655634,
+   "burned_p95_constraint_mg": 59.10552101860884
+  },
+  {
+   "rpm": 3500,
+   "q_runtime_now_mg": 61.72870931537598,
+   "q_cmd_new_mg": 55.675,
+   "q_stock_eq_now_mg": 60.115954955959396,
+   "q_stock_eq_new_mg": 58.38431541977923,
+   "burned_p95_constraint_mg": 53.22579968200675
+  },
+  {
+   "rpm": 3750,
+   "q_runtime_now_mg": 61.47509766457088,
+   "q_cmd_new_mg": 49.6125,
+   "q_stock_eq_now_mg": 57.18065466216984,
+   "q_stock_eq_new_mg": 49.61249999999998,
+   "burned_p95_constraint_mg": 47.92506858615872
+  },
+  {
+   "rpm": 4000,
+   "q_runtime_now_mg": 61.11181818181818,
+   "q_cmd_new_mg": 43.55,
+   "q_stock_eq_now_mg": 55.0,
+   "q_stock_eq_new_mg": 43.55,
+   "burned_p95_constraint_mg": 43.53256350416083
+  }
+ ],
+ "predicted_per_pull": [
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 2750,
+   "air_mg": 974.7802197802198,
+   "q_runtime_now": 61.59982798333742,
+   "q_cmd_new": 61.59982798333742,
+   "q_stock_eq_now": 64.176754868654,
+   "q_stock_eq_new": 64.176754868654,
+   "burned_p50": 59.11617934712146,
+   "burned_p95": 66.7397271898452,
+   "lambda_now": 1.0475166934101823,
+   "lambda_new": 1.0475166934101823,
+   "end_proxy_now": 16.669941471571892,
+   "end_proxy_new": 16.669941471571892
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 3000,
+   "air_mg": 943.6474164133739,
+   "q_runtime_now": 62.16586363636364,
+   "q_cmd_new": 62.16586363636364,
+   "q_stock_eq_now": 66.1722804882414,
+   "q_stock_eq_new": 66.1722804882414,
+   "burned_p50": 56.42033742183489,
+   "burned_p95": 64.0405202607835,
+   "lambda_now": 0.9834802682673741,
+   "lambda_new": 0.9834802682673741,
+   "end_proxy_now": 16.918504389632094,
+   "end_proxy_new": 16.918504389632094
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 3250,
+   "air_mg": 899.9159663865546,
+   "q_runtime_now": 62.161362637362636,
+   "q_cmd_new": 61.7375,
+   "q_stock_eq_now": 62.449009754655634,
+   "q_stock_eq_new": 62.449009754655634,
+   "burned_p50": null,
+   "burned_p95": null,
+   "lambda_now": 0.9938215247840273,
+   "lambda_new": 0.9938215247840273,
+   "end_proxy_now": 15.354854724080258,
+   "end_proxy_new": 15.354854724080258
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 2750,
+   "air_mg": 974.9206349206349,
+   "q_runtime_now": 61.62527272727273,
+   "q_cmd_new": 61.62527272727273,
+   "q_stock_eq_now": 64.176754868654,
+   "q_stock_eq_new": 64.176754868654,
+   "burned_p50": 58.44194283740973,
+   "burned_p95": 65.8260674195496,
+   "lambda_now": 1.0476675860940998,
+   "lambda_new": 1.0476675860940998,
+   "end_proxy_now": 16.669941471571892,
+   "end_proxy_new": 16.669941471571892
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 3000,
+   "air_mg": 950.5102040816327,
+   "q_runtime_now": 62.16586363636364,
+   "q_cmd_new": 62.16586363636364,
+   "q_stock_eq_now": 66.1722804882414,
+   "q_stock_eq_new": 66.1722804882414,
+   "burned_p50": 56.18229562756784,
+   "burned_p95": 63.532965010239145,
+   "lambda_now": 0.9906327450713635,
+   "lambda_new": 0.9906327450713635,
+   "end_proxy_now": 16.918504389632094,
+   "end_proxy_new": 16.918504389632094
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 3250,
+   "air_mg": 909.3112244897959,
+   "q_runtime_now": 62.65342857142858,
+   "q_cmd_new": 61.7375,
+   "q_stock_eq_now": 62.449009754655634,
+   "q_stock_eq_new": 62.449009754655634,
+   "burned_p50": 52.267108542683175,
+   "burned_p95": 59.10552101860884,
+   "lambda_now": 1.0041971710473052,
+   "lambda_new": 1.0041971710473052,
+   "end_proxy_now": 15.354854724080258,
+   "end_proxy_new": 15.354854724080258
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 3500,
+   "air_mg": 859.6913580246913,
+   "q_runtime_now": 61.66832772166106,
+   "q_cmd_new": 55.675,
+   "q_stock_eq_now": 60.115954955959396,
+   "q_stock_eq_new": 58.38431541977923,
+   "burned_p50": 45.815186949343925,
+   "burned_p95": 52.07219319941624,
+   "lambda_now": 0.9862449863360145,
+   "lambda_new": 1.015496349453314,
+   "end_proxy_now": 14.75347512541805,
+   "end_proxy_new": 14.023021138168886
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 3750,
+   "air_mg": 785.0,
+   "q_runtime_now": 61.64068025493027,
+   "q_cmd_new": 49.6125,
+   "q_stock_eq_now": 57.18065466216984,
+   "q_stock_eq_new": 49.61249999999998,
+   "burned_p50": 40.11152212053713,
+   "burned_p95": 45.62203743188612,
+   "lambda_now": 0.9467875342515075,
+   "lambda_new": 1.0912155411334397,
+   "end_proxy_now": 13.819593959030087,
+   "end_proxy_new": 10.706880566671607
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 4000,
+   "air_mg": 785.0,
+   "q_runtime_now": 61.11181818181818,
+   "q_cmd_new": 43.55,
+   "q_stock_eq_now": 55.0,
+   "q_stock_eq_new": 43.55,
+   "burned_p50": null,
+   "burned_p95": null,
+   "lambda_now": 0.9843260188087775,
+   "lambda_new": 1.2431212637079854,
+   "end_proxy_now": 12.984374999999986,
+   "end_proxy_new": 7.742294366638788
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 2750,
+   "air_mg": 945.042242703533,
+   "q_runtime_now": 61.459681096681095,
+   "q_cmd_new": 61.459681096681095,
+   "q_stock_eq_now": 64.176754868654,
+   "q_stock_eq_new": 64.176754868654,
+   "burned_p50": 57.692722738951986,
+   "burned_p95": 65.8944729853903,
+   "lambda_now": 1.0155597181002993,
+   "lambda_new": 1.0155597181002993,
+   "end_proxy_now": 16.669941471571892,
+   "end_proxy_new": 16.669941471571892
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 3000,
+   "air_mg": 873.2512315270935,
+   "q_runtime_now": 62.16586363636364,
+   "q_cmd_new": 62.16586363636364,
+   "q_stock_eq_now": 66.1722804882414,
+   "q_stock_eq_new": 66.1722804882414,
+   "burned_p50": 50.85470777995717,
+   "burned_p95": 58.32598008481822,
+   "lambda_now": 0.9101125489341286,
+   "lambda_new": 0.9101125489341286,
+   "end_proxy_now": 16.918504389632094,
+   "end_proxy_new": 16.918504389632094
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 3250,
+   "air_mg": 847.063492063492,
+   "q_runtime_now": 62.212,
+   "q_cmd_new": 61.7375,
+   "q_stock_eq_now": 62.449009754655634,
+   "q_stock_eq_new": 62.449009754655634,
+   "burned_p50": 46.63091711118072,
+   "burned_p95": 53.672253518098366,
+   "lambda_now": 0.9354539342730346,
+   "lambda_new": 0.9354539342730346,
+   "end_proxy_now": 15.354854724080258,
+   "end_proxy_new": 15.354854724080258
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 3500,
+   "air_mg": 831.9047619047619,
+   "q_runtime_now": 61.78909090909091,
+   "q_cmd_new": 55.675,
+   "q_stock_eq_now": 60.115954955959396,
+   "q_stock_eq_new": 58.38431541977923,
+   "burned_p50": 43.49182865337029,
+   "burned_p95": 50.2994389800371,
+   "lambda_now": 0.9543679750635143,
+   "lambda_new": 0.9826738874614238,
+   "end_proxy_now": 14.75347512541805,
+   "end_proxy_new": 14.023021138168886
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 3750,
+   "air_mg": 820.4608294930875,
+   "q_runtime_now": 61.309515074211504,
+   "q_cmd_new": 49.6125,
+   "q_stock_eq_now": 57.18065466216984,
+   "q_stock_eq_new": 49.61249999999998,
+   "burned_p50": 41.285189718908775,
+   "burned_p95": 47.622043952063926,
+   "lambda_now": 0.9895567970773337,
+   "lambda_new": 1.1405090548204972,
+   "end_proxy_now": 13.819593959030087,
+   "end_proxy_new": 10.706880566671607
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 4000,
+   "air_mg": 813.3163265306123,
+   "q_runtime_now": 61.11181818181818,
+   "q_cmd_new": 43.55,
+   "q_stock_eq_now": 55.0,
+   "q_stock_eq_new": 43.55,
+   "burned_p50": 37.25767026364905,
+   "burned_p95": 43.53256350416083,
+   "lambda_now": 1.0198323843644042,
+   "lambda_new": 1.2879628275555048,
+   "end_proxy_now": 12.984374999999986,
+   "end_proxy_new": 7.742294366638788
+  }
+ ],
+ "verification": "NOT BUILT (plan only; BIN creation requires explicit approval)",
+ "validation_protocol": [
+  "Flash, clear DTCs, same road both directions, gear 4 WOT 1500->4100, VCDS groups 011+003+008.",
+  "Pass: at 3000-4000 rpm road torque P50 within the pull-to-pull spread of vcds-analysis (no loss).",
+  "Pass: group 008 shows smoke limitation binding at 3000-4000 at the new equivalent torque.",
+  "Expect: less visible smoke at 3000+; boost behaviour unchanged (fuel change only)."
+ ],
+ "abort_criteria": [
+  "road torque P50 at any 3000-3750 bin lower by more than 15 Nm than vcds-analysis",
+  "new DTC",
+  "engine behaviour change below 2750 rpm (cells there are untouched)"
+ ],
+ "rollback": "03G906021QJ_stage1_full_power_dpf_egr_off.bin"
+}

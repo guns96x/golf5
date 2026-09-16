@@ -7,6 +7,7 @@ Sample time estimate: response timestamp - latency/2, uncertainty +/- latency/2.
 import csv
 import glob
 import os
+import re
 import statistics
 
 PID = {'010C': 'rpm', '010B': 'map_mbar', '0110': 'maf_g_s', '010D': 'speed_kmh',
@@ -66,6 +67,56 @@ def load_events(path):
     for ch, t, v, u in sorted(samples, key=lambda s: s[1]):
         series.setdefault(ch, []).append(((t - t0) / 1000.0, v, u / 1000.0))
     return series, {'file': path, 'baro_mbar': baro, 't0_utc_ms': t0}
+
+
+VCDS_CHANNELS = {  # group -> column order after the group's own time column
+    '011': ('rpm', 'boost_spec_mbar', 'map_mbar', 'n75_duty_pct'),
+    '003': ('rpm', 'maf_spec_mg', 'maf_act_mg', 'egr_duty_pct'),
+    '008': ('rpm', 'trq_request_nm', 'trq_limit_nm', 'trq_smoke_nm'),
+}
+VCDS_TIME_UNC_S = 0.08  # a group read takes ~0.17 s; the logged time is inside that read
+
+
+def load_vcds(path):
+    """VCDS advanced measuring-block CSV, possibly several sessions appended in one file.
+    Returns list of (series, meta). Each group column carries its own timestamp, so channels are
+    time-aligned by construction; rpm from all groups is merged into one series."""
+    text = open(path, encoding='cp1251', errors='replace').read()
+    sessions, cur = [], None
+    for line in text.splitlines():
+        f = line.split(',')
+        if 'VCDS' in line:
+            # header: weekday,day,month,year,HH:MM:SS:ms-VCID...  (may be glued to a truncated data line)
+            m = re.search(r',(\d{1,2}),[^,]*,(\d{4}),(\d\d:\d\d:\d\d)', line)
+            cur = {'meta': {'file': path.replace('\\', '/'), 'day': m.group(1) if m else '?',
+                            'year': m.group(2) if m else '?', 'time': m.group(3) if m else '?',
+                            'groups': []}, 'series': {}}
+            sessions.append(cur)
+            continue
+        if cur is None:
+            continue
+        if len(f) > 2 and 'A:' in line:
+            cur['meta']['groups'] = [x.strip("'") for x in f if x.strip().startswith("'")]
+            continue
+        if len(f) < 16 or f[0] != '':
+            continue
+        try:
+            nums = [float(x) for x in f[1:16]]
+        except ValueError:
+            continue  # truncated/merged line at a session boundary
+        for gi, group in enumerate(cur['meta']['groups'][:3]):
+            base = gi * 5
+            t = nums[base]
+            for ch, v in zip(VCDS_CHANNELS[group], nums[base + 1:base + 5]):
+                cur['series'].setdefault(ch, []).append((t, v, VCDS_TIME_UNC_S))
+    out = []
+    for s in sessions:
+        for ch in s['series']:
+            s['series'][ch].sort()
+        # month is written in Cyrillic by RUS VCDS; label keeps only unambiguous fields
+        s['meta']['label'] = 'day%s %s' % (s['meta']['day'].zfill(2), s['meta']['time'])
+        out.append((s['series'], s['meta']))
+    return out
 
 
 def interp_at(series, t):

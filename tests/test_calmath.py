@@ -146,5 +146,49 @@ class Telemetry(unittest.TestCase):
         self.assertEqual(tm.classify_gear(g['kmh_per_rpm']), 4)
 
 
+class RuntimeAnalysis(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import calmath_engine as ce
+        cls.ce = ce
+        cls.stock = ce.Firmware(ce.STOCK_BIN)
+        cls.cur = ce.Firmware(ce.CURRENT_BIN)
+
+    def test_stock_equivalent_is_identity_on_stock(self):
+        for rpm, q in ((2000, 40.0), (3000, 50.0), (3500, 45.0)):
+            q_eq, status, _ = self.ce.stock_equivalent_q(self.stock, self.stock, rpm, q, 4)
+            self.assertAlmostEqual(q_eq, q, places=3)
+            self.assertEqual(status, 'IN_OEM_AXIS')
+
+    def test_stock_equivalent_reflects_longer_stage1_duration(self):
+        q_eq = self.ce.stock_equivalent_q(self.cur, self.stock, 2250, 55.5, 4)[0]
+        self.assertGreater(q_eq, 55.5)
+
+    def test_checksum_rule_holds_on_independent_known_good_files(self):
+        for path in ('diagnostic-review/reference-from-hex.analysis-only.bin',
+                     'diagnostic-review/new-inputs/on/03G906021QJ.Bin',
+                     'gdrive_downloads/VW_Golf___391847_DPF__EGR_chk_ok.bin'):
+            with open(path, 'rb') as f:
+                self.assertEqual(self.ce.block_sums(f.read()), [self.ce.CHECKSUM_TARGET] * 2, path)
+
+    def test_vcds_loader(self):
+        sessions = tm.load_vcds('logs/vcds/LOG-01-011-003-008.CSV')
+        self.assertEqual(len(sessions), 4)
+        series, meta = sessions[3]
+        self.assertEqual(meta['groups'], ['011', '003', '008'])
+        self.assertEqual(meta['time'], '11:54:46')
+        # first data row of that session: group C at 0.21 s, 1449 rpm, 48.8 / 327.0 / 185.4 Nm
+        self.assertEqual(series['trq_smoke_nm'][0][:2], (0.21, 185.4))
+        self.assertEqual(series['map_mbar'][0][:2], (0.02, 1234.2))
+
+    def test_runtime_smoke_limit_matches_static_map(self):
+        # VCDS 008 'Smoke Limitation' 309.9 Nm at 2000-2250 rpm vs inverse FMTC of the 56.5 mg smoke map value
+        f, s = self.cur['FMTC_trq2qBas_MAP'], self.cur['FlMng_qPresSmoke_MAP']
+        for rpm in (2000, 2250):
+            inv, status = f.inverse_y(rpm, s.lookup(rpm, 2000))
+            self.assertEqual(status, 'IN_RANGE')
+            self.assertLess(abs(inv - 309.9), 2.5)
+
+
 if __name__ == '__main__':
     unittest.main()

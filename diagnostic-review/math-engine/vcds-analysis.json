@@ -1,0 +1,1793 @@
+{
+ "generated_utc": "2026-09-16T13:46:22Z",
+ "source": "logs/vcds/LOG-01-011-003-008.CSV",
+ "gear_reference_from_phone_logs": {
+  "3": {
+   "kmh_per_rpm": 0.025488793184413272,
+   "rate2500_rpm_s": 359.3674713304474
+  },
+  "4": {
+   "kmh_per_rpm": 0.03573275241093683,
+   "rate2500_rpm_s": 170.4183070057635
+  }
+ },
+ "pulls": [
+  {
+   "name": "day14 20:23:44@0.6s",
+   "session": "day14 20:23:44",
+   "firmware": "garage (fuel path byte-identical to current)",
+   "gear": 3,
+   "rate2500_rpm_s": 379.4349962220303,
+   "gear_rate_mismatch": 0.055841239100715034,
+   "rpm_start": 1617.0,
+   "rpm_end": 3507.0,
+   "kmh_per_rpm": 0.025488793184413272,
+   "bins": [
+    2000,
+    2250,
+    2500,
+    2750,
+    3000,
+    3250,
+    3500
+   ]
+  },
+  {
+   "name": "day16 11:54:12@1.4s",
+   "session": "day16 11:54:12",
+   "firmware": "current",
+   "gear": 3,
+   "rate2500_rpm_s": 357.71457305472245,
+   "gear_rate_mismatch": 0.0045994654708330085,
+   "rpm_start": 1596.0,
+   "rpm_end": 4074.0,
+   "kmh_per_rpm": 0.025488793184413272,
+   "bins": [
+    2000,
+    2250,
+    2500,
+    2750,
+    3000,
+    3250,
+    3500,
+    3750,
+    4000
+   ]
+  },
+  {
+   "name": "day16 11:54:46@1.3s",
+   "session": "day16 11:54:46",
+   "firmware": "current",
+   "gear": 4,
+   "rate2500_rpm_s": 155.7768891400207,
+   "gear_rate_mismatch": 0.0859145834915942,
+   "rpm_start": 1533.0,
+   "rpm_end": 4137.0,
+   "kmh_per_rpm": 0.03573275241093683,
+   "bins": [
+    2000,
+    2250,
+    2500,
+    2750,
+    3000,
+    3250,
+    3500,
+    3750,
+    4000
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 2000,
+   "t_s": 1.7634920634920634,
+   "boost_spec_mbar": 2171.088888888889,
+   "map_mbar": 2310.6507936507937,
+   "n75_duty_pct": 36.454497354497356,
+   "maf_act_mg": 949.2857142857142,
+   "maf_spec_mg": 797.3015873015873,
+   "trq_request_nm": 368.2105921855922,
+   "trq_limit_nm": 375.7351343101343,
+   "trq_smoke_nm": 309.9,
+   "boost_error_mbar": 139.56190476190477,
+   "runtime_inner_torque_nm": 309.9,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 55.72431818181818,
+   "q_stock_equivalent_mg": 60.2224612214755,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.1748547569834151,
+   "lambda_stock_equivalent": 1.0871023695760285,
+   "soi_deg_btdc_hyp": 15.960937499999988,
+   "duration_deg_hyp": 29.633720381859963,
+   "duration_ms_hyp": 2.46947669848833,
+   "elec_end_proxy_deg_atdc": 13.672782881859975,
+   "friction_nm": -28.0,
+   "road_torque_nm": null
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 2250,
+   "t_s": 2.3914285714285715,
+   "boost_spec_mbar": 2202.247252747253,
+   "map_mbar": 2405.967032967033,
+   "n75_duty_pct": 34.88681318681319,
+   "maf_act_mg": 985.4571428571429,
+   "maf_spec_mg": 818.7428571428571,
+   "trq_request_nm": 359.8857142857143,
+   "trq_limit_nm": 372.0857142857143,
+   "trq_smoke_nm": 309.9,
+   "boost_error_mbar": 203.7197802197802,
+   "runtime_inner_torque_nm": 309.9,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 55.48740909090908,
+   "q_stock_equivalent_mg": 58.54329599660116,
+   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "lambda_runtime_cmd": 1.2248285275855402,
+   "lambda_stock_equivalent": 1.160894008774299,
+   "soi_deg_btdc_hyp": 17.249999999999986,
+   "duration_deg_hyp": 30.373902524275966,
+   "duration_ms_hyp": 2.2499187055019236,
+   "elec_end_proxy_deg_atdc": 13.12390252427598,
+   "friction_nm": -29.65,
+   "road_torque_nm": {
+    "p05": 281.5800345613781,
+    "p50": 310.2174088352824,
+    "p95": 342.10988809783066,
+    "n": 7452,
+    "std": 18.475660443762056
+   },
+   "road_inner_torque_nm": {
+    "p05": 311.2300345613781,
+    "p50": 339.8674088352824,
+    "p95": 371.75988809783064,
+    "n": 7452,
+    "std": 18.475660443762056
+   },
+   "torque_realization": {
+    "p05": 1.004291818526551,
+    "p50": 1.0967002543894235,
+    "p95": 1.199612417224365,
+    "n": 7452,
+    "std": 0.0596181363141725
+   },
+   "implied_burned_q_mg": {
+    "p05": 52.9781974302413,
+    "p50": 59.89240353039422,
+    "p95": 67.67915058587559,
+    "n": 4000,
+    "std": 4.453802202613897
+   },
+   "unconverted_fuel_mg_p50": -1.3491075337930596
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 2500,
+   "t_s": 3.0926984126984127,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2335.8,
+   "n75_duty_pct": 31.07008547008547,
+   "maf_act_mg": 975.0518925518926,
+   "maf_spec_mg": 835.0,
+   "trq_request_nm": 351.34260317460314,
+   "trq_limit_nm": 363.5426031746032,
+   "trq_smoke_nm": 311.4969523809524,
+   "boost_error_mbar": 132.60000000000036,
+   "runtime_inner_torque_nm": 311.4969523809524,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 56.44853714285715,
+   "q_stock_equivalent_mg": 59.7308870734995,
+   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "lambda_runtime_cmd": 1.1912613065037785,
+   "lambda_stock_equivalent": 1.125798751729259,
+   "soi_deg_btdc_hyp": 18.867187499999986,
+   "duration_deg_hyp": 32.649075972169115,
+   "duration_ms_hyp": 2.1766050648112745,
+   "elec_end_proxy_deg_atdc": 13.781888472169129,
+   "friction_nm": -31.3,
+   "road_torque_nm": {
+    "p05": 280.2955388614483,
+    "p50": 308.6607142273539,
+    "p95": 339.7869077855794,
+    "n": 10000,
+    "std": 18.057071765027587
+   },
+   "road_inner_torque_nm": {
+    "p05": 311.5955388614483,
+    "p50": 339.96071422735383,
+    "p95": 371.0869077855794,
+    "n": 10000,
+    "std": 18.057071765027587
+   },
+   "torque_realization": {
+    "p05": 1.0003164926004646,
+    "p50": 1.0913773365319832,
+    "p95": 1.1913018889884677,
+    "n": 10000,
+    "std": 0.05796869480425695
+   },
+   "implied_burned_q_mg": {
+    "p05": 52.57814638816573,
+    "p50": 59.450700509138954,
+    "p95": 67.3382412194436,
+    "n": 4000,
+    "std": 4.506840735791586
+   },
+   "unconverted_fuel_mg_p50": 0.2801865643605481
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 2750,
+   "t_s": 3.7871428571428574,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2349.418681318681,
+   "n75_duty_pct": 27.597802197802196,
+   "maf_act_mg": 974.7802197802198,
+   "maf_spec_mg": 836.7032967032967,
+   "trq_request_nm": 344.0264150943396,
+   "trq_limit_nm": 356.2264150943396,
+   "trq_smoke_nm": 334.1814016172507,
+   "boost_error_mbar": 146.21868131868132,
+   "runtime_inner_torque_nm": 334.1814016172507,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 61.59982798333742,
+   "q_stock_equivalent_mg": 64.176754868654,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.0913378211379545,
+   "lambda_stock_equivalent": 1.0475166934101823,
+   "soi_deg_btdc_hyp": 20.578124999999982,
+   "duration_deg_hyp": 37.248066471571875,
+   "duration_ms_hyp": 2.257458574034659,
+   "elec_end_proxy_deg_atdc": 16.669941471571892,
+   "friction_nm": -33.75,
+   "road_torque_nm": {
+    "p05": 277.6719543423358,
+    "p50": 305.87195831521103,
+    "p95": 337.01126620654884,
+    "n": 10000,
+    "std": 17.93170873176331
+   },
+   "road_inner_torque_nm": {
+    "p05": 311.4219543423358,
+    "p50": 339.62195831521103,
+    "p95": 370.76126620654884,
+    "n": 10000,
+    "std": 17.93170873176331
+   },
+   "torque_realization": {
+    "p05": 0.9318949314211626,
+    "p50": 1.0162802498033434,
+    "p95": 1.1094611023003438,
+    "n": 10000,
+    "std": 0.05365860770522803
+   },
+   "implied_burned_q_mg": {
+    "p05": 52.421426996543474,
+    "p50": 59.11617934712146,
+    "p95": 66.7397271898452,
+    "n": 4000,
+    "std": 4.3856861897666475
+   },
+   "unconverted_fuel_mg_p50": 5.060575521532542
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 3000,
+   "t_s": 4.485714285714286,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2344.0158054711246,
+   "n75_duty_pct": 24.344376899696048,
+   "maf_act_mg": 943.6474164133739,
+   "maf_spec_mg": 847.5683890577508,
+   "trq_request_nm": 338.15896656534954,
+   "trq_limit_nm": 348.31854103343466,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": 140.8158054711248,
+   "runtime_inner_torque_nm": 334.3,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 62.16586363636364,
+   "q_stock_equivalent_mg": 66.1722804882414,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.046862833710748,
+   "lambda_stock_equivalent": 0.9834802682673741,
+   "soi_deg_btdc_hyp": 22.242187499999982,
+   "duration_deg_hyp": 39.160691889632076,
+   "duration_ms_hyp": 2.175593993868449,
+   "elec_end_proxy_deg_atdc": 16.918504389632094,
+   "friction_nm": -36.2,
+   "road_torque_nm": {
+    "p05": 265.7946095029548,
+    "p50": 293.07244006709885,
+    "p95": 323.50031469323113,
+    "n": 4915,
+    "std": 17.585640806700642
+   },
+   "road_inner_torque_nm": {
+    "p05": 301.9946095029548,
+    "p50": 329.27244006709884,
+    "p95": 359.7003146932311,
+    "n": 4915,
+    "std": 17.585640806700642
+   },
+   "torque_realization": {
+    "p05": 0.90336407269804,
+    "p50": 0.9849609334941635,
+    "p95": 1.0759806003387111,
+    "n": 4915,
+    "std": 0.0526043697478332
+   },
+   "implied_burned_q_mg": {
+    "p05": 50.016653105475974,
+    "p50": 56.42033742183489,
+    "p95": 64.0405202607835,
+    "n": 4000,
+    "std": 4.238202442270963
+   },
+   "unconverted_fuel_mg_p50": 9.751943066406511
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "rpm": 3250,
+   "t_s": 5.275714285714286,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2303.2182857142857,
+   "n75_duty_pct": 22.314857142857143,
+   "maf_act_mg": 899.9159663865546,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 331.589010989011,
+   "trq_limit_nm": 341.1692307692308,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": 100.01828571428587,
+   "runtime_inner_torque_nm": 331.589010989011,
+   "binding_limiter": [
+    "driver_request"
+   ],
+   "q_runtime_mg": 62.161362637362636,
+   "q_stock_equivalent_mg": 62.449009754655634,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 0.9984203605331013,
+   "lambda_stock_equivalent": 0.9938215247840273,
+   "soi_deg_btdc_hyp": 24.515624999999982,
+   "duration_deg_hyp": 39.87047972408024,
+   "duration_ms_hyp": 2.044639985850269,
+   "elec_end_proxy_deg_atdc": 15.354854724080258,
+   "friction_nm": -37.95,
+   "road_torque_nm": null
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 2000,
+   "t_s": 2.547142857142857,
+   "boost_spec_mbar": 2187.0095238095237,
+   "map_mbar": 2250.5841269841267,
+   "n75_duty_pct": 45.08677248677248,
+   "maf_act_mg": 901.5270935960592,
+   "maf_spec_mg": 800.64039408867,
+   "trq_request_nm": 368.88941798941795,
+   "trq_limit_nm": 374.2592592592593,
+   "trq_smoke_nm": 309.9,
+   "boost_error_mbar": 63.574603174603,
+   "runtime_inner_torque_nm": 309.9,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 55.72431818181818,
+   "q_stock_equivalent_mg": 60.2224612214755,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.115747744352948,
+   "lambda_stock_equivalent": 1.032410184770032,
+   "soi_deg_btdc_hyp": 15.960937499999988,
+   "duration_deg_hyp": 29.633720381859963,
+   "duration_ms_hyp": 2.46947669848833,
+   "elec_end_proxy_deg_atdc": 13.672782881859975,
+   "friction_nm": -28.0,
+   "road_torque_nm": null
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 2250,
+   "t_s": 3.2314285714285713,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2375.5591836734693,
+   "n75_duty_pct": 32.24744897959184,
+   "maf_act_mg": 1025.0,
+   "maf_spec_mg": 817.5238095238095,
+   "trq_request_nm": 360.2310344827586,
+   "trq_limit_nm": 372.8743842364532,
+   "trq_smoke_nm": 309.9,
+   "boost_error_mbar": 172.3591836734695,
+   "runtime_inner_torque_nm": 309.9,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 55.48740909090908,
+   "q_stock_equivalent_mg": 58.54329599660116,
+   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "lambda_runtime_cmd": 1.2739764990035443,
+   "lambda_stock_equivalent": 1.2074765174908808,
+   "soi_deg_btdc_hyp": 17.249999999999986,
+   "duration_deg_hyp": 30.373902524275966,
+   "duration_ms_hyp": 2.2499187055019236,
+   "elec_end_proxy_deg_atdc": 13.12390252427598,
+   "friction_nm": -29.65,
+   "road_torque_nm": {
+    "p05": 275.1678393106697,
+    "p50": 302.813190329908,
+    "p95": 333.5137138455895,
+    "n": 7452,
+    "std": 17.555966742025657
+   },
+   "road_inner_torque_nm": {
+    "p05": 304.8178393106697,
+    "p50": 332.463190329908,
+    "p95": 363.1637138455895,
+    "n": 7452,
+    "std": 17.555966742025657
+   },
+   "torque_realization": {
+    "p05": 0.9836006431451103,
+    "p50": 1.0728079713775671,
+    "p95": 1.1718738749454323,
+    "n": 7452,
+    "std": 0.056650425111409025
+   },
+   "implied_burned_q_mg": {
+    "p05": 51.68665136890121,
+    "p50": 58.44398482657203,
+    "p95": 66.17759992306473,
+    "n": 4000,
+    "std": 4.3370749726453255
+   },
+   "unconverted_fuel_mg_p50": 0.09931117002913226
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 2500,
+   "t_s": 3.925079365079365,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2325.5892063492065,
+   "n75_duty_pct": 33.99968253968254,
+   "maf_act_mg": 961.1640211640212,
+   "maf_spec_mg": 834.4179894179895,
+   "trq_request_nm": 352.43382594417074,
+   "trq_limit_nm": 364.6338259441708,
+   "trq_smoke_nm": 309.9,
+   "boost_error_mbar": 122.38920634920669,
+   "runtime_inner_torque_nm": 309.9,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 55.68199999999999,
+   "q_stock_equivalent_mg": 58.90638951792758,
+   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "lambda_runtime_cmd": 1.1904596435720842,
+   "lambda_stock_equivalent": 1.125296838184369,
+   "soi_deg_btdc_hyp": 18.867187499999986,
+   "duration_deg_hyp": 32.04631724498324,
+   "duration_ms_hyp": 2.1364211496655496,
+   "elec_end_proxy_deg_atdc": 13.179129744983257,
+   "friction_nm": -31.3,
+   "road_torque_nm": {
+    "p05": 275.43939417888345,
+    "p50": 303.48068731848286,
+    "p95": 334.2475486853245,
+    "n": 10000,
+    "std": 17.540421226845467
+   },
+   "road_inner_torque_nm": {
+    "p05": 306.73939417888346,
+    "p50": 334.78068731848293,
+    "p95": 365.5475486853245,
+    "n": 10000,
+    "std": 17.540421226845467
+   },
+   "torque_realization": {
+    "p05": 0.9898012074181461,
+    "p50": 1.0802861804404096,
+    "p95": 1.1795661461288305,
+    "n": 10000,
+    "std": 0.05660026210663268
+   },
+   "implied_burned_q_mg": {
+    "p05": 51.862799367687714,
+    "p50": 58.669560877927516,
+    "p95": 66.55434779860771,
+    "n": 4000,
+    "std": 4.40508628517931
+   },
+   "unconverted_fuel_mg_p50": 0.23682864000006276
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 2750,
+   "t_s": 4.662857142857143,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2348.1857142857143,
+   "n75_duty_pct": 26.965714285714284,
+   "maf_act_mg": 974.9206349206349,
+   "maf_spec_mg": 837.4603174603175,
+   "trq_request_nm": 343.6326530612245,
+   "trq_limit_nm": 355.8326530612245,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": 144.9857142857145,
+   "runtime_inner_torque_nm": 334.3,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 61.62527272727273,
+   "q_stock_equivalent_mg": 64.176754868654,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.0910443537370302,
+   "lambda_stock_equivalent": 1.0476675860940998,
+   "soi_deg_btdc_hyp": 20.578124999999982,
+   "duration_deg_hyp": 37.248066471571875,
+   "duration_ms_hyp": 2.257458574034659,
+   "elec_end_proxy_deg_atdc": 16.669941471571892,
+   "friction_nm": -33.75,
+   "road_torque_nm": {
+    "p05": 274.9778143192619,
+    "p50": 302.9832920340747,
+    "p95": 333.05716486746707,
+    "n": 10000,
+    "std": 17.41265743683003
+   },
+   "road_inner_torque_nm": {
+    "p05": 308.7278143192619,
+    "p50": 336.7332920340747,
+    "p95": 366.80716486746707,
+    "n": 10000,
+    "std": 17.41265743683003
+   },
+   "torque_realization": {
+    "p05": 0.923505277652593,
+    "p50": 1.0072787676759636,
+    "p95": 1.0972395000522495,
+    "n": 10000,
+    "std": 0.05208692024178891
+   },
+   "implied_burned_q_mg": {
+    "p05": 51.65656350520729,
+    "p50": 58.44194283740973,
+    "p95": 65.8260674195496,
+    "n": 4000,
+    "std": 4.3015170822268125
+   },
+   "unconverted_fuel_mg_p50": 5.7348120312442745
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 3000,
+   "t_s": 5.365714285714286,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2360.1551020408165,
+   "n75_duty_pct": 24.13265306122449,
+   "maf_act_mg": 950.5102040816327,
+   "maf_spec_mg": 849.7448979591836,
+   "trq_request_nm": 337.5990147783251,
+   "trq_limit_nm": 347.3630541871921,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": 156.95510204081666,
+   "runtime_inner_torque_nm": 334.3,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 62.16586363636364,
+   "q_stock_equivalent_mg": 66.1722804882414,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.0544762677334416,
+   "lambda_stock_equivalent": 0.9906327450713635,
+   "soi_deg_btdc_hyp": 22.242187499999982,
+   "duration_deg_hyp": 39.160691889632076,
+   "duration_ms_hyp": 2.175593993868449,
+   "elec_end_proxy_deg_atdc": 16.918504389632094,
+   "friction_nm": -36.2,
+   "road_torque_nm": {
+    "p05": 264.26599294691357,
+    "p50": 291.3010522119624,
+    "p95": 320.56888070871264,
+    "n": 10000,
+    "std": 16.910794399282207
+   },
+   "road_inner_torque_nm": {
+    "p05": 300.46599294691356,
+    "p50": 327.5010522119624,
+    "p95": 356.76888070871263,
+    "n": 10000,
+    "std": 16.910794399282207
+   },
+   "torque_realization": {
+    "p05": 0.8987914835384792,
+    "p50": 0.9796621364402106,
+    "p95": 1.0672117281146056,
+    "n": 10000,
+    "std": 0.05058568471218129
+   },
+   "implied_burned_q_mg": {
+    "p05": 49.754380951677696,
+    "p50": 56.18229562756784,
+    "p95": 63.532965010239145,
+    "n": 4000,
+    "std": 4.1765752348851555
+   },
+   "unconverted_fuel_mg_p50": 9.989984860673559
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 3250,
+   "t_s": 6.079285714285714,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2316.2406593406595,
+   "n75_duty_pct": 20.93296703296703,
+   "maf_act_mg": 909.3112244897959,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 333.63928571428573,
+   "trq_limit_nm": 340.9657142857143,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": 113.04065934065966,
+   "runtime_inner_torque_nm": 333.63928571428573,
+   "binding_limiter": [
+    "driver_request",
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 62.65342857142858,
+   "q_stock_equivalent_mg": 62.449009754655634,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.0009207853459512,
+   "lambda_stock_equivalent": 1.0041971710473052,
+   "soi_deg_btdc_hyp": 24.515624999999982,
+   "duration_deg_hyp": 39.87047972408024,
+   "duration_ms_hyp": 2.044639985850269,
+   "elec_end_proxy_deg_atdc": 15.354854724080258,
+   "friction_nm": -37.95,
+   "road_torque_nm": {
+    "p05": 245.41130270475122,
+    "p50": 270.8693833604508,
+    "p95": 298.44821429045936,
+    "n": 10000,
+    "std": 16.01891591341724
+   },
+   "road_inner_torque_nm": {
+    "p05": 283.3613027047512,
+    "p50": 308.81938336045073,
+    "p95": 336.39821429045935,
+    "n": 10000,
+    "std": 16.018915913417235
+   },
+   "torque_realization": {
+    "p05": 0.8493043680335942,
+    "p50": 0.9256085736405464,
+    "p95": 1.0082691957881011,
+    "n": 10000,
+    "std": 0.04801267895992064
+   },
+   "implied_burned_q_mg": {
+    "p05": 46.08612481038115,
+    "p50": 52.267108542683175,
+    "p95": 59.10552101860884,
+    "n": 4000,
+    "std": 3.960227747250614
+   },
+   "unconverted_fuel_mg_p50": 10.181901211972459
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 3500,
+   "t_s": 6.943333333333333,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2235.976,
+   "n75_duty_pct": 20.1,
+   "maf_act_mg": 859.6913580246913,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 326.5061728395062,
+   "trq_limit_nm": 336.22592592592594,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": 32.776000000000295,
+   "runtime_inner_torque_nm": 326.5061728395062,
+   "binding_limiter": [
+    "driver_request"
+   ],
+   "q_runtime_mg": 61.66832772166106,
+   "q_stock_equivalent_mg": 60.115954955959396,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 0.9614183060341249,
+   "lambda_stock_equivalent": 0.9862449863360145,
+   "soi_deg_btdc_hyp": 25.89843749999998,
+   "duration_deg_hyp": 40.65191262541803,
+   "duration_ms_hyp": 1.9358053631151444,
+   "elec_end_proxy_deg_atdc": 14.75347512541805,
+   "friction_nm": -39.7,
+   "road_torque_nm": {
+    "p05": 214.3278969751485,
+    "p50": 237.6854544772035,
+    "p95": 263.2494231795509,
+    "n": 10000,
+    "std": 14.675233355399829
+   },
+   "road_inner_torque_nm": {
+    "p05": 254.0278969751485,
+    "p50": 277.38545447720355,
+    "p95": 302.9494231795509,
+    "n": 10000,
+    "std": 14.675233355399826
+   },
+   "torque_realization": {
+    "p05": 0.77801866582172,
+    "p50": 0.8495565399725294,
+    "p95": 0.9278520542043944,
+    "n": 10000,
+    "std": 0.04494626618472363
+   },
+   "implied_burned_q_mg": {
+    "p05": 40.34455676476727,
+    "p50": 45.815186949343925,
+    "p95": 52.07219319941624,
+    "n": 4000,
+    "std": 3.5854024975926344
+   },
+   "unconverted_fuel_mg_p50": 14.30076800661547
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 3750,
+   "t_s": 8.077142857142857,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2063.3142857142857,
+   "n75_duty_pct": 26.62857142857143,
+   "maf_act_mg": 785.0,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 321.5708994708995,
+   "trq_limit_nm": 328.89206349206347,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": -139.88571428571413,
+   "runtime_inner_torque_nm": 321.5708994708995,
+   "binding_limiter": [
+    "driver_request"
+   ],
+   "q_runtime_mg": 61.64068025493027,
+   "q_stock_equivalent_mg": 57.18065466216984,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 0.8782825045178276,
+   "lambda_stock_equivalent": 0.9467875342515075,
+   "soi_deg_btdc_hyp": 27.52734374999998,
+   "duration_deg_hyp": 41.346937709030065,
+   "duration_ms_hyp": 1.8376416759568917,
+   "elec_end_proxy_deg_atdc": 13.819593959030087,
+   "friction_nm": -44.1,
+   "road_torque_nm": {
+    "p05": 185.7190086125844,
+    "p50": 207.4435625086309,
+    "p95": 230.1091633489303,
+    "n": 4915,
+    "std": 13.372290406671198
+   },
+   "road_inner_torque_nm": {
+    "p05": 229.81900861258438,
+    "p50": 251.54356250863088,
+    "p95": 274.2091633489303,
+    "n": 4915,
+    "std": 13.372290406671203
+   },
+   "torque_realization": {
+    "p05": 0.7146760138766282,
+    "p50": 0.7822336004984004,
+    "p95": 0.8527175929168453,
+    "n": 4915,
+    "std": 0.041584267819860125
+   },
+   "implied_burned_q_mg": {
+    "p05": 35.17158890056771,
+    "p50": 40.11152212053713,
+    "p95": 45.62203743188612,
+    "n": 4000,
+    "std": 3.1585402407944696
+   },
+   "unconverted_fuel_mg_p50": 17.06913254163271
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "rpm": 4000,
+   "t_s": 9.247619047619047,
+   "boost_spec_mbar": 2199.8502463054188,
+   "map_mbar": 2070.6,
+   "n75_duty_pct": 31.331362889983577,
+   "maf_act_mg": 785.0,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 314.8,
+   "trq_limit_nm": 318.46560846560845,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": -129.25024630541884,
+   "runtime_inner_torque_nm": 314.8,
+   "binding_limiter": [
+    "driver_request"
+   ],
+   "q_runtime_mg": 61.11181818181818,
+   "q_stock_equivalent_mg": 55.0,
+   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "lambda_runtime_cmd": 0.8858831670400166,
+   "lambda_stock_equivalent": 0.9843260188087775,
+   "soi_deg_btdc_hyp": 29.15624999999998,
+   "duration_deg_hyp": 42.140624999999964,
+   "duration_ms_hyp": 1.7558593749999984,
+   "elec_end_proxy_deg_atdc": 12.984374999999986,
+   "friction_nm": -48.5,
+   "road_torque_nm": null
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 2000,
+   "t_s": 4.069047619047619,
+   "boost_spec_mbar": 2184.2945054945058,
+   "map_mbar": 2324.852747252747,
+   "n75_duty_pct": 35.95860805860806,
+   "maf_act_mg": 973.8278388278388,
+   "maf_spec_mg": 800.0,
+   "trq_request_nm": 367.39340659340655,
+   "trq_limit_nm": 374.75146520146524,
+   "trq_smoke_nm": 309.9,
+   "boost_error_mbar": 140.55824175824137,
+   "runtime_inner_torque_nm": 309.9,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 55.72431818181818,
+   "q_stock_equivalent_mg": 60.2224612214755,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.2052285752458023,
+   "lambda_stock_equivalent": 1.1152075030913355,
+   "soi_deg_btdc_hyp": 15.960937499999988,
+   "duration_deg_hyp": 29.633720381859963,
+   "duration_ms_hyp": 2.46947669848833,
+   "elec_end_proxy_deg_atdc": 13.672782881859975,
+   "friction_nm": -28.0,
+   "road_torque_nm": {
+    "p05": 286.6808817954436,
+    "p50": 319.4639467076961,
+    "p95": 354.8098401104785,
+    "n": 10000,
+    "std": 20.6669238604924
+   },
+   "road_inner_torque_nm": {
+    "p05": 314.6808817954436,
+    "p50": 347.4639467076961,
+    "p95": 382.8098401104785,
+    "n": 10000,
+    "std": 20.6669238604924
+   },
+   "torque_realization": {
+    "p05": 1.015427175848479,
+    "p50": 1.1212131226450344,
+    "p95": 1.235268925816323,
+    "n": 10000,
+    "std": 0.06668900890768764
+   },
+   "implied_burned_q_mg": {
+    "p05": 53.91893046505734,
+    "p50": 61.60419198591798,
+    "p95": 70.22508174226195,
+    "n": 4000,
+    "std": 4.930358313918145
+   },
+   "unconverted_fuel_mg_p50": -1.38173076444248
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 2250,
+   "t_s": 5.417142857142857,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2315.4,
+   "n75_duty_pct": 33.060317460317464,
+   "maf_act_mg": 981.7195767195767,
+   "maf_spec_mg": 818.2804232804233,
+   "trq_request_nm": 360.2673469387755,
+   "trq_limit_nm": 372.4673469387755,
+   "trq_smoke_nm": 309.9,
+   "boost_error_mbar": 112.20000000000027,
+   "runtime_inner_torque_nm": 309.9,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 55.48740909090908,
+   "q_stock_equivalent_mg": 58.54329599660116,
+   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "lambda_runtime_cmd": 1.2201830920511685,
+   "lambda_stock_equivalent": 1.1564910591707085,
+   "soi_deg_btdc_hyp": 17.249999999999986,
+   "duration_deg_hyp": 30.373902524275966,
+   "duration_ms_hyp": 2.2499187055019236,
+   "elec_end_proxy_deg_atdc": 13.12390252427598,
+   "friction_nm": -29.65,
+   "road_torque_nm": {
+    "p05": 277.9213546647259,
+    "p50": 309.04105878793064,
+    "p95": 343.3976035165392,
+    "n": 10000,
+    "std": 19.87553442813488
+   },
+   "road_inner_torque_nm": {
+    "p05": 307.5713546647259,
+    "p50": 338.6910587879306,
+    "p95": 373.0476035165392,
+    "n": 10000,
+    "std": 19.87553442813488
+   },
+   "torque_realization": {
+    "p05": 0.99248581692393,
+    "p50": 1.0929043523327868,
+    "p95": 1.2037676783366866,
+    "n": 10000,
+    "std": 0.0641353159991445
+   },
+   "implied_burned_q_mg": {
+    "p05": 52.32054579458328,
+    "p50": 59.69878120286451,
+    "p95": 67.99779116628467,
+    "n": 4000,
+    "std": 4.752687670263681
+   },
+   "unconverted_fuel_mg_p50": -1.15548520626335
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 2500,
+   "t_s": 6.842142857142857,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2305.2,
+   "n75_duty_pct": 29.205102040816328,
+   "maf_act_mg": 959.9642857142857,
+   "maf_spec_mg": 835.0,
+   "trq_request_nm": 351.4,
+   "trq_limit_nm": 363.6,
+   "trq_smoke_nm": 309.9,
+   "boost_error_mbar": 102.0,
+   "runtime_inner_torque_nm": 309.9,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 55.68199999999999,
+   "q_stock_equivalent_mg": 58.90638951792758,
+   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "lambda_runtime_cmd": 1.1889736988171575,
+   "lambda_stock_equivalent": 1.123892230356238,
+   "soi_deg_btdc_hyp": 18.867187499999986,
+   "duration_deg_hyp": 32.04631724498324,
+   "duration_ms_hyp": 2.1364211496655496,
+   "elec_end_proxy_deg_atdc": 13.179129744983257,
+   "friction_nm": -31.3,
+   "road_torque_nm": {
+    "p05": 268.04244853356585,
+    "p50": 298.8284971208691,
+    "p95": 332.39599427160914,
+    "n": 10000,
+    "std": 19.554417666160948
+   },
+   "road_inner_torque_nm": {
+    "p05": 299.34244853356586,
+    "p50": 330.12849712086916,
+    "p95": 363.69599427160915,
+    "n": 10000,
+    "std": 19.554417666160948
+   },
+   "torque_realization": {
+    "p05": 0.9659323928156369,
+    "p50": 1.0652742727359445,
+    "p95": 1.1735914626383,
+    "n": 10000,
+    "std": 0.06309912122026766
+   },
+   "implied_burned_q_mg": {
+    "p05": 50.581166806016164,
+    "p50": 57.714560264257784,
+    "p95": 65.77827003667998,
+    "n": 4000,
+    "std": 4.6291102204758765
+   },
+   "unconverted_fuel_mg_p50": 1.1918292536697948
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 2750,
+   "t_s": 8.257380952380952,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2321.9490476190476,
+   "n75_duty_pct": 24.327301587301587,
+   "maf_act_mg": 945.042242703533,
+   "maf_spec_mg": 839.957757296467,
+   "trq_request_nm": 344.7718253968254,
+   "trq_limit_nm": 356.9718253968254,
+   "trq_smoke_nm": 333.5281746031746,
+   "boost_error_mbar": 118.74904761904781,
+   "runtime_inner_torque_nm": 333.5281746031746,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 61.459681096681095,
+   "q_stock_equivalent_mg": 64.176754868654,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 1.0604566427944226,
+   "lambda_stock_equivalent": 1.0155597181002993,
+   "soi_deg_btdc_hyp": 20.578124999999982,
+   "duration_deg_hyp": 37.248066471571875,
+   "duration_ms_hyp": 2.257458574034659,
+   "elec_end_proxy_deg_atdc": 16.669941471571892,
+   "friction_nm": -33.75,
+   "road_torque_nm": {
+    "p05": 267.9734372931473,
+    "p50": 299.1797699910048,
+    "p95": 332.6114666900507,
+    "n": 10000,
+    "std": 19.607495810064087
+   },
+   "road_inner_torque_nm": {
+    "p05": 301.7234372931473,
+    "p50": 332.9297699910048,
+    "p95": 366.3614666900507,
+    "n": 10000,
+    "std": 19.607495810064087
+   },
+   "torque_realization": {
+    "p05": 0.9046415273676116,
+    "p50": 0.9982058348957122,
+    "p95": 1.0984423343723226,
+    "n": 10000,
+    "std": 0.058788124371779715
+   },
+   "implied_burned_q_mg": {
+    "p05": 50.562616074926176,
+    "p50": 57.692722738951986,
+    "p95": 65.8944729853903,
+    "n": 4000,
+    "std": 4.6388080200236095
+   },
+   "unconverted_fuel_mg_p50": 6.484032129702015
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 3000,
+   "t_s": 9.947142857142858,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2203.2,
+   "n75_duty_pct": 24.704926108374384,
+   "maf_act_mg": 873.2512315270935,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 338.01773399014775,
+   "trq_limit_nm": 347.76502463054186,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": 0.0,
+   "runtime_inner_torque_nm": 334.3,
+   "binding_limiter": [
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 62.16586363636364,
+   "q_stock_equivalent_mg": 66.1722804882414,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 0.9687667691100746,
+   "lambda_stock_equivalent": 0.9101125489341286,
+   "soi_deg_btdc_hyp": 22.242187499999982,
+   "duration_deg_hyp": 39.160691889632076,
+   "duration_ms_hyp": 2.175593993868449,
+   "elec_end_proxy_deg_atdc": 16.918504389632094,
+   "friction_nm": -36.2,
+   "road_torque_nm": {
+    "p05": 234.00443129300677,
+    "p50": 262.8439155794779,
+    "p95": 293.6765687974323,
+    "n": 10000,
+    "std": 18.124975154172457
+   },
+   "road_inner_torque_nm": {
+    "p05": 270.2044312930068,
+    "p50": 299.04391557947787,
+    "p95": 329.8765687974323,
+    "n": 10000,
+    "std": 18.124975154172454
+   },
+   "torque_realization": {
+    "p05": 0.8082693128716925,
+    "p50": 0.8945375877340049,
+    "p95": 0.9867680789633032,
+    "n": 10000,
+    "std": 0.05421769414948385
+   },
+   "implied_burned_q_mg": {
+    "p05": 44.02094488283617,
+    "p50": 50.85470777995717,
+    "p95": 58.32598008481822,
+    "n": 4000,
+    "std": 4.289053627394581
+   },
+   "unconverted_fuel_mg_p50": 15.317572708284231
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 3250,
+   "t_s": 11.85095238095238,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2185.0417582417585,
+   "n75_duty_pct": 22.84139194139194,
+   "maf_act_mg": 847.063492063492,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 331.8,
+   "trq_limit_nm": 341.6,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": -18.158241758241275,
+   "runtime_inner_torque_nm": 331.8,
+   "binding_limiter": [
+    "driver_request",
+    "smoke_limit"
+   ],
+   "q_runtime_mg": 62.212,
+   "q_stock_equivalent_mg": 62.449009754655634,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 0.9390177436257913,
+   "lambda_stock_equivalent": 0.9354539342730346,
+   "soi_deg_btdc_hyp": 24.515624999999982,
+   "duration_deg_hyp": 39.87047972408024,
+   "duration_ms_hyp": 2.044639985850269,
+   "elec_end_proxy_deg_atdc": 15.354854724080258,
+   "friction_nm": -37.95,
+   "road_torque_nm": {
+    "p05": 214.47428459793815,
+    "p50": 241.49569890487248,
+    "p95": 271.32336287937443,
+    "n": 10000,
+    "std": 17.375636333424442
+   },
+   "road_inner_torque_nm": {
+    "p05": 252.42428459793814,
+    "p50": 279.44569890487253,
+    "p95": 309.2733628793744,
+    "n": 10000,
+    "std": 17.37563633342444
+   },
+   "torque_realization": {
+    "p05": 0.7607724068653952,
+    "p50": 0.8422112685499472,
+    "p95": 0.9321077844465776,
+    "n": 10000,
+    "std": 0.05236780088434129
+   },
+   "implied_burned_q_mg": {
+    "p05": 40.423035014307956,
+    "p50": 46.63091711118072,
+    "p95": 53.672253518098366,
+    "n": 4000,
+    "std": 4.054237189400976
+   },
+   "unconverted_fuel_mg_p50": 15.818092643474913
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 3500,
+   "t_s": 14.216666666666667,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2157.866666666667,
+   "n75_duty_pct": 24.677777777777777,
+   "maf_act_mg": 831.9047619047619,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 327.0,
+   "trq_limit_nm": 334.3,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": -45.33333333333303,
+   "runtime_inner_torque_nm": 327.0,
+   "binding_limiter": [
+    "driver_request"
+   ],
+   "q_runtime_mg": 61.78909090909091,
+   "q_stock_equivalent_mg": 60.115954955959396,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 0.9285254299135071,
+   "lambda_stock_equivalent": 0.9543679750635143,
+   "soi_deg_btdc_hyp": 25.89843749999998,
+   "duration_deg_hyp": 40.65191262541803,
+   "duration_ms_hyp": 1.9358053631151444,
+   "elec_end_proxy_deg_atdc": 14.75347512541805,
+   "friction_nm": -39.7,
+   "road_torque_nm": {
+    "p05": 198.46469091778044,
+    "p50": 225.13417364946307,
+    "p95": 253.86495335909328,
+    "n": 10000,
+    "std": 16.96839962078985
+   },
+   "road_inner_torque_nm": {
+    "p05": 238.16469091778046,
+    "p50": 264.8341736494631,
+    "p95": 293.56495335909324,
+    "n": 10000,
+    "std": 16.96839962078985
+   },
+   "torque_realization": {
+    "p05": 0.7283323881277689,
+    "p50": 0.809890439294994,
+    "p95": 0.8977521509452393,
+    "n": 10000,
+    "std": 0.05189113033880688
+   },
+   "implied_burned_q_mg": {
+    "p05": 37.55426705551419,
+    "p50": 43.49182865337029,
+    "p95": 50.2994389800371,
+    "n": 4000,
+    "std": 3.886253063215197
+   },
+   "unconverted_fuel_mg_p50": 16.624126302589104
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 3750,
+   "t_s": 16.87857142857143,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2172.6,
+   "n75_duty_pct": 27.2,
+   "maf_act_mg": 820.4608294930875,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 320.2377551020408,
+   "trq_limit_nm": 329.4,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": -30.59999999999991,
+   "runtime_inner_torque_nm": 320.2377551020408,
+   "binding_limiter": [
+    "driver_request"
+   ],
+   "q_runtime_mg": 61.309515074211504,
+   "q_stock_equivalent_mg": 57.18065466216984,
+   "q_stock_equivalent_status": "EXTRAPOLATED_BEYOND_OEM_AXIS",
+   "lambda_runtime_cmd": 0.9229155607215446,
+   "lambda_stock_equivalent": 0.9895567970773337,
+   "soi_deg_btdc_hyp": 27.52734374999998,
+   "duration_deg_hyp": 41.346937709030065,
+   "duration_ms_hyp": 1.8376416759568917,
+   "elec_end_proxy_deg_atdc": 13.819593959030087,
+   "friction_nm": -44.1,
+   "road_torque_nm": {
+    "p05": 186.65276985130822,
+    "p50": 212.94117101476496,
+    "p95": 241.1290182142595,
+    "n": 10000,
+    "std": 16.56628165472417
+   },
+   "road_inner_torque_nm": {
+    "p05": 230.75276985130822,
+    "p50": 257.041171014765,
+    "p95": 285.22901821425955,
+    "n": 10000,
+    "std": 16.566281654724172
+   },
+   "torque_realization": {
+    "p05": 0.7205670355070437,
+    "p50": 0.8026572973347917,
+    "p95": 0.8906789211140139,
+    "n": 10000,
+    "std": 0.05173119468516596
+   },
+   "implied_burned_q_mg": {
+    "p05": 35.439474907528655,
+    "p50": 41.285189718908775,
+    "p95": 47.622043952063926,
+    "n": 4000,
+    "std": 3.719303570150631
+   },
+   "unconverted_fuel_mg_p50": 15.895464943261068
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "rpm": 4000,
+   "t_s": 20.102857142857143,
+   "boost_spec_mbar": 2203.2,
+   "map_mbar": 2163.961224489796,
+   "n75_duty_pct": 30.7061224489796,
+   "maf_act_mg": 813.3163265306123,
+   "maf_spec_mg": 850.0,
+   "trq_request_nm": 314.8,
+   "trq_limit_nm": 318.37551020408165,
+   "trq_smoke_nm": 334.3,
+   "boost_error_mbar": -39.238775510203595,
+   "runtime_inner_torque_nm": 314.8,
+   "binding_limiter": [
+    "driver_request"
+   ],
+   "q_runtime_mg": 61.11181818181818,
+   "q_stock_equivalent_mg": 55.0,
+   "q_stock_equivalent_status": "IN_OEM_AXIS",
+   "lambda_runtime_cmd": 0.917838526308651,
+   "lambda_stock_equivalent": 1.0198323843644042,
+   "soi_deg_btdc_hyp": 29.15624999999998,
+   "duration_deg_hyp": 42.140624999999964,
+   "duration_ms_hyp": 1.7558593749999984,
+   "elec_end_proxy_deg_atdc": 12.984374999999986,
+   "friction_nm": -48.5,
+   "road_torque_nm": {
+    "p05": 167.4504921957851,
+    "p50": 193.150049797389,
+    "p95": 220.36334634344016,
+    "n": 10000,
+    "std": 16.09718298827391
+   },
+   "road_inner_torque_nm": {
+    "p05": 215.9504921957851,
+    "p50": 241.650049797389,
+    "p95": 268.8633463434402,
+    "n": 10000,
+    "std": 16.09718298827391
+   },
+   "torque_realization": {
+    "p05": 0.685992668982799,
+    "p50": 0.7676303996105114,
+    "p95": 0.8540767037593399,
+    "n": 10000,
+    "std": 0.0511346346514419
+   },
+   "implied_burned_q_mg": {
+    "p05": 31.63515990681544,
+    "p50": 37.25767026364905,
+    "p95": 43.53256350416083,
+    "n": 4000,
+    "std": 3.6115578425241943
+   },
+   "unconverted_fuel_mg_p50": 17.742329736350953
+  }
+ ],
+ "smoke_torque_equivalence": [
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 2000,
+   "vcds_smoke_nm": 309.9,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 311.63248730964466,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -1.7324873096446822
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 2250,
+   "vcds_smoke_nm": 309.9,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 312.0482160077146,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -2.148216007714609
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 2500,
+   "vcds_smoke_nm": 311.4969523809524,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 311.6041666666667,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -0.10721428571429215
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 2750,
+   "vcds_smoke_nm": 334.1814016172507,
+   "static_smoke_mg": 62.15,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.8185983827493146
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 3000,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 3250,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 2000,
+   "vcds_smoke_nm": 309.9,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 311.63248730964466,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -1.7324873096446822
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 2250,
+   "vcds_smoke_nm": 309.9,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 312.0482160077146,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -2.148216007714609
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 2500,
+   "vcds_smoke_nm": 309.9,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 311.6041666666667,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -1.7041666666667084
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 2750,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 62.15,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 3000,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 3250,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 3500,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 3750,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 4000,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 2000,
+   "vcds_smoke_nm": 309.9,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 311.63248730964466,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -1.7324873096446822
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 2250,
+   "vcds_smoke_nm": 309.9,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 312.0482160077146,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -2.148216007714609
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 2500,
+   "vcds_smoke_nm": 309.9,
+   "static_smoke_mg": 56.5,
+   "inverse_fmtc_nm": 311.6041666666667,
+   "inverse_status": "IN_RANGE",
+   "difference_nm": -1.7041666666667084
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 2750,
+   "vcds_smoke_nm": 333.5281746031746,
+   "static_smoke_mg": 62.15,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -2.471825396825409
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 3000,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 3250,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 3500,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 3750,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 4000,
+   "vcds_smoke_nm": 334.3,
+   "static_smoke_mg": 67.8,
+   "inverse_fmtc_nm": 336.0,
+   "inverse_status": "ABOVE_AXIS",
+   "difference_nm": -1.6999999999999886
+  }
+ ],
+ "boost_control": [
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "gear": 3,
+   "n_steady": 9,
+   "max_overshoot_mbar": 214.20000000000027,
+   "max_overshoot_at_rpm": 2268.0,
+   "max_actual_mbar": 2417.4,
+   "max_undershoot_mbar": 40.80000000000018,
+   "max_undershoot_at_rpm": 3465.0,
+   "mean_error_above_3000_mbar": 85.00000000000016,
+   "duty_range_above_3000_pct": [
+    20.9,
+    22.9
+   ],
+   "n75_sign_samples": 8,
+   "n75_sign_consistent_with_duty_up_boost_up": 8
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "gear": 3,
+   "n_steady": 24,
+   "max_overshoot_mbar": 193.80000000000018,
+   "max_overshoot_at_rpm": 2373.0,
+   "max_actual_mbar": 2397.0,
+   "max_undershoot_mbar": -142.79999999999973,
+   "max_undershoot_at_rpm": 3759.0,
+   "mean_error_above_3000_mbar": -25.49999999999974,
+   "duty_range_above_3000_pct": [
+    20.1,
+    31.2
+   ],
+   "n75_sign_samples": 20,
+   "n75_sign_consistent_with_duty_up_boost_up": 17
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "gear": 4,
+   "n_steady": 60,
+   "max_overshoot_mbar": 122.40000000000009,
+   "max_overshoot_at_rpm": 2205.0,
+   "max_actual_mbar": 2325.6,
+   "max_undershoot_mbar": -71.39999999999964,
+   "max_undershoot_at_rpm": 3444.0,
+   "mean_error_above_3000_mbar": -32.43076923076905,
+   "duty_range_above_3000_pct": [
+    21.7,
+    32.4
+   ],
+   "n75_sign_samples": 39,
+   "n75_sign_consistent_with_duty_up_boost_up": 32
+  }
+ ],
+ "plan_check": [
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 2750,
+   "q_runtime_now": 61.59982798333742,
+   "q_cap_new": 55.25,
+   "lambda_stock_eq_now": 1.0475166934101823,
+   "lambda_stock_eq_new": 1.1389399028915503,
+   "implied_burned_q_p50": 59.11617934712146,
+   "q_stock_eq_new": 59.02525838556868
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 3000,
+   "q_runtime_now": 62.16586363636364,
+   "q_cap_new": 54.0,
+   "lambda_stock_eq_now": 0.9834802682673741,
+   "lambda_stock_eq_new": 1.1139483866111042,
+   "implied_burned_q_p50": 56.42033742183489,
+   "q_stock_eq_new": 58.42203548085901
+  },
+  {
+   "pull": "day14 20:23:44@0.6s",
+   "rpm": 3250,
+   "q_runtime_now": 62.161362637362636,
+   "q_cap_new": 52.375,
+   "lambda_stock_eq_now": 0.9938215247840273,
+   "lambda_stock_eq_new": 1.1498356826006213,
+   "implied_burned_q_p50": null,
+   "q_stock_eq_new": 53.97568629567499
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 2750,
+   "q_runtime_now": 61.62527272727273,
+   "q_cap_new": 55.25,
+   "lambda_stock_eq_now": 1.0476675860940998,
+   "lambda_stock_eq_new": 1.1391039649058832,
+   "implied_burned_q_p50": 58.44194283740973,
+   "q_stock_eq_new": 59.02525838556868
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 3000,
+   "q_runtime_now": 62.16586363636364,
+   "q_cap_new": 54.0,
+   "lambda_stock_eq_now": 0.9906327450713635,
+   "lambda_stock_eq_new": 1.122049708267627,
+   "implied_burned_q_p50": 56.18229562756784,
+   "q_stock_eq_new": 58.42203548085901
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 3250,
+   "q_runtime_now": 62.65342857142858,
+   "q_cap_new": 52.375,
+   "lambda_stock_eq_now": 1.0041971710473052,
+   "lambda_stock_eq_new": 1.1618401401476153,
+   "implied_burned_q_p50": 52.267108542683175,
+   "q_stock_eq_new": 53.97568629567499
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 3500,
+   "q_runtime_now": 61.66832772166106,
+   "q_cap_new": 50.75,
+   "lambda_stock_eq_now": 0.9862449863360145,
+   "lambda_stock_eq_new": 1.1584592716043352,
+   "implied_burned_q_p50": 45.815186949343925,
+   "q_stock_eq_new": 51.179234891881876
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 3750,
+   "q_runtime_now": 61.64068025493027,
+   "q_cap_new": 49.125,
+   "lambda_stock_eq_now": 0.9467875342515075,
+   "lambda_stock_eq_new": 1.1020443976485044,
+   "implied_burned_q_p50": 40.11152212053713,
+   "q_stock_eq_new": 49.124999999999986
+  },
+  {
+   "pull": "day16 11:54:12@1.4s",
+   "rpm": 4000,
+   "q_runtime_now": 61.11181818181818,
+   "q_cap_new": 47.5,
+   "lambda_stock_eq_now": 0.9843260188087775,
+   "lambda_stock_eq_new": 1.1397459165154264,
+   "implied_burned_q_p50": null,
+   "q_stock_eq_new": 47.5
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 2750,
+   "q_runtime_now": 61.459681096681095,
+   "q_cap_new": 55.25,
+   "lambda_stock_eq_now": 1.0155597181002993,
+   "lambda_stock_eq_new": 1.1041938462557794,
+   "implied_burned_q_p50": 57.692722738951986,
+   "q_stock_eq_new": 59.02525838556868
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 3000,
+   "q_runtime_now": 62.16586363636364,
+   "q_cap_new": 54.0,
+   "lambda_stock_eq_now": 0.9101125489341286,
+   "lambda_stock_eq_new": 1.0308477335348736,
+   "implied_burned_q_p50": 50.85470777995717,
+   "q_stock_eq_new": 58.42203548085901
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 3250,
+   "q_runtime_now": 62.212,
+   "q_cap_new": 52.375,
+   "lambda_stock_eq_now": 0.9354539342730346,
+   "lambda_stock_eq_new": 1.0823053095876747,
+   "implied_burned_q_p50": 46.63091711118072,
+   "q_stock_eq_new": 53.97568629567499
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 3500,
+   "q_runtime_now": 61.78909090909091,
+   "q_cap_new": 50.75,
+   "lambda_stock_eq_now": 0.9543679750635143,
+   "lambda_stock_eq_new": 1.1210160199059358,
+   "implied_burned_q_p50": 43.49182865337029,
+   "q_stock_eq_new": 51.179234891881876
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 3750,
+   "q_runtime_now": 61.309515074211504,
+   "q_cap_new": 49.125,
+   "lambda_stock_eq_now": 0.9895567970773337,
+   "lambda_stock_eq_new": 1.1518270836087923,
+   "implied_burned_q_p50": 41.285189718908775,
+   "q_stock_eq_new": 49.124999999999986
+  },
+  {
+   "pull": "day16 11:54:46@1.3s",
+   "rpm": 4000,
+   "q_runtime_now": 61.11181818181818,
+   "q_cap_new": 47.5,
+   "lambda_stock_eq_now": 1.0198323843644042,
+   "lambda_stock_eq_new": 1.1808585503166784,
+   "implied_burned_q_p50": 37.25767026364905,
+   "q_stock_eq_new": 47.5
+  }
+ ],
+ "findings": [
+  "Runtime smoke limitation equals inverse FMTC of FlMng_qPresSmoke_MAP last column: max |diff| 2.1 Nm over 9 in-range points (VCDS step 2.44 Nm).",
+  "1750-2500 rpm: binding {'smoke_limit': 7}; runtime inner 310-311 Nm; q runtime 55.5-56.4 mg, stock-equivalent 58.5-60.2 mg; air 960-1025 mg; lambda(stock-eq) 1.12-1.21; realization P50 1.07-1.12; unconverted fuel P50 -1.4-1.2 mg",
+  "2750-3000 rpm: binding {'smoke_limit': 6}; runtime inner 334-334 Nm; q runtime 61.5-62.2 mg, stock-equivalent 64.2-66.2 mg; air 873-975 mg; lambda(stock-eq) 0.91-1.05; realization P50 0.89-1.02; unconverted fuel P50 5.1-15.3 mg",
+  "3250-4000 rpm: binding {'driver_request': 7, 'smoke_limit': 2}; runtime inner 315-334 Nm; q runtime 61.1-62.7 mg, stock-equivalent 55.0-62.4 mg; air 785-909 mg; lambda(stock-eq) 0.94-1.02; realization P50 0.77-0.93; unconverted fuel P50 10.2-17.7 mg"
+ ]
+}
