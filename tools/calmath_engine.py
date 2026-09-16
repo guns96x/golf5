@@ -719,6 +719,105 @@ def build_map0_candidate(write_bin=True):
     return plan
 
 
+VNEXT_CANDIDATE_NAME = '03G906021QJ_vNext_hotstart-ecocruise-map0_CS_OK.bin'
+REFINED_BIN = '03G906021QJ_stage1_refined_CS_OK.bin'
+# Objects copied whole-byte from the already-audited refined_CS_OK build (see
+# diagnostic-review/deep-audit and README firmware-lineage: HS-250 hot-start fix and the
+# Gear 5/6 cruise SOI advance). Both are outside the WOT fuel path this project has been
+# validating; neither touches a cell inside 1750-4000 rpm at >=55 mg/stroke.
+VNEXT_COPY_FROM_REFINED = ('StSys_trqStrtBas_MAP', 'InjCrv_phiBasGear56_MAP')
+# FlMng_qPresSmoke_MAP also differs between current and refined_CS_OK by one cell
+# (2500 rpm / 2000 hPa: 56.5 -> 58.5 mg) but that predates this project's math engine and
+# sits inside the Z1 plateau this session independently CROSS_VALIDATED as correct as-is
+# (DECISION-2026-09-16.md #2). Deliberately NOT carried forward; noted so it is not lost.
+VNEXT_EXCLUDED_FROM_REFINED = {
+    'FlMng_qPresSmoke_MAP': 'refined_CS_OK raises the 2500 rpm/2000 hPa cell 56.5->58.5 mg; '
+                            'this session independently found the current 56.5 mg plateau '
+                            'cross-validated (paired ECU-model/road/air estimates within '
+                            'uncertainty) and did not re-derive the refined value, so it is '
+                            'excluded rather than blindly re-applied.'}
+
+
+def build_vnext_candidate(write_bin=True):
+    cur, stock, refined = Firmware(CURRENT_BIN), Firmware(STOCK_BIN), Firmware(REFINED_BIN)
+    buf = bytearray(cur.data)
+    copied = []
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        a, n = obj.address, obj.size
+        changed = [i for i in range(a, a + n) if cur.data[i] != refined.data[i]]
+        buf[a:a + n] = refined.data[a:a + n]
+        copied.append({'map': name, 'address': '0x%X' % a, 'size_bytes': n,
+                       'bytes_actually_changed': len(changed), 'source': REFINED_BIN})
+
+    map0_cells, map0_ratios = map0_duration_fix_cells(cur, stock)
+    for c in map0_cells:
+        struct.pack_into('>h', buf, int(c['address'], 16), c['new_raw'])
+    fix_checksums(buf)
+    new = bytes(buf)
+
+    diff = [i for i in range(len(new)) if new[i] != cur.data[i]]
+    allowed = set()
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        allowed |= set(range(obj.address, obj.address + obj.size))
+    for c in map0_cells:
+        a = int(c['address'], 16)
+        allowed |= {a, a + 1}
+    for _, cs in CHECKSUM_BLOCKS:
+        allowed |= set(range(cs, cs + 4))
+    verify = {
+        'size_bytes': len(new),
+        'checksum_block_sums': ['%08X' % s for s in block_sums(new)],
+        'checksum_ok': all(s == CHECKSUM_TARGET for s in block_sums(new)),
+        'changed_bytes_outside_known_objects_and_checksums': sorted('0x%X' % i for i in diff if i not in allowed),
+        'total_changed_bytes_vs_current': len(diff),
+    }
+    if not verify['checksum_ok'] or verify['changed_bytes_outside_known_objects_and_checksums']:
+        raise SystemExit('vNext candidate verification FAILED: %s' % verify)
+
+    plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256},
+            'components': [
+                {'name': 'hot-start fix (HS-250)', 'map': 'StSys_trqStrtBas_MAP', 'risk': 'none at WOT',
+                 'status': 'previously audited (diagnostic-review/deep-audit), copied byte-for-byte from '
+                          'refined_CS_OK', 'summary': '250 rpm / 40-100C cranking cells 0 -> 108-125 Nm; '
+                          'idle-speed cranking only, does not touch any fuel/boost/torque map used at load.'},
+                {'name': 'eco cruise SOI advance', 'map': 'InjCrv_phiBasGear56_MAP', 'risk': 'none at WOT',
+                 'status': 'previously audited, copied byte-for-byte from refined_CS_OK',
+                 'summary': '1750-2250 rpm at 15/20/25 mg/stroke (light cruise load) advanced +0.703 deg BTDC; '
+                           'the 55-60 mg WOT columns of this same map are untouched by this change.'},
+                {'name': 'MAP0 duration restore', 'map': 'InjVlv_phiInjMI1_MAP0', 'risk': 'PROVISIONAL, WOT-only',
+                 'status': 'new this session, NOT independently runtime-verified',
+                 'summary': 'see candidate-map0-v2.json / DECISION-2026-09-16.md #4b and #6d for the lambda '
+                           'caveat: raises delivered fuel at 3000-4000 rpm toward the level MAP1..4 already '
+                           'request, which pushes lambda to ~0.89-0.91 with the 2026-09-16 measured air.'},
+            ],
+            'excluded_from_refined_CS_OK': VNEXT_EXCLUDED_FROM_REFINED,
+            'copied_objects': copied, 'map0_cells': map0_cells, 'verification': None, 'candidate_bin': None,
+            'status': 'PARTIAL HOLD: hot-start and eco-cruise components are ready to flash on their own merits. '
+                     'The MAP0 component is the one piece this file should not be flashed with, without first '
+                     'doing the single check in DECISION-2026-09-16.md #6c (one WOT pull in 4th, watch for smoke '
+                     'above 3000 rpm) OR flashing hot-start+eco-cruise alone first as a separate, smaller step.',
+            'rollback': CURRENT_BIN}
+    if not write_bin:
+        plan['verification'] = 'NOT BUILT (plan only; BIN creation requires explicit approval)'
+        with open(os.path.join(OUT_DIR, 'candidate-vnext.json'), 'w', encoding='utf-8') as f:
+            json.dump(plan, f, indent=1, ensure_ascii=False)
+        return plan
+
+    os.makedirs(CANDIDATE_DIR, exist_ok=True)
+    out_path = os.path.join(CANDIDATE_DIR, VNEXT_CANDIDATE_NAME)
+    with open(out_path, 'wb') as f:
+        f.write(new)
+    verify['sha256'] = hashlib.sha256(new).hexdigest()
+    plan['verification'] = verify
+    plan['candidate_bin'] = out_path.replace('\\', '/')
+    with open(os.path.join(OUT_DIR, 'candidate-vnext.json'), 'w', encoding='utf-8') as f:
+        json.dump(plan, f, indent=1, ensure_ascii=False)
+    return plan
+
+
 def candidate_plan_record(cur, stock, vres, cons, report, checks, cells, fitted, smoke):
     # predicted lambda per logged VCDS pull (same stock-equivalent basis, measured air)
     lam = []
@@ -1075,6 +1174,8 @@ def main():
     b.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     b0 = sub.add_parser('build-map0')
     b0.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
+    bn = sub.add_parser('build-vnext')
+    bn.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     c = sub.add_parser('chain')
     c.add_argument('--rpm', type=float, required=True)
     c.add_argument('--gear', type=int, default=4)
@@ -1119,6 +1220,13 @@ def main():
                 e['stock_eq_after_mg'], e['stock_eq_after_status'], e['delivered_fuel_gain_mg'],
                 _f(e['lambda_before'], 3), _f(e['lambda_after'], 3),
                 e['duration_selector_before'], e['duration_selector_after']))
+        print(plan['verification'])
+    elif args.cmd == 'build-vnext':
+        plan = build_vnext_candidate(write_bin=not args.plan_only)
+        for c in plan['components']:
+            print('- %s [%s]: %s' % (c['name'], c['risk'], c['status']))
+        print('excluded:', list(plan['excluded_from_refined_CS_OK']))
+        print(plan['status'])
         print(plan['verification'])
     else:
         for label, path in (('current', CURRENT_BIN), ('stock', STOCK_BIN)):
