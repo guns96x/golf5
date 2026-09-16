@@ -17,14 +17,14 @@ The engine management computer installed in this vehicle is the **Bosch EDC16U34
 |                                                             |
 |  +-------------------------------------------------------+  |
 |  | Microcontroller: Motorola/Freescale MPC562 (PowerPC)   |  |
-|  | - 32-bit RISC core, 56 MHz or 66 MHz                  |  |
-|  | - Internal SRAM: 512 KB                               |  |
+|  | - 32-bit RISC core, 56/66 MHz                          |  |
+|  | - Internal SRAM: 32 KB CALRAM (per NXP MPC562 spec)   |  |
 |  +-------------------------------------------------------+  |
 |                             |                               |
 |                             v                               |
 |  +-------------------------------------------------------+  |
 |  | External Flash Memory (2,097,152 bytes / 2 MB)        |  |
-|  | Part: AMD AM29BL802CB / ST M58BW016DB                |  |
+|  | Typical parts: AMD AM29BL802CB / ST M58BW016DB family  |  |
 |  |                                                       |  |
 |  | 0x000000 - 0x03FFFF: Bootloader & Microcode           |  |
 |  | 0x040000 - 0x1BFFFF: Operating System & Engine Code   |  |
@@ -46,7 +46,7 @@ In SW `1037391847`, all calibration parameters and maps reside in the upper **25
 - **Flash Base Address**: `0x000000`
 - **Calibration Area Base**: `0x1C0000`
 - **N75 Pre-Control Map (`PCR_rBPCtlBas_MAP`)**: `0x1E9FD0` (16×13)
-- **Base Boost Target Map (`PCR_pBDesBas_MAP`)**: `0x1EB0B2` / `0x1E9A40` (16×10 / 16×16 depending on variant bank)
+- **Base Boost Target Map (`PCR_pBDesBas_MAP`)**: `0x1EB0B2` (16×10)
 - **Smoke Limiter (`FlMng_qPresSmoke_MAP`)**: `0x1D6490` (16×12)
 - **Hot-Start Base Torque (`StSys_trqStrtBas_MAP`)**: `0x1F070C` (9×9)
 - **Hot-Start Term 50 Torque (`StSys_trqStrt_MAP`)**: `0x1F07EA` (9×9)
@@ -56,11 +56,5 @@ In SW `1037391847`, all calibration parameters and maps reside in the upper **25
 
 ## Operating System & Execution Tasks
 
-EDC16 operates on a deterministic real-time OSEK-compliant operating system with two execution domains:
-1. **Time-triggered tasks**:
-   - `10 ms raster`: Fast PID controllers (boost pressure closed-loop, rail pressure, air control).
-   - `20 ms raster`: Smoke limitation, driver wish calculation, torque coordinator.
-   - `100 ms raster`: Thermal modeling (modeled EGT, oil temp derating, ambient compensation).
-2. **Angle-triggered tasks (Synchronous with Crankshaft Rotation)**:
-   - Fired at defined crank angle intervals (every 180° crank angle for a 4-cylinder engine).
-   - Computes exact Start of Injection (SOI), BIP (Beginning of Injection Period), and Unit Injector solenoid energization duration.
+> [!NOTE]
+> Bosch EDC16 systems typically execute multi-rate time-triggered tasks (e.g., 10 ms boost regulation, 20 ms torque coordination, 100 ms thermal monitoring) alongside angle-synchronous injection tasks (every 180° crank angle). Exact task raster scheduling in SW 1037391847 remains a typical Bosch reference model until disassembler verification is completed.

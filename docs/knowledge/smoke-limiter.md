@@ -21,4 +21,4 @@ In factory 1.9 TDI BLS configurations equipped with DPF, Bosch utilizes a **MAP-
 - The 1800 and 2000 hPa rows are already modified by approximately +13% over stock reference.
 - At 2500 RPM / 2000 hPa: 50.0 mg (ref) → **56.5 mg** (current).
 - At 3000 RPM / 2000 hPa: 60.0 mg (ref) → **67.8 mg** (current).
-- Deep-audit proposed micro-experiment `SMK-2500` would edit only offset `0x1D6602` (2500 RPM / 2000 hPa: 56.5 mg → 58.5 mg) conditionally.
+- Deep-audit proposed micro-experiment `SMK-2500` would edit only offset `0x1D6602` (2500 RPM / 2000 hPa: 56.5 mg → 58.5 mg) conditionally after logging confirms it is the binding limiter.

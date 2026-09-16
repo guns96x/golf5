@@ -30,13 +30,13 @@
 > - The repository's deep-audit explicitly states:
 >   > *"The numerical duty direction is not proved from static data. Use the small N75-A surface only if a sign test proves that lower Prc increases initial boost slope."*
 > 
-> Therefore, no arbitrary 3–6% pre-control edits should be applied without first executing a controlled single-group sign-test.
+> Therefore, no arbitrary pre-control edits should be applied without first executing a controlled single-group sign-test.
 
 ---
 
 ## The `N75-A` Micro-Experiment Specification
 
-If a sign-test proves that lower table numbers increase turbine spool drive, the deep-audit defined a conservative **0.2–0.75 percentage-point** test pocket (NOT 3–6%):
+If a sign-test proves that lower table numbers increase turbine spool drive, the deep-audit defined a conservative **0.2–0.75 percentage-point** test pocket:
 
 | RPM \ IQ | 30 mg | 32 mg | 35 mg | 38 mg | 40 mg | 45 mg | Offset Range |
 |---:|---:|---:|---:|---:|---:|---:|---:|

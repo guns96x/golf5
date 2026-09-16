@@ -45,8 +45,8 @@ In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md):
 
 > [!IMPORTANT]
 > **Source of Truth Hierarchy**:
-> `diagnostic-review/*` + raw A2L + exact BINs + real telemetry logs = **PRIMARY SOURCE OF TRUTH**.
-> `docs/knowledge/*` represents the curated draft synthesis subject to continuous verification.
+> - **Primary Ground Truth**: `diagnostic-review/*` + raw matching A2L (`03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l`) + exact reference/active BINs + real telemetry logs.
+> - **Draft Knowledge Layer**: `docs/knowledge/*` represents the synthesized working model subject to continuous verification and sign-test logging.
 
 | ID | Resource Name | Local Repository Path | Role / Status | Notes |
 |---|---|---|---|---|
@@ -56,5 +56,5 @@ In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md):
 | P-04 | **Stage 1 Refined CS_OK** | `03G906021QJ_stage1_refined_CS_OK.bin` | Candidate Image | Static audit only (not flash approved without logging plan); contains HS-250 fix and Gear 5/6 cruise SOI (+0.703°) |
 | P-05 | **Stage 1 Ideal (Rejected Build)** | `03G906021QJ_ideal_stage1_dpf_egr_off.bin` | **Rejected Test Build** | Test build with factory duration maps that drove too sluggishly; rejected |
 | P-06 | **Calibration Enhancements Audit** | `diagnostic-review/calibration-enhancements-deep-audit-2026-09-11.md` | Ground Truth Audit | Authoritative audit of HS-250, N75-A, SMK-2500, and cruise SOI |
-| P-07 | **VCDS WOT Log (2026-09-14)** | `logs/VCDS_WOT_Log_20260914_114936.csv` | Measured Run | Multi-group log capturing 2310–2320 mbar boost peak vs 2214 mbar request |
-| P-08 | **Turbo Fast OBD Log** | `logs/Turbo_Fast_Log_20260914_210903.csv` | Measured Run | High-frequency MAP and RPM transient recording |
+| P-07 | **Telemetry Run 2026-09-16 (11:20:35)** | `logs/20260916/Turbo_Pair_20260916_112035.csv` | Active Vehicle Telemetry | Log under stage1_full_power showing rapid spool and ~2310–2330 mbar peak MAP |
+| P-08 | **Legacy VCDS Log (2026-09-14)** | `logs/VCDS_WOT_Log_20260914_114936.csv` | Legacy Diagnostic Run | Old garage software run before PoI2 zeroing, CTSCD repair, and EGT limiter restoration |

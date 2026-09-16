@@ -1,33 +1,37 @@
-# Experiment Results: Overboost Investigation (2310–2320 mbar)
+# Experiment Results: Boost Telemetry Analysis (16.09.2026 Run)
 
-## Observed Phenomenon
+## Telemetry Observation (Pull 11:20:35)
 
-In the 3rd gear full-throttle acceleration run:
-- **Engine Speed Range**: 1900–2600 RPM
-- **Specified Boost Target**: **2214 mbar absolute** (calibrated Stage 1 request)
-- **Actual Measured MAP**: Peaked at **~2310–2320 mbar absolute** at ~2180 RPM
-- **Overshoot Magnitude**: $+96\dots+106\text{ mbar}$ ($+4.5\dots+4.8\%$ above specified target)
+Captured from road acceleration run under `stage1_full_power_dpf_egr_off.bin`:
 
-```
-Boost (mbar)
-2350 |
-2320 |                   * * (Peak 2310–2320 mbar)
-2300 |                 *     *
-2214 |  Specified --> *-------*---------------- (2214 mbar)
-2100 |              *           *
-2000 |            *               *
-1900 |          *
-     +----------------------------------------> RPM / Time
-             1800  2000  2200  2400  2600
-```
+| RPM | Actual MAP (mbar abs) | Calibrated Map Target | Synchronous Runtime Request |
+|---:|---:|---:|:---:|
+| 1459 | 1890 | 1650 | *UNKNOWN* |
+| 1573 | 2020 | 1850 | *UNKNOWN* |
+| 1741 | 2230 | 2050 | *UNKNOWN* |
+| 1906 | 2320 | 2214 | *UNKNOWN* |
+| 2153 | **2330** (Peak) | 2214 | *UNKNOWN* |
+| 2329 | 2320 | 2214 | *UNKNOWN* |
+| 2553 | 2320 | 2214 | *UNKNOWN* |
+| 2707 | 2310 | 2214 | *UNKNOWN* |
+| 2980 | 2210 | 2214 | *UNKNOWN* |
 
-## Epistemic Evaluation: Competing Hypotheses A–G
+## Rigorous Epistemic Breakdown
 
-> [!NOTE]
-> In accordance with [RESEARCH_POLICY.md](RESEARCH_POLICY.md), the root cause is **NOT** declared an established fact. The following competing hypotheses are under active evaluation:
+- **`calibration_map_high_load`**: **2214 mbar** (verified static plateau in `PCR_pBDesBas_MAP`).
+- **`runtime_specified`**: **UNKNOWN** (channel not polled in this OBD pair run).
+- **`runtime_actual_peak`**: **~2310–2330 mbar** (measured by MAP sensor G31).
+- **`overshoot_vs_runtime_request`**: **UNKNOWN** (mathematical overshoot cannot be asserted without synchronous requested boost).
 
-- **Hypothesis A (Specified Target Elevated)**: *Rejected*. Stage 1 request is confirmed at 2214 mbar.
-- **Hypothesis B (Feed-Forward Duty Elevated Post-EGR Delete)**: *Hypothesis (RAW)*. With EGR closed, 100% of exhaust gas expands across the turbine. If stock feed-forward (`PCR_rBPCtlBas_MAP`) was tuned for 15–30% EGR bypass, it holds vanes too closed during transient spool-up. Requires sign-test to confirm.
-- **Hypothesis C (PID Transient Damping)**: *Hypothesis (RAW)*. PID derivative or proportional gain may be under-damped for the rapid spool-up rate.
-- **Hypothesis D (Sensor / Sampling Alias)**: *Hypothesis (RAW)*. The ~1.2 Hz sampling rate of multi-group VCDS logging obscures the true peak shape and settling time.
-- **Hypothesis G (Mechanical Actuator Hysteresis)**: *Hypothesis (RAW)*. Vacuum bleed rate through N75 solenoid or actuator rod friction creates pneumatic delay.
+---
+
+## Competing Hypotheses A–G (Status: RAW)
+
+1. **Hypothesis A (Static Request Elevated)**: *Disproved*. High-load map request is verified at 2214 mbar.
+2. **Hypothesis B (Zero-EGR Mass Flow / VNT Pre-Control)**: *Hypothesis*. 100% closed EGR diverts full exhaust mass through turbine; stock feed-forward may hold vanes too closed.
+3. **Hypothesis C (PID Transient Damping)**: *Hypothesis*. Derivative/proportional gains under-damped for spool-up rate.
+4. **Hypothesis D (Dynamic Corrections Active)**: *Hypothesis*. Temperature or atmospheric compensation may have temporarily adjusted target above 2214 mbar.
+5. **Hypothesis G (Actuator Hysteresis)**: *Hypothesis*. Vacuum bleed rate or rod friction creates pneumatic lag.
+
+> [!IMPORTANT]
+> To definitively resolve these hypotheses, **Test Protocol 1 (MVB 011 single-group high-rate run)** must be executed to record synchronous requested boost, actual boost, and N75 duty at >3.8 Hz.
