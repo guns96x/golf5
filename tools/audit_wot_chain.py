@@ -41,7 +41,7 @@ def interp_1d(x_nodes, y_vals, x):
     y0, y1 = y_vals[idx], y_vals[idx+1]
     return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
 
-def interp_2d(x_nodes, y_nodes, grid, x, y):
+def interp_2d(x_nodes, y_nodes, grid, x, y, allow_y_extrap=False):
     # clamp x
     if x <= x_nodes[0]:
         i0, i1, fx = 0, 0, 0.0
@@ -52,27 +52,30 @@ def interp_2d(x_nodes, y_nodes, grid, x, y):
         i0, i1 = idx, idx + 1
         fx = (x - x_nodes[i0]) / (x_nodes[i1] - x_nodes[i0])
 
-    # clamp y
-    if y <= y_nodes[0]:
-        j0, j1, fy = 0, 0, 0.0
-    elif y >= y_nodes[-1]:
-        j0, j1, fy = len(y_nodes)-1, len(y_nodes)-1, 0.0
-    else:
-        idx = bisect.bisect_right(y_nodes, y) - 1
-        j0, j1 = idx, idx + 1
-        fy = (y - y_nodes[j0]) / (y_nodes[j1] - y_nodes[j0])
+    # evaluate along y for both i0 and i1
+    def get_row_val(row_idx, target_y):
+        row = grid[row_idx]
+        if target_y <= y_nodes[0]:
+            return row[0]
+        elif target_y >= y_nodes[-1]:
+            if not allow_y_extrap:
+                return row[-1]
+            else:
+                dy = y_nodes[-1] - y_nodes[-2]
+                dv = row[-1] - row[-2]
+                slope = dv / dy if dy != 0 else 0
+                return row[-1] + slope * (target_y - y_nodes[-1])
+        else:
+            j = bisect.bisect_right(y_nodes, target_y) - 1
+            fy = (target_y - y_nodes[j]) / (y_nodes[j+1] - y_nodes[j])
+            return row[j] + (row[j+1] - row[j]) * fy
 
-    v00 = grid[i0][j0]
-    v01 = grid[i0][j1]
-    v10 = grid[i1][j0]
-    v11 = grid[i1][j1]
-
-    v0 = v00 + (v01 - v00) * fy
-    v1 = v10 + (v11 - v10) * fy
+    v0 = get_row_val(i0, y)
+    v1 = get_row_val(i1, y)
     return v0 + (v1 - v0) * fx
 
-# Load telemetry
-log_data = []
+# Load telemetry specifically for Gear 4 WOT pull
+log_data_gear4 = []
 with open('logs/20260916/Turbo_Pair_20260916_112035.csv', 'r') as f:
     headers = [h.strip() for h in f.readline().split(',')]
     for line in f:
@@ -86,23 +89,29 @@ with open('logs/20260916/Turbo_Pair_20260916_112035.csv', 'r') as f:
                 load = float(row['load_pct']) if row['load_pct'] else 0.0
                 maf = float(row['maf_g_s']) if row['maf_g_s'] else 0.0
                 speed = float(row['speed_kmh']) if row['speed_kmh'] else 0.0
-                log_data.append({'rpm': rpm, 'map': map_val, 'baro': baro, 'load': load, 'maf': maf, 'speed': speed})
+                log_data_gear4.append({'rpm': rpm, 'map': map_val, 'baro': baro, 'load': load, 'maf': maf, 'speed': speed})
             except ValueError:
                 continue
 
-# Filter WOT points from log
-wot_log = [d for d in log_data if d['load'] >= 90.0]
+wot_log_gear4 = [d for d in log_data_gear4 if d['load'] >= 90.0]
 
-def get_nearest_telemetry(rpm_target):
-    # Find closest RPM in wot_log
-    closest = min(wot_log, key=lambda d: abs(d['rpm'] - rpm_target))
-    return closest
+def get_nearest_telemetry_gear4(rpm_target):
+    return min(wot_log_gear4, key=lambda d: abs(d['rpm'] - rpm_target))
 
-# Load Maps
+# Load Maps with corrected gear assignment per A2L:
+# Gear 3: AccPed_trqEng2_MAP @ 0x1C2F7A
+# Gear 4: AccPed_trqEng3_MAP @ 0x1C30D0
+# Gear 5: AccPed_trqEng4_MAP @ 0x1C3226
 accped_maps = {
-    3: decode_map_s16(stg_bin, 0x1C30D0, 1.0, 0.01, 0.1),
-    4: decode_map_s16(stg_bin, 0x1C3226, 1.0, 0.01, 0.1),
-    5: decode_map_s16(stg_bin, 0x1C337C, 1.0, 0.01, 0.1),
+    3: decode_map_s16(stg_bin, 0x1C2F7A, 1.0, 0.01, 0.1),
+    4: decode_map_s16(stg_bin, 0x1C30D0, 1.0, 0.01, 0.1),
+    5: decode_map_s16(stg_bin, 0x1C3226, 1.0, 0.01, 0.1),
+}
+
+accped_map_names = {
+    3: "AccPed_trqEng2_MAP (0x1C2F7A)",
+    4: "AccPed_trqEng3_MAP (0x1C30D0)",
+    5: "AccPed_trqEng4_MAP (0x1C3226)"
 }
 
 gear_trq_limits = {
@@ -111,14 +120,13 @@ gear_trq_limits = {
     5: decode_curve_s16(stg_bin, 0x1D85DA, 1.0, 0.1),
 }
 
-trq_lim_p = decode_map_s16(stg_bin, 0x1D4732, 1.0, 1.0, 0.1) # X: Pressure (hPa), Y: RPM, Val: Nm
-fmtc = decode_map_s16(stg_bin, 0x1D729C, 1.0, 0.1, 0.01) # X: RPM, Y: Torque (Nm), Val: IQ (mg)
-smoke_map = decode_map_s16(stg_bin, 0x1D6490, 1.0, 1.0, 0.01) # X: RPM, Y: Pres (hPa), Val: IQ (mg)
-soi_gear34 = decode_map_s16(stg_bin, 0x1DAAF8, 1.0, 0.01, 0.0234375) # X: RPM, Y: IQ (mg), Val: °CA BTDC
+trq_lim_p = decode_map_s16(stg_bin, 0x1D4732, 1.0, 1.0, 0.1)
+fmtc = decode_map_s16(stg_bin, 0x1D729C, 1.0, 0.1, 0.01)
+smoke_map = decode_map_s16(stg_bin, 0x1D6490, 1.0, 1.0, 0.01)
+soi_gear34 = decode_map_s16(stg_bin, 0x1DAAF8, 1.0, 0.01, 0.0234375)
 soi_gear56 = decode_map_s16(stg_bin, 0x1DACF8, 1.0, 0.01, 0.0234375)
-boost_target_map = decode_map_s16(stg_bin, 0x1EB0B2, 1.0, 0.01, 1.0) # X: RPM, Y: IQ (mg), Val: mbar
+boost_target_map = decode_map_s16(stg_bin, 0x1EB0B2, 1.0, 0.01, 1.0)
 
-# Duration maps
 dur_maps = {
     0: decode_map_s16(stg_bin, 0x1E4F3E, 1.0, 0.01, 0.0234375),
     1: decode_map_s16(stg_bin, 0x1E5032, 1.0, 0.01, 0.0234375),
@@ -129,14 +137,10 @@ dur_maps = {
     6: decode_map_s16(stg_bin, 0x1E5CBC, 1.0, 0.01, 0.0234375),
 }
 
-# InjVlv_numMI1_CUR selector curve:
-# X: SOI (AngleCrS), Val: Map_Select (0..6)
 dur_sel_curve = decode_curve_s16(stg_bin, 0x1E4F20, 0.0234375, 1.0 / 256.0)
 
 def calc_duration(rpm, iq, soi):
-    # Determine map selector from SOI
     map_idx_float = interp_1d(dur_sel_curve['x_axis'], dur_sel_curve['values'], soi)
-    # Clamp map_idx_float to available range (0 to 4 in Stage 1)
     map_idx_float = max(0.0, min(4.0, map_idx_float))
     m_low = int(math.floor(map_idx_float))
     m_high = int(math.ceil(map_idx_float))
@@ -152,14 +156,26 @@ gears_to_audit = [3, 4, 5]
 audit_results = {}
 
 for gear in gears_to_audit:
-    audit_results[gear] = []
+    audit_results[str(gear)] = []
+    is_gear4 = (gear == 4)
+    
     for rpm in rpms_to_audit:
-        telem = get_nearest_telemetry(rpm)
-        baro = telem['baro']
-        act_map = telem['map']
-        act_maf = telem['maf']
+        # Telemetry handling
+        if is_gear4:
+            telem = get_nearest_telemetry_gear4(rpm)
+            baro = telem['baro']
+            act_map = telem['map']
+            act_maf = telem['maf']
+            telem_src = "Turbo_Pair_20260916_112035.csv"
+            nearest_rpm = telem['rpm']
+        else:
+            baro = 1005.0 # nominal sea-level ambient
+            act_map = None
+            act_maf = None
+            telem_src = "UNAVAILABLE (No isolated WOT log for this gear in 20260916 dataset)"
+            nearest_rpm = None
 
-        # 1 & 2. Driver Wish at 100% pedal
+        # 1 & 2. Driver Wish at 100% pedal using gear-corrected map
         acc_m = accped_maps[gear]
         dw_trq = interp_2d(acc_m['x_axis'], acc_m['y_axis'], acc_m['grid'], rpm, 100.0)
 
@@ -167,73 +183,88 @@ for gear in gears_to_audit:
         gear_lim_curve = gear_trq_limits[gear]
         gear_lim = interp_1d(gear_lim_curve['x_axis'], gear_lim_curve['values'], rpm)
 
-        # 4. Atmospheric / protection limiter
-        # In trq_lim_p: X is pressure (700, 850, 900), Y is RPM
-        # Note: 1005 hPa is >= 900 hPa node, so clamped to 900 hPa row
+        # 4. Atmospheric / protection limiter at baro pressure
         trq_prot = interp_2d(trq_lim_p['x_axis'], trq_lim_p['y_axis'], trq_lim_p['grid'], baro, rpm)
 
-        # 5. Arbitrated torque request
+        # 5. Arbitrated torque request (static min of demand and limits)
         arb_trq = min(dw_trq, gear_lim, trq_prot)
 
-        # 6. Resulting IQ from FMTC_trq2qBas_MAP
-        # Note: FMTC torque axis ends at 336.0 Nm. If arb_trq > 336.0, it is clamped to 336.0!
-        fmtc_max_trq = fmtc['y_axis'][-1]
-        is_saturated = arb_trq > fmtc_max_trq
-        clamped_trq_for_fmtc = min(arb_trq, fmtc_max_trq)
-        iq_from_trq = interp_2d(fmtc['x_axis'], fmtc['y_axis'], fmtc['grid'], rpm, clamped_trq_for_fmtc)
+        # 6. Resulting IQ from FMTC_trq2qBas_MAP:
+        # Calculate BOTH clamped and extrapolated versions to avoid assumptions!
+        fmtc_max_trq = fmtc['y_axis'][-1] # 336.0 Nm
+        exceeds_336 = (arb_trq > fmtc_max_trq)
+        iq_clamped = interp_2d(fmtc['x_axis'], fmtc['y_axis'], fmtc['grid'], rpm, arb_trq, allow_y_extrap=False)
+        iq_extrap = interp_2d(fmtc['x_axis'], fmtc['y_axis'], fmtc['grid'], rpm, arb_trq, allow_y_extrap=True)
 
-        # 7. Smoke limiter IQ at actual boost
-        smoke_iq = interp_2d(smoke_map['x_axis'], smoke_map['y_axis'], smoke_map['grid'], rpm, act_map)
+        # 7. Smoke limiter IQ:
+        # A2L defines input as FlMng_pIATCorr_mp (temperature-corrected pressure), NOT raw MAP!
+        # For Gear 4, we evaluate at actual raw MAP as an approximation hypothesis.
+        # For Gears 3 and 5, we evaluate at the target boost from PCR_pBDesBas_MAP as a reference hypothesis.
+        boost_des_hyp = interp_2d(boost_target_map['x_axis'], boost_target_map['y_axis'], boost_target_map['grid'], rpm, iq_clamped)
 
-        # 8. Binding IQ
-        binding_iq = min(iq_from_trq, smoke_iq)
-        binding_limiter = "Smoke Limiter (FlMng_qPresSmoke_MAP)" if smoke_iq < iq_from_trq else "Torque Request (DW/TrqLim)"
+        if is_gear4:
+            smoke_iq_approx = interp_2d(smoke_map['x_axis'], smoke_map['y_axis'], smoke_map['grid'], rpm, act_map)
+            smoke_input_source = "Actual raw MAP from log (proxy for FlMng_pIATCorr_mp)"
+            smoke_input_val = act_map
+        else:
+            smoke_iq_approx = interp_2d(smoke_map['x_axis'], smoke_map['y_axis'], smoke_map['grid'], rpm, boost_des_hyp)
+            smoke_input_source = "Specified boost target (reference proxy for FlMng_pIATCorr_mp)"
+            smoke_input_val = round(boost_des_hyp, 1)
+
+        # 8. Limiter comparison (STATIC MODEL HYPOTHESIS ONLY - runtime active limiter is UNKNOWN without Group 008)
+        static_candidate_limiter = "Smoke Limiter (FlMng_qPresSmoke_MAP, unverified input)" if smoke_iq_approx < iq_clamped else "Torque Path (Driver Wish / TrqLim)"
+        binding_iq_static_hyp = min(iq_clamped, smoke_iq_approx)
 
         # 9 & 11. Commanded SOI
         soi_map = soi_gear34 if gear in [3, 4] else soi_gear56
-        soi = interp_2d(soi_map['x_axis'], soi_map['y_axis'], soi_map['grid'], rpm, binding_iq)
+        soi = interp_2d(soi_map['x_axis'], soi_map['y_axis'], soi_map['grid'], rpm, binding_iq_static_hyp)
 
         # 10. Commanded Duration
-        duration, map_idx = calc_duration(rpm, binding_iq, soi)
+        duration, map_idx = calc_duration(rpm, binding_iq_static_hyp, soi)
 
-        # 12. Commanded EOI = Duration - SOI (°ATDC)
-        eoi = duration - soi
-
-        # 13. Boost target vs actual
-        boost_des = interp_2d(boost_target_map['x_axis'], boost_target_map['y_axis'], boost_target_map['grid'], rpm, binding_iq)
+        # 12. Electrical command end proxy = Duration - SOI (°ATDC)
+        # Note: Proxy only; does not prove physical EOI or torque loss without combustion pressure data.
+        eoi_proxy = duration - soi
 
         entry = {
-            'rpm': rpm,
             'gear': gear,
+            'rpm': rpm,
+            'accped_map_used': accped_map_names[gear],
             'driver_wish_trq_nm': round(dw_trq, 2),
-            'gear_lim_trq_nm': round(gear_lim, 2),
+            'gearbox_lim_trq_nm': round(gear_lim, 2),
             'atm_prot_trq_nm': round(trq_prot, 2),
             'arbitrated_trq_nm': round(arb_trq, 2),
-            'fmtc_saturated': is_saturated,
-            'iq_from_torque_mg': round(iq_from_trq, 2),
-            'actual_map_mbar': round(act_map, 1),
-            'actual_maf_gs': round(act_maf, 2),
-            'smoke_iq_limit_mg': round(smoke_iq, 2),
-            'binding_iq_mg': round(binding_iq, 2),
-            'binding_limiter': binding_limiter,
-            'iq_deficit_mg': round(iq_from_trq - smoke_iq, 2) if smoke_iq < iq_from_trq else 0.0,
+            'fmtc_endpoint_behavior': "UNKNOWN (extrapolation vs clamping unproven without RAM logging)",
+            'iq_from_torque_clamped_mg': round(iq_clamped, 2),
+            'iq_from_torque_extrapolated_mg': round(iq_extrap, 2),
+            'telemetry_source': telem_src,
+            'nearest_log_rpm': nearest_rpm,
+            'actual_map_mbar': round(act_map, 1) if act_map is not None else None,
+            'actual_maf_gs': round(act_maf, 2) if act_maf is not None else None,
+            'smoke_map_input_desc': smoke_input_source,
+            'smoke_map_input_p_mbar': smoke_input_val,
+            'smoke_iq_limit_approx_mg': round(smoke_iq_approx, 2),
+            'static_candidate_min_iq_mg': round(binding_iq_static_hyp, 2),
+            'static_candidate_limiter': static_candidate_limiter,
+            'active_runtime_limiter': "UNKNOWN (requires VCDS Group 008 runtime logging)",
+            'iq_deficit_approx_mg': round(iq_clamped - smoke_iq_approx, 2) if smoke_iq_approx < iq_clamped else 0.0,
             'commanded_soi_btdc': round(soi, 2),
             'duration_map_selected': round(map_idx, 2),
             'commanded_duration_ca': round(duration, 2),
-            'commanded_eoi_atdc': round(eoi, 2),
-            'boost_target_mbar': round(boost_des, 1),
-            'boost_delta_mbar': round(act_map - boost_des, 1),
-            'nearest_log_rpm': telem['rpm']
+            'electrical_command_end_proxy_atdc': round(eoi_proxy, 2),
+            'boost_target_mbar': round(boost_des_hyp, 1),
+            'boost_delta_mbar': round(act_map - boost_des_hyp, 1) if act_map is not None else None
         }
-        audit_results[gear].append(entry)
+        audit_results[str(gear)].append(entry)
 
-# Print Summary Table
-print(f"{'Gear':<4} | {'RPM':<5} | {'DW Nm':<6} | {'Prot Nm':<7} | {'Arb Nm':<6} | {'Trq IQ':<6} | {'Smk IQ':<6} | {'Bind IQ':<7} | {'Limiter':<12} | {'SOI':<5} | {'Dur':<5} | {'EOI':<5} | {'MAP Des':<7} | {'MAP Act':<7}")
-print("-" * 115)
+print("=== REVISED WOT CHAIN AUDIT SUMMARY (EPISTEMICALLY DISCIPLINED) ===")
+print(f"{'Gear':<4} | {'RPM':<5} | {'DW Nm':<6} | {'Arb Nm':<6} | {'IQ Clp':<6} | {'IQ Ext':<6} | {'MAP (mbar)':<10} | {'Smk IQ':<6} | {'Cand Min':<8} | {'SOI':<5} | {'Dur':<5} | {'EOI Prx':<7} | {'Telem Source'}")
+print("-" * 125)
 for gear in gears_to_audit:
-    for e in audit_results[gear]:
-        print(f"{e['gear']:<4} | {e['rpm']:<5} | {e['driver_wish_trq_nm']:<6.1f} | {e['atm_prot_trq_nm']:<7.1f} | {e['arbitrated_trq_nm']:<6.1f} | {e['iq_from_torque_mg']:<6.2f} | {e['smoke_iq_limit_mg']:<6.2f} | {e['binding_iq_mg']:<7.2f} | {e['binding_limiter'][:12]:<12} | {e['commanded_soi_btdc']:<5.1f} | {e['commanded_duration_ca']:<5.1f} | {e['commanded_eoi_atdc']:<5.1f} | {e['boost_target_mbar']:<7.0f} | {e['actual_map_mbar']:<7.0f}")
+    for e in audit_results[str(gear)]:
+        act_m = f"{e['actual_map_mbar']:.0f}" if e['actual_map_mbar'] is not None else "UNAVAIL"
+        print(f"{e['gear']:<4} | {e['rpm']:<5} | {e['driver_wish_trq_nm']:<6.1f} | {e['arbitrated_trq_nm']:<6.1f} | {e['iq_from_torque_clamped_mg']:<6.2f} | {e['iq_from_torque_extrapolated_mg']:<6.2f} | {act_m:<10} | {e['smoke_iq_limit_approx_mg']:<6.2f} | {e['static_candidate_min_iq_mg']:<8.2f} | {e['commanded_soi_btdc']:<5.1f} | {e['commanded_duration_ca']:<5.1f} | {e['electrical_command_end_proxy_atdc']:<7.1f} | {e['telemetry_source'][:30]}")
 
 with open('diagnostic-review/wot-chain-audit-2026-09-16.json', 'w', encoding='utf-8') as f:
     json.dump(audit_results, f, indent=2)
-print("\nSaved diagnostic-review/wot-chain-audit-2026-09-16.json successfully.")
+print("\nUpdated diagnostic-review/wot-chain-audit-2026-09-16.json successfully.")
