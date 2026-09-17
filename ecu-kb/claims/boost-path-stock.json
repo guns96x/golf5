@@ -1,0 +1,258 @@
+{
+  "_comment": "Шлях наддуву у стоковій прошивці. Завантажувати: python kb.py load-claims claims/boost-path-stock.json. Цитати перевіряються дослівно по чанках; якщо документ не інгестовано, цитата не запишеться.",
+
+  "claims": [
+    {
+      "statement": "У SW 1037391847 запит моменту водія формується сімейством мап AccPed_trqEng0_MAP…AccPed_trqEng6_MAP (0x1C2CCE, 0x1C2E24, 0x1C2F7A, 0x1C30D0, 0x1C3226, 0x1C337C, 0x1C34D2) з осями Eng_nAvrg × AccPed_rAPP; вибір і інтерполяція між мапами задані кривою AccPed_stGearSel_CUR (0x1C2B30) за входом AccPed_rVnTrqEngActv_mp.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Значення комірок не декодовані з BIN — підтверджено лише існування мап, їхні осі та адреси."
+    },
+    {
+      "statement": "У SW 1037391847 для холодного двигуна існує окрема мапа запиту моменту AccPed_trqEng0Cold_MAP (0x1C2B78), а нижню межу бажання водія задає AccPed_trqEngLow_MAP (0x1C369A); верхню тягову частку обмежує AccPed_trqEngLim_MAP (0x1C3628).",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Умови перемикання між холодною і теплою мапами в прошивці не простежені."
+    },
+    {
+      "statement": "У SW 1037391847 запит моменту обмежується щонайменше такими калібруваннями: Gearbx_trqMaxGear1_CUR…Gearbx_trqMaxGear6_CUR (0x1D84E2…0x1D8618) за передачею, EngPrt_trqNLim_CUR (0x1D495E) за Eng_nAvrg, EngPrt_trqLimPBoost_MAP (0x1D471E) за APSCD_pVal × Eng_nAvrg, а при системних помилках — CoVeh_trqLim_CUR (0x1CCEAA) і CoEng_trqLimErr_CUR (0x1CCC08).",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Порядок арбітражу лімітерів (min-select, пріоритети, фільтрація) з A2L не випливає — потрібен аналіз коду або цілеспрямований експеримент."
+    },
+    {
+      "statement": "У SW 1037391847 перерахунок моменту в масу палива робить мапа FMTC_trq2qBas_MAP (0x1D729C) з осями Eng_nAvrg × CoEng_trqInrSet (внутрішній момент); для режимів регенерації DPF є окремі FMTC_trq2qRgn1_MAP…FMTC_trq2qRgn4_MAP (0x1D7524, 0x1D7538, 0x1D754C, 0x1D7560).",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS"
+    },
+    {
+      "statement": "У SW 1037391847 димова межа палива задана мапами FlMng_qAFSCDSmoke_MAP (0x1D61D2, осі Eng_nAvrg × FlMng_mAirPerCyl_mp) і FlMng_qPresSmoke_MAP (0x1D6490, осі Eng_nAvrg × FlMng_pIATCorr_mp); вибір мапи з набору робить FlMng_dSmokeMapNr_CUR (0x1D5F10) за температурою двигуна, а корекції дають FlMng_facCorAP_CUR (0x1D5F4C), FlMng_facCorAirTemp_CUR (0x1D5F1A) і FlMng_facCorEngTemp_CUR (0x1D5F7E).",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Димова межа тут обмежує паливо за повітрям; що з цього реально активне на прогрітому WOT — без логів не встановлено."
+    },
+    {
+      "statement": "У SW 1037391847 базовий сольовий наддув дає мапа PCR_pBDesBas_MAP (0x1EB0B2) з осями Eng_nAvrg × PCR_qDes (маса палива), тобто уставка наддуву будується від оберт і ПАЛИВА, а не безпосередньо від моменту; друга мапа тієї самої ролі — PCR_pBDesBas2_MAP (0x1EAF3A).",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Чи використовується друга гілка (…Bas2, …Ctl2, rCnv2) на одноконтурному BLS — не встановлено."
+    },
+    {
+      "statement": "У SW 1037391847 уставку наддуву коригують PCR_facAT_CUR (0x1EAD28, IATSCD_tAir), PCR_facEAT_CUR (0x1EAE56, EATSCD_tAir), PCR_facCtQ_MAP (0x1EAD6A, CTSCD_tClnt × PCR_qDes), PCR_pAPQCmpn_MAP (0x1EAE70, APSCD_pVal × PCR_qDes) і PCR_pNQCtCmpn_MAP (0x1EBCFA); стеля уставки задана PCR_pBDesMaxAP_MAP (0x1EB22A) з осями Eng_nAvrg × APSCD_pVal.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "PCR_pBDesMaxAP_MAP — це ЛІМІТЕР ECU, а не межа турбіни; значення з BIN не прочитані."
+    },
+    {
+      "statement": "У SW 1037391847 є модель обертів турбіни: PCR_nTrbn_MAP (0x1E97B0, опис «Verdichterkennfeld zu Ermittlung der Laderdrehzahl») з осями PCR_facBPAltCorr_mp × PCR_dmAirAltCorrFl_mp, гранична крива PCR_nTrbnMax_CUR (0x1E978E) за Eng_nAvrg і висотне обмеження PCR_facBPAltMax_MAP (0x1E8EDA) за осями PCR_nTrbnMax_mp × PCR_dmAirAltCorr_mp.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 1, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Обертів турбіни ECU не міряє — це МОДЕЛЬ за компресорною картою в прошивці. Ототожнювати її з реальними обертами BV39 не можна без вимірювання."
+    },
+    {
+      "statement": "У SW 1037391847 попереднє керування (feedforward) наддувом задає PCR_rBPCtlBas_MAP (0x1E9FD0) з осями Eng_nAvrg × PCR_qCtl, з корекціями PCR_facCtlBas_CUR (0x1E9DB6, APSCD_pVal), PCR_facCtlAT_CUR (0x1E9D50) і PCR_rCtlAPCmpn_MAP (0x1EAC34, APSCD_pVal × PCR_qCtl); для холостого ходу є окрема PCR_rBPCtlGear_MAP (0x1EA1AE).",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS"
+    },
+    {
+      "statement": "У SW 1037391847 коефіцієнти PID-регулятора наддуву адаптуються мапами PCR_facP_MAP (0x1EC0C6), PCR_facI_MAP (0x1EBFD2) і PCR_facD_MAP (0x1EBEDE) — усі три з осями Eng_nAvrg × InjCtl_qCurr; стала часу DT1-ланки задана PCR_DT1_MAP (0x1EBDEA), пороги вмикання і вимикання регулятора — PCR_qRgtOn_CUR (0x1EC2EA) і PCR_qRgtOff_CUR (0x1EC242) за Eng_nAvrg, а максимально допустиме відхилення — PCR_pBGDevMax_CUR (0x1EC994) за температурою.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Базові значення Kp/Ki/Kd і структура регулятора (PI+DT1 vs PID) з A2L не випливають — мапи дають лише МНОЖНИКИ адаптації."
+    },
+    {
+      "statement": "У SW 1037391847 вихід регулятора наддуву обмежують PCR_rBPGovMax_MAP (0x1EC52C) і PCR_rBPGovMin_MAP (0x1EC6A4) з осями Eng_nAvrg × InjCtl_qCurr, після чого крива PCR_rBPGovLin_CUR (0x1EC4D6) лінеаризує керувальну величину за входом PCR_rBPGovUnLin_mp у відсотках.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS"
+    },
+    {
+      "statement": "У SW 1037391847 перетворення керувальної величини наддуву у шпаруватість (Tastverhältnis) робить крива BPACD_rCnv_CUR (0x1CC642) з входом PCR_rBPACD у відсотках; результат лежить у змінній BPACD_rCnv_mp, підписаній «Tastverhältnis basierend auf dem Ausgang des Ladedruckreglers».",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "ecu_internal", "unit": "%", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Напрямок (чи 100 % = максимальне закриття лопаток) з A2L не випливає; потрібен замір шпаруватості проти наддуву на машині."
+    },
+    {
+      "statement": "У SW 1037391847 зворотний зв'язок регулятора наддуву береться з відфільтрованого сигналу датчика BPSCD_pFltVal — ця змінна є віссю мап PCR_facShftUpCor_MAP (0x1E9204) і PCR_stTrqFltActv_MAP (0x1E9C4C).",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "ecu_internal", "frame": "raw", "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Те, що саме BPSCD_pFltVal подається на вхід регулятора помилки, з переліку об'єктів не доводиться — доведено лише, що це відфільтрований сигнал датчика наддуву і що він використовується в сусідніх функціях."
+    },
+    {
+      "statement": "У SW 1037391847 існує повна гілка позиційного зворотного зв'язку привода наддуву BPASCD: лінеаризація сигналу BPASCD_rLinRelPos_CUR (0x1CC6C8) за напругою BPASCD_uRawRelPos, перемикач джерела сигналу ADC або CAN BPASCD_swtSigRelPos_C (0x1CC71E), вимірювані BPASCD_rRelPos (0x7F96AA) і BPACD_rIn1 (0x7F969C) «Positionsistwert des Ladedruckstellers», а також адаптація зсуву BPASCD_stOfs.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Наявність об'єктів у A2L не означає, що гілка активна на цій машині: на BLS привід вакуумний і датчика положення лопаток немає. Потрібна перевірка на реальному ECU."
+    },
+    {
+      "statement": "Прошивка SW 1037391847 містить окремий набір уставок і керувальних значень наддуву для режимів регенерації сажового фільтра: PCR_pBDesRgn1a/1b/2a/2b/3a/3b_MAP (0x1EB3A6…0x1EBA7A), PCR_rBPCtlRgn1a…3b_MAP (0x1EA328…0x1EAA80), корекції PCR_pBDesRgnCor1/2/3_MAP і криві PCR_facCtlRgn1/2/3_CUR та PCR_facDesRgn1/2/3_CUR.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "DPF на машині фізично відсутній. Чи досяжні ці гілки в поточному стані прошивки і як вони впливають на наддув — відкрите питання."
+    },
+    {
+      "statement": "Префікс PCR_ у прошивках Bosch EDC16 означає функціональну групу керування наддувом (Ladedruckregelung). Це знання моделі: жоден інгестований документ такої розшифровки не містить.",
+      "evidence_kind": "MODEL_RECALL", "verification_state": "raw",
+      "is_modeled": 0, "confidence": 0.5,
+      "missing_evidence": "Потрібен документ Bosch із переліком префіксів функцій EDC16 (наприклад, DAMOS/ASAM-опис або службовий довідник функцій)."
+    },
+    {
+      "statement": "У документації VW для 1.9 TDI Pumpe-Düse керування наддувом описане як вакуумне: ECU керує електромагнітним клапаном N75, а вакуум у вакуумній камері регулювання лопаток задається шпаруватістю імпульсів.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "corroborated",
+      "quantity_kind": "physical", "is_modeled": 0, "confidence": 0.8,
+      "engine_code": "1.9 TDI PD",
+      "missing_evidence": "SSP 209 описує 1.9 TDI PD попереднього покоління (EDC15), а не BLS/EDC16U34. Для BLS потрібен власний OEM-документ або перевірка на машині.",
+      "citations": [
+        {"doc": "VW_SSP_209_1.9_TDI_Pumpe_Duse.pdf",
+         "quote": "The solenoid valve for charge pressure control is activated by the engine control unit. The vacuum in the vacuum box for vane adjustment is set depending on the pulse duty factor."}
+      ]
+    },
+    {
+      "statement": "У документації VW для 1.9 TDI Pumpe-Düse регулювання наддуву описане як замкнений контур: ECU порівнює виміряне значення з уставкою з мапи наддуву і при відхиленні впливає на наддув через клапан керування наддувом.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "corroborated",
+      "is_modeled": 0, "confidence": 0.8,
+      "engine_code": "1.9 TDI PD",
+      "missing_evidence": "Документ не називає ні структуру регулятора, ні його коефіцієнти.",
+      "citations": [
+        {"doc": "VW_SSP_209_1.9_TDI_Pumpe_Duse.pdf",
+         "quote": "The engine control unit compares the actual measured value with the setpoint from the charge pressure map. If the actual value deviates from the setpoint, then the engine control unit adjusts the charge pressure via the solenoid valve for charge pressure control."}
+      ]
+    },
+    {
+      "statement": "VW SSP 304 (EDC16) описує керування наддувом як функцію запиту моменту, з сигналом датчика наддуву та корекціями за температурою повітря, температурою ОР і висотою.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "corroborated",
+      "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16",
+      "missing_evidence": "Документ не деталізує ні мап, ні структури регулятора; прив'язки до SW немає.",
+      "citations": [
+        {"doc": "VW_SSP_304_Electronic_Diesel_Control_EDC16.pdf",
+         "quote": "Charge pressure control works depending on the torque demand. To control the charge pressure, signals from the charge pressure sender are used. The signals from the intake air temperature sender, coolant temperature sender and the altitude sensor are used as correction factors."}
+      ]
+    },
+    {
+      "statement": "VW SSP 304 описує виконавчий механізм наддуву як позиційні моторчики турбокомпресора, якими ECU керує через CAN шини привода, а електромагнітний клапан обмеження наддуву N75 підписаний у цьому ж документі як «(R5-TDI-engine)». Тобто найавторитетніший EDC16-документ корпусу описує ІНШУ реалізацію привода, ніж вакуумний N75 на BLS.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "corroborated",
+      "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16",
+      "missing_evidence": "Потрібна порозділова розмітка застосовності SSP 304: які сторінки стосуються R5/V10, а які спільні для сімейства EDC16.",
+      "citations": [
+        {"doc": "VW_SSP_304_Electronic_Diesel_Control_EDC16.pdf",
+         "quote": "The engine control unit sends a signal via the CAN drive train databus to the turbocharger positioning motors."},
+        {"doc": "VW_SSP_304_Electronic_Diesel_Control_EDC16.pdf",
+         "quote": "Charge pressure limitation solenoid valve N75 (R5-TDI-engine)"}
+      ]
+    },
+    {
+      "statement": "VW SSP 304 документує зниження наддуву на висоті як захист турбокомпресора, а сигнал висотного датчика — як джерело поправки для керування наддувом.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "corroborated",
+      "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16",
+      "missing_evidence": "Величина зниження і пороги в документі не наведені; у прошивці цьому відповідають PCR_facBPAltMax_MAP і PCR_pBDesMaxAP_MAP, але числові значення не декодовані.",
+      "citations": [
+        {"doc": "VW_SSP_304_Electronic_Diesel_Control_EDC16.pdf",
+         "quote": "The charge pressure is reduced gradually when the vehicle is travelling at high altitudes to protect the charger."},
+        {"doc": "VW_SSP_304_Electronic_Diesel_Control_EDC16.pdf",
+         "quote": "The signal is used to determine a correction value for charge pressure control and exhaust gas recirculation."}
+      ]
+    },
+    {
+      "statement": "Документ у бібліотеці під назвою Pierburg_N75_Valve_Internal_Anatomy_and_Operation насправді є допискою приватної особи на форум tdiclub.com, а не публікацією виробника; тому твердження з нього мають статус COMMUNITY_CLAIM, а не OEM.",
+      "evidence_kind": "COMMUNITY_CLAIM", "verification_state": "corroborated",
+      "is_modeled": 0, "confidence": 0.9,
+      "missing_evidence": "Реєстр бібліотеки приписує документу видавця Pierburg — запис реєстру треба виправити.",
+      "citations": [
+        {"doc": "Pierburg_N75_Valve_Internal_Anatomy_and_Operation.pdf",
+         "quote": "I submitted this to tdiclub.com, because the information I found there was very helpful in tracking down the problem with my Tdi."}
+      ]
+    },
+    {
+      "statement": "За форумним описом будови клапана N75, пружини повернення золотника немає, і закриття клапана виконує сам вакуум. Це твердження спільноти, не перевірене ні OEM-документом, ні розбиранням клапана з цієї машини.",
+      "evidence_kind": "COMMUNITY_CLAIM", "verification_state": "raw",
+      "is_modeled": 0, "confidence": 0.4,
+      "missing_evidence": "Потрібен OEM-розріз або специфікація Pierburg на конкретний парт-номер клапана, встановленого на цій машині.",
+      "citations": [
+        {"doc": "Pierburg_N75_Valve_Internal_Anatomy_and_Operation.pdf",
+         "quote": "Note that there is no spring return on the valve spool. The vacuum itself is used to close the valve."}
+      ]
+    },
+    {
+      "statement": "Безпечна межа наддуву для турбіни BV39 на цій машині невідома. Жоден інгестований документ не містить допустимого тиску чи обертів для конкретного виконання 54399880072, а сама ідентифікація турбіни має статус INFERRED (каталог, без фото таблички).",
+      "evidence_kind": "UNKNOWN", "verification_state": "raw",
+      "quantity_kind": "physical", "unit": "mbar", "is_modeled": 0, "confidence": 0.0,
+      "turbo_model": "BorgWarner BV39 54399880072",
+      "missing_evidence": "Потрібні: фото таблички турбіни; компресорна карта саме цього виконання від BorgWarner; або протокол вимірювання на машині. Значення мап PCR_* у BIN межею компонента не є — це уставки ECU."
+    }
+  ],
+
+  "conflicts": [
+    {
+      "topic": "Привід наддуву в EDC16: позиційні моторчики по CAN проти вакуумного N75",
+      "claim_a": "VW SSP 304 описує виконавчий механізм наддуву як позиційні моторчики турбокомпресора, якими ECU керує через CAN шини привода, а електромагнітний клапан обмеження наддуву N75 підписаний у цьому ж документі як «(R5-TDI-engine)». Тобто найавторитетніший EDC16-документ корпусу описує ІНШУ реалізацію привода, ніж вакуумний N75 на BLS.",
+      "claim_b": "У документації VW для 1.9 TDI Pumpe-Düse керування наддувом описане як вакуумне: ECU керує електромагнітним клапаном N75, а вакуум у вакуумній камері регулювання лопаток задається шпаруватістю імпульсів.",
+      "explanation": "Різні двигуни й різні виконання привода всередині одного сімейства EDC16: SSP 304 у розділі привода описує R5/V10 TDI з електричними позиційними моторчиками по CAN, тоді як 1.9 TDI PD має вакуумний привід через N75. Це не суперечність фактів, а різна область застосовності. Наслідок для роботи: розділ SSP 304 про привід НЕ можна переносити на BLS, а розділ про логіку уставки (момент, корекції, висота) — можна, але лише як опис сімейства.",
+      "resolved_by": "розмітка застосовності всередині SSP 304 + перевірка на машині, що привід вакуумний і датчика положення лопаток немає"
+    }
+  ],
+
+  "gaps": [
+    {
+      "question": "Декодувати значення мап шляху наддуву з reference BIN",
+      "why_needed": "Зараз доведено існування, осі та адреси мап PCR_/FMTC_/FlMng_, але не їхні числа. Без значень не можна ні порівняти уставку з логами, ні сказати, де вона впирається в стелю PCR_pBDesMaxAP_MAP.",
+      "priority": 1,
+      "needed_source": "reference BIN + record layout з A2L (Kf_Xs16_Ys16_Ws16 тощо) через tools/"
+    },
+    {
+      "question": "Встановити порядок арбітражу лімітерів моменту",
+      "why_needed": "Відомо, які лімітери існують (Gearbx_trqMaxGear*, EngPrt_trqNLim, EngPrt_trqLimPBoost, CoVeh_trqLim), але не відомо, як вони комбінуються: min-select, пріоритет, фільтрація. Без цього не можна сказати, який саме лімітер спрацьовує на WOT.",
+      "priority": 2,
+      "needed_source": "аналіз коду прошивки або експеримент з логуванням CoEng_trqInrSet"
+    },
+    {
+      "question": "Перевірити, чи активна гілка позиційного зворотного зв'язку BPASCD на BLS",
+      "why_needed": "У A2L є повний набір об'єктів для датчика положення привода наддуву з перемикачем ADC/CAN. На BLS привід вакуумний і такого датчика немає. Якщо гілка неактивна — її калібрування не впливає ні на що, і плутати їх із робочим шляхом не можна.",
+      "priority": 2,
+      "needed_source": "читання значення BPASCD_swtSigRelPos_C з BIN + перевірка наявності DTC по датчику положення"
+    },
+    {
+      "question": "Визначити напрямок шпаруватості N75 на цій машині",
+      "why_needed": "BPACD_rCnv_CUR перетворює «ступінь відкриття» у шпаруватість, але з A2L не видно, чи більша шпаруватість означає більший наддув. Без цього будь-яка зміна керування наддувом — здогадка про знак.",
+      "priority": 1,
+      "needed_source": "лог VCDS: шпаруватість N75 проти фактичного наддуву на розгоні"
+    },
+    {
+      "question": "Виправити запис реєстру для Pierburg_N75_Valve_Internal_Anatomy_and_Operation",
+      "why_needed": "Документ підписаний видавцем Pierburg, а за власним текстом це допис на tdiclub.com. Поки запис не виправлено, документ виглядає як OEM-джерело, хоч ним не є.",
+      "priority": 2,
+      "needed_source": "правка library_registry.json у base\\knowledge\\library"
+    }
+  ]
+}
