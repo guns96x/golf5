@@ -115,6 +115,27 @@ class Telemetry(unittest.TestCase):
         self.assertEqual(tm.decode_obd('410D3C'), ('010D', 60.0))
         self.assertIsNone(tm.decode_obd('7F0112'))
 
+    def test_vcds_loader_two_groups(self):
+        # A/B protocol logs 011+008 or 011+003 only: 11 columns per row, must not be skipped
+        lines = ['Wednesday,17,September,2026,10:00:00:00001-VCID:TEST,VCDS Version: 24.7.1',
+                 '03G 906 021 QJ,,R4 1.9L EDC G000SG  1984,',
+                 ",Group A:,'011,,,,Group B:,'008",
+                 ',0.10,2800,2203,2310,24.0,0.35,2810,380,364,334',
+                 ',0.62,2950,2203,2290,24.5,0.88,2960,380,356,334']
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, 'two.CSV')
+            with open(p, 'w', encoding='cp1251') as f:
+                f.write('
+'.join(lines) + '
+')
+            sessions = tm.load_vcds(p)
+        self.assertEqual(len(sessions), 1)
+        series, meta = sessions[0]
+        self.assertEqual(meta['groups'], ['011', '008'])
+        self.assertEqual([x[1] for x in series['map_mbar']], [2310.0, 2290.0])
+        self.assertEqual(series['trq_smoke_nm'][1][:2], (0.88, 334.0))
+        self.assertNotIn('maf_act_mg', series)
+
     def test_time_alignment_uses_latency(self):
         rows = ['event_seq,timestamp_utc_ms,mono_ns,pid,request,value,unit,raw,latency_ms,status',
                 '1,10000,0,010C,010C,1000,RPM,x,200,VALID',
