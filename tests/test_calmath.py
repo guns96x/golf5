@@ -125,9 +125,7 @@ class Telemetry(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             p = os.path.join(d, 'two.CSV')
             with open(p, 'w', encoding='cp1251') as f:
-                f.write('
-'.join(lines) + '
-')
+                f.write('\n'.join(lines) + '\n')
             sessions = tm.load_vcds(p)
         self.assertEqual(len(sessions), 1)
         series, meta = sessions[0]
