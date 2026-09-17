@@ -1,0 +1,45 @@
+{
+  "_comment": "Область дії чисел про BV39 і про електричний привід VTG у сімействі EDC16. Знайдено під час survey корпусу; кожна цитата перевірена дослівно по чанках.",
+
+  "claims": [
+    {
+      "statement": "BorgWarner TurboNews 2004/1 документує першу серійну появу BV39: Audi A2 1.4 TDI (трициліндровий, 90 к.с.) з наддувом 2.3 бар абсолютних. Це інший двигун, інша кількість циліндрів і інше виконання турбіни, ніж 54399880072 на 1.9 TDI BLS.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "corroborated",
+      "quantity_kind": "physical", "value_num": 2300, "unit": "mbar", "frame": "physical",
+      "is_modeled": 0, "confidence": 0.8,
+      "turbo_model": "BorgWarner BV39 (виконання не вказане)",
+      "missing_evidence": "Документ не називає ні парт-номера турбіни, ні допустимої межі — 2.3 бар тут це робоча точка конкретного застосування, а не ліміт. Для BLS потрібні дані саме на 54399880072.",
+      "citations": [
+        {"doc": "BorgWarner_Turbo_News_2004_1_BV39_Introduction.pdf",
+         "quote": "The gain in power and torque enjoyed by the engine is predominantly thanks to the new BV39 turbocharger by BorgWarner Turbo Systems with variable turbine geometry and 2.3 bar (absolute) boost pressure."}
+      ]
+    },
+    {
+      "statement": "Значення 2.3 бар абсолютних з BorgWarner TurboNews не можна переносити на цю машину як межу наддуву: воно стосується Audi A2 1.4 TDI, це робоча точка застосування, а не допустимий максимум, і виконання турбіни в документі не назване. Одне спостережене значення наддуву не є фізичною межею турбіни.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "physical", "unit": "mbar", "is_modeled": 0, "confidence": 0.7,
+      "turbo_model": "BorgWarner BV39 54399880072",
+      "missing_evidence": "Компресорна карта або технічні межі саме для 54399880072 від BorgWarner; плюс фото таблички турбіни, бо ідентифікація досі INFERRED."
+    },
+    {
+      "statement": "Електричний привід лопаток VTG у сімействі EDC16 документований VW для 3.0 л V6 TDI Common Rail (Transporter T5), а не для 1.9 TDI PD. Це другий незалежний документ, який показує: електричний привід у EDC16 існує, але на інших двигунах.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "corroborated",
+      "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16",
+      "missing_evidence": "Прямого OEM-документа, який описував би привід наддуву саме на BLS/EDC16U34, у корпусі немає.",
+      "citations": [
+        {"doc": "VW_SSP_325_Transporter_T5_2.5_TDI_EDC16.pdf",
+         "quote": "air guide vane adjustment has been implemented using an electric adjuster"}
+      ]
+    }
+  ],
+
+  "gaps": [
+    {
+      "question": "Отримати дані BorgWarner саме на виконання 54399880072",
+      "why_needed": "У корпусі є BV39 лише як застосування на Audi A2 1.4 TDI з 2.3 бар. Поки немає карти або меж на конкретне виконання, будь-яке число про «межу BV39» на цій машині буде перенесенням з чужого застосування.",
+      "priority": 1,
+      "needed_source": "BorgWarner: компресорна карта / технічні дані для 54399880072 (або 03G253014M)"
+    }
+  ]
+}
