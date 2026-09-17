@@ -28,6 +28,8 @@ CHANNELS = ('boost_spec_mbar', 'map_mbar', 'n75_duty_pct', 'maf_act_mg', 'trq_re
 MC_DRAWS = 3000
 ABORT_MAP_MBAR = 2450
 WOT_SPEC_MIN_MBAR = 2100
+MIN_PULL_END_RPM = 3250   # partial pulls (lifted early) still count for the rpm bins they covered
+FULL_PULL_END_RPM = 3950  # only full pulls enter the 2750->4000 time metric
 # rpm rise rate reference at 2500 rpm from the 2026-09-16 phone pulls (vcds-analysis.json gear_reference).
 # A VCDS log has no road speed, so the gear is taken from the pull's own rate at 2750 rpm; the torque change
 # 2500->2750 is small next to the ~2x rate step between gears. Unclassified pulls are excluded, not guessed.
@@ -50,13 +52,17 @@ def pulls_from(paths, gear):
         for series, meta in tm.load_vcds(path):
             dts = [b[0] - a[0] for a, b in zip(series.get('map_mbar', []), series.get('map_mbar', [])[1:])]
             interval = statistics.median(dts) if dts else None
-            for seg in tm.wot_segments(series, baro=BARO_MBAR, min_span_rpm=900):
-                if seg[0][1] > 2750 or seg[-1][1] < 3750:
-                    continue  # protocol pull must cover 2750 -> ~4000
+            for seg in tm.wot_segments(series, baro=BARO_MBAR, min_span_rpm=700):
+                if seg[0][1] > 2750 or seg[-1][1] < MIN_PULL_END_RPM:
+                    skipped.append({'pull': '%s %s@%.1fs' % (os.path.basename(path), meta['label'], seg[0][0]),
+                                    'rate_2750_rpm_s': None, 'rate_gear': None, 'wanted_gear': gear,
+                                    'reason': 'covers %.0f-%.0f rpm only' % (seg[0][1], seg[-1][1])})
+                    continue
                 name = '%s %s@%.1fs' % (os.path.basename(path), meta['label'], seg[0][0])
                 g_rate, rate = classify_by_rate(seg)
                 if g_rate != gear:
-                    skipped.append({'pull': name, 'rate_2750_rpm_s': rate, 'rate_gear': g_rate, 'wanted_gear': gear})
+                    skipped.append({'pull': name, 'rate_2750_rpm_s': rate, 'rate_gear': g_rate, 'wanted_gear': gear,
+                                    'reason': 'gear from rpm rate does not match'})
                     continue
                 t_lo, t_hi = dyno.time_at_rpm(seg, 2750), dyno.time_at_rpm(seg, min(4000, seg[-1][1]))
                 win = [x for x in series.get('map_mbar', []) if seg[0][0] <= x[0] <= seg[-1][0]]
@@ -68,7 +74,9 @@ def pulls_from(paths, gear):
                 out.append({'name': name, 'series': series, 'seg': seg, 'kmh_per_rpm': GEAR_KMH_PER_RPM[gear],
                             'gear_from_rate': g_rate, 'rate_2750_rpm_s': rate,
                             'groups': meta['groups'], 'sample_interval_011_s': interval,
-                            'time_2750_to_end_s': (t_hi - t_lo) if t_lo is not None and t_hi is not None else None,
+                            'full_pull': seg[-1][1] >= FULL_PULL_END_RPM,
+                            'time_2750_to_end_s': (t_hi - t_lo) if (t_lo is not None and t_hi is not None
+                                                                    and seg[-1][1] >= FULL_PULL_END_RPM) else None,
                             'end_rpm': seg[-1][1], 'peak_map_mbar': max((m for _, m, _ in win), default=None),
                             'peak_boost_error_mbar': max(errs, default=None),
                             'abort_threshold_crossed': any(m >= ABORT_MAP_MBAR for _, m, _ in win)})
@@ -105,7 +113,8 @@ def summary(pulls):
     def med(k):
         v = [p[k] for p in pulls if p[k] is not None]
         return statistics.median(v) if v else None
-    return {'n_pulls': len(pulls), 'median_time_2750_to_end_s': med('time_2750_to_end_s'),
+    return {'n_pulls': len(pulls), 'n_full_pulls': sum(p['full_pull'] for p in pulls),
+            'median_time_2750_to_end_s': med('time_2750_to_end_s'),
             'median_peak_map_mbar': med('peak_map_mbar'), 'median_peak_boost_error_mbar': med('peak_boost_error_mbar'),
             'median_sample_interval_011_s': med('sample_interval_011_s'),
             'pulls_crossing_abort_map': sum(p['abort_threshold_crossed'] for p in pulls)}
@@ -119,28 +128,28 @@ def render(res):
     L = ['# A/B comparison — %s' % res['generated_utc'], '',
          'Gear assumed: %d. Pulls pooled over both directions (median).' % res['gear'], '',
          '| | current | candidate |', '|---|---|---|']
-    for k, nd in (('n_pulls', 0), ('median_time_2750_to_end_s', 2), ('median_peak_map_mbar', 0),
+    for k, nd in (('n_pulls', 0), ('n_full_pulls', 0), ('median_time_2750_to_end_s', 2), ('median_peak_map_mbar', 0),
                   ('median_peak_boost_error_mbar', 0), ('median_sample_interval_011_s', 2), ('pulls_crossing_abort_map', 0)):
         L.append('| %s | %s | %s |' % (k, fmt(res['current']['summary'][k], nd), fmt(res['candidate']['summary'][k], nd)))
-    L += ['', '| rpm | road torque P50 Nm cur → cand | boost spec / actual cur → cand | N75 % cur → cand | '
-              'smoke lim Nm cur → cand | MAF mg cur → cand |', '|---|---|---|---|---|---|']
+    L += ['', '| rpm | pulls cur/cand | road torque P50 Nm cur → cand | boost spec / actual cur → cand | N75 % cur → cand | '
+              'smoke lim Nm cur → cand | MAF mg cur → cand |', '|---|---|---|---|---|---|---|']
     for b in BINS:
         c, d = res['current']['bins'].get(b, {}), res['candidate']['bins'].get(b, {})
-        L.append('| %d | %s → %s | %s/%s → %s/%s | %s → %s | %s → %s | %s → %s |' % (
-            b, fmt(c.get('road_torque_p50_nm')), fmt(d.get('road_torque_p50_nm')),
+        L.append('| %d | %s/%s | %s → %s | %s/%s → %s/%s | %s → %s | %s → %s | %s → %s |' % (
+            b, fmt(c.get('n_pulls')), fmt(d.get('n_pulls')), fmt(c.get('road_torque_p50_nm')), fmt(d.get('road_torque_p50_nm')),
             fmt(c.get('boost_spec_mbar')), fmt(c.get('map_mbar')), fmt(d.get('boost_spec_mbar')), fmt(d.get('map_mbar')),
             fmt(c.get('n75_duty_pct'), 1), fmt(d.get('n75_duty_pct'), 1), fmt(c.get('trq_smoke_nm')), fmt(d.get('trq_smoke_nm')),
             fmt(c.get('maf_act_mg')), fmt(d.get('maf_act_mg'))))
     L += ['', 'Pulls:', '']
     for side in ('current', 'candidate'):
         for p in res[side]['pulls']:
-            L.append('- %s: %s, groups %s, 011 interval %s s, 2750->%s rpm in %s s, peak MAP %s, peak error %s%s' % (
-                side, p['name'], '+'.join(p['groups']), fmt(p['sample_interval_011_s'], 2), fmt(p['end_rpm']),
+            L.append('- %s: %s%s, groups %s, 011 interval %s s, 2750->%s rpm in %s s, peak MAP %s, peak error %s%s' % (
+                side, p['name'], '' if p['full_pull'] else ' (partial)', '+'.join(p['groups']), fmt(p['sample_interval_011_s'], 2), fmt(p['end_rpm']),
                 fmt(p['time_2750_to_end_s'], 2), fmt(p['peak_map_mbar']), fmt(p['peak_boost_error_mbar']),
                 ' **ABORT THRESHOLD CROSSED**' if p['abort_threshold_crossed'] else ''))
         for sk in res[side]['skipped_pulls']:
-            L.append('- %s: SKIPPED %s (rate %s rpm/s -> gear %s, wanted %s)' % (
-                side, sk['pull'], fmt(sk['rate_2750_rpm_s']), sk['rate_gear'], sk['wanted_gear']))
+            L.append('- %s: SKIPPED %s (%s; rate %s rpm/s -> gear %s, wanted %s)' % (
+                side, sk['pull'], sk.get('reason', ''), fmt(sk['rate_2750_rpm_s']), sk['rate_gear'], sk['wanted_gear']))
     return '\n'.join(L) + '\n'
 
 
