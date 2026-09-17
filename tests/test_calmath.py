@@ -201,6 +201,20 @@ class RuntimeAnalysis(unittest.TestCase):
             if rpm < self.ce.SOI_FIX_MIN_RPM:
                 self.assertEqual(lim_old.grid[ix], lim_new.grid[ix])
 
+    def test_stage0_candidate_leaves_wot_path_untouched(self):
+        out_dir = self.ce.OUT_DIR
+        with tempfile.TemporaryDirectory() as d:
+            self.ce.OUT_DIR = d
+            try:
+                plan = self.ce.build_stage0_candidate(write_bin=False)
+            finally:
+                self.ce.OUT_DIR = out_dir
+        v = plan['verification']
+        self.assertTrue(v['checksum_ok'] and v['wot_chain_gear4_unchanged'] and v['gear56_wot_columns_unchanged'])
+        self.assertEqual(v['changed_bytes_outside_known_objects_and_checksums'], [])
+        self.assertTrue(all(c['y'] < self.ce.STAGE0_WOT_Q_MIN_MG for c in plan['cell_changes']
+                            if c['map'] == 'InjCrv_phiBasGear56_MAP'))
+
     def test_vcds_loader(self):
         sessions = tm.load_vcds('logs/vcds/LOG-01-011-003-008.CSV')
         self.assertEqual(len(sessions), 4)

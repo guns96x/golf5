@@ -818,6 +818,85 @@ def build_vnext_candidate(write_bin=True):
     return plan
 
 
+STAGE0_CANDIDATE_NAME = '03G906021QJ_stage0_hotstart-ecocruise_CS_OK.bin'
+STAGE0_WOT_Q_MIN_MG = 40.0  # gear-map columns at/above this are the WOT path and must stay byte-identical
+
+
+def build_stage0_candidate(write_bin=True):
+    """STAGE1-ENGINEERING-PLAN.md Stage 0 alone: hot-start + eco-cruise copied from refined_CS_OK,
+    no WOT-path edit, so it can be flashed and judged independently of MAP0/SOI-limiter."""
+    cur, refined = Firmware(CURRENT_BIN), Firmware(REFINED_BIN)
+    buf = bytearray(cur.data)
+    copied = []
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        a, n = obj.address, obj.size
+        changed = [i for i in range(a, a + n) if cur.data[i] != refined.data[i]]
+        buf[a:a + n] = refined.data[a:a + n]
+        copied.append({'map': name, 'address': '0x%X' % a, 'size_bytes': n,
+                       'bytes_actually_changed': len(changed), 'source': REFINED_BIN})
+    fix_checksums(buf)
+    new = bytes(buf)
+
+    patched = Firmware(CURRENT_BIN)
+    patched.data, patched._c, patched.sha256 = new, {}, hashlib.sha256(new).hexdigest()
+    diff = [i for i in range(len(new)) if new[i] != cur.data[i]]
+    allowed = set()
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        allowed |= set(range(obj.address, obj.address + obj.size))
+    for _, cs in CHECKSUM_BLOCKS:
+        allowed |= set(range(cs, cs + 4))
+    g_old, g_new = cur['InjCrv_phiBasGear56_MAP'], patched['InjCrv_phiBasGear56_MAP']
+    cell_changes = [{'map': name, 'x': o.x[ix], 'y': o.y[iy], 'old': o.grid[ix][iy], 'new': p.grid[ix][iy]}
+                    for name in VNEXT_COPY_FROM_REFINED
+                    for o, p in ((cur[name], patched[name]),)
+                    for ix in range(len(o.x)) for iy in range(len(o.y)) if o.grid[ix][iy] != p.grid[ix][iy]]
+    verify = {
+        'size_bytes': len(new),
+        'checksum_block_sums': ['%08X' % s for s in block_sums(new)],
+        'checksum_ok': all(s == CHECKSUM_TARGET for s in block_sums(new)),
+        'changed_bytes_outside_known_objects_and_checksums': sorted('0x%X' % i for i in diff if i not in allowed),
+        'total_changed_bytes_vs_current': len(diff),
+        'axes_unchanged': all(cur[n].x == patched[n].x and cur[n].y == patched[n].y for n in VNEXT_COPY_FROM_REFINED),
+        'gear56_wot_columns_unchanged': all(g_old.grid[ix][iy] == g_new.grid[ix][iy]
+                                            for ix in range(len(g_old.x)) for iy, q in enumerate(g_old.y)
+                                            if q >= STAGE0_WOT_Q_MIN_MG),
+        'wot_chain_gear4_unchanged': all(chain(cur, r, PLAN_GEAR) == chain(patched, r, PLAN_GEAR) for r in RPM_BINS),
+    }
+    if (not verify['checksum_ok'] or verify['changed_bytes_outside_known_objects_and_checksums']
+            or not verify['axes_unchanged'] or not verify['gear56_wot_columns_unchanged']
+            or not verify['wot_chain_gear4_unchanged']):
+        raise SystemExit('Stage 0 candidate verification FAILED: %s' % verify)
+
+    plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256},
+            'components': ['hot-start fix (HS-250): StSys_trqStrtBas_MAP',
+                           'eco cruise SOI advance: InjCrv_phiBasGear56_MAP (gears 5/6, light load only)'],
+            'copied_objects': copied, 'cell_changes': cell_changes, 'verification': verify, 'candidate_bin': None,
+            'status': 'READY — no WOT-path change (verified: gear-4 static chain identical at every rpm bin, '
+                      'gear 5/6 SOI columns >= 40 mg identical).',
+            'validation_protocol': ['Flash, clear DTCs.',
+                                    'Hot start: engine at operating temperature, stop 10-30 min, restart; compare '
+                                    'cranking time with before.',
+                                    'Cruise 5th/6th at 1750-2250 rpm: no new rattle/harshness; MFA consumption '
+                                    'over the same route.'],
+            'abort_criteria': ['harder or longer hot start', 'audible combustion knock at light cruise', 'new DTC'],
+            'rollback': CURRENT_BIN}
+    if write_bin:
+        os.makedirs(CANDIDATE_DIR, exist_ok=True)
+        out_path = os.path.join(CANDIDATE_DIR, STAGE0_CANDIDATE_NAME)
+        with open(out_path, 'wb') as f:
+            f.write(new)
+        verify['sha256'] = patched.sha256
+        plan['candidate_bin'] = out_path.replace('\\', '/')
+    else:
+        plan['verification_note'] = 'NOT BUILT (plan only)'
+    with open(os.path.join(OUT_DIR, 'candidate-stage0.json'), 'w', encoding='utf-8') as f:
+        json.dump(plan, f, indent=1, ensure_ascii=False)
+    return plan
+
+
 SOI_LIMITER_MAP = 'InjCrv_phiMIMax_MAP'
 SOI_BASE_MAPS = ('InjCrv_phiBasGear34_MAP', 'InjCrv_phiBasGear56_MAP')
 SOI_CHECK_RPM = range(400, 5001, 25)  # dense grid: the limiter and base maps have different rpm nodes
@@ -1362,6 +1441,8 @@ def main():
     b0.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     bn = sub.add_parser('build-vnext')
     bn.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
+    b00 = sub.add_parser('build-stage0')
+    b00.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn2 = sub.add_parser('build-vnext2')
     bn2.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     c = sub.add_parser('chain')
@@ -1416,6 +1497,12 @@ def main():
         print('excluded:', list(plan['excluded_from_refined_CS_OK']))
         print(plan['status'])
         print(plan['verification'])
+    elif args.cmd == 'build-stage0':
+        plan = build_stage0_candidate(write_bin=not args.plan_only)
+        for c in plan['cell_changes']:
+            print('%-26s x=%-7.1f y=%-7.2f %8.3f -> %8.3f' % (c['map'], c['x'], c['y'], c['old'], c['new']))
+        print(plan['status'])
+        print(plan['verification'], plan.get('verification_note', ''), plan['candidate_bin'])
     elif args.cmd == 'build-vnext2':
         plan = build_vnext2_candidate(write_bin=not args.plan_only)
         for c in plan['components']:

@@ -1,0 +1,147 @@
+{
+ "generated_utc": "2026-09-17T08:27:29Z",
+ "base_bin": {
+  "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
+  "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
+ },
+ "components": [
+  "hot-start fix (HS-250): StSys_trqStrtBas_MAP",
+  "eco cruise SOI advance: InjCrv_phiBasGear56_MAP (gears 5/6, light load only)"
+ ],
+ "copied_objects": [
+  {
+   "map": "StSys_trqStrtBas_MAP",
+   "address": "0x1F070C",
+   "size_bytes": 202,
+   "bytes_actually_changed": 8,
+   "source": "03G906021QJ_stage1_refined_CS_OK.bin"
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "address": "0x1DACF8",
+   "size_bytes": 512,
+   "bytes_actually_changed": 9,
+   "source": "03G906021QJ_stage1_refined_CS_OK.bin"
+  }
+ ],
+ "cell_changes": [
+  {
+   "map": "StSys_trqStrtBas_MAP",
+   "x": 250.0,
+   "y": 39.959999999999994,
+   "old": 0.0,
+   "new": 125.0
+  },
+  {
+   "map": "StSys_trqStrtBas_MAP",
+   "x": 250.0,
+   "y": 59.959999999999994,
+   "old": 0.0,
+   "new": 112.0
+  },
+  {
+   "map": "StSys_trqStrtBas_MAP",
+   "x": 250.0,
+   "y": 79.96,
+   "old": 0.0,
+   "new": 108.0
+  },
+  {
+   "map": "StSys_trqStrtBas_MAP",
+   "x": 250.0,
+   "y": 99.96,
+   "old": 0.0,
+   "new": 108.0
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 1750.0,
+   "y": 15.0,
+   "old": 0.3281249999999997,
+   "new": 1.0312499999999991
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 1750.0,
+   "y": 20.0,
+   "old": 2.999999999999998,
+   "new": 3.7031249999999973
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 1750.0,
+   "y": 25.0,
+   "old": 4.0078124999999964,
+   "new": 4.7109374999999964
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 2000.0,
+   "y": 15.0,
+   "old": 1.312499999999999,
+   "new": 2.0156249999999982
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 2000.0,
+   "y": 20.0,
+   "old": 2.999999999999998,
+   "new": 3.7031249999999973
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 2000.0,
+   "y": 25.0,
+   "old": 4.0078124999999964,
+   "new": 4.7109374999999964
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 2250.0,
+   "y": 15.0,
+   "old": 2.3437499999999982,
+   "new": 3.046874999999998
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 2250.0,
+   "y": 20.0,
+   "old": 2.999999999999998,
+   "new": 3.7031249999999973
+  },
+  {
+   "map": "InjCrv_phiBasGear56_MAP",
+   "x": 2250.0,
+   "y": 25.0,
+   "old": 4.1484374999999964,
+   "new": 4.8515624999999964
+  }
+ ],
+ "verification": {
+  "size_bytes": 2097152,
+  "checksum_block_sums": [
+   "D01FE500",
+   "D01FE500"
+  ],
+  "checksum_ok": true,
+  "changed_bytes_outside_known_objects_and_checksums": [],
+  "total_changed_bytes_vs_current": 25,
+  "axes_unchanged": true,
+  "gear56_wot_columns_unchanged": true,
+  "wot_chain_gear4_unchanged": true,
+  "sha256": "9fd6982a222862b3e39db971dbc23c27e1733a81a72e0065795e2d99233aad45"
+ },
+ "candidate_bin": "firmware-candidates/03G906021QJ_stage0_hotstart-ecocruise_CS_OK.bin",
+ "status": "READY — no WOT-path change (verified: gear-4 static chain identical at every rpm bin, gear 5/6 SOI columns >= 40 mg identical).",
+ "validation_protocol": [
+  "Flash, clear DTCs.",
+  "Hot start: engine at operating temperature, stop 10-30 min, restart; compare cranking time with before.",
+  "Cruise 5th/6th at 1750-2250 rpm: no new rattle/harshness; MFA consumption over the same route."
+ ],
+ "abort_criteria": [
+  "harder or longer hot start",
+  "audible combustion knock at light cruise",
+  "new DTC"
+ ],
+ "rollback": "03G906021QJ_stage1_full_power_dpf_egr_off.bin"
+}
