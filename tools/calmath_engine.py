@@ -1280,6 +1280,174 @@ def build_vnext3_candidate(write_bin=True):
     return plan
 
 
+EDGE_LAMBDA_TARGET = 1.10            # power-edge smoke target (DPF physically removed, EGR blanked)
+EDGE_RAISE_MAX_MG = 1.5              # max smoke-cell increase over Stage 1 where fuel still converts (2000-2500)
+EDGE_SOI_MIN_RPM = 3000.0
+EDGE_SOI_Q_COLUMNS = (45.0, 55.0, 60.0)
+EDGE_SOI_MAX_OVER_OEM_DEG = 2.5
+EDGE_SOI_LIMITER_MARGIN_DEG = 0.25
+EDGE_SOI_MAPS = ('InjCrv_phiBasGear34_MAP', 'InjCrv_phiBasGear56_MAP')  # gears 1/2 left as Stage 1
+VNEXT4_CANDIDATE_NAME = '03G906021QJ_vNext4_stage1-edge_CS_OK.bin'
+
+
+def soi_edge_cells(fw, stock):
+    """Earlier main-injection start at 3000+ rpm WOT columns so the (duration - SOI) end-of-injection proxy moves
+    back toward OEM. Per cell: never retard, never above the UNCHANGED OEM SOI limiter minus a margin, never more
+    than EDGE_SOI_MAX_OVER_OEM_DEG over the OEM cell."""
+    lim = stock['InjCrv_phiMIMax_MAP']
+    cells = []
+    for name in EDGE_SOI_MAPS:
+        m, m_oem = fw[name], stock[name]
+        for ix, rpm in enumerate(m.x):
+            if rpm < EDGE_SOI_MIN_RPM:
+                continue
+            cap = min(lim.lookup(rpm, t) for t in lim.y) - EDGE_SOI_LIMITER_MARGIN_DEG
+            for q in EDGE_SOI_Q_COLUMNS:
+                iy = m.y.index(q)
+                old, oem = m.grid[ix][iy], m_oem.grid[ix][iy]
+                new = min(cap, oem + EDGE_SOI_MAX_OVER_OEM_DEG)
+                if new <= old + 1e-6:
+                    continue
+                raw = _encode_raw_s16(m, new)
+                while a2l.to_phys(raw, m.conversion) > new + 1e-9:
+                    raw -= 1
+                addr = _cell_address(m, ix, iy)
+                cells.append({'map': name, 'rpm_node': rpm, 'q_node_mg': q, 'address': '0x%X' % addr,
+                              'old_raw': struct.unpack_from('>h', fw.data, addr)[0], 'new_raw': raw,
+                              'old_deg': old, 'oem_deg': oem, 'new_deg': a2l.to_phys(raw, m.conversion),
+                              'limiter_minus_margin_deg': cap})
+    return cells
+
+
+def _patched(base, buf):
+    fw = Firmware(CURRENT_BIN)
+    fw.data, fw._c, fw.sha256 = bytes(buf), {}, hashlib.sha256(bytes(buf)).hexdigest()
+    return fw
+
+
+def build_vnext4_candidate(write_bin=True):
+    """Power-edge Stage 1: Stage 0 + SOI advance 3000+ rpm (inside OEM limiter) + smoke columns at lambda 1.10
+    derived on the SOI-patched calibration (SOI moves the duration selector, so delivered fuel is recomputed)."""
+    cur, stock, refined = Firmware(CURRENT_BIN), Firmware(STOCK_BIN), Firmware(REFINED_BIN)
+    buf = bytearray(cur.data)
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        buf[obj.address:obj.address + obj.size] = refined.data[obj.address:obj.address + obj.size]
+    step1 = _patched(cur, buf)
+    soi_cells = soi_edge_cells(step1, stock)
+    for c in soi_cells:
+        struct.pack_into('>h', buf, int(c['address'], 16), c['new_raw'])
+    step2 = _patched(cur, buf)
+
+    smoke = step2['FlMng_qPresSmoke_MAP']
+    smoke_cells, ev = [], wot_air_evidence(step2)
+    iy_wot, iy_tr = smoke.y.index(SMOKE_WOT_COLUMN_HPA), smoke.y.index(SMOKE_TRANSIENT_COLUMN_HPA)
+    data_nodes = sorted(ev)
+    for ix, rpm in enumerate(smoke.x):
+        if rpm in ev:
+            e = ev[rpm]
+        elif data_nodes and rpm > data_nodes[-1]:
+            e = dict(ev[data_nodes[-1]], air_mg=ev[data_nodes[-1]]['air_mg'] * SMOKE_ABOVE_DATA_VE_FACTOR)
+        else:
+            continue
+        pc_wot = e['pc_hpa'] or statistics.median(v['pc_hpa'] for v in ev.values() if v['pc_hpa'])
+        oem_wot = chain(stock, rpm, PLAN_GEAR)['q_cmd_clamp_mg']
+        for iy, air in ((iy_wot, e['air_mg']), (iy_tr, e['air_mg'] * SMOKE_TRANSIENT_COLUMN_HPA / pc_wot)):
+            q_eq = air / (SMOKE_AFR_STOICH * EDGE_LAMBDA_TARGET)
+            q_cmd = q_cmd_for_stock_equivalent(step2, stock, rpm, q_eq)
+            old, oem = smoke.grid[ix][iy], stock['FlMng_qPresSmoke_MAP'].grid[ix][iy]
+            if iy == iy_tr:
+                new = max(oem, min(old, q_cmd))
+            else:
+                floor = q_cmd_for_stock_equivalent(step2, stock, rpm, oem_wot)
+                upper = old + EDGE_RAISE_MAX_MG if rpm <= 2500 else old
+                new = max(floor, min(upper, q_cmd))
+            raw = _encode_raw_s16(smoke, new)
+            if raw == _encode_raw_s16(smoke, old):
+                continue
+            addr = _cell_address(smoke, ix, iy)
+            smoke_cells.append({'map': smoke.name, 'rpm_node': rpm, 'pressure_node_hpa': smoke.y[iy],
+                                'address': '0x%X' % addr, 'old_raw': struct.unpack_from('>h', cur.data, addr)[0],
+                                'new_raw': raw, 'old_mg': old, 'new_mg': a2l.to_phys(raw, smoke.conversion),
+                                'target_delivered_mg': q_eq, 'air_mg': air})
+    for c in smoke_cells:
+        struct.pack_into('>h', buf, int(c['address'], 16), c['new_raw'])
+    fix_checksums(buf)
+    new = bytes(buf)
+    patched = _patched(cur, buf)
+
+    diff = [i for i in range(len(new)) if new[i] != cur.data[i]]
+    allowed = set()
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        allowed |= set(range(obj.address, obj.address + obj.size))
+    for c in soi_cells + smoke_cells:
+        a = int(c['address'], 16)
+        allowed |= {a, a + 1}
+    for _, cs in CHECKSUM_BLOCKS:
+        allowed |= set(range(cs, cs + 4))
+    lim = stock['InjCrv_phiMIMax_MAP']
+    s_old, s_new = cur['FlMng_qPresSmoke_MAP'], patched['FlMng_qPresSmoke_MAP']
+    verify = {
+        'checksum_block_sums': ['%08X' % s for s in block_sums(new)],
+        'checksum_ok': all(s == CHECKSUM_TARGET for s in block_sums(new)),
+        'changed_bytes_outside_known_objects_and_checksums': sorted('0x%X' % i for i in diff if i not in allowed),
+        'soi_limiter_unchanged': patched['InjCrv_phiMIMax_MAP'].grid == lim.grid,
+        'soi_edits_within_limiter_and_oem_plus_cap': all(
+            c['new_deg'] <= min(lim.lookup(c['rpm_node'], t) for t in lim.y) + 1e-6 and
+            c['new_deg'] <= c['oem_deg'] + EDGE_SOI_MAX_OVER_OEM_DEG + 1e-6 and c['new_deg'] > c['old_deg']
+            for c in soi_cells),
+        'smoke_raise_bounded': all(s_new.grid[i][j] <= s_old.grid[i][j] + EDGE_RAISE_MAX_MG + 0.03
+                                   for i in range(len(s_old.x)) for j in range(len(s_old.y))),
+    }
+    if (not verify['checksum_ok'] or verify['changed_bytes_outside_known_objects_and_checksums']
+            or not verify['soi_limiter_unchanged'] or not verify['soi_edits_within_limiter_and_oem_plus_cap']
+            or not verify['smoke_raise_bounded']):
+        raise SystemExit('vNext4 candidate verification FAILED: %s' % verify)
+
+    with open(os.path.join(OUT_DIR, 'vcds-analysis.json'), encoding='utf-8') as f:
+        vrows = json.load(f)['rows']
+    effects = []
+    for rpm in range(2000, 4001, 250):
+        rows = [r for r in vrows if r['rpm'] == rpm and r['gear'] == PLAN_GEAR]
+        if not rows:
+            continue
+        q_rt = statistics.median(r['q_runtime_mg'] for r in rows)
+        air = statistics.median(r['maf_act_mg'] for r in rows)
+        q_new = min(chain(patched, rpm, PLAN_GEAR)['q_cmd_clamp_mg'], s_new.lookup(rpm, SMOKE_WOT_COLUMN_HPA))
+        a, b = chain_with_q(cur, rpm, PLAN_GEAR, q_rt), chain_with_q(patched, rpm, PLAN_GEAR, q_new)
+        eq_a = stock_equivalent_q(cur, stock, rpm, q_rt, PLAN_GEAR)[0]
+        eq_b = stock_equivalent_q(patched, stock, rpm, q_new, PLAN_GEAR)[0]
+        burned = [r['implied_burned_q_mg']['p50'] for r in rows if r.get('implied_burned_q_mg')]
+        effects.append({'rpm': rpm, 'delivered_before_mg': eq_a, 'delivered_after_mg': eq_b,
+                        'lambda_before': ph.lambda_from(air, eq_a, SMOKE_AFR_STOICH),
+                        'lambda_after': ph.lambda_from(air, eq_b, SMOKE_AFR_STOICH),
+                        'soi_before': a['soi_deg_btdc_hyp'], 'soi_after': b['soi_deg_btdc_hyp'],
+                        'eoi_proxy_before': a['electrical_command_end_proxy_deg_atdc'],
+                        'eoi_proxy_after': b['electrical_command_end_proxy_deg_atdc'],
+                        'burned_p50_now_mg': statistics.median(burned) if burned else None})
+    plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256}, 'lambda_target': EDGE_LAMBDA_TARGET,
+            'soi_cells': soi_cells, 'smoke_cells': smoke_cells, 'predicted_effect_gear4': effects,
+            'verification': verify, 'candidate_bin': None,
+            'not_changed_on_purpose': {
+                'InjCrv_phiMIMax_MAP': 'OEM SOI limiter is the peak-pressure guard; all advance stays below it',
+                'InjCrv_phiBasGear12_MAP': 'gears 1/2 keep Stage 1 timing (fast transients, traction)',
+                'PCR_* boost': 'overshoot to 2420-2470 hPa in 5th must be understood from a fast group-011 log first',
+                'low-rpm torque (<2000)': 'kept at Stage 1 (~310 Nm inner) per user choice: power over DMF margin'},
+            'rollback': CURRENT_BIN}
+    if write_bin:
+        os.makedirs(CANDIDATE_DIR, exist_ok=True)
+        out_path = os.path.join(CANDIDATE_DIR, VNEXT4_CANDIDATE_NAME)
+        with open(out_path, 'wb') as f:
+            f.write(new)
+        verify['sha256'] = patched.sha256
+        plan['candidate_bin'] = out_path.replace('\\', '/')
+    with open(os.path.join(OUT_DIR, 'candidate-vnext4.json'), 'w', encoding='utf-8') as f:
+        json.dump(plan, f, indent=1, ensure_ascii=False, default=str)
+    return plan
+
+
 def candidate_plan_record(cur, stock, vres, cons, report, checks, cells, fitted, smoke):
     # predicted lambda per logged VCDS pull (same stock-equivalent basis, measured air)
     lam = []
@@ -1640,6 +1808,8 @@ def main():
     bn.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     b00 = sub.add_parser('build-stage0')
     b00.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
+    bn4 = sub.add_parser('build-vnext4')
+    bn4.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn3 = sub.add_parser('build-vnext3')
     bn3.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn2 = sub.add_parser('build-vnext2')
@@ -1702,6 +1872,11 @@ def main():
             print('%-26s x=%-7.1f y=%-7.2f %8.3f -> %8.3f' % (c['map'], c['x'], c['y'], c['old'], c['new']))
         print(plan['status'])
         print(plan['verification'], plan.get('verification_note', ''), plan['candidate_bin'])
+    elif args.cmd == 'build-vnext4':
+        plan = build_vnext4_candidate(write_bin=not args.plan_only)
+        for e in plan['predicted_effect_gear4']:
+            print('rpm %4d delivered %.1f -> %.1f mg  lambda %.2f -> %.2f  SOI %.1f -> %.1f  EOI proxy %.1f -> %.1f' % (e['rpm'], e['delivered_before_mg'], e['delivered_after_mg'], e['lambda_before'], e['lambda_after'], e['soi_before'], e['soi_after'], e['eoi_proxy_before'], e['eoi_proxy_after']))
+        print(plan['verification'], plan['candidate_bin'])
     elif args.cmd == 'build-vnext3':
         plan = build_vnext3_candidate(write_bin=not args.plan_only)
         for c in plan['smoke_cells']:

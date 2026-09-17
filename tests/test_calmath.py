@@ -239,6 +239,26 @@ class RuntimeAnalysis(unittest.TestCase):
                 oem = self.ce.chain(self.stock, c['rpm_node'], 4)['q_cmd_clamp_mg']
                 self.assertGreater(c['target_delivered_mg'], oem * 1.15)  # still well above OEM WOT fuel
 
+    def test_vnext4_edge_stays_inside_oem_limiter_and_bounds(self):
+        out_dir = self.ce.OUT_DIR
+        with tempfile.TemporaryDirectory() as d:
+            import shutil
+            shutil.copy(os.path.join(out_dir, 'vcds-analysis.json'), d)
+            self.ce.OUT_DIR = d
+            try:
+                plan = self.ce.build_vnext4_candidate(write_bin=False)
+            finally:
+                self.ce.OUT_DIR = out_dir
+        v = plan['verification']
+        self.assertTrue(v['checksum_ok'] and v['soi_limiter_unchanged'] and v['soi_edits_within_limiter_and_oem_plus_cap'])
+        self.assertEqual(v['changed_bytes_outside_known_objects_and_checksums'], [])
+        self.assertTrue(all(c['rpm_node'] >= 3000 for c in plan['soi_cells']))
+        for e in plan['predicted_effect_gear4']:
+            self.assertGreaterEqual(e['lambda_after'], 1.05, e)
+            if e['rpm'] >= 3000:
+                self.assertLess(e['eoi_proxy_after'], e['eoi_proxy_before'])
+                self.assertGreaterEqual(e['delivered_after_mg'], (e['burned_p50_now_mg'] or 0))
+
     def test_vcds_loader(self):
         sessions = tm.load_vcds('logs/vcds/LOG-01-011-003-008.CSV')
         self.assertEqual(len(sessions), 4)
