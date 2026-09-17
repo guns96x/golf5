@@ -1,10 +1,10 @@
 {
- "generated_utc": "2026-09-17T10:35:46Z",
+ "generated_utc": "2026-09-17T10:35:45Z",
  "base_bin": {
   "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
   "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
  },
- "lambda_target": 1.1,
+ "lambda_target": 1.15,
  "soi_cells": [
   {
    "map": "InjCrv_phiBasGear34_MAP",
@@ -302,10 +302,10 @@
    "pressure_node_hpa": 2000.0,
    "address": "0x1D65BA",
    "old_raw": 5650,
-   "new_raw": 5630,
+   "new_raw": 5414,
    "old_mg": 56.5,
-   "new_mg": 56.3,
-   "target_delivered_mg": 60.285691320174074,
+   "new_mg": 54.14,
+   "target_delivered_mg": 57.66457430625348,
    "air_mg": 961.5567765567765
   },
   {
@@ -314,10 +314,10 @@
    "pressure_node_hpa": 1800.0,
    "address": "0x1D65B8",
    "old_raw": 5158,
-   "new_raw": 4808,
+   "new_raw": 4599,
    "old_mg": 51.58,
-   "new_mg": 48.08,
-   "target_delivered_mg": 48.08437269828939,
+   "new_mg": 45.99,
+   "target_delivered_mg": 45.99374779836378,
    "air_mg": 766.9457445377159
   },
   {
@@ -326,10 +326,10 @@
    "pressure_node_hpa": 2000.0,
    "address": "0x1D65D2",
    "old_raw": 5650,
-   "new_raw": 5688,
+   "new_raw": 5465,
    "old_mg": 56.5,
-   "new_mg": 56.88,
-   "target_delivered_mg": 61.4762493962672,
+   "new_mg": 54.65,
+   "target_delivered_mg": 58.803368987733855,
    "air_mg": 980.5461778704619
   },
   {
@@ -338,10 +338,10 @@
    "pressure_node_hpa": 1800.0,
    "address": "0x1D65D0",
    "old_raw": 5098,
-   "new_raw": 4653,
+   "new_raw": 4512,
    "old_mg": 50.98,
-   "new_mg": 46.53,
-   "target_delivered_mg": 46.52577568549172,
+   "new_mg": 45.12,
+   "target_delivered_mg": 44.50291587307905,
    "air_mg": 742.086122183593
   },
   {
@@ -350,10 +350,10 @@
    "pressure_node_hpa": 2000.0,
    "address": "0x1D65EA",
    "old_raw": 5650,
-   "new_raw": 5800,
+   "new_raw": 5571,
    "old_mg": 56.5,
-   "new_mg": 58.0,
-   "target_delivered_mg": 61.432056989835175,
+   "new_mg": 55.71,
+   "target_delivered_mg": 58.761097990277136,
    "air_mg": 979.8413089878711
   },
   {
@@ -365,7 +365,7 @@
    "new_raw": 4567,
    "old_mg": 51.6,
    "new_mg": 45.67,
-   "target_delivered_mg": 44.76651170761058,
+   "target_delivered_mg": 42.82014163336665,
    "air_mg": 714.0258617363888
   },
   {
@@ -374,10 +374,10 @@
    "pressure_node_hpa": 2000.0,
    "address": "0x1D6602",
    "old_raw": 5650,
-   "new_raw": 5789,
+   "new_raw": 5542,
    "old_mg": 56.5,
-   "new_mg": 57.89,
-   "target_delivered_mg": 61.13178009729734,
+   "new_mg": 55.42,
+   "target_delivered_mg": 58.473876614806166,
    "air_mg": 975.0518925518926
   },
   {
@@ -389,7 +389,7 @@
    "new_raw": 4610,
    "old_mg": 52.09,
    "new_mg": 46.1,
-   "target_delivered_mg": 45.27074327626251,
+   "target_delivered_mg": 43.302450090338056,
    "air_mg": 722.068355256387
   },
   {
@@ -398,10 +398,10 @@
    "pressure_node_hpa": 2000.0,
    "address": "0x1D661A",
    "old_raw": 6780,
-   "new_raw": 5339,
+   "new_raw": 5224,
    "old_mg": 67.8,
-   "new_mg": 53.39,
-   "target_delivered_mg": 56.42106372329496,
+   "new_mg": 52.24,
+   "target_delivered_mg": 53.96797399619519,
    "air_mg": 899.9159663865546
   },
   {
@@ -413,7 +413,7 @@
    "new_raw": 4557,
    "old_mg": 51.49,
    "new_mg": 45.57,
-   "target_delivered_mg": 44.503390881783226,
+   "target_delivered_mg": 42.56846084344483,
    "air_mg": 709.8290845644425
   },
   {
@@ -422,10 +422,10 @@
    "pressure_node_hpa": 2000.0,
    "address": "0x1D6632",
    "old_raw": 6780,
-   "new_raw": 5097,
+   "new_raw": 4892,
    "old_mg": 67.8,
-   "new_mg": 50.97,
-   "target_delivered_mg": 51.139779643464124,
+   "new_mg": 48.92,
+   "target_delivered_mg": 48.91631096331352,
    "air_mg": 815.6794853132528
   },
   {
@@ -437,7 +437,7 @@
    "new_raw": 4377,
    "old_mg": 49.46,
    "new_mg": 43.77,
-   "target_delivered_mg": 41.6495965428598,
+   "target_delivered_mg": 39.838744519257205,
    "air_mg": 664.3110648586138
   },
   {
@@ -446,10 +446,10 @@
    "pressure_node_hpa": 2000.0,
    "address": "0x1D664A",
    "old_raw": 6780,
-   "new_raw": 4858,
+   "new_raw": 4647,
    "old_mg": 67.8,
-   "new_mg": 48.58,
-   "target_delivered_mg": 48.582790661290915,
+   "new_mg": 46.47,
+   "target_delivered_mg": 46.470495415147845,
    "air_mg": 774.8955110475902
   },
   {
@@ -461,7 +461,7 @@
    "new_raw": 4469,
    "old_mg": 50.49,
    "new_mg": 44.69,
-   "target_delivered_mg": 39.56711671571681,
+   "target_delivered_mg": 37.84680729329435,
    "air_mg": 631.0955116156831
   }
  ],
@@ -469,109 +469,109 @@
   {
    "rpm": 2000,
    "delivered_before_mg": 60.2224612214755,
-   "delivered_after_mg": 61.47303850528026,
+   "delivered_after_mg": 58.811869827090035,
    "lambda_before": 1.1152075030913355,
-   "lambda_after": 1.0925202697284548,
+   "lambda_after": 1.1419555407143485,
    "soi_before": 15.960937499999988,
-   "soi_after": 15.960937499999988,
+   "soi_after": 15.919921874999988,
    "eoi_proxy_before": 13.672782881859975,
-   "eoi_proxy_after": 14.276145903010024,
+   "eoi_proxy_after": 13.020230651651326,
    "burned_p50_now_mg": 61.60419198591798
   },
   {
    "rpm": 2250,
    "delivered_before_mg": 58.51781313120526,
-   "delivered_after_mg": 61.22985093751335,
+   "delivered_after_mg": 58.75807307905865,
    "lambda_before": 1.1569946785716305,
-   "lambda_after": 1.1057482152544855,
+   "lambda_after": 1.1522637630297567,
    "soi_before": 16.992187499999986,
    "soi_after": 16.992187499999986,
    "eoi_proxy_before": 13.307328349944875,
-   "eoi_proxy_after": 15.298244147157178,
+   "eoi_proxy_after": 13.483703961120394,
    "burned_p50_now_mg": 59.69878120286451
   },
   {
    "rpm": 2500,
    "delivered_before_mg": 58.75343498813085,
-   "delivered_after_mg": 61.12888657240168,
+   "delivered_after_mg": 58.471565280214676,
    "lambda_before": 1.1268180917577213,
-   "lambda_after": 1.0830302531213902,
+   "lambda_after": 1.132250063432779,
    "soi_before": 17.999999999999986,
    "soi_after": 17.999999999999986,
    "eoi_proxy_before": 13.707647752926398,
-   "eoi_proxy_after": 15.511766983695637,
+   "eoi_proxy_after": 13.493572010869556,
    "burned_p50_now_mg": 57.714560264257784
   },
   {
    "rpm": 2750,
    "delivered_before_mg": 64.176754868654,
-   "delivered_after_mg": 59.448223359969376,
+   "delivered_after_mg": 57.10743208151024,
    "lambda_before": 1.0155597181002993,
-   "lambda_after": 1.0963376767099378,
+   "lambda_after": 1.141275744809828,
    "soi_before": 20.578124999999982,
-   "soi_after": 20.578124999999982,
+   "soi_after": 20.399882812499982,
    "eoi_proxy_before": 16.669941471571892,
-   "eoi_proxy_after": 13.571438754180594,
+   "eoi_proxy_after": 12.15097188257733,
    "burned_p50_now_mg": 57.692722738951986
   },
   {
    "rpm": 3000,
    "delivered_before_mg": 66.1722804882414,
-   "delivered_after_mg": 56.42065154200638,
+   "delivered_after_mg": 53.96583370831459,
    "lambda_before": 0.9101125489341286,
-   "lambda_after": 1.0674145231927934,
+   "lambda_after": 1.1159694704143643,
    "soi_before": 22.242187499999982,
    "soi_after": 22.734374999999982,
    "eoi_proxy_before": 16.918504389632094,
-   "eoi_proxy_after": 12.362247805183937,
+   "eoi_proxy_after": 11.085408862876246,
    "burned_p50_now_mg": 50.85470777995717
   },
   {
    "rpm": 3250,
    "delivered_before_mg": 62.449009754655634,
-   "delivered_after_mg": 54.29092337217271,
+   "delivered_after_mg": 52.17242440027415,
    "lambda_before": 0.9354539342730346,
-   "lambda_after": 1.0760209670036753,
+   "lambda_after": 1.1197135754753378,
    "soi_before": 24.515624999999982,
    "soi_after": 25.19531249999998,
    "eoi_proxy_before": 15.354854724080258,
-   "eoi_proxy_after": 11.352394910117049,
+   "eoi_proxy_after": 10.140977947324409,
    "burned_p50_now_mg": 46.63091711118072
   },
   {
    "rpm": 3500,
    "delivered_before_mg": 60.115954955959396,
-   "delivered_after_mg": 53.03733310213282,
+   "delivered_after_mg": 50.80809779781515,
    "lambda_before": 0.9543679750635143,
-   "lambda_after": 1.0817425923329702,
+   "lambda_after": 1.1292046875802453,
    "soi_before": 25.89843749999998,
    "soi_after": 26.48437499999998,
    "eoi_proxy_before": 14.75347512541805,
-   "eoi_proxy_after": 11.15449101170568,
+   "eoi_proxy_after": 9.945210075250827,
    "burned_p50_now_mg": 43.49182865337029
   },
   {
    "rpm": 3750,
    "delivered_before_mg": 57.18065466216984,
-   "delivered_after_mg": 51.961779243121185,
+   "delivered_after_mg": 49.749999999999986,
    "lambda_before": 0.9895567970773337,
-   "lambda_after": 1.0889447264216332,
+   "lambda_after": 1.1373568941162195,
    "soi_before": 27.52734374999998,
-   "soi_after": 27.57949218749998,
+   "soi_after": 27.45117187499998,
    "eoi_proxy_before": 13.819593959030087,
-   "eoi_proxy_after": 11.322508005199616,
+   "eoi_proxy_after": 10.249993957723653,
    "burned_p50_now_mg": 41.285189718908775
   },
   {
    "rpm": 4000,
    "delivered_before_mg": 56.29267010546374,
-   "delivered_after_mg": 51.134610278948784,
+   "delivered_after_mg": 48.91999999999999,
    "lambda_before": 0.9964135834195949,
-   "lambda_after": 1.0969239979351872,
+   "lambda_after": 1.1465817894530304,
    "soi_before": 28.00781249999998,
    "soi_after": 28.00781249999998,
    "eoi_proxy_before": 14.311454849498311,
-   "eoi_proxy_after": 11.66778809573578,
+   "eoi_proxy_after": 10.430603678929756,
    "burned_p50_now_mg": 37.25767026364905
   }
  ],
@@ -585,9 +585,9 @@
   "soi_limiter_unchanged": true,
   "soi_edits_within_limiter_and_oem_plus_cap": true,
   "smoke_raise_bounded": true,
-  "sha256": "3ea5949bd8c71e098068a06dc0611395207ad39012af400f346f2d1314bf4cbc"
+  "sha256": "23c32e88002ea57d2490962fa8f3b4590d5f08f5c626383fc673573991d922ea"
  },
- "candidate_bin": "firmware-candidates/03G906021QJ_vNext4_stage1-edge_CS_OK.bin",
+ "candidate_bin": "firmware-candidates/03G906021QJ_vNext5_stage1-balanced_CS_OK.bin",
  "not_changed_on_purpose": {
   "InjCrv_phiMIMax_MAP": "OEM SOI limiter is the peak-pressure guard; all advance stays below it",
   "InjCrv_phiBasGear12_MAP": "gears 1/2 keep Stage 1 timing (fast transients, traction)",

@@ -1325,7 +1325,19 @@ def _patched(base, buf):
     return fw
 
 
-def build_vnext4_candidate(write_bin=True):
+VNEXT5_CANDIDATE_NAME = '03G906021QJ_vNext5_stage1-balanced_CS_OK.bin'
+BALANCED_LAMBDA_TARGET = 1.15  # ecuedit practitioners: AFR 17-18 smokeless on 1.9 PD 105hp
+
+
+def build_vnext5_candidate(write_bin=True):
+    """Balanced Stage 1 (owner priorities: pull + engine life + fuel economy): vNext4 SOI/EOI correction, smoke at
+    lambda 1.15, no fuel added anywhere (2000-2500 rpm stays at the Stage 1 ~320 Nm plateau, clutch-friendly)."""
+    return build_vnext4_candidate(write_bin, lambda_target=BALANCED_LAMBDA_TARGET, raise_max_mg=0.0,
+                                  out_name=VNEXT5_CANDIDATE_NAME, json_name='candidate-vnext5.json')
+
+
+def build_vnext4_candidate(write_bin=True, lambda_target=EDGE_LAMBDA_TARGET, raise_max_mg=EDGE_RAISE_MAX_MG,
+                           out_name=VNEXT4_CANDIDATE_NAME, json_name='candidate-vnext4.json'):
     """Power-edge Stage 1: Stage 0 + SOI advance 3000+ rpm (inside OEM limiter) + smoke columns at lambda 1.10
     derived on the SOI-patched calibration (SOI moves the duration selector, so delivered fuel is recomputed)."""
     cur, stock, refined = Firmware(CURRENT_BIN), Firmware(STOCK_BIN), Firmware(REFINED_BIN)
@@ -1353,14 +1365,14 @@ def build_vnext4_candidate(write_bin=True):
         pc_wot = e['pc_hpa'] or statistics.median(v['pc_hpa'] for v in ev.values() if v['pc_hpa'])
         oem_wot = chain(stock, rpm, PLAN_GEAR)['q_cmd_clamp_mg']
         for iy, air in ((iy_wot, e['air_mg']), (iy_tr, e['air_mg'] * SMOKE_TRANSIENT_COLUMN_HPA / pc_wot)):
-            q_eq = air / (SMOKE_AFR_STOICH * EDGE_LAMBDA_TARGET)
+            q_eq = air / (SMOKE_AFR_STOICH * lambda_target)
             q_cmd = q_cmd_for_stock_equivalent(step2, stock, rpm, q_eq)
             old, oem = smoke.grid[ix][iy], stock['FlMng_qPresSmoke_MAP'].grid[ix][iy]
             if iy == iy_tr:
                 new = max(oem, min(old, q_cmd))
             else:
                 floor = q_cmd_for_stock_equivalent(step2, stock, rpm, oem_wot)
-                upper = old + EDGE_RAISE_MAX_MG if rpm <= 2500 else old
+                upper = old + raise_max_mg if rpm <= 2500 else old
                 new = max(floor, min(upper, q_cmd))
             raw = _encode_raw_s16(smoke, new)
             if raw == _encode_raw_s16(smoke, old):
@@ -1397,7 +1409,7 @@ def build_vnext4_candidate(write_bin=True):
             c['new_deg'] <= min(lim.lookup(c['rpm_node'], t) for t in lim.y) + 1e-6 and
             c['new_deg'] <= c['oem_deg'] + EDGE_SOI_MAX_OVER_OEM_DEG + 1e-6 and c['new_deg'] > c['old_deg']
             for c in soi_cells),
-        'smoke_raise_bounded': all(s_new.grid[i][j] <= s_old.grid[i][j] + EDGE_RAISE_MAX_MG + 0.03
+        'smoke_raise_bounded': all(s_new.grid[i][j] <= s_old.grid[i][j] + raise_max_mg + 0.03
                                    for i in range(len(s_old.x)) for j in range(len(s_old.y))),
     }
     if (not verify['checksum_ok'] or verify['changed_bytes_outside_known_objects_and_checksums']
@@ -1427,7 +1439,7 @@ def build_vnext4_candidate(write_bin=True):
                         'eoi_proxy_after': b['electrical_command_end_proxy_deg_atdc'],
                         'burned_p50_now_mg': statistics.median(burned) if burned else None})
     plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256}, 'lambda_target': EDGE_LAMBDA_TARGET,
+            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256}, 'lambda_target': lambda_target,
             'soi_cells': soi_cells, 'smoke_cells': smoke_cells, 'predicted_effect_gear4': effects,
             'verification': verify, 'candidate_bin': None,
             'not_changed_on_purpose': {
@@ -1438,12 +1450,12 @@ def build_vnext4_candidate(write_bin=True):
             'rollback': CURRENT_BIN}
     if write_bin:
         os.makedirs(CANDIDATE_DIR, exist_ok=True)
-        out_path = os.path.join(CANDIDATE_DIR, VNEXT4_CANDIDATE_NAME)
+        out_path = os.path.join(CANDIDATE_DIR, out_name)
         with open(out_path, 'wb') as f:
             f.write(new)
         verify['sha256'] = patched.sha256
         plan['candidate_bin'] = out_path.replace('\\', '/')
-    with open(os.path.join(OUT_DIR, 'candidate-vnext4.json'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(OUT_DIR, json_name), 'w', encoding='utf-8') as f:
         json.dump(plan, f, indent=1, ensure_ascii=False, default=str)
     return plan
 
@@ -1808,6 +1820,8 @@ def main():
     bn.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     b00 = sub.add_parser('build-stage0')
     b00.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
+    bn5 = sub.add_parser('build-vnext5')
+    bn5.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn4 = sub.add_parser('build-vnext4')
     bn4.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn3 = sub.add_parser('build-vnext3')
@@ -1872,8 +1886,8 @@ def main():
             print('%-26s x=%-7.1f y=%-7.2f %8.3f -> %8.3f' % (c['map'], c['x'], c['y'], c['old'], c['new']))
         print(plan['status'])
         print(plan['verification'], plan.get('verification_note', ''), plan['candidate_bin'])
-    elif args.cmd == 'build-vnext4':
-        plan = build_vnext4_candidate(write_bin=not args.plan_only)
+    elif args.cmd in ('build-vnext4', 'build-vnext5'):
+        plan = (build_vnext5_candidate if args.cmd == 'build-vnext5' else build_vnext4_candidate)(write_bin=not args.plan_only)
         for e in plan['predicted_effect_gear4']:
             print('rpm %4d delivered %.1f -> %.1f mg  lambda %.2f -> %.2f  SOI %.1f -> %.1f  EOI proxy %.1f -> %.1f' % (e['rpm'], e['delivered_before_mg'], e['delivered_after_mg'], e['lambda_before'], e['lambda_after'], e['soi_before'], e['soi_after'], e['eoi_proxy_before'], e['eoi_proxy_after']))
         print(plan['verification'], plan['candidate_bin'])

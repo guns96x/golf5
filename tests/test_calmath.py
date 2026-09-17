@@ -259,6 +259,23 @@ class RuntimeAnalysis(unittest.TestCase):
                 self.assertLess(e['eoi_proxy_after'], e['eoi_proxy_before'])
                 self.assertGreaterEqual(e['delivered_after_mg'], (e['burned_p50_now_mg'] or 0))
 
+    def test_vnext5_balanced_adds_no_fuel_and_hits_lambda(self):
+        out_dir = self.ce.OUT_DIR
+        with tempfile.TemporaryDirectory() as d:
+            import shutil
+            shutil.copy(os.path.join(out_dir, 'vcds-analysis.json'), d)
+            self.ce.OUT_DIR = d
+            try:
+                plan = self.ce.build_vnext5_candidate(write_bin=False)
+            finally:
+                self.ce.OUT_DIR = out_dir
+        self.assertTrue(plan['verification']['checksum_ok'] and plan['verification']['soi_limiter_unchanged'])
+        self.assertTrue(all(c['new_mg'] <= c['old_mg'] + 1e-9 for c in plan['smoke_cells']))
+        for e in plan['predicted_effect_gear4']:
+            self.assertGreaterEqual(e['lambda_after'], 1.11, e)
+            # before = logged runtime q, after = modelled request; <=0.5 mg is model spread, smoke cells never rise
+            self.assertLessEqual(e['delivered_after_mg'], e['delivered_before_mg'] + 0.5, e)
+
     def test_vcds_loader(self):
         sessions = tm.load_vcds('logs/vcds/LOG-01-011-003-008.CSV')
         self.assertEqual(len(sessions), 4)
