@@ -27,6 +27,7 @@ GEAR_KMH_PER_RPM = {3: 0.0255, 4: 0.0357, 5: 0.0465}
 CHANNELS = ('boost_spec_mbar', 'map_mbar', 'n75_duty_pct', 'maf_act_mg', 'trq_request_nm', 'trq_limit_nm', 'trq_smoke_nm')
 MC_DRAWS = 3000
 ABORT_MAP_MBAR = 2450
+WOT_SPEC_MIN_MBAR = 2100
 # rpm rise rate reference at 2500 rpm from the 2026-09-16 phone pulls (vcds-analysis.json gear_reference).
 # A VCDS log has no road speed, so the gear is taken from the pull's own rate at 2750 rpm; the torque change
 # 2500->2750 is small next to the ~2x rate step between gears. Unclassified pulls are excluded, not guessed.
@@ -60,7 +61,10 @@ def pulls_from(paths, gear):
                 t_lo, t_hi = dyno.time_at_rpm(seg, 2750), dyno.time_at_rpm(seg, min(4000, seg[-1][1]))
                 win = [x for x in series.get('map_mbar', []) if seg[0][0] <= x[0] <= seg[-1][0]]
                 spec = series.get('boost_spec_mbar', [])
-                errs = [m - tm.interp_at(spec, t) for t, m, _ in win if tm.interp_at(spec, t) is not None]
+                # boost error only while the ECU requests full boost: at the lift the spec collapses to ~1200 mbar
+                # while MAP is still high, which is not an overshoot
+                errs = [m - tm.interp_at(spec, t) for t, m, _ in win
+                        if (tm.interp_at(spec, t) or 0) >= WOT_SPEC_MIN_MBAR]
                 out.append({'name': name, 'series': series, 'seg': seg, 'kmh_per_rpm': GEAR_KMH_PER_RPM[gear],
                             'gear_from_rate': g_rate, 'rate_2750_rpm_s': rate,
                             'groups': meta['groups'], 'sample_interval_011_s': interval,
