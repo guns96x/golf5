@@ -1,0 +1,143 @@
+{
+ "generated_utc": "2026-09-17T14:54:59Z",
+ "base_bin": {
+  "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
+  "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
+ },
+ "cells": [
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 3000.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D661A",
+   "old_raw": 6780,
+   "new_raw": 6355,
+   "old_mg": 67.8,
+   "new_mg": 63.55
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 4000.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D6632",
+   "old_raw": 6780,
+   "new_raw": 4880,
+   "old_mg": 67.8,
+   "new_mg": 48.8
+  }
+ ],
+ "gate_per_bin": [
+  {
+   "rpm": 2750,
+   "delivered_now_mg": 64.176754868654,
+   "burned_p95_mg": 68.27922823184743,
+   "lambda115_fuel_mg": 56.67419746348025,
+   "gate_min_delivered_mg": 64.176754868654,
+   "q_runtime_now_mg": 61.459681096681095,
+   "q_cmd_new_mg": 60.025,
+   "delivered_new_mg": 64.176754868654,
+   "eoi_proxy_now": 16.669941471571892,
+   "eoi_proxy_new": 16.669941471571892
+  },
+  {
+   "rpm": 3000,
+   "delivered_now_mg": 66.1722804882414,
+   "burned_p95_mg": 66.24032598778504,
+   "lambda115_fuel_mg": 52.368889446902166,
+   "gate_min_delivered_mg": 66.1722804882414,
+   "q_runtime_now_mg": 62.16586363636364,
+   "q_cmd_new_mg": 62.16586363636364,
+   "delivered_new_mg": 66.1722804882414,
+   "eoi_proxy_now": 16.918504389632094,
+   "eoi_proxy_new": 16.918504389632094
+  },
+  {
+   "rpm": 3250,
+   "delivered_now_mg": 62.449009754655634,
+   "burned_p95_mg": 59.10552101860884,
+   "lambda115_fuel_mg": 50.798410318650205,
+   "gate_min_delivered_mg": 59.10552101860884,
+   "q_runtime_now_mg": 62.212,
+   "q_cmd_new_mg": 59.8625,
+   "delivered_new_mg": 62.36219331953886,
+   "eoi_proxy_now": 15.354854724080258,
+   "eoi_proxy_new": 15.318019439799318
+  },
+  {
+   "rpm": 3500,
+   "delivered_now_mg": 60.115954955959396,
+   "burned_p95_mg": 53.22579968200675,
+   "lambda115_fuel_mg": 49.88934104376384,
+   "gate_min_delivered_mg": 53.22579968200675,
+   "q_runtime_now_mg": 61.78909090909091,
+   "q_cmd_new_mg": 56.175,
+   "delivered_new_mg": 58.58450496153418,
+   "eoi_proxy_now": 14.75347512541805,
+   "eoi_proxy_new": 14.107466685827752
+  },
+  {
+   "rpm": 3750,
+   "delivered_now_mg": 57.18065466216984,
+   "burned_p95_mg": 47.92506858615872,
+   "lambda115_fuel_mg": 49.20304824546253,
+   "gate_min_delivered_mg": 49.20304824546253,
+   "q_runtime_now_mg": 61.309515074211504,
+   "q_cmd_new_mg": 52.4875,
+   "delivered_new_mg": 53.31689052735938,
+   "eoi_proxy_now": 13.819593959030087,
+   "eoi_proxy_new": 12.346232132376464
+  },
+  {
+   "rpm": 4000,
+   "delivered_now_mg": 56.29267010546374,
+   "burned_p95_mg": 43.53256350416083,
+   "lambda115_fuel_mg": 48.7745922956889,
+   "gate_min_delivered_mg": 48.7745922956889,
+   "q_runtime_now_mg": 61.11181818181818,
+   "q_cmd_new_mg": 48.8,
+   "delivered_new_mg": 48.8,
+   "eoi_proxy_now": 14.311454849498311,
+   "eoi_proxy_new": 10.461062583612033
+  }
+ ],
+ "fit_report": [
+  {
+   "rpm_node": 3000.0,
+   "current_mg": 67.8,
+   "fitted_mg": 63.55,
+   "constrained_bins": [
+    2750,
+    3000
+   ]
+  },
+  {
+   "rpm_node": 4000.0,
+   "current_mg": 67.8,
+   "fitted_mg": 48.8,
+   "constrained_bins": [
+    3250,
+    3500,
+    3750,
+    4000
+   ]
+  }
+ ],
+ "verification": {
+  "checksum_block_sums": [
+   "D01FE500",
+   "D01FE500"
+  ],
+  "checksum_ok": true,
+  "changed_bytes_outside_cells_and_checksums": [],
+  "torque_gate_holds_every_bin": true,
+  "all_other_smoke_cells_unchanged": true,
+  "never_raised": true,
+  "sha256": "4f7d9ff98e8e672226b017f283ba537e6e374cd54069a6a5e74a4f6f1a074d21"
+ },
+ "candidate_bin": "firmware-candidates/03G906021QJ_vNext6.1_fuel-3000-4000-gated_CS_OK.bin",
+ "status": "EXPERIMENT — model indicates inefficient fuel use at 3000-4000 rpm; this is not a measurement of unburnt fuel. Gate keeps delivered fuel >= P95 burned estimate and >= lambda 1.15 fuel.",
+ "validation_protocol": [
+  "A/B against the current file, same road: 3rd/4th/5th WOT 2000->4000, VCDS groups 011+008 (or phone OBD log), compare pull time, boost, MAF, IAT."
+ ],
+ "rollback": "03G906021QJ_stage1_full_power_dpf_egr_off.bin"
+}

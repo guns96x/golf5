@@ -291,6 +291,25 @@ class RuntimeAnalysis(unittest.TestCase):
         # no SOI object touched: only Stage 0 objects + smoke cells differ
         self.assertTrue(all(c['map'] == 'FlMng_qPresSmoke_MAP' for c in plan['smoke_cells']))
 
+    def test_vnext61_gated_fuel_only_3000_4000(self):
+        out_dir = self.ce.OUT_DIR
+        with tempfile.TemporaryDirectory() as d:
+            import shutil
+            for f in ('vcds-analysis.json', 'current-analysis.json'):
+                shutil.copy(os.path.join(out_dir, f), d)
+            self.ce.OUT_DIR = d
+            try:
+                plan = self.ce.build_vnext61_candidate(write_bin=False)
+            finally:
+                self.ce.OUT_DIR = out_dir
+        v = plan['verification']
+        self.assertTrue(v['checksum_ok'] and v['torque_gate_holds_every_bin'] and v['all_other_smoke_cells_unchanged'])
+        self.assertEqual(v['changed_bytes_outside_cells_and_checksums'], [])  # no Stage 0, no SOI, no 5355/1800 hPa
+        self.assertTrue(all(c['rpm_node'] in (3000.0, 4000.0) and c['pressure_node_hpa'] == 2000.0 for c in plan['cells']))
+        for g in plan['gate_per_bin']:
+            self.assertGreaterEqual(g['delivered_new_mg'], g['burned_p95_mg'] - 1e-6 if g['burned_p95_mg'] <= g['delivered_now_mg'] else g['delivered_now_mg'] - 1e-6)
+            self.assertGreaterEqual(g['delivered_new_mg'], min(g['delivered_now_mg'], g['lambda115_fuel_mg']) - 1e-6)
+
     def test_vcds_loader(self):
         sessions = tm.load_vcds('logs/vcds/LOG-01-011-003-008.CSV')
         self.assertEqual(len(sessions), 4)

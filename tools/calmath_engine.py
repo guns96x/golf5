@@ -1472,6 +1472,105 @@ def build_vnext4_candidate(write_bin=True, lambda_target=EDGE_LAMBDA_TARGET, rai
     return plan
 
 
+VNEXT61_CANDIDATE_NAME = '03G906021QJ_vNext6.1_fuel-3000-4000-gated_CS_OK.bin'
+
+
+def build_vnext61_candidate(write_bin=True):
+    """Response to the ChatGPT review of vNext6 (2026-09-17). Fuel correction ONLY where road data repeatedly shows
+    inefficient fuel use, with a torque-preservation gate:
+      - only FlMng_qPresSmoke_MAP 2000 hPa column, only rpm nodes 3000/4000 (SMOKE_NODES_TO_FIT);
+      - 1800 hPa spool column, every node <= 2500 rpm and 5355 rpm untouched (low-rpm tip-in restriction is HOLD);
+      - per logged rpm bin 2750-4000 the delivered fuel must stay >= min(current delivered,
+        max(P95 burned-fuel estimate over all pulls, fuel for lambda 1.15 at gear-4 measured air));
+      - no Stage 0 objects, so the fuel change can be A/B-tested on its own."""
+    with open(os.path.join(OUT_DIR, 'vcds-analysis.json'), encoding='utf-8') as f:
+        vres = json.load(f)
+    with open(os.path.join(OUT_DIR, 'current-analysis.json'), encoding='utf-8') as f:
+        pres = json.load(f)
+    cur, stock = Firmware(CURRENT_BIN), Firmware(STOCK_BIN)
+    p95 = burned_p95_constraints(vres, pres)
+    q_rt, gate, gate_rows = {}, {}, []
+    for rpm in PLAN_BINS:
+        rows = [r for r in vres['rows'] if r['rpm'] == rpm and r['gear'] == PLAN_GEAR]
+        if not rows or rpm not in p95:
+            continue
+        q_rt[rpm] = statistics.median(r['q_runtime_mg'] for r in rows)
+        eq_now = stock_equivalent_q(cur, stock, rpm, q_rt[rpm], PLAN_GEAR)[0]
+        lam_fuel = statistics.median(r['maf_act_mg'] for r in rows) / (SMOKE_AFR_STOICH * BALANCED_LAMBDA_TARGET)
+        gate[rpm] = min(eq_now, max(p95[rpm], lam_fuel))
+        gate_rows.append({'rpm': rpm, 'delivered_now_mg': eq_now, 'burned_p95_mg': p95[rpm],
+                          'lambda115_fuel_mg': lam_fuel, 'gate_min_delivered_mg': gate[rpm]})
+    fitted, report, checks = fit_smoke_column(cur, stock, gate, q_rt)
+
+    smoke = cur['FlMng_qPresSmoke_MAP']
+    iy = len(smoke.y) - 1
+    buf = bytearray(cur.data)
+    cells = []
+    for ix, x in enumerate(smoke.x):
+        if x not in SMOKE_NODES_TO_FIT:
+            continue
+        raw = _encode_raw_s16(smoke, fitted[x])
+        addr = _cell_address(smoke, ix, iy)
+        old_raw = struct.unpack_from('>h', cur.data, addr)[0]
+        if raw == old_raw:
+            continue
+        struct.pack_into('>h', buf, addr, raw)
+        cells.append({'map': smoke.name, 'rpm_node': x, 'pressure_node_hpa': smoke.y[iy], 'address': '0x%X' % addr,
+                      'old_raw': old_raw, 'new_raw': raw, 'old_mg': smoke.grid[ix][iy],
+                      'new_mg': a2l.to_phys(raw, smoke.conversion)})
+    fix_checksums(buf)
+    new = bytes(buf)
+    patched = _patched(cur, buf)
+
+    diff = [i for i in range(len(new)) if new[i] != cur.data[i]]
+    allowed = {a for c in cells for a in (int(c['address'], 16), int(c['address'], 16) + 1)}
+    for _, cs in CHECKSUM_BLOCKS:
+        allowed |= set(range(cs, cs + 4))
+    s_new = patched['FlMng_qPresSmoke_MAP']
+    after = []
+    for rpm in sorted(gate):
+        q_new = min(q_rt[rpm], s_new.lookup(rpm, SMOKE_WOT_COLUMN_HPA))
+        eq_new = stock_equivalent_q(patched, stock, rpm, q_new, PLAN_GEAR)[0]
+        row = next(g for g in gate_rows if g['rpm'] == rpm)
+        row.update({'q_runtime_now_mg': q_rt[rpm], 'q_cmd_new_mg': q_new, 'delivered_new_mg': eq_new,
+                    'eoi_proxy_now': chain_with_q(cur, rpm, PLAN_GEAR, q_rt[rpm])['electrical_command_end_proxy_deg_atdc'],
+                    'eoi_proxy_new': chain_with_q(patched, rpm, PLAN_GEAR, q_new)['electrical_command_end_proxy_deg_atdc']})
+        after.append(eq_new >= gate[rpm] - 1e-6)
+    untouched = [(ix, iy_) for ix, x in enumerate(smoke.x) for iy_ in range(len(smoke.y))
+                 if not (x in SMOKE_NODES_TO_FIT and iy_ == iy)]
+    verify = {
+        'checksum_block_sums': ['%08X' % s for s in block_sums(new)],
+        'checksum_ok': all(s == CHECKSUM_TARGET for s in block_sums(new)),
+        'changed_bytes_outside_cells_and_checksums': sorted('0x%X' % i for i in diff if i not in allowed),
+        'torque_gate_holds_every_bin': all(after),
+        'all_other_smoke_cells_unchanged': all(s_new.grid[i][j] == smoke.grid[i][j] for i, j in untouched),
+        'never_raised': all(c['new_mg'] <= c['old_mg'] + 1e-9 for c in cells),
+    }
+    if (not verify['checksum_ok'] or verify['changed_bytes_outside_cells_and_checksums']
+            or not verify['torque_gate_holds_every_bin'] or not verify['all_other_smoke_cells_unchanged']
+            or not verify['never_raised']):
+        raise SystemExit('vNext6.1 candidate verification FAILED: %s' % verify)
+
+    plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256}, 'cells': cells, 'gate_per_bin': gate_rows,
+            'fit_report': report, 'verification': verify, 'candidate_bin': None,
+            'status': 'EXPERIMENT — model indicates inefficient fuel use at 3000-4000 rpm; this is not a measurement '
+                      'of unburnt fuel. Gate keeps delivered fuel >= P95 burned estimate and >= lambda 1.15 fuel.',
+            'validation_protocol': ['A/B against the current file, same road: 3rd/4th/5th WOT 2000->4000, '
+                                    'VCDS groups 011+008 (or phone OBD log), compare pull time, boost, MAF, IAT.'],
+            'rollback': CURRENT_BIN}
+    if write_bin:
+        os.makedirs(CANDIDATE_DIR, exist_ok=True)
+        out_path = os.path.join(CANDIDATE_DIR, VNEXT61_CANDIDATE_NAME)
+        with open(out_path, 'wb') as f:
+            f.write(new)
+        verify['sha256'] = patched.sha256
+        plan['candidate_bin'] = out_path.replace('\\', '/')
+    with open(os.path.join(OUT_DIR, 'candidate-vnext6.1.json'), 'w', encoding='utf-8') as f:
+        json.dump(plan, f, indent=1, ensure_ascii=False, default=str)
+    return plan
+
+
 def candidate_plan_record(cur, stock, vres, cons, report, checks, cells, fitted, smoke):
     # predicted lambda per logged VCDS pull (same stock-equivalent basis, measured air)
     lam = []
@@ -1832,6 +1931,8 @@ def main():
     bn.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     b00 = sub.add_parser('build-stage0')
     b00.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
+    bn61 = sub.add_parser('build-vnext6.1')
+    bn61.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn6 = sub.add_parser('build-vnext6')
     bn6.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn5 = sub.add_parser('build-vnext5')
@@ -1904,6 +2005,11 @@ def main():
         plan = (build_vnext5_candidate if args.cmd == 'build-vnext5' else build_vnext4_candidate)(write_bin=not args.plan_only)
         for e in plan['predicted_effect_gear4']:
             print('rpm %4d delivered %.1f -> %.1f mg  lambda %.2f -> %.2f  SOI %.1f -> %.1f  EOI proxy %.1f -> %.1f' % (e['rpm'], e['delivered_before_mg'], e['delivered_after_mg'], e['lambda_before'], e['lambda_after'], e['soi_before'], e['soi_after'], e['eoi_proxy_before'], e['eoi_proxy_after']))
+        print(plan['verification'], plan['candidate_bin'])
+    elif args.cmd == 'build-vnext6.1':
+        plan = build_vnext61_candidate(write_bin=not args.plan_only)
+        for g in plan['gate_per_bin']:
+            print('rpm %4d delivered %.1f -> %.1f mg (gate %.1f)  EOI proxy %.1f -> %.1f' % (g['rpm'], g['delivered_now_mg'], g['delivered_new_mg'], g['gate_min_delivered_mg'], g['eoi_proxy_now'], g['eoi_proxy_new']))
         print(plan['verification'], plan['candidate_bin'])
     elif args.cmd in ('build-vnext3', 'build-vnext6'):
         plan = (build_vnext6_candidate if args.cmd == 'build-vnext6' else build_vnext3_candidate)(write_bin=not args.plan_only)
