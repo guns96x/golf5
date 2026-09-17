@@ -14,3 +14,12 @@ mpps_dump/
 __pycache__/
 diagnostic-review/math-engine/a2l-cache.json
 .vscode/
+# ── додай це в .gitignore ────────────────────────────────────────
+# Транскрипти — 21 MB історії, не вихідний код
+conversation_history/*.jsonl
+# Корпус ніколи не потрапляє в git: push це поширення
+knowledge/raw/
+knowledge/library/
+ecu-kb/knowledge/kb.sqlite3*
+# Артефакти дослідження
+archive/scratch/
