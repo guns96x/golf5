@@ -25,6 +25,8 @@ One variable per experiment: this test changes fuel only. Boost/N75 is analysed 
   - Pass 2: **011 + 003**. Boost and MAF.
   - A single 011+003+008 log is acceptable only if its real sample interval, checked in the CSV, is short enough for boost dynamics.
 - Log the whole pull, from before full throttle to after the lift.
+- **IAT is not guaranteed in 011/003/008.** Group contents depend on the ECU/label file, and neither this repo's VCDS logs nor a label file show an IAT field for this EDC16U34. Before the test, find in VCDS which measuring group (or Advanced Measuring Value) shows Intake Air Temperature. Record it in a **separate short pass** on the same section, never as a third group next to 011. Alternative: the VCDS Mobile OBD logger (PID 010F, ~4.7 s interval) in its own pass. It cannot share the diagnostic port with VCDS at the same time.
+- Use Turbo mode if the interface supports it. Check the real sample interval in the CSV (2 groups ≈ half, 3 groups ≈ a third of the single-group rate).
 
 ## Abort (lift immediately)
 - Actual boost rising fast **and** actual − requested error growing, with N75 already pulling duty down to correct it. Lift early; do not wait for an absolute value.
@@ -34,5 +36,5 @@ One variable per experiment: this test changes fuel only. Boost/N75 is analysed 
 ## Compared per rpm bin (analysis after upload)
 - Pull time and rpm rate (road torque) for each direction, then averaged.
 - Boost requested/actual, N75, smoke and torque limitation (008).
-- MAF (003), IAT.
+- MAF (003); IAT from the separate IAT pass (not from 011/003/008).
 - Decision on the 49.55 mg @ 4000 node only after this data. Boost/N75 overshoot is a separate follow-up experiment.
