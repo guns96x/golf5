@@ -1,0 +1,719 @@
+{
+ "generated_utc": "2026-09-17T15:03:26Z",
+ "base_bin": {
+  "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
+  "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
+ },
+ "cells": [
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 3000.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D661A",
+   "old_raw": 6780,
+   "new_raw": 6355,
+   "old_mg": 67.8,
+   "new_mg": 63.55
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 4000.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D6632",
+   "old_raw": 6780,
+   "new_raw": 4955,
+   "old_mg": 67.8,
+   "new_mg": 49.55
+  }
+ ],
+ "gate_per_bin": [
+  {
+   "rpm": 2750,
+   "delivered_now_mg": 64.176754868654,
+   "burned_p95_mg": 68.27922823184743,
+   "burned_p95_defined_by": {
+    "pull": "pooled current-analysis",
+    "gear": "3/4"
+   },
+   "lambda115_fuel_mg": 56.77407979657725,
+   "gate_min_delivered_mg": 64.176754868654,
+   "gears_with_evidence": [
+    3,
+    4,
+    5
+   ],
+   "air_mg": {
+    "median": 946.7077806079254,
+    "p10": 937.8711201562617,
+    "min": 922.7366305178575,
+    "n": 9
+   },
+   "q_runtime_now_mg": 61.459681096681095,
+   "q_cmd_new_mg": 60.025,
+   "delivered_new_mg": 64.176754868654,
+   "eoi_proxy_now": 16.669941471571892,
+   "eoi_proxy_new": 16.669941471571892,
+   "predicted_lambda_per_pull": [
+    {
+     "pull": "20260916_111930@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 946.7077806079254,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 1.0173495356642543
+    },
+    {
+     "pull": "20260916_112035@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 946.4337496378164,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 1.0170550569603622
+    },
+    {
+     "pull": "20260917_121649@105s",
+     "source": "phone",
+     "gear": 5,
+     "air_mg": 922.7366305178575,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 0.9915896983490813
+    },
+    {
+     "pull": "20260917_121649@322s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 941.6547425658626,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 1.0119194483542238
+    },
+    {
+     "pull": "20260917_121649@518s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 959.5453311010815,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 1.0311450027564253
+    },
+    {
+     "pull": "20260917_121649@813s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 946.947802397176,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 1.017607467478955
+    },
+    {
+     "pull": "day14 20:23:44@0.6s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 974.7802197802198,
+     "q_basis": "logged",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 1.0475166934101823
+    },
+    {
+     "pull": "day16 11:54:12@1.4s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 974.9206349206349,
+     "q_basis": "logged",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 1.0476675860940998
+    },
+    {
+     "pull": "day16 11:54:46@1.3s",
+     "source": "vcds",
+     "gear": 4,
+     "air_mg": 945.042242703533,
+     "q_basis": "logged",
+     "delivered_new_mg": 64.176754868654,
+     "lambda_new": 1.0155597181002993
+    }
+   ],
+   "min_predicted_lambda": {
+    "lambda": 0.9915896983490813,
+    "pull": "20260917_121649@105s",
+    "gear": 5,
+    "air_mg": 922.7366305178575
+   }
+  },
+  {
+   "rpm": 3000,
+   "delivered_now_mg": 66.1722804882414,
+   "burned_p95_mg": 66.24032598778504,
+   "burned_p95_defined_by": {
+    "pull": "pooled current-analysis",
+    "gear": "3/4"
+   },
+   "lambda115_fuel_mg": 54.19176195333065,
+   "gate_min_delivered_mg": 66.1722804882414,
+   "gears_with_evidence": [
+    3,
+    4
+   ],
+   "air_mg": {
+    "median": 903.6476305717883,
+    "p10": 888.3463867263478,
+    "min": 873.2512315270935,
+    "n": 8
+   },
+   "q_runtime_now_mg": 62.16586363636364,
+   "q_cmd_new_mg": 62.16586363636364,
+   "delivered_new_mg": 66.1722804882414,
+   "eoi_proxy_now": 16.918504389632094,
+   "eoi_proxy_new": 16.918504389632094,
+   "predicted_lambda_per_pull": [
+    {
+     "pull": "20260916_111930@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 908.8082085844359,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 66.1722804882414,
+     "lambda_new": 0.9471704423028666
+    },
+    {
+     "pull": "20260916_112035@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 903.1398327873094,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 66.1722804882414,
+     "lambda_new": 0.9412627953866203
+    },
+    {
+     "pull": "20260917_121649@322s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 896.2417330825764,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 66.1722804882414,
+     "lambda_new": 0.9340735159691752
+    },
+    {
+     "pull": "20260917_121649@518s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 894.8157389545995,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 66.1722804882414,
+     "lambda_new": 0.932587328370781
+    },
+    {
+     "pull": "20260917_121649@813s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 904.1554283562672,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 66.1722804882414,
+     "lambda_new": 0.9423212608528917
+    },
+    {
+     "pull": "day14 20:23:44@0.6s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 943.6474164133739,
+     "q_basis": "logged",
+     "delivered_new_mg": 66.1722804882414,
+     "lambda_new": 0.9834802682673741
+    },
+    {
+     "pull": "day16 11:54:12@1.4s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 950.5102040816327,
+     "q_basis": "logged",
+     "delivered_new_mg": 66.1722804882414,
+     "lambda_new": 0.9906327450713635
+    },
+    {
+     "pull": "day16 11:54:46@1.3s",
+     "source": "vcds",
+     "gear": 4,
+     "air_mg": 873.2512315270935,
+     "q_basis": "logged",
+     "delivered_new_mg": 66.1722804882414,
+     "lambda_new": 0.9101125489341286
+    }
+   ],
+   "min_predicted_lambda": {
+    "lambda": 0.9101125489341286,
+    "pull": "day16 11:54:46@1.3s",
+    "gear": 4,
+    "air_mg": 873.2512315270935
+   }
+  },
+  {
+   "rpm": 3250,
+   "delivered_now_mg": 62.449009754655634,
+   "burned_p95_mg": 68.52541616468632,
+   "burned_p95_defined_by": {
+    "pull": "20260917_121649@322s",
+    "gear": 4
+   },
+   "lambda115_fuel_mg": 51.71623396705632,
+   "gate_min_delivered_mg": 62.449009754655634,
+   "gears_with_evidence": [
+    3,
+    4
+   ],
+   "air_mg": {
+    "median": 862.3682014006639,
+    "p10": 820.3036463485993,
+    "min": 757.8640063471828,
+    "n": 8
+   },
+   "q_runtime_now_mg": 62.212,
+   "q_cmd_new_mg": 60.05,
+   "delivered_new_mg": 62.449009754655634,
+   "eoi_proxy_now": 15.354854724080258,
+   "eoi_proxy_new": 15.354854724080258,
+   "predicted_lambda_per_pull": [
+    {
+     "pull": "20260916_111930@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 874.3600824969286,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 62.449009754655634,
+     "lambda_new": 0.965598903513763
+    },
+    {
+     "pull": "20260916_112035@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 860.861433169665,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 62.449009754655634,
+     "lambda_new": 0.9506916802195565
+    },
+    {
+     "pull": "20260917_121649@322s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 757.8640063471828,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 62.449009754655634,
+     "lambda_new": 0.8369465488996152
+    },
+    {
+     "pull": "20260917_121649@518s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 861.229327094332,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 62.449009754655634,
+     "lambda_new": 0.9510979636002586
+    },
+    {
+     "pull": "20260917_121649@813s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 863.5070757069958,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 62.449009754655634,
+     "lambda_new": 0.9536133935780171
+    },
+    {
+     "pull": "day14 20:23:44@0.6s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 899.9159663865546,
+     "q_basis": "logged",
+     "delivered_new_mg": 62.449009754655634,
+     "lambda_new": 0.9938215247840273
+    },
+    {
+     "pull": "day16 11:54:12@1.4s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 909.3112244897959,
+     "q_basis": "logged",
+     "delivered_new_mg": 62.449009754655634,
+     "lambda_new": 1.0041971710473052
+    },
+    {
+     "pull": "day16 11:54:46@1.3s",
+     "source": "vcds",
+     "gear": 4,
+     "air_mg": 847.063492063492,
+     "q_basis": "logged",
+     "delivered_new_mg": 62.449009754655634,
+     "lambda_new": 0.9354539342730346
+    }
+   ],
+   "min_predicted_lambda": {
+    "lambda": 0.8369465488996152,
+    "pull": "20260917_121649@322s",
+    "gear": 4,
+    "air_mg": 757.8640063471828
+   }
+  },
+  {
+   "rpm": 3500,
+   "delivered_now_mg": 60.115954955959396,
+   "burned_p95_mg": 54.49537174393596,
+   "burned_p95_defined_by": {
+    "pull": "20260916_112035@2s",
+    "gear": 4
+   },
+   "lambda115_fuel_mg": 50.64551660393557,
+   "gate_min_delivered_mg": 54.49537174393596,
+   "gears_with_evidence": [
+    3,
+    4
+   ],
+   "air_mg": {
+    "median": 844.5139893706255,
+    "p10": 834.9889839413435,
+    "min": 831.9047619047619,
+    "n": 6
+   },
+   "q_runtime_now_mg": 61.78909090909091,
+   "q_cmd_new_mg": 56.55,
+   "delivered_new_mg": 58.73464711785037,
+   "eoi_proxy_now": 14.75347512541805,
+   "eoi_proxy_new": 14.1708008465719,
+   "predicted_lambda_per_pull": [
+    {
+     "pull": "20260916_111930@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 853.1463052976176,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 58.73464711785037,
+     "lambda_new": 1.0017541453746168
+    },
+    {
+     "pull": "20260916_112035@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 838.073205977925,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 58.73464711785037,
+     "lambda_new": 0.9840554931816873
+    },
+    {
+     "pull": "20260917_121649@322s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 850.4600576569989,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 58.73464711785037,
+     "lambda_new": 0.9985999856568955
+    },
+    {
+     "pull": "20260917_121649@518s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 838.5679210842522,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 58.73464711785037,
+     "lambda_new": 0.9846363817179975
+    },
+    {
+     "pull": "day16 11:54:12@1.4s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 859.6913580246913,
+     "q_basis": "logged",
+     "delivered_new_mg": 58.73464711785037,
+     "lambda_new": 1.00943926768052
+    },
+    {
+     "pull": "day16 11:54:46@1.3s",
+     "source": "vcds",
+     "gear": 4,
+     "air_mg": 831.9047619047619,
+     "q_basis": "logged",
+     "delivered_new_mg": 58.73464711785037,
+     "lambda_new": 0.9768125802341279
+    }
+   ],
+   "min_predicted_lambda": {
+    "lambda": 0.9768125802341279,
+    "pull": "day16 11:54:46@1.3s",
+    "gear": 4,
+    "air_mg": 831.9047619047619
+   }
+  },
+  {
+   "rpm": 3750,
+   "delivered_now_mg": 57.18065466216984,
+   "burned_p95_mg": 48.84420679167269,
+   "burned_p95_defined_by": {
+    "pull": "20260916_112035@2s",
+    "gear": 4
+   },
+   "lambda115_fuel_mg": 49.523018014275024,
+   "gate_min_delivered_mg": 49.523018014275024,
+   "gears_with_evidence": [
+    3,
+    4
+   ],
+   "air_mg": {
+    "median": 825.7963253880359,
+    "p10": 799.184331797235,
+    "min": 785.0,
+    "n": 5
+   },
+   "q_runtime_now_mg": 61.309515074211504,
+   "q_cmd_new_mg": 53.05,
+   "delivered_new_mg": 54.01356759895029,
+   "eoi_proxy_now": 13.819593959030087,
+   "eoi_proxy_new": 12.63690209487352,
+   "predicted_lambda_per_pull": [
+    {
+     "pull": "20260916_111930@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 827.2475423880595,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 54.01356759895029,
+     "lambda_new": 1.0562448877855855
+    },
+    {
+     "pull": "20260916_112035@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 827.8589979301688,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 54.01356759895029,
+     "lambda_new": 1.057025605475718
+    },
+    {
+     "pull": "20260917_121649@518s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 825.7963253880359,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 54.01356759895029,
+     "lambda_new": 1.054391947210002
+    },
+    {
+     "pull": "day16 11:54:12@1.4s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 785.0,
+     "q_basis": "logged",
+     "delivered_new_mg": 54.01356759895029,
+     "lambda_new": 1.002302448089633
+    },
+    {
+     "pull": "day16 11:54:46@1.3s",
+     "source": "vcds",
+     "gear": 4,
+     "air_mg": 820.4608294930875,
+     "q_basis": "logged",
+     "delivered_new_mg": 54.01356759895029,
+     "lambda_new": 1.047579487850411
+    }
+   ],
+   "min_predicted_lambda": {
+    "lambda": 1.002302448089633,
+    "pull": "day16 11:54:12@1.4s",
+    "gear": 3,
+    "air_mg": 785.0
+   }
+  },
+  {
+   "rpm": 4000,
+   "delivered_now_mg": 56.29267010546374,
+   "burned_p95_mg": 43.53256350416083,
+   "burned_p95_defined_by": {
+    "pull": "pooled current-analysis",
+    "gear": "3/4"
+   },
+   "lambda115_fuel_mg": 48.67964997093291,
+   "gate_min_delivered_mg": 48.67964997093291,
+   "gears_with_evidence": [
+    3,
+    4
+   ],
+   "air_mg": {
+    "median": 811.7331632653061,
+    "p10": 792.545,
+    "min": 785.0,
+    "n": 4
+   },
+   "q_runtime_now_mg": 61.11181818181818,
+   "q_cmd_new_mg": 49.55,
+   "delivered_new_mg": 49.54999999999998,
+   "eoi_proxy_now": 14.311454849498311,
+   "eoi_proxy_new": 10.819763095735773,
+   "predicted_lambda_per_pull": [
+    {
+     "pull": "20260916_111930@2s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 810.15,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 49.54999999999998,
+     "lambda_new": 1.1275966456731275
+    },
+    {
+     "pull": "20260917_121649@518s",
+     "source": "phone",
+     "gear": 4,
+     "air_mg": 817.8726398483376,
+     "q_basis": "gear-4 VCDS median (not logged)",
+     "delivered_new_mg": 49.54999999999998,
+     "lambda_new": 1.138345300599656
+    },
+    {
+     "pull": "day16 11:54:12@1.4s",
+     "source": "vcds",
+     "gear": 3,
+     "air_mg": 785.0,
+     "q_basis": "logged",
+     "delivered_new_mg": 49.54999999999998,
+     "lambda_new": 1.0925919482236686
+    },
+    {
+     "pull": "day16 11:54:46@1.3s",
+     "source": "vcds",
+     "gear": 4,
+     "air_mg": 813.3163265306123,
+     "q_basis": "logged",
+     "delivered_new_mg": 49.54999999999998,
+     "lambda_new": 1.1320036557021644
+    }
+   ],
+   "min_predicted_lambda": {
+    "lambda": 1.0925919482236686,
+    "pull": "day16 11:54:12@1.4s",
+    "gear": 3,
+    "air_mg": 785.0
+   }
+  }
+ ],
+ "fit_report": [
+  {
+   "rpm_node": 3000.0,
+   "current_mg": 67.8,
+   "fitted_mg": 63.55,
+   "constrained_bins": [
+    2750,
+    3000
+   ]
+  },
+  {
+   "rpm_node": 4000.0,
+   "current_mg": 67.8,
+   "fitted_mg": 49.55,
+   "constrained_bins": [
+    3250,
+    3500,
+    3750,
+    4000
+   ]
+  }
+ ],
+ "verification": {
+  "checksum_block_sums": [
+   "D01FE500",
+   "D01FE500"
+  ],
+  "checksum_ok": true,
+  "changed_bytes_outside_cells_and_checksums": [],
+  "torque_gate_holds_every_bin": true,
+  "all_other_smoke_cells_unchanged": true,
+  "never_raised": true,
+  "sha256": "f9d05f8318ca587da63c85c5d9d76e6131b5024ec49c2ffb0599403ea09a0248"
+ },
+ "candidate_bin": "firmware-candidates/03G906021QJ_vNext6.1_fuel-3000-4000-gated_CS_OK.bin",
+ "status": "EXPERIMENT — model indicates inefficient fuel use at 3000-4000 rpm; this is not a measurement of unburnt fuel. Gate: delivered_new >= min(delivered_current, max(P95_burned, lambda115_fuel)).",
+ "gear5_torque_preservation": {
+  "2750": "included",
+  "3000": "HOLD",
+  "3250": "HOLD",
+  "3500": "HOLD",
+  "3750": "HOLD",
+  "4000": "HOLD"
+ },
+ "gear5_note": "Quality-accepted 5th-gear pulls reach only 2750 rpm; the edited 3000/4000 nodes have NO 5th-gear torque evidence. 5th-gear WOT 2750->4000 is a required empirical validation gate before promotion (boost overshoot to 2420-2470 hPa was seen in 5th).",
+ "rejected_pulls": [
+  {
+   "pull": "20260916_102349@12s",
+   "gear": 3,
+   "rpm": [
+    1670.0,
+    3270.0
+   ],
+   "reason": "only 2 speed pairs"
+  },
+  {
+   "pull": "20260916_102349@24s",
+   "gear": 3,
+   "rpm": [
+    1998.0,
+    3344.0
+   ],
+   "reason": "only 1 speed pairs"
+  },
+  {
+   "pull": "20260916_110755@0s",
+   "gear": 3,
+   "rpm": [
+    1869.0,
+    3988.0
+   ],
+   "reason": "only 1 speed pairs"
+  },
+  {
+   "pull": "20260917_121649@240s",
+   "gear": 5,
+   "rpm": [
+    1776.0,
+    2535.0
+   ],
+   "reason": "only 2 speed pairs"
+  },
+  {
+   "pull": "20260917_121649@279s",
+   "gear": 5,
+   "rpm": [
+    1701.0,
+    2600.0
+   ],
+   "reason": "only 2 speed pairs"
+  },
+  {
+   "pull": "20260917_121649@488s",
+   "gear": 4,
+   "rpm": [
+    1602.0,
+    2830.0
+   ],
+   "reason": "only 2 speed pairs"
+  },
+  {
+   "pull": "20260917_121649@849s",
+   "gear": 4,
+   "rpm": [
+    2167.0,
+    3122.0
+   ],
+   "reason": "only 2 speed pairs"
+  },
+  {
+   "pull": "20260917_121649@864s",
+   "gear": 5,
+   "rpm": [
+    1885.0,
+    2650.0
+   ],
+   "reason": "only 2 speed pairs"
+  }
+ ],
+ "validation_protocol": [
+  "A/B against the current file, same road: 3rd/4th/5th WOT 2000->4000, VCDS groups 011+008 (or phone OBD log), compare pull time, boost, MAF, IAT."
+ ],
+ "rollback": "03G906021QJ_stage1_full_power_dpf_egr_off.bin"
+}

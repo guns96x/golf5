@@ -98,13 +98,17 @@ def load_vcds(path):
         if len(f) > 2 and 'A:' in line:
             cur['meta']['groups'] = [x.strip("'") for x in f if x.strip().startswith("'")]
             continue
-        if len(f) < 16 or f[0] != '':
+        groups = [g for g in cur['meta']['groups'][:3] if g in VCDS_CHANNELS]
+        width = 1 + 5 * len(cur['meta']['groups'][:3])  # 1, 2 or 3 groups: time + 4 values each
+        if not groups or len(f) < width or f[0] != '':
             continue
         try:
-            nums = [float(x) for x in f[1:16]]
+            nums = [float(x) for x in f[1:width]]
         except ValueError:
             continue  # truncated/merged line at a session boundary
         for gi, group in enumerate(cur['meta']['groups'][:3]):
+            if group not in VCDS_CHANNELS:
+                continue  # group without a known channel map (e.g. an IAT group): skipped, not misread
             base = gi * 5
             t = nums[base]
             for ch, v in zip(VCDS_CHANNELS[group], nums[base + 1:base + 5]):
