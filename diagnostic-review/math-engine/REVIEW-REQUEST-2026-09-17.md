@@ -4,6 +4,10 @@ Car: VW Golf 5 1.9 TDI BLS, Bosch EDC16U34, HW `03G906021QJ` / SW `1037391847`, 
 Currently flashed: `03G906021QJ_stage1_full_power_dpf_egr_off.bin` (bought with this Stage 1).
 Owner priorities: strong pull, engine/turbo life, fuel economy. No smoke.
 
+## UPDATE (later 2026-09-17): recommended candidate is now vNext6
+
+`firmware-candidates/03G906021QJ_vNext6_stage1-fuel-only-l115_CS_OK.bin` (sha256 `4f5c72533c4cd8f93c7442c7228a98b99788e18f00a86c344b9ce4b3c3640c62`, `build-vnext6`) = Stage 0 + the same smoke-limiter change as vNext5 (lambda 1.15), with **no SOI change**. The 3000-4000 rpm study (STAGE1-ENGINEERING-PLAN.md §4e) found that ~85-90% of the end-of-injection gain comes from removing unburnable fuel; the vNext5 SOI advance bought only 0.6-0.9 deg for OEM+2.5 deg at 0.26-0.30 deg limiter margin. Review vNext6 first. The vNext5 notes below still apply to the smoke/air part.
+
 ## What to review
 
 **Recommended candidate:** `firmware-candidates/03G906021QJ_vNext5_stage1-balanced_CS_OK.bin` (sha256 `23c32e88002ea57d2490962fa8f3b4590d5f08f5c626383fc673573991d922ea`), built by `python tools/calmath_engine.py build-vnext5`.
