@@ -818,6 +818,192 @@ def build_vnext_candidate(write_bin=True):
     return plan
 
 
+SOI_LIMITER_MAP = 'InjCrv_phiMIMax_MAP'
+SOI_BASE_MAPS = ('InjCrv_phiBasGear34_MAP', 'InjCrv_phiBasGear56_MAP')
+SOI_CHECK_RPM = range(400, 5001, 25)  # dense grid: the limiter and base maps have different rpm nodes
+# Below this the OEM limiter row is coolant-shaped (13.99 deg at -10 C vs 15.00 elsewhere, 400-1500 rpm):
+# a deliberate cold-cranking strategy, not a load-path limit. Stage 1's 55/60 mg advance does reach
+# past it at 400-575 rpm / -10 C, but that is cranking, outside the WOT coherence fix, and is left as is.
+SOI_FIX_MIN_RPM = 1750
+
+
+def soi_base_max(fw, rpm):
+    """Highest base SOI either gear map can request at this rpm, over every q node."""
+    return max(fw[name].lookup(rpm, q) for name in SOI_BASE_MAPS for q in fw[name].y)
+
+
+def soi_limiter_clips(fw, min_rpm=0):
+    """(rpm, base_max, limiter) wherever the base SOI exceeds the limiter at any coolant column."""
+    lim = fw[SOI_LIMITER_MAP]
+    out = []
+    for rpm in SOI_CHECK_RPM:
+        if rpm < min_rpm:
+            continue
+        base = soi_base_max(fw, rpm)
+        cap = min(lim.lookup(rpm, t) for t in lim.y)
+        if base > cap + 1e-9:
+            out.append((rpm, base, cap))
+    return out
+
+
+def soi_limiter_fix_cells(cur, stock):
+    """Rule from STAGE1-ENGINEERING-PLAN.md §2 link 6: Stage 1 advanced the 55/60 mg columns of
+    both base SOI gear maps (~x1.08) but left InjCrv_phiMIMax_MAP stock, so the limiter now cuts
+    that advance at 2250, 2500 and 4000-5000 rpm. The factory limiter never clips the factory
+    base maps (asserted below), i.e. OEM intent is 'limiter above base'. Restore that: raise a
+    limiter node only to the highest base SOI Stage 1 already requests there, rounded UP to the
+    next raw step, never lower anything, never exceed the current base request. Coolant columns
+    at those rpm are flat in the OEM map and are kept flat. Only rpm >= SOI_FIX_MIN_RPM."""
+    stock_clips = soi_limiter_clips(stock)
+    if stock_clips:
+        raise SystemExit('OEM limiter clips OEM base SOI, rule premise invalid: %s' % stock_clips[:5])
+    lim = cur[SOI_LIMITER_MAP]
+    conv = lim.conversion
+    cells = []
+    for ix, rpm in enumerate(lim.x):
+        if rpm < SOI_FIX_MIN_RPM:
+            continue
+        required = soi_base_max(cur, rpm)
+        for iy, coolant in enumerate(lim.y):
+            old = lim.grid[ix][iy]
+            if old >= required:
+                continue
+            addr = _cell_address(lim, ix, iy)
+            old_raw = struct.unpack_from('>h', cur.data, addr)[0]
+            new_raw = _encode_raw_s16(lim, required)
+            while a2l.to_phys(new_raw, conv) < required:
+                new_raw += 1
+            cells.append({'map': lim.name, 'rpm_node': rpm, 'coolant_node_c': coolant, 'address': '0x%X' % addr,
+                          'old_raw': old_raw, 'new_raw': new_raw, 'old_raw_hex': '%04X' % (old_raw & 0xFFFF),
+                          'new_raw_hex': '%04X' % (new_raw & 0xFFFF), 'old_deg': old,
+                          'new_deg': a2l.to_phys(new_raw, conv), 'required_base_soi_deg': required,
+                          'stock_base_soi_deg': soi_base_max(stock, rpm)})
+    return cells
+
+
+VNEXT2_CANDIDATE_NAME = '03G906021QJ_vNext2_hotstart-ecocruise-map0-soilim_CS_OK.bin'
+VNEXT2_EFFECT_BINS = tuple(range(2000, 4001, 250))
+
+
+def build_vnext2_candidate(write_bin=True):
+    """vNext (hot-start + eco-cruise + MAP0) plus the SOI-limiter coherence fix, as one package:
+    raising the limiter moves the duration selector toward MAP0 (29.16 deg -> selector 0.0), so the
+    limiter fix without the MAP0 fix would REDUCE delivered fuel at 4000 rpm. They ship together."""
+    cur, stock, refined = Firmware(CURRENT_BIN), Firmware(STOCK_BIN), Firmware(REFINED_BIN)
+    buf = bytearray(cur.data)
+    copied = []
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        a, n = obj.address, obj.size
+        changed = [i for i in range(a, a + n) if cur.data[i] != refined.data[i]]
+        buf[a:a + n] = refined.data[a:a + n]
+        copied.append({'map': name, 'address': '0x%X' % a, 'size_bytes': n,
+                       'bytes_actually_changed': len(changed), 'source': REFINED_BIN})
+    map0_cells, _ = map0_duration_fix_cells(cur, stock)
+    soi_cells = soi_limiter_fix_cells(cur, stock)
+    for c in map0_cells + soi_cells:
+        struct.pack_into('>h', buf, int(c['address'], 16), c['new_raw'])
+    fix_checksums(buf)
+    new = bytes(buf)
+
+    patched = Firmware(CURRENT_BIN)
+    patched.data, patched._c, patched.sha256 = new, {}, hashlib.sha256(new).hexdigest()
+    diff = [i for i in range(len(new)) if new[i] != cur.data[i]]
+    allowed = set()
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        allowed |= set(range(obj.address, obj.address + obj.size))
+    for c in map0_cells + soi_cells:
+        a = int(c['address'], 16)
+        allowed |= {a, a + 1}
+    for _, cs in CHECKSUM_BLOCKS:
+        allowed |= set(range(cs, cs + 4))
+    lim_new = patched[SOI_LIMITER_MAP]
+    verify = {
+        'size_bytes': len(new),
+        'checksum_block_sums': ['%08X' % s for s in block_sums(new)],
+        'checksum_ok': all(s == CHECKSUM_TARGET for s in block_sums(new)),
+        'changed_bytes_outside_known_objects_and_checksums': sorted('0x%X' % i for i in diff if i not in allowed),
+        'total_changed_bytes_vs_current': len(diff),
+        'soi_limiter_clips_before': len(soi_limiter_clips(cur, SOI_FIX_MIN_RPM)),
+        'soi_limiter_clips_after': soi_limiter_clips(patched, SOI_FIX_MIN_RPM),
+        'soi_limiter_cold_cranking_clips_left_untouched': soi_limiter_clips(patched)[:1] and
+            ['%d-%d rpm' % (soi_limiter_clips(patched)[0][0], soi_limiter_clips(patched)[-1][0])],
+        'soi_limiter_never_lowered': all(lim_new.grid[i][j] >= cur[SOI_LIMITER_MAP].grid[i][j] - 1e-9
+                                         for i in range(len(lim_new.x)) for j in range(len(lim_new.y))),
+        'soi_limiter_max_headroom_over_base_deg': max(
+            (min(lim_new.lookup(r, t) for t in lim_new.y) - soi_base_max(cur, r))
+            for r in lim_new.x if any(c['rpm_node'] == r for c in soi_cells)) if soi_cells else None,
+    }
+    if (not verify['checksum_ok'] or verify['changed_bytes_outside_known_objects_and_checksums']
+            or verify['soi_limiter_clips_after'] or not verify['soi_limiter_never_lowered']
+            or (verify['soi_limiter_max_headroom_over_base_deg'] or 0) > 1.5 / 42.6666666666667):
+        raise SystemExit('vNext2 candidate verification FAILED: %s' % verify)
+
+    with open(os.path.join(OUT_DIR, 'vcds-analysis.json'), encoding='utf-8') as f:
+        vres = json.load(f)
+    effects = []
+    for rpm in VNEXT2_EFFECT_BINS:
+        b, a = chain(cur, rpm, PLAN_GEAR), chain(patched, rpm, PLAN_GEAR)
+        eq_b, st_b, _ = stock_equivalent_q(cur, stock, rpm, b['q_cmd_clamp_mg'], PLAN_GEAR)
+        eq_a, st_a, _ = stock_equivalent_q(patched, stock, rpm, a['q_cmd_clamp_mg'], PLAN_GEAR)
+        air = [r['maf_act_mg'] for r in vres['rows'] if r['rpm'] == rpm and r['gear'] == PLAN_GEAR]
+        air_med = statistics.median(air) if air else None
+        effects.append({'rpm': rpm, 'q_cmd_mg': b['q_cmd_clamp_mg'],
+                        'soi_before_deg': b['soi_deg_btdc_hyp'], 'soi_after_deg': a['soi_deg_btdc_hyp'],
+                        'soi_limited_before': b['soi_limited'], 'soi_limited_after': a['soi_limited'],
+                        'selector_before': b['duration_map_selector'], 'selector_after': a['duration_map_selector'],
+                        'stock_eq_before_mg': eq_b, 'stock_eq_before_status': st_b,
+                        'stock_eq_after_mg': eq_a, 'stock_eq_after_status': st_a,
+                        'delivered_fuel_gain_mg': eq_a - eq_b, 'air_mg_stroke_median': air_med,
+                        'lambda_before': ph.lambda_from(air_med, eq_b, 14.5) if air_med else None,
+                        'lambda_after': ph.lambda_from(air_med, eq_a, 14.5) if air_med else None,
+                        'electrical_end_proxy_before_deg_atdc': b['electrical_command_end_proxy_deg_atdc'],
+                        'electrical_end_proxy_after_deg_atdc': a['electrical_command_end_proxy_deg_atdc']})
+
+    plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256},
+            'components': [
+                {'name': 'hot-start fix (HS-250)', 'map': 'StSys_trqStrtBas_MAP', 'risk': 'none at WOT',
+                 'status': 'previously audited, copied byte-for-byte from refined_CS_OK'},
+                {'name': 'eco cruise SOI advance', 'map': 'InjCrv_phiBasGear56_MAP', 'risk': 'none at WOT',
+                 'status': 'previously audited, copied byte-for-byte from refined_CS_OK'},
+                {'name': 'MAP0 duration restore', 'map': 'InjVlv_phiInjMI1_MAP0', 'risk': 'PROVISIONAL, WOT-only',
+                 'status': 'DECISION-2026-09-16.md #4b; lambda ~0.89-0.91 at 3500-4000 with measured air'},
+                {'name': 'SOI limiter coherence', 'map': SOI_LIMITER_MAP, 'risk': 'PROVISIONAL, WOT-only',
+                 'status': 'STAGE1-ENGINEERING-PLAN.md §2 link 6; limiter raised only to the base SOI Stage 1 '
+                           'already requests (zero added headroom beyond one raw step); corrections applied '
+                           'between base map and limiter (IAT/atmospheric/dynamic) are not modelled'},
+            ],
+            'excluded': dict(VNEXT_EXCLUDED_FROM_REFINED, **{
+                'FMTC_trq2qBas_MAP': 'axis-end gap (link 2) is HOLD until clamp-vs-extrapolate is measured '
+                                     '(STAGE1-ENGINEERING-PLAN.md Stage 2); no edit.'}),
+            'copied_objects': copied, 'map0_cells': map0_cells, 'soi_limiter_cells': soi_cells,
+            'predicted_effect_gear4': effects, 'verification': verify, 'candidate_bin': None,
+            'status': 'PROVISIONAL — static calculation only. Flash only as Stage 1 of STAGE1-ENGINEERING-PLAN.md '
+                      'with its validation gate; hot-start + eco-cruise alone (build-vnext minus MAP0) remains '
+                      'the zero-risk alternative.',
+            'validation_protocol': [
+                'Flash, clear DTCs, gear 4 WOT 2750->4100 both directions, VCDS groups 011+003+008.',
+                'Pass: road torque P50 at 3000-4000 not below the vcds-analysis baseline; no visible smoke.'],
+            'abort_criteria': ['visible smoke above 3000 rpm', 'road torque P50 below baseline at any 3000-3750 bin',
+                               'audible knock/harshness at 2250-2500 or 4000 rpm WOT', 'new DTC'],
+            'rollback': CURRENT_BIN}
+    json_path = os.path.join(OUT_DIR, 'candidate-vnext2.json')
+    if write_bin:
+        os.makedirs(CANDIDATE_DIR, exist_ok=True)
+        out_path = os.path.join(CANDIDATE_DIR, VNEXT2_CANDIDATE_NAME)
+        with open(out_path, 'wb') as f:
+            f.write(new)
+        verify['sha256'] = patched.sha256
+        plan['candidate_bin'] = out_path.replace('\\', '/')
+    else:
+        plan['verification_note'] = 'NOT BUILT (plan only; BIN creation requires explicit approval)'
+    with open(json_path, 'w', encoding='utf-8') as f:
+        json.dump(plan, f, indent=1, ensure_ascii=False)
+    return plan
+
+
 def candidate_plan_record(cur, stock, vres, cons, report, checks, cells, fitted, smoke):
     # predicted lambda per logged VCDS pull (same stock-equivalent basis, measured air)
     lam = []
@@ -1176,6 +1362,8 @@ def main():
     b0.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     bn = sub.add_parser('build-vnext')
     bn.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
+    bn2 = sub.add_parser('build-vnext2')
+    bn2.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     c = sub.add_parser('chain')
     c.add_argument('--rpm', type=float, required=True)
     c.add_argument('--gear', type=int, default=4)
@@ -1228,6 +1416,21 @@ def main():
         print('excluded:', list(plan['excluded_from_refined_CS_OK']))
         print(plan['status'])
         print(plan['verification'])
+    elif args.cmd == 'build-vnext2':
+        plan = build_vnext2_candidate(write_bin=not args.plan_only)
+        for c in plan['components']:
+            print('- %s [%s]: %s' % (c['name'], c['risk'], c['status']))
+        for c in plan['soi_limiter_cells']:
+            print('%s rpm=%-6.0f coolant=%-6.1f %s %.2f(%s) -> %.2f(%s) base=%.2f' % (
+                c['map'], c['rpm_node'], c['coolant_node_c'], c['address'], c['old_deg'], c['old_raw_hex'],
+                c['new_deg'], c['new_raw_hex'], c['required_base_soi_deg']))
+        for e in plan['predicted_effect_gear4']:
+            print('rpm=%-5.0f q=%.1f SOI %.2f->%.2f sel %.2f->%.2f eq %.1f->%.1f (%+.1f mg) lambda %s->%s' % (
+                e['rpm'], e['q_cmd_mg'], e['soi_before_deg'], e['soi_after_deg'], e['selector_before'],
+                e['selector_after'], e['stock_eq_before_mg'], e['stock_eq_after_mg'], e['delivered_fuel_gain_mg'],
+                _f(e['lambda_before'], 3), _f(e['lambda_after'], 3)))
+        print(plan['status'])
+        print(plan['verification'], plan.get('verification_note', ''))
     else:
         for label, path in (('current', CURRENT_BIN), ('stock', STOCK_BIN)):
             print(label, json.dumps(chain(Firmware(path), args.rpm, args.gear), indent=1))

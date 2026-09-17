@@ -171,6 +171,36 @@ class RuntimeAnalysis(unittest.TestCase):
             with open(path, 'rb') as f:
                 self.assertEqual(self.ce.block_sums(f.read()), [self.ce.CHECKSUM_TARGET] * 2, path)
 
+    def test_oem_soi_limiter_never_clips_oem_base_soi(self):
+        # premise of the SOI-limiter fix: factory intent is 'limiter above base'
+        self.assertEqual(self.ce.soi_limiter_clips(self.stock), [])
+
+    def test_stage1_soi_limiter_clips_known_points(self):
+        clipped = {r for r, _, _ in self.ce.soi_limiter_clips(self.cur, self.ce.SOI_FIX_MIN_RPM)}
+        self.assertTrue({2250, 2500, 4000, 4500, 5000} <= clipped)
+        self.assertFalse({2000, 2750, 3000, 3250, 3500} & clipped)
+
+    def test_soi_limiter_fix_is_minimal_and_removes_every_clip(self):
+        import struct
+        cells = self.ce.soi_limiter_fix_cells(self.cur, self.stock)
+        self.assertEqual({c['rpm_node'] for c in cells}, {2250, 2500, 4000, 4250, 5000})
+        step = 1 / 42.6666666666667
+        for c in cells:
+            self.assertGreater(c['new_deg'], c['old_deg'])
+            self.assertGreaterEqual(c['new_deg'], c['required_base_soi_deg'] - 1e-9)
+            self.assertLess(c['new_deg'] - c['required_base_soi_deg'], step)
+        buf = bytearray(self.cur.data)
+        for c in cells:
+            struct.pack_into('>h', buf, int(c['address'], 16), c['new_raw'])
+        patched = self.ce.Firmware(self.ce.CURRENT_BIN)
+        patched.data, patched._c = bytes(buf), {}
+        self.assertEqual(self.ce.soi_limiter_clips(patched, self.ce.SOI_FIX_MIN_RPM), [])
+        # cold-cranking limiter (-10 C column, <1750 rpm) is deliberately untouched
+        lim_old, lim_new = self.cur['InjCrv_phiMIMax_MAP'], patched['InjCrv_phiMIMax_MAP']
+        for ix, rpm in enumerate(lim_old.x):
+            if rpm < self.ce.SOI_FIX_MIN_RPM:
+                self.assertEqual(lim_old.grid[ix], lim_new.grid[ix])
+
     def test_vcds_loader(self):
         sessions = tm.load_vcds('logs/vcds/LOG-01-011-003-008.CSV')
         self.assertEqual(len(sessions), 4)
