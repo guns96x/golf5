@@ -276,6 +276,21 @@ class RuntimeAnalysis(unittest.TestCase):
             # before = logged runtime q, after = modelled request; <=0.5 mg is model spread, smoke cells never rise
             self.assertLessEqual(e['delivered_after_mg'], e['delivered_before_mg'] + 0.5, e)
 
+    def test_vnext6_fuel_only_never_advances_wot_soi_beyond_current(self):
+        out_dir = self.ce.OUT_DIR
+        with tempfile.TemporaryDirectory() as d:
+            import shutil
+            shutil.copy(os.path.join(out_dir, 'vcds-analysis.json'), d)
+            self.ce.OUT_DIR = d
+            try:
+                plan = self.ce.build_vnext6_candidate(write_bin=False)
+            finally:
+                self.ce.OUT_DIR = out_dir
+        self.assertTrue(plan['verification']['checksum_ok'] and plan['verification']['smoke_never_raised'])
+        self.assertEqual(plan['lambda_target'], self.ce.BALANCED_LAMBDA_TARGET)
+        # no SOI object touched: only Stage 0 objects + smoke cells differ
+        self.assertTrue(all(c['map'] == 'FlMng_qPresSmoke_MAP' for c in plan['smoke_cells']))
+
     def test_vcds_loader(self):
         sessions = tm.load_vcds('logs/vcds/LOG-01-011-003-008.CSV')
         self.assertEqual(len(sessions), 4)

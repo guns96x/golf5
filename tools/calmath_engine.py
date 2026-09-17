@@ -1184,7 +1184,19 @@ def smoke_air_coherent_cells(cur, stock, lambda_target=SMOKE_LAMBDA_TARGET):
 VNEXT3_CANDIDATE_NAME = '03G906021QJ_vNext3_stage0-smoke-air-coherent_CS_OK.bin'
 
 
-def build_vnext3_candidate(write_bin=True):
+VNEXT6_CANDIDATE_NAME = '03G906021QJ_vNext6_stage1-fuel-only-l115_CS_OK.bin'
+
+
+def build_vnext6_candidate(write_bin=True):
+    """vNext3 rule at lambda 1.15, no SOI edit. 3000-4000 rpm analysis (2026-09-17): ~85-90% of the end-of-injection
+    gain comes from removing unburnable fuel; the vNext5 SOI advance adds only 0.6-0.9 deg EOI while taking the 45 mg
+    column to OEM+2.5 deg and 0.26-0.30 deg under the limiter. Engine-life priority: keep Stage 1 timing."""
+    return build_vnext3_candidate(write_bin, lambda_target=BALANCED_LAMBDA_TARGET, out_name=VNEXT6_CANDIDATE_NAME,
+                                  json_name='candidate-vnext6.json')
+
+
+def build_vnext3_candidate(write_bin=True, lambda_target=SMOKE_LAMBDA_TARGET, out_name=VNEXT3_CANDIDATE_NAME,
+                           json_name='candidate-vnext3.json'):
     """Stage 0 (hot-start + eco-cruise) + smoke limiter re-derived from measured air (all gears: the smoke map is
     rpm x corrected boost, gear-independent; the 1800 hPa column governs spool after every gear change)."""
     cur, stock, refined = Firmware(CURRENT_BIN), Firmware(STOCK_BIN), Firmware(REFINED_BIN)
@@ -1192,7 +1204,7 @@ def build_vnext3_candidate(write_bin=True):
     for name in VNEXT_COPY_FROM_REFINED:
         obj = cur[name]
         buf[obj.address:obj.address + obj.size] = refined.data[obj.address:obj.address + obj.size]
-    cells, ev = smoke_air_coherent_cells(cur, stock)
+    cells, ev = smoke_air_coherent_cells(cur, stock, lambda_target)
     for c in cells:
         struct.pack_into('>h', buf, int(c['address'], 16), c['new_raw'])
     fix_checksums(buf)
@@ -1251,7 +1263,7 @@ def build_vnext3_candidate(write_bin=True):
 
     plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
             'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256},
-            'lambda_target': SMOKE_LAMBDA_TARGET,
+            'lambda_target': lambda_target,
             'air_evidence_by_rpm_node': ev, 'smoke_cells': cells, 'predicted_effect_gear4': effects,
             'components': ['Stage 0: StSys_trqStrtBas_MAP + InjCrv_phiBasGear56_MAP from refined_CS_OK',
                            'FlMng_qPresSmoke_MAP 1800/2000 hPa columns from measured air (lower-only, OEM floor)'],
@@ -1262,7 +1274,7 @@ def build_vnext3_candidate(write_bin=True):
                 'Gearbx_trqMaxGear*_CUR': 'gear limits are 3000 Nm (inactive) in OEM and Stage 1; gear via CAN'},
             'verification': verify, 'candidate_bin': None,
             'status': 'CANDIDATE — every edit only removes fuel the measured air cannot burn at lambda %.2f, the '
-                      'lambda the calibration already runs without smoke at 2000-2500 rpm.' % SMOKE_LAMBDA_TARGET,
+                      'lambda the calibration already runs without smoke at 2000-2500 rpm.' % lambda_target,
             'validation_protocol': ['Flash, clear DTCs.', 'Same OBD drive-log protocol as 2026-09-17: 4th and 5th WOT '
                                     '2000->4000, plus 2nd/3rd pulls from 1500 rpm.',
                                     'Pass: 0-100/60-120 or pull time not slower; no smoke on gear changes.'],
@@ -1270,12 +1282,12 @@ def build_vnext3_candidate(write_bin=True):
             'rollback': CURRENT_BIN}
     if write_bin:
         os.makedirs(CANDIDATE_DIR, exist_ok=True)
-        out_path = os.path.join(CANDIDATE_DIR, VNEXT3_CANDIDATE_NAME)
+        out_path = os.path.join(CANDIDATE_DIR, out_name)
         with open(out_path, 'wb') as f:
             f.write(new)
         verify['sha256'] = patched.sha256
         plan['candidate_bin'] = out_path.replace('\\', '/')
-    with open(os.path.join(OUT_DIR, 'candidate-vnext3.json'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(OUT_DIR, json_name), 'w', encoding='utf-8') as f:
         json.dump(plan, f, indent=1, ensure_ascii=False, default=str)
     return plan
 
@@ -1820,6 +1832,8 @@ def main():
     bn.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     b00 = sub.add_parser('build-stage0')
     b00.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
+    bn6 = sub.add_parser('build-vnext6')
+    bn6.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn5 = sub.add_parser('build-vnext5')
     bn5.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn4 = sub.add_parser('build-vnext4')
@@ -1891,8 +1905,8 @@ def main():
         for e in plan['predicted_effect_gear4']:
             print('rpm %4d delivered %.1f -> %.1f mg  lambda %.2f -> %.2f  SOI %.1f -> %.1f  EOI proxy %.1f -> %.1f' % (e['rpm'], e['delivered_before_mg'], e['delivered_after_mg'], e['lambda_before'], e['lambda_after'], e['soi_before'], e['soi_after'], e['eoi_proxy_before'], e['eoi_proxy_after']))
         print(plan['verification'], plan['candidate_bin'])
-    elif args.cmd == 'build-vnext3':
-        plan = build_vnext3_candidate(write_bin=not args.plan_only)
+    elif args.cmd in ('build-vnext3', 'build-vnext6'):
+        plan = (build_vnext6_candidate if args.cmd == 'build-vnext6' else build_vnext3_candidate)(write_bin=not args.plan_only)
         for c in plan['smoke_cells']:
             print('%5.0f rpm %4.0f hPa  %5.2f -> %5.2f mg  (%s)' % (c['rpm_node'], c['pressure_node_hpa'], c['old_mg'], c['new_mg'], c['bound']))
         for e in plan['predicted_effect_gear4']:
