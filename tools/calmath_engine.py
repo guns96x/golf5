@@ -1473,6 +1473,68 @@ def build_vnext4_candidate(write_bin=True, lambda_target=EDGE_LAMBDA_TARGET, rai
 
 
 VNEXT61_CANDIDATE_NAME = '03G906021QJ_vNext6.1_fuel-3000-4000-gated_CS_OK.bin'
+PULL_LOGS = ('logs/20260916/Event_RAW_*.csv', 'logs/20260917/Event_RAW_*.csv')
+PULL_GEAR_KMH_PER_RPM = {3: 0.0255, 4: 0.0357, 5: 0.0465}   # 3/4: vcds-analysis gear_reference; 5: 2026-09-17 pulls
+PULL_GEAR_TOL = 0.03
+PULL_MIN_SPEED_PAIRS = 3
+PULL_MAX_RATIO_MAD_FRAC = 0.005
+PULL_MIN_RPM_SAMPLES = 12
+PULL_MC_DRAWS = 4000
+
+
+def road_pull_evidence(cur, stock):
+    """Per-pull, per-rpm-bin evidence from every OBD phone log (all gears 3/4/5) with an explicit quality gate, plus
+    every VCDS runtime row. Returns (accepted rows, rejected pulls). A phone pull is accepted only if its gear is
+    classified within PULL_GEAR_TOL, it has >= PULL_MIN_SPEED_PAIRS speed/rpm pairs, ratio MAD <= 0.5 % of the ratio
+    and >= PULL_MIN_RPM_SAMPLES rpm samples; only boost-established bins are used."""
+    rng = random.Random(20260917)
+    accepted, rejected = [], []
+    for f in tm.all_logs(PULL_LOGS):
+        series, meta = tm.load_events(f)
+        for seg in tm.wot_segments(series, baro=meta['baro_mbar'] or BARO_MBAR):
+            name = '%s@%.0fs' % (os.path.basename(f)[10:-4], seg[0][0])
+            g = tm.gear_ratio(series, seg)
+            reason = None
+            gear = None
+            if not g:
+                reason = 'no speed pairs'
+            else:
+                gear = next((k for k, v in PULL_GEAR_KMH_PER_RPM.items()
+                             if abs(g['kmh_per_rpm'] - v) / v <= PULL_GEAR_TOL), None)
+                if gear is None:
+                    reason = 'gear not classified (%.4f km/h/rpm)' % g['kmh_per_rpm']
+                elif g['n'] < PULL_MIN_SPEED_PAIRS:
+                    reason = 'only %d speed pairs' % g['n']
+                elif g['mad'] > PULL_MAX_RATIO_MAD_FRAC * g['kmh_per_rpm']:
+                    reason = 'ratio MAD %.5f too high' % g['mad']
+                elif len(seg) < PULL_MIN_RPM_SAMPLES:
+                    reason = 'only %d rpm samples' % len(seg)
+            bins = [rpm for rpm in RPM_BINS
+                    if (segment_telemetry(series, seg, rpm) or {}).get('map_mbar', 0) >= MIN_MAP_ESTABLISHED]
+            if reason is None and not bins:
+                reason = 'no boost-established bins'
+            if reason:
+                rejected.append({'pull': name, 'gear': gear, 'rpm': [seg[0][1], seg[-1][1]], 'reason': reason})
+                continue
+            s = {'name': name, 'seg': seg, 'kmh_per_rpm': g['kmh_per_rpm'], 'bins': bins}
+            draws = dyno.run([s], RPM_BINS, meta['baro_mbar'] or BARO_MBAR, n=PULL_MC_DRAWS)[name]
+            for rpm in bins:
+                tel = segment_telemetry(series, seg, rpm)
+                if not tel.get('air_mg_stroke') or not draws[rpm]:
+                    continue
+                cc = cross_check(rng, rpm, dyno.summarize(draws[rpm]), tel['air_mg_stroke'], tel['map_mbar'],
+                                 chain(cur, rpm, gear), duration_ratio(cur, stock, rpm, gear), draws[rpm])
+                accepted.append({'source': 'phone', 'pull': name, 'gear': gear, 'rpm': rpm,
+                                 'air_mg': tel['air_mg_stroke'], 'map_mbar': tel['map_mbar'], 'q_runtime_mg': None,
+                                 'burned_p50_mg': cc['implied_burned_q_mg']['p50'],
+                                 'burned_p95_mg': cc['implied_burned_q_mg']['p95']})
+    with open(os.path.join(OUT_DIR, 'vcds-analysis.json'), encoding='utf-8') as f:
+        for r in json.load(f)['rows']:
+            b = r.get('implied_burned_q_mg') or {}
+            accepted.append({'source': 'vcds', 'pull': r['pull'], 'gear': r['gear'], 'rpm': r['rpm'],
+                             'air_mg': r['maf_act_mg'], 'map_mbar': r['map_mbar'], 'q_runtime_mg': r['q_runtime_mg'],
+                             'burned_p50_mg': b.get('p50'), 'burned_p95_mg': b.get('p95')})
+    return accepted, rejected
 
 
 def build_vnext61_candidate(write_bin=True):
@@ -1480,26 +1542,38 @@ def build_vnext61_candidate(write_bin=True):
     inefficient fuel use, with a torque-preservation gate:
       - only FlMng_qPresSmoke_MAP 2000 hPa column, only rpm nodes 3000/4000 (SMOKE_NODES_TO_FIT);
       - 1800 hPa spool column, every node <= 2500 rpm and 5355 rpm untouched (low-rpm tip-in restriction is HOLD);
-      - per logged rpm bin 2750-4000 the delivered fuel must stay >= min(current delivered,
-        max(P95 burned-fuel estimate over all pulls, fuel for lambda 1.15 at gear-4 measured air));
+      - gate per rpm bin 2750-4000:
+          delivered_new >= min(delivered_current, max(P95_burned, lambda115_fuel))
+        P95_burned = highest per-pull P95 over every quality-accepted phone pull (gears 3/4/5) and VCDS pull;
+        lambda115_fuel = median established-WOT air over all accepted pulls / (14.5 x 1.15);
+      - follow-up review: per-pull predicted lambda (incl. lowest-air pull) and gear-5 coverage are reported;
       - no Stage 0 objects, so the fuel change can be A/B-tested on its own."""
     with open(os.path.join(OUT_DIR, 'vcds-analysis.json'), encoding='utf-8') as f:
         vres = json.load(f)
     with open(os.path.join(OUT_DIR, 'current-analysis.json'), encoding='utf-8') as f:
         pres = json.load(f)
     cur, stock = Firmware(CURRENT_BIN), Firmware(STOCK_BIN)
-    p95 = burned_p95_constraints(vres, pres)
+    pooled_p95 = burned_p95_constraints(vres, pres)
+    evidence, rejected = road_pull_evidence(cur, stock)
     q_rt, gate, gate_rows = {}, {}, []
     for rpm in PLAN_BINS:
         rows = [r for r in vres['rows'] if r['rpm'] == rpm and r['gear'] == PLAN_GEAR]
-        if not rows or rpm not in p95:
+        ev = [e for e in evidence if e['rpm'] == rpm]
+        p95s = [(e['burned_p95_mg'], e['pull'], e['gear']) for e in ev if e['burned_p95_mg']]
+        airs = sorted(e['air_mg'] for e in ev if e['air_mg'])
+        if not rows or not p95s or not airs:
             continue
         q_rt[rpm] = statistics.median(r['q_runtime_mg'] for r in rows)
         eq_now = stock_equivalent_q(cur, stock, rpm, q_rt[rpm], PLAN_GEAR)[0]
-        lam_fuel = statistics.median(r['maf_act_mg'] for r in rows) / (SMOKE_AFR_STOICH * BALANCED_LAMBDA_TARGET)
-        gate[rpm] = min(eq_now, max(p95[rpm], lam_fuel))
-        gate_rows.append({'rpm': rpm, 'delivered_now_mg': eq_now, 'burned_p95_mg': p95[rpm],
-                          'lambda115_fuel_mg': lam_fuel, 'gate_min_delivered_mg': gate[rpm]})
+        p95_max = max(p95s + ([(pooled_p95[rpm], 'pooled current-analysis', '3/4')] if rpm in pooled_p95 else []))
+        lam_fuel = statistics.median(airs) / (SMOKE_AFR_STOICH * BALANCED_LAMBDA_TARGET)
+        gate[rpm] = min(eq_now, max(p95_max[0], lam_fuel))
+        gate_rows.append({'rpm': rpm, 'delivered_now_mg': eq_now, 'burned_p95_mg': p95_max[0],
+                          'burned_p95_defined_by': {'pull': p95_max[1], 'gear': p95_max[2]},
+                          'lambda115_fuel_mg': lam_fuel, 'gate_min_delivered_mg': gate[rpm],
+                          'gears_with_evidence': sorted({e['gear'] for e in ev}),
+                          'air_mg': {'median': statistics.median(airs), 'p10': dyno.pct(airs, 0.10), 'min': airs[0],
+                                     'n': len(airs)}})
     fitted, report, checks = fit_smoke_column(cur, stock, gate, q_rt)
 
     smoke = cur['FlMng_qPresSmoke_MAP']
@@ -1536,6 +1610,19 @@ def build_vnext61_candidate(write_bin=True):
                     'eoi_proxy_now': chain_with_q(cur, rpm, PLAN_GEAR, q_rt[rpm])['electrical_command_end_proxy_deg_atdc'],
                     'eoi_proxy_new': chain_with_q(patched, rpm, PLAN_GEAR, q_new)['electrical_command_end_proxy_deg_atdc']})
         after.append(eq_new >= gate[rpm] - 1e-6)
+        per_pull = []
+        for e in [e for e in evidence if e['rpm'] == rpm and e['air_mg']]:
+            q_pull = e['q_runtime_mg'] if e['q_runtime_mg'] is not None else q_rt[rpm]
+            g_pull = e['gear'] if e['gear'] in (3, 4, 5) else PLAN_GEAR
+            eq_pull = stock_equivalent_q(patched, stock, rpm, min(q_pull, s_new.lookup(rpm, SMOKE_WOT_COLUMN_HPA)), g_pull)[0]
+            per_pull.append({'pull': e['pull'], 'source': e['source'], 'gear': e['gear'], 'air_mg': e['air_mg'],
+                             'q_basis': 'logged' if e['q_runtime_mg'] is not None else 'gear-4 VCDS median (not logged)',
+                             'delivered_new_mg': eq_pull,
+                             'lambda_new': ph.lambda_from(e['air_mg'], eq_pull, SMOKE_AFR_STOICH)})
+        worst = min(per_pull, key=lambda x: x['lambda_new'])
+        row['predicted_lambda_per_pull'] = per_pull
+        row['min_predicted_lambda'] = {'lambda': worst['lambda_new'], 'pull': worst['pull'], 'gear': worst['gear'],
+                                       'air_mg': worst['air_mg']}
     untouched = [(ix, iy_) for ix, x in enumerate(smoke.x) for iy_ in range(len(smoke.y))
                  if not (x in SMOKE_NODES_TO_FIT and iy_ == iy)]
     verify = {
@@ -1555,7 +1642,13 @@ def build_vnext61_candidate(write_bin=True):
             'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256}, 'cells': cells, 'gate_per_bin': gate_rows,
             'fit_report': report, 'verification': verify, 'candidate_bin': None,
             'status': 'EXPERIMENT — model indicates inefficient fuel use at 3000-4000 rpm; this is not a measurement '
-                      'of unburnt fuel. Gate keeps delivered fuel >= P95 burned estimate and >= lambda 1.15 fuel.',
+                      'of unburnt fuel. Gate: delivered_new >= min(delivered_current, max(P95_burned, lambda115_fuel)).',
+            'gear5_torque_preservation': {g['rpm']: ('included' if 5 in g['gears_with_evidence'] else 'HOLD')
+                                          for g in gate_rows},
+            'gear5_note': 'Quality-accepted 5th-gear pulls reach only 2750 rpm; the edited 3000/4000 nodes have NO '
+                          '5th-gear torque evidence. 5th-gear WOT 2750->4000 is a required empirical validation '
+                          'gate before promotion (boost overshoot to 2420-2470 hPa was seen in 5th).',
+            'rejected_pulls': rejected,
             'validation_protocol': ['A/B against the current file, same road: 3rd/4th/5th WOT 2000->4000, '
                                     'VCDS groups 011+008 (or phone OBD log), compare pull time, boost, MAF, IAT.'],
             'rollback': CURRENT_BIN}
