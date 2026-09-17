@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-09-17T09:47:51Z",
+ "generated_utc": "2026-09-17T09:48:01Z",
  "base_bin": {
   "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
   "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
@@ -400,9 +400,10 @@
   "changed_bytes_outside_known_objects_and_checksums": [],
   "smoke_never_raised": true,
   "smoke_1800_never_below_oem": true,
-  "smoke_axes_unchanged": true
+  "smoke_axes_unchanged": true,
+  "sha256": "f1c76d0e3a366a34330df1a9e77bc7c166542cc034652ab624e2decf44302367"
  },
- "candidate_bin": null,
+ "candidate_bin": "firmware-candidates/03G906021QJ_vNext3_stage0-smoke-air-coherent_CS_OK.bin",
  "status": "CANDIDATE — every edit only removes fuel the measured air cannot burn at lambda 1.12, the lambda the calibration already runs without smoke at 2000-2500 rpm.",
  "validation_protocol": [
   "Flash, clear DTCs.",
