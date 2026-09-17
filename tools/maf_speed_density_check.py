@@ -21,7 +21,9 @@ from calmath.params import ENGINE  # noqa: E402
 VCYL = ENGINE['displacement_m3']['value'] / ENGINE['n_cyl']['value']
 MAX_INTERP_GAP_NS = 1_500_000_000
 MAX_NEAREST_NS = {'010F': 6e9, '010D': 3e9, '0104': 3e9}
-GEAR_KMH_PER_1000 = {3: 26.0, 4: 35.2, 5: 44.0}  # 4th measured 2026-09-16 (34.5-35.7); 3rd/5th approximate
+# km/h per 1000 rpm. 3rd/4th: phone-log fit 2026-09-16 (vcds-analysis.json gear_reference); 5th/6th: 17-min road log
+# 2026-09-17 histogram peaks. 1st/2nd: not yet observed in a log, rough placeholders.
+GEAR_KMH_PER_1000 = {1: 8.0, 2: 15.0, 3: 25.5, 4: 35.7, 5: 46.5, 6: 54.0}
 
 
 def load(path):

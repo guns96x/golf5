@@ -215,6 +215,30 @@ class RuntimeAnalysis(unittest.TestCase):
         self.assertTrue(all(c['y'] < self.ce.STAGE0_WOT_Q_MIN_MG for c in plan['cell_changes']
                             if c['map'] == 'InjCrv_phiBasGear56_MAP'))
 
+    def test_smoke_air_coherent_cells_lower_only_with_floors(self):
+        cells, ev = self.ce.smoke_air_coherent_cells(self.cur, self.stock)
+        self.assertTrue(cells)
+        for c in cells:
+            self.assertLessEqual(c['new_mg'], c['old_mg'] + 1e-9)
+            self.assertGreaterEqual(c['new_mg'], c['floor_mg'] - 0.03)
+            if c['pressure_node_hpa'] == self.ce.SMOKE_TRANSIENT_COLUMN_HPA:
+                self.assertGreaterEqual(c['new_mg'], c['oem_mg'] - 0.03)
+        # the already cross-validated 2000-2500 rpm WOT plateau (56.5 mg) must stay within 1.5 mg
+        wot = {c['rpm_node']: c['new_mg'] for c in cells if c['pressure_node_hpa'] == self.ce.SMOKE_WOT_COLUMN_HPA}
+        for rpm in (2000.0, 2250.0, 2500.0):
+            self.assertGreater(wot.get(rpm, 56.5), 55.0)
+
+    def test_smoke_air_coherent_target_lambda_and_above_oem_fuel(self):
+        cells, _ = self.ce.smoke_air_coherent_cells(self.cur, self.stock)
+        for c in cells:
+            if c['pressure_node_hpa'] != self.ce.SMOKE_WOT_COLUMN_HPA or c['bound'] != 'lambda_target':
+                continue
+            lam = c['air_mg'] / (14.5 * self.ce.stock_equivalent_q(self.cur, self.stock, c['rpm_node'], c['new_mg'], 4)[0])
+            self.assertAlmostEqual(lam, self.ce.SMOKE_LAMBDA_TARGET, delta=0.01)
+            if 2750 <= c['rpm_node'] <= 4000:
+                oem = self.ce.chain(self.stock, c['rpm_node'], 4)['q_cmd_clamp_mg']
+                self.assertGreater(c['target_delivered_mg'], oem * 1.15)  # still well above OEM WOT fuel
+
     def test_vcds_loader(self):
         sessions = tm.load_vcds('logs/vcds/LOG-01-011-003-008.CSV')
         self.assertEqual(len(sessions), 4)

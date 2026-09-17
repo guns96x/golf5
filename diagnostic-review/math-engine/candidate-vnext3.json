@@ -1,0 +1,417 @@
+{
+ "generated_utc": "2026-09-17T09:47:51Z",
+ "base_bin": {
+  "path": "03G906021QJ_stage1_full_power_dpf_egr_off.bin",
+  "sha256": "d8296554b0342a9a4eb1ca0af0a17ccbbecc066349907448213ea6179ad2bfe0"
+ },
+ "lambda_target": 1.12,
+ "air_evidence_by_rpm_node": {
+  "1800.0": {
+   "air_mg": 961.5567765567765,
+   "n": 6,
+   "pc_hpa": 2256.746595348092,
+   "sources": [
+    "Event_RAW_20260917_121649.csv",
+    "vcds-20260916"
+   ]
+  },
+  "2000.0": {
+   "air_mg": 980.5461778704619,
+   "n": 14,
+   "pc_hpa": 2378.4073942433497,
+   "sources": [
+    "Event_RAW_20260917_121649.csv",
+    "vcds-20260916"
+   ]
+  },
+  "2250.0": {
+   "air_mg": 979.8413089878711,
+   "n": 25,
+   "pc_hpa": 2470.098704673128,
+   "sources": [
+    "Event_RAW_20260917_121649.csv",
+    "vcds-20260916"
+   ]
+  },
+  "2500.0": {
+   "air_mg": 975.0518925518926,
+   "n": 27,
+   "pc_hpa": 2430.647173244727,
+   "sources": [
+    "Event_RAW_20260917_121649.csv",
+    "vcds-20260916"
+   ]
+  },
+  "3000.0": {
+   "air_mg": 899.9159663865546,
+   "n": 25,
+   "pc_hpa": 2282.026440899857,
+   "sources": [
+    "Event_RAW_20260917_121649.csv",
+    "vcds-20260916"
+   ]
+  },
+  "4000.0": {
+   "air_mg": 815.6794853132528,
+   "n": 8,
+   "pc_hpa": 2210.1439389336965,
+   "sources": [
+    "Event_RAW_20260917_121649.csv",
+    "vcds-20260916"
+   ]
+  }
+ },
+ "smoke_cells": [
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 1800.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D65BA",
+   "old_raw": 5650,
+   "new_raw": 5530,
+   "old_mg": 56.5,
+   "oem_mg": 50.0,
+   "new_mg": 55.3,
+   "q_cmd_for_target_mg": 55.300187620497674,
+   "target_delivered_mg": 59.209161118028106,
+   "air_mg": 961.5567765567765,
+   "air_basis": "measured",
+   "n_samples": 6,
+   "floor_mg": 45.408484848484854,
+   "bound": "lambda_target"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 1800.0,
+   "pressure_node_hpa": 1800.0,
+   "address": "0x1D65B8",
+   "old_raw": 5158,
+   "new_raw": 4723,
+   "old_mg": 51.58,
+   "oem_mg": 45.65,
+   "new_mg": 47.23,
+   "q_cmd_for_target_mg": 47.22572318581992,
+   "target_delivered_mg": 47.22572318581994,
+   "air_mg": 766.9457445377159,
+   "air_basis": "measured",
+   "n_samples": 6,
+   "floor_mg": 45.65,
+   "bound": "lambda_target"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 2000.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D65D2",
+   "old_raw": 5650,
+   "new_raw": 5587,
+   "old_mg": 56.5,
+   "oem_mg": 50.0,
+   "new_mg": 55.87,
+   "q_cmd_for_target_mg": 55.868478852812764,
+   "target_delivered_mg": 60.37845922847671,
+   "air_mg": 980.5461778704619,
+   "air_basis": "measured",
+   "n_samples": 14,
+   "floor_mg": 45.22181818181817,
+   "bound": "lambda_target"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 2000.0,
+   "pressure_node_hpa": 1800.0,
+   "address": "0x1D65D0",
+   "old_raw": 5098,
+   "new_raw": 4569,
+   "old_mg": 50.98,
+   "oem_mg": 45.12,
+   "new_mg": 45.69,
+   "q_cmd_for_target_mg": 45.69495826253654,
+   "target_delivered_mg": 45.69495826253651,
+   "air_mg": 742.086122183593,
+   "air_basis": "measured",
+   "n_samples": 14,
+   "floor_mg": 45.12,
+   "bound": "lambda_target"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 2250.0,
+   "pressure_node_hpa": 1800.0,
+   "address": "0x1D65E8",
+   "old_raw": 5160,
+   "new_raw": 4567,
+   "old_mg": 51.6,
+   "oem_mg": 45.67,
+   "new_mg": 45.67,
+   "q_cmd_for_target_mg": 43.96710971283181,
+   "target_delivered_mg": 43.96710971283182,
+   "air_mg": 714.0258617363888,
+   "air_basis": "measured",
+   "n_samples": 25,
+   "floor_mg": 45.67,
+   "bound": "floor"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 2500.0,
+   "pressure_node_hpa": 1800.0,
+   "address": "0x1D6600",
+   "old_raw": 5209,
+   "new_raw": 4610,
+   "old_mg": 52.09,
+   "oem_mg": 46.1,
+   "new_mg": 46.1,
+   "q_cmd_for_target_mg": 44.46233714632921,
+   "target_delivered_mg": 44.46233714632925,
+   "air_mg": 722.068355256387,
+   "air_basis": "measured",
+   "n_samples": 27,
+   "floor_mg": 46.1,
+   "bound": "floor"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 3000.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D661A",
+   "old_raw": 6780,
+   "new_raw": 5286,
+   "old_mg": 67.8,
+   "oem_mg": 60.0,
+   "new_mg": 52.86,
+   "q_cmd_for_target_mg": 52.863421369433006,
+   "target_delivered_mg": 55.41354472823611,
+   "air_mg": 899.9159663865546,
+   "air_basis": "measured",
+   "n_samples": 25,
+   "floor_mg": 41.19545454545456,
+   "bound": "lambda_target"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 3000.0,
+   "pressure_node_hpa": 1800.0,
+   "address": "0x1D6618",
+   "old_raw": 5149,
+   "new_raw": 4557,
+   "old_mg": 51.49,
+   "oem_mg": 45.57,
+   "new_mg": 45.57,
+   "q_cmd_for_target_mg": 43.70868747317996,
+   "target_delivered_mg": 43.70868747317995,
+   "air_mg": 709.8290845644425,
+   "air_basis": "measured",
+   "n_samples": 25,
+   "floor_mg": 45.57,
+   "bound": "floor"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 4000.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D6632",
+   "old_raw": 6780,
+   "new_raw": 5019,
+   "old_mg": 67.8,
+   "oem_mg": 60.0,
+   "new_mg": 50.19,
+   "q_cmd_for_target_mg": 50.19369841608604,
+   "target_delivered_mg": 50.22656929268798,
+   "air_mg": 815.6794853132528,
+   "air_basis": "measured",
+   "n_samples": 8,
+   "floor_mg": 39.64000000000002,
+   "bound": "lambda_target"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 4000.0,
+   "pressure_node_hpa": 1800.0,
+   "address": "0x1D6630",
+   "old_raw": 4946,
+   "new_raw": 4377,
+   "old_mg": 49.46,
+   "oem_mg": 43.77,
+   "new_mg": 43.77,
+   "q_cmd_for_target_mg": 40.905853747451566,
+   "target_delivered_mg": 40.90585374745159,
+   "air_mg": 664.3110648586138,
+   "air_basis": "measured",
+   "n_samples": 8,
+   "floor_mg": 43.77,
+   "bound": "floor"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 5355.0,
+   "pressure_node_hpa": 2000.0,
+   "address": "0x1D664A",
+   "old_raw": 6780,
+   "new_raw": 4772,
+   "old_mg": 67.8,
+   "oem_mg": 60.0,
+   "new_mg": 47.72,
+   "q_cmd_for_target_mg": 47.7152408280536,
+   "target_delivered_mg": 47.715240828053574,
+   "air_mg": 774.8955110475902,
+   "air_basis": "above-range from 4000",
+   "n_samples": 8,
+   "floor_mg": 10.000000000000036,
+   "bound": "lambda_target"
+  },
+  {
+   "map": "FlMng_qPresSmoke_MAP",
+   "rpm_node": 5355.0,
+   "pressure_node_hpa": 1800.0,
+   "address": "0x1D6648",
+   "old_raw": 5049,
+   "new_raw": 4469,
+   "old_mg": 50.49,
+   "oem_mg": 44.69,
+   "new_mg": 44.69,
+   "q_cmd_for_target_mg": 38.86056106007903,
+   "target_delivered_mg": 38.86056106007901,
+   "air_mg": 631.0955116156831,
+   "air_basis": "above-range from 4000",
+   "n_samples": 8,
+   "floor_mg": 44.69,
+   "bound": "floor"
+  }
+ ],
+ "predicted_effect_gear4": [
+  {
+   "rpm": 2000,
+   "q_runtime_logged_mg": 55.72431818181818,
+   "q_cmd_new_mg": 55.72431818181818,
+   "delivered_before_mg": 60.2224612214755,
+   "delivered_after_mg": 60.2224612214755,
+   "burned_p50_from_road_torque_mg": 61.60419198591798,
+   "air_mg_vcds_gear4": 973.8278388278388,
+   "lambda_before": 1.1152075030913355,
+   "lambda_after": 1.1152075030913355
+  },
+  {
+   "rpm": 2250,
+   "q_runtime_logged_mg": 55.48740909090908,
+   "q_cmd_new_mg": 55.48740909090908,
+   "delivered_before_mg": 58.51781313120526,
+   "delivered_after_mg": 58.51781313120526,
+   "burned_p50_from_road_torque_mg": 59.69878120286451,
+   "air_mg_vcds_gear4": 981.7195767195767,
+   "lambda_before": 1.1569946785716305,
+   "lambda_after": 1.1569946785716305
+  },
+  {
+   "rpm": 2500,
+   "q_runtime_logged_mg": 55.68199999999999,
+   "q_cmd_new_mg": 55.68199999999999,
+   "delivered_before_mg": 58.75343498813085,
+   "delivered_after_mg": 58.75343498813085,
+   "burned_p50_from_road_torque_mg": 57.714560264257784,
+   "air_mg_vcds_gear4": 959.9642857142857,
+   "lambda_before": 1.1268180917577213,
+   "lambda_after": 1.1268180917577213
+  },
+  {
+   "rpm": 2750,
+   "q_runtime_logged_mg": 61.459681096681095,
+   "q_cmd_new_mg": 54.68,
+   "delivered_before_mg": 64.176754868654,
+   "delivered_after_mg": 58.298408471653914,
+   "burned_p50_from_road_torque_mg": 57.692722738951986,
+   "air_mg_vcds_gear4": 945.042242703533,
+   "lambda_before": 1.0155597181002993,
+   "lambda_after": 1.1179606577886614
+  },
+  {
+   "rpm": 3000,
+   "q_runtime_logged_mg": 62.16586363636364,
+   "q_cmd_new_mg": 52.86,
+   "delivered_before_mg": 66.1722804882414,
+   "delivered_after_mg": 55.404554278291315,
+   "burned_p50_from_road_torque_mg": 50.85470777995717,
+   "air_mg_vcds_gear4": 873.2512315270935,
+   "lambda_before": 0.9101125489341286,
+   "lambda_after": 1.086990476657162
+  },
+  {
+   "rpm": 3250,
+   "q_runtime_logged_mg": 62.212,
+   "q_cmd_new_mg": 52.192499999999995,
+   "delivered_before_mg": 62.449009754655634,
+   "delivered_after_mg": 53.6781629662442,
+   "burned_p50_from_road_torque_mg": 46.63091711118072,
+   "air_mg_vcds_gear4": 847.063492063492,
+   "lambda_before": 0.9354539342730346,
+   "lambda_after": 1.0883042309623059
+  },
+  {
+   "rpm": 3500,
+   "q_runtime_logged_mg": 61.78909090909091,
+   "q_cmd_new_mg": 51.525,
+   "delivered_before_mg": 60.115954955959396,
+   "delivered_after_mg": 52.37052526097639,
+   "burned_p50_from_road_torque_mg": 43.49182865337029,
+   "air_mg_vcds_gear4": 831.9047619047619,
+   "lambda_before": 0.9543679750635143,
+   "lambda_after": 1.09551588253936
+  },
+  {
+   "rpm": 3750,
+   "q_runtime_logged_mg": 61.309515074211504,
+   "q_cmd_new_mg": 50.8575,
+   "delivered_before_mg": 57.18065466216984,
+   "delivered_after_mg": 51.1860823863034,
+   "burned_p50_from_road_torque_mg": 41.285189718908775,
+   "air_mg_vcds_gear4": 820.4608294930875,
+   "lambda_before": 0.9895567970773337,
+   "lambda_after": 1.1054470833544934
+  },
+  {
+   "rpm": 4000,
+   "q_runtime_logged_mg": 61.11181818181818,
+   "q_cmd_new_mg": 50.19,
+   "delivered_before_mg": 56.29267010546374,
+   "delivered_after_mg": 50.22224325051573,
+   "burned_p50_from_road_torque_mg": 37.25767026364905,
+   "air_mg_vcds_gear4": 813.3163265306123,
+   "lambda_before": 0.9964135834195949,
+   "lambda_after": 1.1168513692280408
+  }
+ ],
+ "components": [
+  "Stage 0: StSys_trqStrtBas_MAP + InjCrv_phiBasGear56_MAP from refined_CS_OK",
+  "FlMng_qPresSmoke_MAP 1800/2000 hPa columns from measured air (lower-only, OEM floor)"
+ ],
+ "not_changed_on_purpose": {
+  "InjVlv_phiInjMI1_MAP0 / InjCrv_phiMIMax_MAP": "adding fuel above 3000 rpm contradicts measured air (HOLD)",
+  "FMTC_trq2qBas_MAP axis": "with the smoke cap binding at WOT the >336 Nm request no longer sets fuel",
+  "PCR_* boost / N75": "overshoot to 2420-2470 hPa in 5th is a governor issue; needs fast 011 log",
+  "Gearbx_trqMaxGear*_CUR": "gear limits are 3000 Nm (inactive) in OEM and Stage 1; gear via CAN"
+ },
+ "verification": {
+  "size_bytes": 2097152,
+  "checksum_block_sums": [
+   "D01FE500",
+   "D01FE500"
+  ],
+  "checksum_ok": true,
+  "changed_bytes_outside_known_objects_and_checksums": [],
+  "smoke_never_raised": true,
+  "smoke_1800_never_below_oem": true,
+  "smoke_axes_unchanged": true
+ },
+ "candidate_bin": null,
+ "status": "CANDIDATE — every edit only removes fuel the measured air cannot burn at lambda 1.12, the lambda the calibration already runs without smoke at 2000-2500 rpm.",
+ "validation_protocol": [
+  "Flash, clear DTCs.",
+  "Same OBD drive-log protocol as 2026-09-17: 4th and 5th WOT 2000->4000, plus 2nd/3rd pulls from 1500 rpm.",
+  "Pass: 0-100/60-120 or pull time not slower; no smoke on gear changes."
+ ],
+ "abort_criteria": [
+  "noticeably slower pull 3000-4000 rpm",
+  "new DTC"
+ ],
+ "rollback": "03G906021QJ_stage1_full_power_dpf_egr_off.bin"
+}

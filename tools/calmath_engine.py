@@ -1083,6 +1083,203 @@ def build_vnext2_candidate(write_bin=True):
     return plan
 
 
+SMOKE_LAMBDA_TARGET = 1.12      # what the calibration already runs at 2000-2500 rpm, cross-validated (DECISION #2)
+SMOKE_AFR_STOICH = 14.5
+SMOKE_ROAD_LOGS = ('logs/20260917/Event_RAW_20260917_121649.csv',)
+SMOKE_WOT_MIN_LOAD = 90.0
+SMOKE_NODE_HALF_WINDOW_RPM = 250
+SMOKE_MIN_SAMPLES = 4
+SMOKE_TRANSIENT_COLUMN_HPA = 1800.0
+SMOKE_WOT_COLUMN_HPA = 2000.0
+SMOKE_ABOVE_DATA_VE_FACTOR = 0.95   # rpm nodes above the logged range: air per corrected hPa taken 5% below the last node
+
+
+def wot_air_evidence(cur):
+    """Measured WOT air per smoke-map rpm node, pooled from the VCDS 2026-09-16 runtime rows (group 003 MAF, 3rd/4th)
+    and the OBD road log 2026-09-17 (4th/5th, MAF + MAP + IAT). Returns {node: {...}} with median air mg/stroke,
+    median IAT-corrected boost (smoke-map pressure axis) and sample count."""
+    import maf_speed_density_check as sd
+    corr = cur['FlMng_pIATCorr_MAP']
+    smoke = cur['FlMng_qPresSmoke_MAP']
+    pts = []
+    with open(os.path.join(OUT_DIR, 'vcds-analysis.json'), encoding='utf-8') as f:
+        for r in json.load(f)['rows']:
+            pts.append({'rpm': r['rpm'], 'air': r['maf_act_mg'], 'pc': None, 'src': 'vcds-20260916'})
+    for path in SMOKE_ROAD_LOGS:
+        for x in sd.samples(sd.load(path)):
+            if (x['load'] or 0) >= SMOKE_WOT_MIN_LOAD:
+                pc = corr.lookup(x['map'], x['iat'])
+                if pc >= SMOKE_WOT_COLUMN_HPA:
+                    pts.append({'rpm': x['rpm'], 'air': x['maf_mg'], 'pc': pc, 'src': os.path.basename(path)})
+    out = {}
+    for node in smoke.x:
+        near = [p for p in pts if abs(p['rpm'] - node) <= SMOKE_NODE_HALF_WINDOW_RPM]
+        if len(near) < SMOKE_MIN_SAMPLES:
+            continue
+        pcs = [p['pc'] for p in near if p['pc']]
+        out[node] = {'air_mg': statistics.median(p['air'] for p in near), 'n': len(near),
+                     'pc_hpa': statistics.median(pcs) if pcs else None,
+                     'sources': sorted({p['src'] for p in near})}
+    return out
+
+
+def q_cmd_for_stock_equivalent(cur, stock, rpm, q_eq_target, gear=PLAN_GEAR):
+    """ECU fuel request whose delivered (stock-duration-equivalent) mass equals q_eq_target."""
+    lo, hi = 10.0, 90.0
+    for _ in range(50):
+        mid = (lo + hi) / 2
+        if stock_equivalent_q(cur, stock, rpm, mid, gear)[0] < q_eq_target:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
+def smoke_air_coherent_cells(cur, stock, lambda_target=SMOKE_LAMBDA_TARGET):
+    """FlMng_qPresSmoke_MAP 1800/2000 hPa columns re-derived from measured air instead of the Stage 1 blanket
+    +13%/+13% scaling. Rule per rpm node with logged WOT air:
+      2000 hPa column (clamped for every corrected boost >= 2000, i.e. all established WOT):
+          delivered fuel = measured WOT air / (14.5 x lambda_target)
+      1800 hPa column (spool / gear-change transient): same, with air scaled by 1800 / median WOT corrected boost.
+    ECU request is the q whose stock-equivalent delivery equals that fuel. Cells are only ever LOWERED (never above
+    the current Stage 1 value). Floors: 1800 hPa column never below the OEM cell; 2000 hPa column never below the fuel
+    the OEM calibration actually delivered at WOT (its torque-path request - the OEM smoke cell of 60 mg at >=3000 rpm
+    was never binding, so it is not a validated smoke limit). Nodes without data are unchanged,
+    except nodes above the logged rpm range which keep the last data node's air-per-hPa x SMOKE_ABOVE_DATA_VE_FACTOR."""
+    smoke = cur['FlMng_qPresSmoke_MAP']
+    smoke_stock = stock['FlMng_qPresSmoke_MAP']
+    ev = wot_air_evidence(cur)
+    data_nodes = sorted(ev)
+    iy_wot, iy_tr = smoke.y.index(SMOKE_WOT_COLUMN_HPA), smoke.y.index(SMOKE_TRANSIENT_COLUMN_HPA)
+    cells = []
+    for ix, rpm in enumerate(smoke.x):
+        if rpm in ev:
+            e, basis = ev[rpm], 'measured'
+        elif data_nodes and rpm > data_nodes[-1]:
+            last = ev[data_nodes[-1]]
+            e, basis = dict(last, air_mg=last['air_mg'] * SMOKE_ABOVE_DATA_VE_FACTOR), 'above-range from %d' % data_nodes[-1]
+        else:
+            continue
+        pc_wot = e['pc_hpa'] or ev[min(data_nodes, key=lambda n: abs(n - rpm) if ev[n]['pc_hpa'] else 1e9)]['pc_hpa']
+        oem_wot_delivered = chain(stock, rpm, PLAN_GEAR)['q_cmd_clamp_mg']
+        for iy, air in ((iy_wot, e['air_mg']), (iy_tr, e['air_mg'] * SMOKE_TRANSIENT_COLUMN_HPA / pc_wot)):
+            q_eq = air / (SMOKE_AFR_STOICH * lambda_target)
+            q_cmd = q_cmd_for_stock_equivalent(cur, stock, rpm, q_eq)
+            old, oem = smoke.grid[ix][iy], smoke_stock.grid[ix][iy]
+            floor = oem if iy == iy_tr else q_cmd_for_stock_equivalent(cur, stock, rpm, oem_wot_delivered)
+            new = max(floor, min(old, q_cmd))
+            new_raw = _encode_raw_s16(smoke, new)
+            new_phys = a2l.to_phys(new_raw, smoke.conversion)
+            if new_raw == _encode_raw_s16(smoke, old):
+                continue
+            addr = _cell_address(smoke, ix, iy)
+            cells.append({'map': smoke.name, 'rpm_node': rpm, 'pressure_node_hpa': smoke.y[iy], 'address': '0x%X' % addr,
+                          'old_raw': struct.unpack_from('>h', cur.data, addr)[0], 'new_raw': new_raw,
+                          'old_mg': old, 'oem_mg': oem, 'new_mg': new_phys, 'q_cmd_for_target_mg': q_cmd,
+                          'target_delivered_mg': q_eq, 'air_mg': air, 'air_basis': basis, 'n_samples': e['n'],
+                          'floor_mg': floor, 'bound': 'floor' if q_cmd < floor else 'lambda_target'})
+    return cells, ev
+
+
+VNEXT3_CANDIDATE_NAME = '03G906021QJ_vNext3_stage0-smoke-air-coherent_CS_OK.bin'
+
+
+def build_vnext3_candidate(write_bin=True):
+    """Stage 0 (hot-start + eco-cruise) + smoke limiter re-derived from measured air (all gears: the smoke map is
+    rpm x corrected boost, gear-independent; the 1800 hPa column governs spool after every gear change)."""
+    cur, stock, refined = Firmware(CURRENT_BIN), Firmware(STOCK_BIN), Firmware(REFINED_BIN)
+    buf = bytearray(cur.data)
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        buf[obj.address:obj.address + obj.size] = refined.data[obj.address:obj.address + obj.size]
+    cells, ev = smoke_air_coherent_cells(cur, stock)
+    for c in cells:
+        struct.pack_into('>h', buf, int(c['address'], 16), c['new_raw'])
+    fix_checksums(buf)
+    new = bytes(buf)
+    patched = Firmware(CURRENT_BIN)
+    patched.data, patched._c, patched.sha256 = new, {}, hashlib.sha256(new).hexdigest()
+
+    diff = [i for i in range(len(new)) if new[i] != cur.data[i]]
+    allowed = set()
+    for name in VNEXT_COPY_FROM_REFINED:
+        obj = cur[name]
+        allowed |= set(range(obj.address, obj.address + obj.size))
+    for c in cells:
+        a = int(c['address'], 16)
+        allowed |= {a, a + 1}
+    for _, cs in CHECKSUM_BLOCKS:
+        allowed |= set(range(cs, cs + 4))
+    s_old, s_new, s_oem = cur['FlMng_qPresSmoke_MAP'], patched['FlMng_qPresSmoke_MAP'], stock['FlMng_qPresSmoke_MAP']
+    cellwise = [(s_old.grid[i][j], s_new.grid[i][j], s_oem.grid[i][j]) for i in range(len(s_old.x)) for j in range(len(s_old.y))]
+    verify = {
+        'size_bytes': len(new),
+        'checksum_block_sums': ['%08X' % s for s in block_sums(new)],
+        'checksum_ok': all(s == CHECKSUM_TARGET for s in block_sums(new)),
+        'changed_bytes_outside_known_objects_and_checksums': sorted('0x%X' % i for i in diff if i not in allowed),
+        'smoke_never_raised': all(n <= o + 1e-9 for o, n, _ in cellwise),
+        'smoke_1800_never_below_oem': all(s_new.grid[i][s_old.y.index(SMOKE_TRANSIENT_COLUMN_HPA)] >=
+                                          s_oem.grid[i][s_old.y.index(SMOKE_TRANSIENT_COLUMN_HPA)] - 0.02
+                                          for i in range(len(s_old.x))),
+        'smoke_axes_unchanged': s_old.x == s_new.x and s_old.y == s_new.y,
+    }
+    if (not verify['checksum_ok'] or verify['changed_bytes_outside_known_objects_and_checksums']
+            or not verify['smoke_never_raised'] or not verify['smoke_1800_never_below_oem'] or not verify['smoke_axes_unchanged']):
+        raise SystemExit('vNext3 candidate verification FAILED: %s' % verify)
+
+    with open(os.path.join(OUT_DIR, 'vcds-analysis.json'), encoding='utf-8') as f:
+        vrows = json.load(f)['rows']
+    effects = []
+    for rpm in range(2000, 4001, 250):
+        rows = [r for r in vrows if r['rpm'] == rpm and r['gear'] == PLAN_GEAR]
+        if not rows:
+            continue
+        q_rt = statistics.median(r['q_runtime_mg'] for r in rows)
+        burned = [r['implied_burned_q_mg']['p50'] for r in rows if r.get('implied_burned_q_mg')]
+        near = [e for n, e in ev.items() if abs(n - rpm) <= 500]
+        air = statistics.median(r['maf_act_mg'] for r in rows)
+        cap_old = s_old.lookup(rpm, SMOKE_WOT_COLUMN_HPA)
+        cap_new = s_new.lookup(rpm, SMOKE_WOT_COLUMN_HPA)
+        q_old, q_new = min(q_rt, cap_old), min(q_rt, cap_new)
+        eq_old = stock_equivalent_q(cur, stock, rpm, q_old, PLAN_GEAR)[0]
+        eq_new = stock_equivalent_q(patched, stock, rpm, q_new, PLAN_GEAR)[0]
+        effects.append({'rpm': rpm, 'q_runtime_logged_mg': q_rt, 'q_cmd_new_mg': q_new,
+                        'delivered_before_mg': eq_old, 'delivered_after_mg': eq_new,
+                        'burned_p50_from_road_torque_mg': statistics.median(burned) if burned else None,
+                        'air_mg_vcds_gear4': air, 'lambda_before': ph.lambda_from(air, eq_old, SMOKE_AFR_STOICH),
+                        'lambda_after': ph.lambda_from(air, eq_new, SMOKE_AFR_STOICH)})
+
+    plan = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'base_bin': {'path': CURRENT_BIN, 'sha256': cur.sha256},
+            'lambda_target': SMOKE_LAMBDA_TARGET,
+            'air_evidence_by_rpm_node': ev, 'smoke_cells': cells, 'predicted_effect_gear4': effects,
+            'components': ['Stage 0: StSys_trqStrtBas_MAP + InjCrv_phiBasGear56_MAP from refined_CS_OK',
+                           'FlMng_qPresSmoke_MAP 1800/2000 hPa columns from measured air (lower-only, OEM floor)'],
+            'not_changed_on_purpose': {
+                'InjVlv_phiInjMI1_MAP0 / InjCrv_phiMIMax_MAP': 'adding fuel above 3000 rpm contradicts measured air (HOLD)',
+                'FMTC_trq2qBas_MAP axis': 'with the smoke cap binding at WOT the >336 Nm request no longer sets fuel',
+                'PCR_* boost / N75': 'overshoot to 2420-2470 hPa in 5th is a governor issue; needs fast 011 log',
+                'Gearbx_trqMaxGear*_CUR': 'gear limits are 3000 Nm (inactive) in OEM and Stage 1; gear via CAN'},
+            'verification': verify, 'candidate_bin': None,
+            'status': 'CANDIDATE — every edit only removes fuel the measured air cannot burn at lambda %.2f, the '
+                      'lambda the calibration already runs without smoke at 2000-2500 rpm.' % SMOKE_LAMBDA_TARGET,
+            'validation_protocol': ['Flash, clear DTCs.', 'Same OBD drive-log protocol as 2026-09-17: 4th and 5th WOT '
+                                    '2000->4000, plus 2nd/3rd pulls from 1500 rpm.',
+                                    'Pass: 0-100/60-120 or pull time not slower; no smoke on gear changes.'],
+            'abort_criteria': ['noticeably slower pull 3000-4000 rpm', 'new DTC'],
+            'rollback': CURRENT_BIN}
+    if write_bin:
+        os.makedirs(CANDIDATE_DIR, exist_ok=True)
+        out_path = os.path.join(CANDIDATE_DIR, VNEXT3_CANDIDATE_NAME)
+        with open(out_path, 'wb') as f:
+            f.write(new)
+        verify['sha256'] = patched.sha256
+        plan['candidate_bin'] = out_path.replace('\\', '/')
+    with open(os.path.join(OUT_DIR, 'candidate-vnext3.json'), 'w', encoding='utf-8') as f:
+        json.dump(plan, f, indent=1, ensure_ascii=False, default=str)
+    return plan
+
+
 def candidate_plan_record(cur, stock, vres, cons, report, checks, cells, fitted, smoke):
     # predicted lambda per logged VCDS pull (same stock-equivalent basis, measured air)
     lam = []
@@ -1443,6 +1640,8 @@ def main():
     bn.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     b00 = sub.add_parser('build-stage0')
     b00.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
+    bn3 = sub.add_parser('build-vnext3')
+    bn3.add_argument('--plan-only', action='store_true', help='report cells without creating a BIN')
     bn2 = sub.add_parser('build-vnext2')
     bn2.add_argument('--plan-only', action='store_true', help='fit and report cells without creating a BIN')
     c = sub.add_parser('chain')
@@ -1503,6 +1702,13 @@ def main():
             print('%-26s x=%-7.1f y=%-7.2f %8.3f -> %8.3f' % (c['map'], c['x'], c['y'], c['old'], c['new']))
         print(plan['status'])
         print(plan['verification'], plan.get('verification_note', ''), plan['candidate_bin'])
+    elif args.cmd == 'build-vnext3':
+        plan = build_vnext3_candidate(write_bin=not args.plan_only)
+        for c in plan['smoke_cells']:
+            print('%5.0f rpm %4.0f hPa  %5.2f -> %5.2f mg  (%s)' % (c['rpm_node'], c['pressure_node_hpa'], c['old_mg'], c['new_mg'], c['bound']))
+        for e in plan['predicted_effect_gear4']:
+            print('rpm %4d delivered %.1f -> %.1f mg  lambda %.2f -> %.2f' % (e['rpm'], e['delivered_before_mg'], e['delivered_after_mg'], e['lambda_before'], e['lambda_after']))
+        print(plan['verification'], plan['candidate_bin'])
     elif args.cmd == 'build-vnext2':
         plan = build_vnext2_candidate(write_bin=not args.plan_only)
         for c in plan['components']:
