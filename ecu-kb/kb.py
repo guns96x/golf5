@@ -693,6 +693,13 @@ def cmd_claims(a):
             print(f"     ⤺ відкликано: {r['retraction_reason']}")
 
 
+def cmd_consult(a):
+    """Запит до вузькопрофільного спеціаліста (анти-сикофантія)."""
+    from specialist import DieselSpecialist
+    spec = DieselSpecialist()
+    print(spec.consult(a.query, engine=a.engine))
+
+
 def main():
     ap = argparse.ArgumentParser(prog="kb", description="Локальна база знань ECU calibration")
     sp = ap.add_subparsers(dest="cmd", required=True)
@@ -730,6 +737,11 @@ def main():
     p.add_argument("--state", default="deprecated", choices=["deprecated", "superseded"],
                    help="deprecated — хибне; superseded — замінене точнішим")
     p.set_defaults(fn=cmd_retract)
+    p = sp.add_parser("consult", help="запит до вузькопрофільного спеціаліста (анти-сикофантія)")
+    p.add_argument("query", help="запитання або гіпотеза")
+    p.add_argument("--engine", choices=["local", "codex", "claude"], default="local",
+                   help="двигун: local, codex, claude")
+    p.set_defaults(fn=cmd_consult)
     a = ap.parse_args()
     sys.exit(a.fn(a) or 0)
 
