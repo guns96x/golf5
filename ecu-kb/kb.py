@@ -602,9 +602,42 @@ def cmd_gaps(a):
     if not rows:
         print("Відкритих прогалин немає."); return
     for r in rows:
-        print(f"[P{r['priority']}] {r['status']:11} {r['question']}")
+        print(f"[P{r['priority']}] #{r['id']:<3} {r['status']:11} {r['question']}")
         if r["needed_source"]:
-            print(f"            потрібно: {r['needed_source']}")
+            print(f"                потрібно: {r['needed_source']}")
+
+
+def cmd_resolve_gap(a):
+    """Позначити прогалину статусом і, за потреби, пояснити чому саме."""
+    c = connect()
+    row = c.execute("SELECT question FROM gaps WHERE id=?", (a.id,)).fetchone()
+    if not row:
+        print(f"Прогалини #{a.id} немає."); return 1
+    c.execute("UPDATE gaps SET status=? WHERE id=?", (a.status, a.id))
+    c.commit()
+    print(f"#{a.id} → {a.status}: {row['question']}")
+    if a.note:
+        print(f"   {a.note}")
+
+
+def cmd_retract(a):
+    """Відкликати твердження. Причина — поле в БД, не речення в чаті.
+
+    За потреби відразу заводить твердження, що замінює відкликане
+    (`--superseded-by-id`), або дозволяє додати нове окремим `load-claims`
+    і зв'язати його полем `supersedes_id` у файлі claims.
+    """
+    c = connect()
+    row = c.execute("SELECT statement, verification_state FROM claims WHERE id=?",
+                    (a.id,)).fetchone()
+    if not row:
+        print(f"Твердження #{a.id} немає."); return 1
+    c.execute("""UPDATE claims SET verification_state='deprecated',
+                 retracted_at=datetime('now'), retraction_reason=?
+                 WHERE id=?""", (a.reason, a.id))
+    c.commit()
+    print(f"#{a.id} відкликано: {row['statement'][:90]}…")
+    print(f"   причина: {a.reason}")
 
 
 def main():
@@ -626,6 +659,15 @@ def main():
     sp.add_parser("status").set_defaults(fn=cmd_status)
     sp.add_parser("check").set_defaults(fn=cmd_check)
     sp.add_parser("gaps").set_defaults(fn=cmd_gaps)
+    p = sp.add_parser("resolve-gap", help="позначити прогалину статусом")
+    p.add_argument("id", type=int)
+    p.add_argument("status", choices=["OPEN", "RESEARCHING", "PARTIAL", "RESOLVED", "BLOCKED"])
+    p.add_argument("--note", help="коротке пояснення, друкується, не зберігається")
+    p.set_defaults(fn=cmd_resolve_gap)
+    p = sp.add_parser("retract", help="відкликати твердження з причиною")
+    p.add_argument("id", type=int)
+    p.add_argument("reason", help="чому відкликано — обов'язково, не 'ой, помилився'")
+    p.set_defaults(fn=cmd_retract)
     a = ap.parse_args()
     sys.exit(a.fn(a) or 0)
 
