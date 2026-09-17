@@ -1,0 +1,87 @@
+{
+  "_comment": "Заміна тверджень #28,29,30,32,33 (усі → superseded). Два виправлення за зовнішнім ревю: (1) значення мапи і ЧИТАННЯ цього значення — різні evidence_kind, тому розділені на окремі твердження; (2) кожне твердження самодостатнє: провенанс образу названо в самому тексті, а не через «у тому самому образі» чи примітку збоку. Числа — з diagnostic-review/math-engine/boost-path-stock-values.json, відтворюються python tools/decode_boost_path_stock.py.",
+
+  "claims": [
+    {
+      "statement": "У калібрувальному образі reference-from-hex.analysis-only.bin (sha256 cf891152a97f…, РЕКОНСТРУЙОВАНИЙ з hex, не знятий з машини) мапа PCR_pBDesBas_MAP (0x1EB0B2) сягає максимуму 2050 гПа абс. у зоні rpm≈2247–3990 при PCR_qDes≥40 мг/хід; у рядку rpm=0 всі 10 комірок дорівнюють 198 гПа.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "supersedes_id": 28,
+      "missing_evidence": "Образ реконструйований, а не знятий з ECU — числа описують ЦЕЙ образ, не обов'язково поточний стан машини. Потрібен живий readback (прогалина #2)."
+    },
+    {
+      "statement": "Рядок rpm=0 у PCR_pBDesBas_MAP (198 гПа для будь-якого палива) найімовірніше є службовим значенням для непрацюючого двигуна, а не уставкою наддуву: 198 гПа — це нижче за будь-який атмосферний тиск, при якому двигун працює. Це читання, а не вимірювання.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.6,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Підтвердило б: лог PCR_pBDes на запуску й одразу після глушіння; або гілка коду, що читає цей рядок."
+    },
+    {
+      "statement": "У калібрувальному образі reference-from-hex.analysis-only.bin (sha256 cf891152a97f…, РЕКОНСТРУЙОВАНИЙ з hex, не знятий з машини) мапа PCR_pBDesMaxAP_MAP (0x1EB22A) дає 2200 гПа абс. при атмосферному тиску ≥950 гПа і 1500 гПа при 600 гПа; максимум самої PCR_pBDesBas_MAP у тому ж образі — 2050 гПа.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "supersedes_id": 29,
+      "missing_evidence": "Той самий застережний статус образу, що й вище."
+    },
+    {
+      "statement": "Оскільки стеля PCR_pBDesMaxAP_MAP при тиску рівня моря (2200 гПа) вища за максимум базової мапи PCR_pBDesBas_MAP (2050 гПа), на рівні моря висотна таблиця не є діючим обмежувачем — обмежує сама базова мапа. Висотна таблиця стає діючою лише коли атмосферний тиск падає. Це арифметичне зіставлення двох декодованих мап, а не спостереження за роботою ECU.",
+      "evidence_kind": "CALCULATED", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.7,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Зіставлення справедливе лише якщо обидві мапи справді стоять послідовно в одному ланцюгу і між ними немає інших множників. Порядок обчислення з A2L не випливає — потрібен аналіз коду або лог PCR_pBDes проти APSCD_pVal."
+    },
+    {
+      "statement": "У калібрувальному образі reference-from-hex.analysis-only.bin (sha256 cf891152a97f…, РЕКОНСТРУЙОВАНИЙ з hex, не знятий з машини) всі 8 значень кривої PCR_nTrbnMax_CUR (0x1E978E, «maximale Laderdrehzahl») дорівнюють сирому 0x7FFF (32767). Сирі байти за адресою: 0008 0000 02bc 0578 0834 0af0 0dac 1068 1388, далі 7fff×8. При COMPU_METHOD цієї кривої (×10) це дає 327670 об/хв.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "rpm", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "supersedes_id": 30,
+      "missing_evidence": "Перевірено двічі: через декодер і прямим читанням байтів, тому сам факт не залежить від правильності декодера. Але образ реконструйований, не знятий з ECU."
+    },
+    {
+      "statement": "0x7FFF у всіх точках PCR_nTrbnMax_CUR означає, що ця крива в цьому образі не накладає діючого обмеження на модельовані оберти турбіни. Чому саме — НЕ встановлено; можливі щонайменше чотири читання: (а) сентинел «не задано»; (б) навмисно недосяжна стеля при робочій гілці; (в) гілка, яка читає цю криву, взагалі не виконується на цьому варіанті; (г) артефакт реконструкції образу з hex. Функціонально (а)–(в) схожі, епістемічно різні.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "rpm", "is_modeled": 0, "confidence": 0.5,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Розрізнили б: гілка коду прошивки, яка читає цю криву; запис у DSM/діагностиці, пов'язаний з перевищенням обертів нагнітача; або та сама крива в іншій калібровці EDC16U34, де вона заповнена реальними числами. ЖОДНЕ з цього не можна замінити висновком «отже межі обертів турбіни немає» — для того, хто підніматиме наддув, це несуче твердження, і воно поки не доведене."
+    },
+    {
+      "statement": "У калібрувальному образі reference-from-hex.analysis-only.bin (sha256 cf891152a97f…, РЕКОНСТРУЙОВАНИЙ з hex, не знятий з машини) крива PCR_rBPGovLin_CUR (0x1EC4D6) закодована як тотожність: у всіх 21 точці (0–100 %, крок 5 %) вихідне значення дорівнює вхідному. Отже додаткової корекції нелінійності на цьому каналі в цьому образі не застосовано.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "%", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "supersedes_id": 32,
+      "missing_evidence": "«Корекції не застосовано» — прямий наслідок тотожності. «Отже привід лінійний» — НЕ наслідок: нелінійність вакуумного привода й лопаток цією кривою не описується і не вимірюється."
+    },
+    {
+      "statement": "У калібрувальному образі reference-from-hex.analysis-only.bin (sha256 cf891152a97f…, РЕКОНСТРУЙОВАНИЙ з hex, не знятий з машини) криві порогів регулятора наддуву мають значення: PCR_qRgtOn_CUR (0x1EC2EA) — 100 мг/хід при rpm≤1170, 15 при 1200–1700, далі спад до 7 при rpm≥3500; PCR_qRgtOff_CUR (0x1EC242) — 99 при rpm≤1130, 14 при 1170–1700, далі спад до 6 при rpm≥3500.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "mg/hub", "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "supersedes_id": 33,
+      "missing_evidence": "Той самий застережний статус образу. Різниця On/Off у 1 мг/хід виглядає як гістерезис, але це вже читання, не значення."
+    },
+    {
+      "statement": "Пороги PCR_qRgtOn_CUR / PCR_qRgtOff_CUR читаються як логіка «регулятор наддуву не працює на холостому ході з малою кількістю палива, а після ~1200 об/хв вмикається майже завжди»: поріг 100 мг/хід на холостих оборотах недосяжний для звичайної роботи, а 7 мг/хід на високих — досяжний майже завжди. Це читання значень, а не спостереження за роботою регулятора.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "mg/hub", "is_modeled": 0, "confidence": 0.6,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Підтвердив би лог, де видно момент вмикання регулятора (стрибок PCR_rBPGov або перехід із чистого feedforward) проти InjCtl_qCurr і обертів."
+    }
+  ],
+
+  "gaps": [
+    {
+      "question": "З'ясувати, чому PCR_nTrbnMax_CUR заповнена 0x7FFF",
+      "why_needed": "Від цього залежить несуче твердження «чи є в прошивці діюче обмеження обертів турбіни». Зараз відомий лише факт (усі точки 0x7FFF), а чотири можливі причини не розрізнені: сентинел, навмисно недосяжна стеля, невиконувана гілка, артефакт реконструкції.",
+      "priority": 1,
+      "needed_source": "гілка коду прошивки, яка читає криву; або DSM/діагностичний запис по обертах нагнітача; або та сама крива в іншій калібровці EDC16U34, де вона заповнена"
+    }
+  ]
+}
