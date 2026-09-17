@@ -79,14 +79,26 @@ reference BIN, реальні логи. Усе інше — похідне.
 
 ```bat
 python kb.py search "PCR_rBPCtlBas_MAP"     точний збіг ідентифікатора
-python kb.py search "boost pressure control" повнотекстовий
+python kb.py search "charge pressure control" повнотекстовий
+python kb.py a2l PCR                         об'єкти прошивки за групою
 python kb.py status                          що взагалі є в базі
 python kb.py check                           перевірка цілісності
 python kb.py gaps                            чого бракує
 ```
 
-Корпус: 90 документів, 5113 чанків, 2190 ідентифікаторів.
-70 справжніх джерел + 20 наших чернеток.
+Стан бази (перебудовується з корпусу, у git її немає):
+97 документів = **76 `HAVE_LOCAL` + 21 `PROJECT_DRAFT`**, 8732 чанки,
+2565 ідентифікаторів, 16 772 об'єкти A2L для SW 1037391847
+(11 537 CHARACTERISTIC, 5 220 MEASUREMENT, 15 AXIS_PTS).
+
+Два файли з корпусу не інгестовані навмисно: `Heywood_…_Complete.pdf` і
+`Bosch_Diesel_PreTech_…pdf` мають нульовий текстовий шар (скани). Текстовий шар
+**міряє парсер**, а не реєстр.
+
+Перший вертикальний зріз готовий: [docs/CONTROL-PATH-STOCK-boost.md](docs/CONTROL-PATH-STOCK-boost.md)
+— шлях педаль → момент → лімітери → паливо → уставка наддуву → PID → N75,
+з розділенням PROVEN / MODELED / UNKNOWN. Твердження живуть у базі, джерело —
+`ecu-kb/claims/boost-path-stock.json`.
 
 ## Чернетки не є джерелами
 
