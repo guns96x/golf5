@@ -1,4 +1,4 @@
-# A/B test protocol: current Stage 1 vs vNext6.1 (agreed 2026-09-17)
+# A/B test protocol: current Stage 1 vs vNext6.1 (agreed and FROZEN 2026-09-17)
 
 Candidate: `firmware-candidates/03G906021QJ_vNext6.1_fuel-3000-4000-gated_CS_OK.bin`, sha256 `f9d05f8318ca587da63c85c5d9d76e6131b5024ec49c2ffb0599403ea09a0248`.
 Baseline: `03G906021QJ_stage1_full_power_dpf_egr_off.bin`.
@@ -36,5 +36,5 @@ One variable per experiment: this test changes fuel only. Boost/N75 is analysed 
 ## Compared per rpm bin (analysis after upload)
 - Pull time and rpm rate (road torque) for each direction, then averaged.
 - Boost requested/actual, N75, smoke and torque limitation (008).
-- MAF (003); IAT from the separate IAT pass (not from 011/003/008).
+- MAF (003); IAT from the separate IAT pass (not from 011/003/008). A ~4.7 s IAT interval only tracks thermal state and heat soak (before/after a pull). It is not assigned to individual rpm bins.
 - Decision on the 49.55 mg @ 4000 node only after this data. Boost/N75 overshoot is a separate follow-up experiment.
