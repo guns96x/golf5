@@ -160,10 +160,12 @@ CREATE TABLE IF NOT EXISTS a2l_objects (
     sw_number     TEXT NOT NULL,
     name          TEXT NOT NULL,
     description   TEXT,
-    obj_type      TEXT,              -- MAP | CURVE | VALUE | ASCII …
+    obj_type      TEXT,              -- MAP | CURVE | VALUE | ASCII | SWORD …
+    kind          TEXT,              -- CHARACTERISTIC | MEASUREMENT | AXIS_PTS
     address       TEXT,
     record_layout TEXT,
     func_group    TEXT,              -- префікс Bosch: PCR, InjCrv, AirCtl…
+    a2l_sha256    TEXT,              -- з якого саме файла взято
     UNIQUE (sw_number, name)
 );
 CREATE INDEX IF NOT EXISTS idx_a2l_name  ON a2l_objects(name);
