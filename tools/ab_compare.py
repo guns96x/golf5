@@ -46,10 +46,12 @@ def classify_by_rate(seg):
     return (g if rel <= GEAR_RATE_TOL else None), d[1]
 
 
-def pulls_from(paths, gear):
+def pulls_from(paths, gear, after=None):
     out, skipped = [], []
     for path in paths:
         for series, meta in tm.load_vcds(path):
+            if after and meta['time'] < after:
+                continue  # VCDS appends sessions to the same file: keep only sessions after the flash
             dts = [b[0] - a[0] for a, b in zip(series.get('map_mbar', []), series.get('map_mbar', [])[1:])]
             interval = statistics.median(dts) if dts else None
             for seg in tm.wot_segments(series, baro=BARO_MBAR, min_span_rpm=700):
@@ -160,10 +162,12 @@ def main():
     ap.add_argument('--gear', type=int, default=4, choices=sorted(GEAR_RATE_REF_RPM_S),
                     help='only pulls whose rpm rate matches this gear are compared (3 or 4)')
     ap.add_argument('--out', default='diagnostic-review/ab-test')
+    ap.add_argument('--current-after', help='HH:MM:SS: only sessions starting at/after this time')
+    ap.add_argument('--candidate-after', help='HH:MM:SS: only sessions starting at/after this time')
     a = ap.parse_args()
     res = {'generated_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'gear': a.gear}
-    for side, paths in (('current', a.current), ('candidate', a.candidate)):
-        pulls, skipped = pulls_from(paths, a.gear)
+    for side, paths, after in (('current', a.current, a.current_after), ('candidate', a.candidate, a.candidate_after)):
+        pulls, skipped = pulls_from(paths, a.gear, after)
         res[side] = {'files': paths, 'summary': summary(pulls), 'bins': per_bin(pulls), 'skipped_pulls': skipped,
                      'pulls': [{k: v for k, v in p.items() if k not in ('series', 'seg', 'bins')} for p in pulls]}
     os.makedirs(a.out, exist_ok=True)

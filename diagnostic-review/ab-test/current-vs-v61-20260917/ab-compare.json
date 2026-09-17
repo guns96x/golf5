@@ -1,0 +1,290 @@
+{
+ "generated_utc": "2026-09-17T15:42:27Z",
+ "gear": 4,
+ "current": {
+  "files": [
+   "logs/20260917-ab/LOG-01-011-003-xxx.CSV",
+   "logs/20260917-ab/LOG-01-011-008-xxx.CSV"
+  ],
+  "summary": {
+   "n_pulls": 4,
+   "n_full_pulls": 2,
+   "median_time_2750_to_end_s": 12.337857142857137,
+   "median_peak_map_mbar": 2386.8,
+   "median_peak_boost_error_mbar": 193.79999999999995,
+   "median_sample_interval_011_s": 0.34999999999999964,
+   "pulls_crossing_abort_map": 0
+  },
+  "bins": {
+   "2750": {
+    "n_pulls": 4,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2361.6227443609023,
+    "n75_duty_pct": 26.35059523809523,
+    "maf_act_mg": 977.4937343358396,
+    "trq_request_nm": 344.02891156462584,
+    "trq_limit_nm": 356.22891156462583,
+    "trq_smoke_nm": 333.057215007215,
+    "road_torque_p50_nm": 279.7804432158318,
+    "boost_error_mbar": 168.6227443609023
+   },
+   "3000": {
+    "n_pulls": 4,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2297.2273469387756,
+    "n75_duty_pct": 21.95194805194805,
+    "maf_act_mg": 941.6938775510204,
+    "trq_request_nm": 338.1564732142857,
+    "trq_limit_nm": 347.8982142857143,
+    "trq_smoke_nm": 334.3,
+    "road_torque_p50_nm": 269.16073163937193,
+    "boost_error_mbar": 104.22734693877555
+   },
+   "3250": {
+    "n_pulls": 4,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2113.4569264069264,
+    "n75_duty_pct": 25.51461038961039,
+    "maf_act_mg": 830.0,
+    "trq_request_nm": 331.8,
+    "trq_limit_nm": 341.6,
+    "trq_smoke_nm": 334.3,
+    "road_torque_p50_nm": 225.34841687510124,
+    "boost_error_mbar": -79.54307359307359
+   },
+   "3500": {
+    "n_pulls": 3,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2155.6,
+    "n75_duty_pct": 26.0,
+    "maf_act_mg": 834.8571428571429,
+    "trq_request_nm": 327.0,
+    "trq_limit_nm": 335.2942857142857,
+    "trq_smoke_nm": 334.3,
+    "road_torque_p50_nm": 217.2770857323104,
+    "boost_error_mbar": -37.40000000000009
+   },
+   "3750": {
+    "n_pulls": 2,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2162.4,
+    "n75_duty_pct": 28.520340136054422,
+    "maf_act_mg": 828.5253456221199,
+    "trq_request_nm": 321.40612244897966,
+    "trq_limit_nm": 329.4,
+    "trq_smoke_nm": 334.3,
+    "road_torque_p50_nm": 198.83035652446097,
+    "boost_error_mbar": -30.59999999999991
+   },
+   "4000": {
+    "n_pulls": 2,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2162.4,
+    "n75_duty_pct": 31.448677248677242,
+    "maf_act_mg": 806.2698412698412,
+    "trq_request_nm": 314.8,
+    "trq_limit_nm": 317.2,
+    "trq_smoke_nm": 334.3,
+    "road_torque_p50_nm": 181.5438130661822,
+    "boost_error_mbar": -30.59999999999991
+   }
+  },
+  "skipped_pulls": [],
+  "pulls": [
+   {
+    "name": "LOG-01-011-003-xxx.CSV day17 18:14:23@3.2s",
+    "kmh_per_rpm": 0.0357,
+    "gear_from_rate": 4,
+    "rate_2750_rpm_s": 130.90854717547492,
+    "groups": [
+     "011",
+     "003"
+    ],
+    "sample_interval_011_s": 0.34999999999999964,
+    "full_pull": true,
+    "time_2750_to_end_s": 12.182857142857141,
+    "end_rpm": 4116.0,
+    "peak_map_mbar": 2376.6,
+    "peak_boost_error_mbar": 183.5999999999999,
+    "abort_threshold_crossed": false
+   },
+   {
+    "name": "LOG-01-011-008-xxx.CSV day17 18:15:20@0.2s",
+    "kmh_per_rpm": 0.0357,
+    "gear_from_rate": 4,
+    "rate_2750_rpm_s": 132.62264939080333,
+    "groups": [
+     "011",
+     "008"
+    ],
+    "sample_interval_011_s": 0.34999999999999964,
+    "full_pull": false,
+    "time_2750_to_end_s": null,
+    "end_rpm": 3339.0,
+    "peak_map_mbar": 2397.0,
+    "peak_boost_error_mbar": 204.0,
+    "abort_threshold_crossed": false
+   },
+   {
+    "name": "LOG-01-011-008-xxx.CSV day17 18:15:20@23.4s",
+    "kmh_per_rpm": 0.0357,
+    "gear_from_rate": 4,
+    "rate_2750_rpm_s": 176.16009455794384,
+    "groups": [
+     "011",
+     "008"
+    ],
+    "sample_interval_011_s": 0.34999999999999964,
+    "full_pull": false,
+    "time_2750_to_end_s": null,
+    "end_rpm": 3612.0,
+    "peak_map_mbar": 2305.2,
+    "peak_boost_error_mbar": 112.19999999999982,
+    "abort_threshold_crossed": false
+   },
+   {
+    "name": "LOG-01-011-008-xxx.CSV day17 18:15:20@86.7s",
+    "kmh_per_rpm": 0.0357,
+    "gear_from_rate": 4,
+    "rate_2750_rpm_s": 161.21619415725888,
+    "groups": [
+     "011",
+     "008"
+    ],
+    "sample_interval_011_s": 0.34999999999999964,
+    "full_pull": true,
+    "time_2750_to_end_s": 12.492857142857133,
+    "end_rpm": 4137.0,
+    "peak_map_mbar": 2397.0,
+    "peak_boost_error_mbar": 204.0,
+    "abort_threshold_crossed": false
+   }
+  ]
+ },
+ "candidate": {
+  "files": [
+   "logs/20260917-ab-v61/LOG-01-011-003-v61.CSV",
+   "logs/20260917-ab-v61/LOG-01-011-008-v61.CSV"
+  ],
+  "summary": {
+   "n_pulls": 2,
+   "n_full_pulls": 2,
+   "median_time_2750_to_end_s": 13.397619047619049,
+   "median_peak_map_mbar": 2407.2,
+   "median_peak_boost_error_mbar": 214.20000000000005,
+   "median_sample_interval_011_s": 0.17999999999999972,
+   "pulls_crossing_abort_map": 0
+  },
+  "bins": {
+   "2750": {
+    "n_pulls": 2,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2384.9380952380952,
+    "n75_duty_pct": 27.228571428571428,
+    "maf_act_mg": 955.1120448179272,
+    "trq_request_nm": 344.062656641604,
+    "trq_limit_nm": 356.262656641604,
+    "trq_smoke_nm": 324.4398496240602,
+    "road_torque_p50_nm": null,
+    "boost_error_mbar": 191.93809523809523
+   },
+   "3000": {
+    "n_pulls": 2,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2311.0135714285716,
+    "n75_duty_pct": 22.353697478991595,
+    "maf_act_mg": 896.8796992481203,
+    "trq_request_nm": 339.2,
+    "trq_limit_nm": 348.9,
+    "trq_smoke_nm": 334.3,
+    "road_torque_p50_nm": 249.69520887950435,
+    "boost_error_mbar": 118.0135714285716
+   },
+   "3250": {
+    "n_pulls": 2,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2080.8,
+    "n75_duty_pct": 28.2,
+    "maf_act_mg": 821.9047619047619,
+    "trq_request_nm": 331.8,
+    "trq_limit_nm": 341.6,
+    "trq_smoke_nm": 322.36890756302523,
+    "road_torque_p50_nm": 210.2452273256681,
+    "boost_error_mbar": -112.19999999999982
+   },
+   "3500": {
+    "n_pulls": 2,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2170.9,
+    "n75_duty_pct": 28.196078431372545,
+    "maf_act_mg": 816.6666666666667,
+    "trq_request_nm": 327.0,
+    "trq_limit_nm": 334.67894736842106,
+    "trq_smoke_nm": 309.9,
+    "road_torque_p50_nm": 197.7535722727702,
+    "boost_error_mbar": -22.09999999999991
+   },
+   "3750": {
+    "n_pulls": 2,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2176.4510204081635,
+    "n75_duty_pct": 30.2,
+    "maf_act_mg": 813.4873949579832,
+    "trq_request_nm": 319.6,
+    "trq_limit_nm": 329.4,
+    "trq_smoke_nm": 300.1,
+    "road_torque_p50_nm": 198.1648693879502,
+    "boost_error_mbar": -16.54897959183654
+   },
+   "4000": {
+    "n_pulls": 2,
+    "boost_spec_mbar": 2193.0,
+    "map_mbar": 2172.6,
+    "n75_duty_pct": 32.2,
+    "maf_act_mg": 797.910052910053,
+    "trq_request_nm": 314.8,
+    "trq_limit_nm": 318.7142857142857,
+    "trq_smoke_nm": 290.4,
+    "road_torque_p50_nm": 184.0844886357914,
+    "boost_error_mbar": -20.40000000000009
+   }
+  },
+  "skipped_pulls": [],
+  "pulls": [
+   {
+    "name": "LOG-01-011-003-v61.CSV day17 18:38:23@0.1s",
+    "kmh_per_rpm": 0.0357,
+    "gear_from_rate": 4,
+    "rate_2750_rpm_s": 127.97216583169667,
+    "groups": [
+     "011",
+     "003"
+    ],
+    "sample_interval_011_s": 0.17999999999999972,
+    "full_pull": true,
+    "time_2750_to_end_s": 14.081428571428571,
+    "end_rpm": 4095.0,
+    "peak_map_mbar": 2417.4,
+    "peak_boost_error_mbar": 224.4000000000001,
+    "abort_threshold_crossed": false
+   },
+   {
+    "name": "LOG-01-011-008-v61.CSV day17 18:39:16@0.1s",
+    "kmh_per_rpm": 0.0357,
+    "gear_from_rate": 4,
+    "rate_2750_rpm_s": 157.73255015223737,
+    "groups": [
+     "011",
+     "008"
+    ],
+    "sample_interval_011_s": 0.17999999999999972,
+    "full_pull": true,
+    "time_2750_to_end_s": 12.713809523809525,
+    "end_rpm": 4074.0,
+    "peak_map_mbar": 2397.0,
+    "peak_boost_error_mbar": 204.0,
+    "abort_threshold_crossed": false
+   }
+  ]
+ }
+}
