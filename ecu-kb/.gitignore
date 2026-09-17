@@ -1,0 +1,8 @@
+# Корпус НІКОЛИ не потрапляє в git — це поширення, а не локальна копія
+knowledge/raw/
+knowledge/library/
+*.pdf
+*.epub
+# База перебудовується з корпусу
+knowledge/kb.sqlite3*
+__pycache__/
