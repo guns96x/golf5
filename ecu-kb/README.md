@@ -33,8 +33,8 @@ python kb.py ingest D:\CLAUDE\base\knowledge\library
 python kb.py ingest D:\CLAUDE\base\knowledge\drafts
 
 python kb.py load-claims claims\boost-path-stock.json
-python kb.py load-claims claims\boost-path-values.json
 python kb.py load-claims claims\turbo-bv39-scope.json
+python kb.py load-claims claims\boost-path-values.json
 
 REM claims\boost-path-values.json на самоперевірці змішав значення мапи (MAP_FACT)
 REM з читанням цього значення (INFERRED/CALCULATED) в одному твердженні, і частина
@@ -51,6 +51,24 @@ python kb.py resolve-gap 13 RESOLVED --note "Не було потрібно — 
 
 python kb.py load-claims claims\boost-path-values-corrections.json
 python kb.py resolve-gap 9 PARTIAL --note "Структуру й значення декодовано з reconstructed BIN; живого readback немає."
+
+python kb.py load-claims claims\n75-duty-direction.json
+python kb.py resolve-gap 12 PARTIAL --note "Напрямок встановлено MEASURED з logs/VCDS_WOT_Log_20260914_153242.csv: більша шпаруватість -> менший наддув (замкнений контур)."
+
+python kb.py load-claims claims\logs-inventory.json
+python kb.py resolve-gap 16 RESOLVED --note "Проскановано (Gemini-інвентаризація 52 файлів + вибіркова ручна перевірка)."
+
+python kb.py load-claims claims\firmware-modification-reliability.json
+
+REM Фото заводської таблички турбіни (закриває блокуючу P1-прогалину #1).
+REM Ця сесія самого фото не бачила — текст переказаний іншою сесією, тому
+REM короткі відмінні мітки (бренд, родина) MEASURED з вищою впевністю, довгі
+REM буквено-цифрові коди — з нижчою. Старий каталожний номер турбіни на
+REM табличці АГРЕГАТА відсутній — відкликано, не переписано тихо:
+python kb.py load-claims claims\turbo-nameplate-photo.json
+python kb.py retract 24 "Головна теза (безпечна межа наддуву невідома) лишається правильною. Але посилання на конкретне виконання '54399880072' застаріло: фото заводської таблички показує іншу систему нумерації агрегата — BV39A-0012 / NE 1003/1756-00002. Каталожний номер на табличці відсутній." --state superseded
+python kb.py resolve-gap 1 RESOLVED --note "Фото зроблено й проаналізовано (переказ). BorgWarner BV39 підтверджено фізично."
+python kb.py resolve-gap 14 BLOCKED --note "Замінено прогалиною #21: номер 54399880072 на табличці агрегата відсутній, пошук за ним був приречений."
 
 python kb.py check
 python kb.py status
