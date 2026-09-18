@@ -104,6 +104,23 @@ CREATE TABLE IF NOT EXISTS claims (
     turbo_model        TEXT,
     confidence         REAL CHECK (confidence BETWEEN 0 AND 1),
     missing_evidence   TEXT,             -- що саме підняло б статус
+    -- ЯК саме підтверджено — ортогонально і до evidence_kind, і до
+    -- verification_state. citations (документна цитата) — єдиний тип, який
+    -- перевіряє kb check дослівним збігом. bin_derived/log_derived/computed
+    -- підтверджуються провенансом у самому statement (шлях, sha256) — це
+    -- працювало ad hoc для claims/boost-path-values.json і claims/
+    -- n75-duty-direction.json ще до того, як для цього з'явилось поле.
+    source_class       TEXT CHECK (source_class IN (
+                          'document_citation','bin_derived','log_derived',
+                          'computed','human_attested')),
+    -- Хто написав і хто перевірив — навмисно РІЗНІ люди/сесії, якщо можливо.
+    -- Поки не має власного workflow: kb load-claims завжди ставить created_by,
+    -- reviewed_by лишається NULL, доки хтось не підтвердить окремо. Самоперевірка
+    -- (створив і перевірив — та сама сесія) не забороняється схемою, але видна:
+    -- WHERE created_by = reviewed_by.
+    created_by         TEXT,
+    reviewed_by         TEXT,
+    reviewed_at         TEXT,
     -- Ретракції — first-class, бо вони тут реальність
     supersedes_id      INTEGER REFERENCES claims(id),
     retracted_at       TEXT,
@@ -219,6 +236,20 @@ CREATE TABLE IF NOT EXISTS flash_events (
     notes                 TEXT,
     created_at             TEXT DEFAULT (datetime('now'))
 );
+
+-- Append-only: журнал спроб прошивки не можна ані виправити заднім числом,
+-- ані видалити. written_at/readback_after_sha256/verified_byte_match у поточній
+-- версії заповнюються при INSERT (або лишаються NULL) — команди дописати їх
+-- ПІСЛЯ фізичного запису ще немає (окрема прогалина), але сам журнал уже
+-- захищений від тихого редагування.
+CREATE TRIGGER IF NOT EXISTS flash_events_no_update
+BEFORE UPDATE ON flash_events BEGIN
+    SELECT RAISE(ABORT, 'flash_events immutable: append a new row, do not edit');
+END;
+CREATE TRIGGER IF NOT EXISTS flash_events_no_delete
+BEFORE DELETE ON flash_events BEGIN
+    SELECT RAISE(ABORT, 'flash_events immutable: append a new row, do not delete');
+END;
 
 CREATE TABLE IF NOT EXISTS preflight_checks (
     id            INTEGER PRIMARY KEY,

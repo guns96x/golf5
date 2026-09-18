@@ -25,6 +25,27 @@ DB   = ROOT / "knowledge" / "kb.sqlite3"
 DRAFT_PUBLISHERS = {"Autonomous Engineering Corpus"}
 
 CHUNK_CHARS, CHUNK_OVERLAP = 1800, 200
+MIN_QUOTE_WORDS = 10  # той самий поріг, що в первісному ТЗ бази знань
+
+# ── flash-preflight: ідентичність і цілісність цільового образу ────────────
+# Golf 5 BLS, EDC16U34-3.42, HW 03G906021QJ, SW 1037391847 — CLAUDE.md.
+# Обидва рядки перевірено: реально зустрічаються як ASCII-байти в
+# reference-from-hex.analysis-only.bin (SW за 0x10150, HW за 0x1C0CD2).
+TARGET_SW = "1037391847"
+TARGET_HW = "03G906021QJ"
+
+# EDC16U34 MPC562, флеш-образ 2 MiB. Перевірено на відомих файлах проєкту
+# (reference-from-hex, new-inputs/on) — обидва 2 097 152 байти.
+EXPECTED_TARGET_SIZE = 2 * 1024 * 1024
+
+# Контрольна сума EDC16: 32-бітна big-endian сума слів по двох блоках,
+# включно зі словом самої суми, має дорівнювати CHECKSUM_TARGET. Значення й
+# межі блоків узяті з tools/calmath_engine.py (fix_checksums/block_sums) —
+# коментар джерела: "Verified against: OEM HEX reference, original ECU read
+# (new-inputs/on) and third-party *_chk_OK files." Тут лише перевірка, без
+# виправлення — flash-preflight нічого не пише в образ.
+CHECKSUM_TARGET = 0xD01FE500
+CHECKSUM_BLOCKS = ((0x180000, 0x1BFFFC), (0x1C0000, 0x1FDFFC))
 
 # A2L-символи (FlMng_qPresSmoke_MAP), адреси (0x1D6632), парт-номери (03G906021QJ)
 RE_A2L   = re.compile(r"\b[A-Z][A-Za-z0-9]{2,}_[A-Za-z0-9_]{3,}\b")
@@ -508,8 +529,40 @@ def cmd_check(a):
     print(f"\n4. Твердження про конкретний ECU без номера SW: {len(scope)}")
     fail += len(scope)
 
+    # doc_sha256 у citations пишеться з чанка, знайденого при load-claims (не з
+    # файла заявки), тому в теорії завжди узгоджений з документом, якому
+    # належить чанк. Перевірка ловить розсинхрон — наприклад, якщо документ
+    # переінгестили (новий sha256), а стару цитату не оновили. Локатор
+    # порожнім бути не може: цитата без нього непридатна для посилання.
+    stale = c.execute("""
+        SELECT ci.id, ci.claim_id, ci.doc_sha256, d.sha256 AS real_sha256
+        FROM citations ci
+        JOIN chunks ch   ON ch.id = ci.chunk_id
+        JOIN documents d ON d.id  = ch.document_id
+        WHERE ci.doc_sha256 != d.sha256 OR ci.locator IS NULL OR ci.locator = ''
+    """).fetchall()
+    print(f"\n5. Цитати з неузгодженим doc_sha256 чи порожнім локатором: {len(stale)}")
+    for r in stale[:10]:
+        print(f"   ✗ цитата #{r['id']} (claim #{r['claim_id']}): "
+              f"{r['doc_sha256'][:12]}… ≠ {r['real_sha256'][:12]}…")
+    fail += len(stale)
+
     print("\n" + ("✓ ПРОЙДЕНО — порушень немає" if fail == 0
                   else f"✗ ПРОВАЛЕНО — {fail} порушень"))
+
+    # Довжина цитати — евристика, не інваріант: коротка загальна фраза слабо
+    # доводить твердження, але коротка ВІДМІННА мітка (парт-номер, підпис на
+    # схемі) буває цілком переконливою попри малу довжину. Тому — попередження,
+    # не провал; судження про «достатньо відмінна» лишається за людиною.
+    short = c.execute("""SELECT ci.id, ci.claim_id, ci.quote FROM citations ci
+                         WHERE LENGTH(ci.quote) - LENGTH(REPLACE(ci.quote,' ',''))
+                               < ?""", (MIN_QUOTE_WORDS - 1,)).fetchall()
+    if short:
+        print(f"\n⚠ {len(short)} цитат(и) коротші за {MIN_QUOTE_WORDS} слів — "
+              f"не порушення, але варто перевірити на відмінність:")
+        for r in short[:10]:
+            print(f"   ⚠ цитата #{r['id']} (claim #{r['claim_id']}): «{r['quote']}»")
+
     return 1 if fail else 0
 
 
@@ -530,18 +583,22 @@ def cmd_load_claims(a):
         if row:
             cid = row["id"]
         else:
+            source_class = cl.get("source_class") or (
+                "document_citation" if cl.get("citations") else None)
             cid = c.execute(
                 """INSERT INTO claims(statement,evidence_kind,verification_state,quantity_kind,
                                       unit,frame,is_modeled,ecu_family,ecu_variant,sw_number,
                                       engine_code,turbo_model,confidence,missing_evidence,
-                                      supersedes_id,retracted_at,retraction_reason)
-                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                                      supersedes_id,retracted_at,retraction_reason,
+                                      source_class,created_by)
+                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (cl["statement"], cl["evidence_kind"], cl.get("verification_state", "raw"),
                  cl.get("quantity_kind"), cl.get("unit"), cl.get("frame"),
                  int(cl.get("is_modeled", 0)), cl.get("ecu_family"), cl.get("ecu_variant"),
                  cl.get("sw_number"), cl.get("engine_code"), cl.get("turbo_model"),
                  cl.get("confidence"), cl.get("missing_evidence"), cl.get("supersedes_id"),
-                 cl.get("retracted_at"), cl.get("retraction_reason"))).lastrowid
+                 cl.get("retracted_at"), cl.get("retraction_reason"),
+                 source_class, a.created_by)).lastrowid
             added += 1
 
         for q in cl.get("citations", []):
@@ -711,10 +768,25 @@ def cmd_log_check(a):
 
 
 def cmd_record_readback(a):
+    """Зареєструвати зчитування прошивки.
+
+    Софт не може перевірити, що два файли — це справді два ФІЗИЧНІ зчитування
+    з блока, а не одна й та сама копія, підсунута двічі. Це та сама межа
+    довіри, що й у confirm-check. Що софт МОЖЕ й повинен ловити — найдешевший
+    обман: той самий шлях або той самий файл (os.path.samefile) як обидва
+    аргументи. Раніше `record-readback X X` тихо проходило як «два незалежних
+    зчитування, що збіглися» — не проходить більше.
+    """
     c = connect()
-    digest = sha256(Path(a.path))
-    twin = sha256(Path(a.path2)) if a.path2 else None
-    if a.path2 and twin != digest:
+    p1, p2r = Path(a.path), Path(a.path2) if a.path2 else None
+    if p2r and (p1.resolve() == p2r.resolve() or
+                (p1.exists() and p2r.exists() and os.path.samefile(p1, p2r))):
+        print("✗ path і path2 — той самий файл. Це не два зчитування, а одне,"
+              " підсунуте двічі. Зроби ДРУГЕ фізичне зчитування блока.")
+        return 1
+    digest = sha256(p1)
+    twin = sha256(p2r) if p2r else None
+    if p2r and twin != digest:
         print(f"✗ два зчитування НЕ збігаються: {digest[:16]}… ≠ {twin[:16]}…")
         print("  Це саме по собі знахідка (нестабільне читання), не technicality.")
         print("  Записую з read_count=1 — двійник НЕ підтверджений.")
@@ -726,8 +798,8 @@ def cmd_record_readback(a):
         """INSERT INTO firmware_versions(label,path,sha256,source,read_count,
                                          verified_twin_sha256,notes)
            VALUES(?,?,?,?,?,?,?)""",
-        (a.label, str(Path(a.path).resolve()), digest, a.source, read_count,
-         twin, a.note)).lastrowid
+        (a.label, str(p1.resolve()), digest, a.source, read_count,
+         twin, f"[засвідчив: {a.by}] {a.note or ''}".strip())).lastrowid
     c.commit()
     print(f"#{cid} {a.source} sha256={digest[:16]}… read_count={read_count}"
           + (f" verified_twin={twin[:16]}…" if twin else ""))
@@ -743,10 +815,41 @@ def cmd_confirm_check(a):
     print(f"#{cid} {a.condition} [{a.scope}] засвідчено: {a.by}")
 
 
+def checksum_ok(data):
+    """32-бітна big-endian сума слів по кожному блоку == CHECKSUM_TARGET."""
+    import struct as struct_mod
+    for lo, cs in CHECKSUM_BLOCKS:
+        s = sum(struct_mod.unpack('>%dI' % ((cs + 4 - lo) // 4),
+                                   data[lo:cs + 4])) & 0xFFFFFFFF
+        if s != CHECKSUM_TARGET:
+            return False
+    return True
+
+
 def cmd_flash_preflight(a):
-    """Чотири ворота з § 2 документа. Кожен — окремий код у blocked_reasons."""
+    """Ворота з § 2 документа + валідація самого цільового файла.
+
+    Кожна причина блокування — окремий код у blocked_reasons. Перевірка
+    цілі йде ПЕРШОЮ і найсуворіше: файл, якого немає, неправильного розміру
+    чи з чужим SW/HW у заголовку — миттєвий блок незалежно від решти воріт,
+    бо решта воріт про ПРОЦЕС, а це — про те, що взагалі намірились писати.
+    """
     c = connect()
     blocked = []
+
+    target_path = Path(a.target)
+    target_sha = None
+    if not target_path.is_file():
+        blocked.append("TARGET_NOT_FOUND")
+    else:
+        data = target_path.read_bytes()
+        target_sha = hashlib.sha256(data).hexdigest()
+        if len(data) != EXPECTED_TARGET_SIZE:
+            blocked.append(f"TARGET_SIZE_MISMATCH({len(data)}!={EXPECTED_TARGET_SIZE})")
+        if TARGET_SW.encode() not in data or TARGET_HW.encode() not in data:
+            blocked.append("SW_HW_NOT_FOUND_IN_TARGET")
+        if len(data) == EXPECTED_TARGET_SIZE and not checksum_ok(data):
+            blocked.append("CHECKSUM_INVALID")
 
     own = c.execute("""SELECT * FROM firmware_versions
                        WHERE source='own_readback' AND read_count>=2
@@ -769,6 +872,13 @@ def cmd_flash_preflight(a):
     if not power:
         blocked.append("POWER_NOT_CONFIRMED")
 
+    rollback = c.execute("""SELECT 1 FROM preflight_checks
+                            WHERE condition='rollback_documented' AND confirmed=1
+                                  AND datetime(created_at) >= datetime('now', ?)
+                            LIMIT 1""", (f"-{a.power_max_age_h} hours",)).fetchone()
+    if not rollback:
+        blocked.append("ROLLBACK_NOT_DOCUMENTED")
+
     if not a.log:
         blocked.append("LOG_NOT_PROVIDED")
     else:
@@ -780,7 +890,6 @@ def cmd_flash_preflight(a):
         if missing or frozen or nrows < FROZEN_MIN_ROWS:
             blocked.append("LIMITER_LOG_MISSING")
 
-    target_sha = sha256(Path(a.target)) if a.target and Path(a.target).exists() else None
     result = "blocked" if blocked else "passed"
     eid = c.execute(
         """INSERT INTO flash_events(target_path,target_sha256,baseline_firmware_id,
@@ -812,7 +921,9 @@ def main():
     p = sp.add_parser("a2l"); p.add_argument("query")
     p.add_argument("--limit", type=int, default=20); p.set_defaults(fn=cmd_a2l)
     p = sp.add_parser("load-claims", help="твердження з JSON, цитати звіряються з чанками")
-    p.add_argument("path"); p.set_defaults(fn=cmd_load_claims)
+    p.add_argument("path")
+    p.add_argument("--created-by", help="хто/яка сесія завантажує — для розрізнення від reviewed_by")
+    p.set_defaults(fn=cmd_load_claims)
     sp.add_parser("status").set_defaults(fn=cmd_status)
     sp.add_parser("check").set_defaults(fn=cmd_check)
     sp.add_parser("gaps").set_defaults(fn=cmd_gaps)
@@ -838,6 +949,7 @@ def main():
     p.add_argument("path2", nargs="?", help="друге незалежне зчитування — для перевірки")
     p.add_argument("--source", required=True,
                    choices=["own_readback", "reconstructed", "vendor_release", "modified"])
+    p.add_argument("--by", required=True, help="хто зчитував — для підзвітності")
     p.add_argument("--label"); p.add_argument("--note")
     p.set_defaults(fn=cmd_record_readback)
 
