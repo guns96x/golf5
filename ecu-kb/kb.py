@@ -623,20 +623,21 @@ def cmd_resolve_gap(a):
 def cmd_retract(a):
     """Відкликати твердження. Причина — поле в БД, не речення в чаті.
 
-    За потреби відразу заводить твердження, що замінює відкликане
-    (`--superseded-by-id`), або дозволяє додати нове окремим `load-claims`
-    і зв'язати його полем `supersedes_id` у файлі claims.
+    Два різні випадки, тому два статуси:
+      deprecated — твердження хибне або більше не тримається;
+      superseded — твердження замінене точнішим (нове зв'язується з ним
+                   полем supersedes_id у файлі claims).
     """
     c = connect()
     row = c.execute("SELECT statement, verification_state FROM claims WHERE id=?",
                     (a.id,)).fetchone()
     if not row:
         print(f"Твердження #{a.id} немає."); return 1
-    c.execute("""UPDATE claims SET verification_state='deprecated',
+    c.execute("""UPDATE claims SET verification_state=?,
                  retracted_at=datetime('now'), retraction_reason=?
-                 WHERE id=?""", (a.reason, a.id))
+                 WHERE id=?""", (a.state, a.reason, a.id))
     c.commit()
-    print(f"#{a.id} відкликано: {row['statement'][:90]}…")
+    print(f"#{a.id} → {a.state}: {row['statement'][:80]}…")
     print(f"   причина: {a.reason}")
 
 
@@ -667,6 +668,8 @@ def main():
     p = sp.add_parser("retract", help="відкликати твердження з причиною")
     p.add_argument("id", type=int)
     p.add_argument("reason", help="чому відкликано — обов'язково, не 'ой, помилився'")
+    p.add_argument("--state", default="deprecated", choices=["deprecated", "superseded"],
+                   help="deprecated — хибне; superseded — замінене точнішим")
     p.set_defaults(fn=cmd_retract)
     a = ap.parse_args()
     sys.exit(a.fn(a) or 0)
