@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "DSMDur",
+  "raw_groups": [
+    "DSMDur"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_DfctDur1Mode_C",
+      "description": "Betriebsart des globalen Fehlerdauerzählers 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2518",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_DfctDur2Mode_C",
+      "description": "Betriebsart des globalen Fehlerdauerzählers 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2519",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_FcmDfctDur1Mode_C",
+      "description": "Betriebsart des Fehlerspeichereintrags  Dauerzählers 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D251E",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_FcmDfctDur2Mode_C",
+      "description": "Betriebsart des Fehlerspeichereintrags  Dauerzählers 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D251F",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_ctDfctDur1",
+      "description": "Wert Fehlerdauerzähler",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9832",
+      "record_layout": null,
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_ctDfctDur2",
+      "description": "Wert Fehlerdauerzähler 2",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9834",
+      "record_layout": null,
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stDfctDur1Enable_C",
+      "description": "Aktivierungsbedingungen für den globalen Defektdauerzähler 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D251A",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stDfctDur1Reset_C",
+      "description": "Rücksetzbedingungen für den globalen Defektdauerzähler 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D251C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stDfctDur2Enable_C",
+      "description": "Aktivierungsbedingungen für den globalen Defektdauerzähler 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D251B",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stDfctDur2Reset_C",
+      "description": "Rücksetzbedingungen für den globalen Defektdauerzähler 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D251D",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stFcmDfctDur1Enable_C",
+      "description": "Aktivierungsbedingung des Fehlerspeichereintrags  Dauerzählers 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2520",
+      "record_layout": "Kw_Wu16",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stFcmDfctDur1Reset_C",
+      "description": "Rücksetzbedingung des Fehlerspeichereintrags  Dauerzählers 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2524",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stFcmDfctDur2Enable_C",
+      "description": "Aktivierungsbedingung des Fehlerspeichereintrags  Dauerzählers 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2522",
+      "record_layout": "Kw_Wu16",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stFcmDfctDur2Reset_C",
+      "description": "Rücksetzbedingung des Fehlerspeichereintrags  Dauerzählers 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2525",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSMDur_stGlobalDefCnt_mp",
+      "description": "Aktivierungs und Resetzustand der beiden globalen Fehlerdauerzähler",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFDFE",
+      "record_layout": null,
+      "func_group": "DSMDur",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

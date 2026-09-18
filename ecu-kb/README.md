@@ -1,7 +1,13 @@
 # ECU Knowledge Base — локальна
 
 База знань по ECU calibration для VW Golf 5 1.9 TDI BLS / Bosch EDC16U34.
-Працює повністю офлайн. Жодних сервісів, ключів і оплат.
+Працює локально без зовнішніх сервісів для canonical SQLite workflow.
+
+> **Актуальність:** цей README містить також історичні команди replay/bootstrap,
+> тому окремі ID, counts і старі проміжні твердження нижче можуть бути
+> superseded. Поточна істина — `kb.sqlite3` + `kb.py claims/gaps/check`.
+> Для ChatGPT та інших зовнішніх клієнтів використовується read-only export
+> `ecu-kb/remote/manifest.json`; див. `docs/CHATGPT-KB-BRIDGE.md`.
 
 ## Головний принцип
 
@@ -25,7 +31,11 @@ python seed_gaps.py
 
 ## Наповнення
 
-Повний прохід із нуля (перебудовується будь-коли, база в git не лежить):
+Нижче — **історичний replay** побудови поточного KB. Він зберігає ретракції як
+події й тому навмисно містить старі формулювання, які пізніше були superseded.
+Не використовуй текст цих команд як поточний технічний факт.
+
+Повний прохід із нуля (база SQLite в git не лежить):
 
 ```bat
 python kb.py ingest-a2l "..\diagnostic-review\definitions\*\*.a2l" --sw 1037391847
@@ -69,33 +79,6 @@ python kb.py load-claims claims\turbo-nameplate-photo.json
 python kb.py retract 24 "Головна теза (безпечна межа наддуву невідома) лишається правильною. Але посилання на конкретне виконання '54399880072' застаріло: фото заводської таблички показує іншу систему нумерації агрегата — BV39A-0012 / NE 1003/1756-00002. Каталожний номер на табличці відсутній." --state superseded
 python kb.py resolve-gap 1 RESOLVED --note "Фото зроблено й проаналізовано (переказ). BorgWarner BV39 підтверджено фізично."
 python kb.py resolve-gap 14 BLOCKED --note "Замінено прогалиною #21: номер 54399880072 на табличці агрегата відсутній, пошук за ним був приречений."
-
-REM Ревю поточної прошивки (new-inputs/on проти стоку) на прохання власника.
-python kb.py load-claims claims\current-firmware-review.json
-
-REM Знахідка: третій, чистіший кандидат лежить у сусідньому проєкті
-REM golf5-android-flasher, поза golf5. Ще не з'ясовано, чи він записаний.
-python kb.py load-claims claims\refined-calibration-discovery.json
-
-REM Власник підтвердив: НЕ записаний. У машині — прошивка до проєкту
-REM флешера (new-inputs/on). Закриває gap про те, чи refined_CS_OK у блоці.
-python kb.py resolve-gap 24 RESOLVED --note "Власник підтвердив прямо: refined_CS_OK НЕ записаний. У машині — прошивка з ДО проєкту флешера, тобто new-inputs/on."
-python kb.py load-claims claims\current-state-confirmed.json
-
-REM Пряме читання фото (не переказ) + власник продиктував наживо: позначення
-REM турбіни насправді BV39A-0072, не BV39A-0012. Три claims, що посилались
-REM на 0012, відкликані — не переписані тихо. Lader-Nr лишається непевним.
-python kb.py resolve-gap 20 RESEARCHING --note "Gemini запущено на пошук за BV39A-0072 (виправлений номер)."
-python kb.py load-claims claims\turbo-designation-corrected.json
-
-REM Gemini повернув 5 "джерел" з конкретними цифрами (розміри коліс,
-REM ElsaWin-діапазон, заводська уставка). Перевірено відвідуванням КОЖНОГО
-REM URL напряму — ЖОДНЕ не підтвердилось: головні сторінки без вмісту або
-REM сторінки за антибот-захистом. Одне з чисел (2050 мбар) збігалось із вже
-REM відомим фактом — саме тому й підозріле, не тому що надійне. gap #20
-REM повернуто в OPEN, не залишено RESOLVED на слово воркера:
-python kb.py load-claims claims\gemini-search-verification-failed.json
-python kb.py resolve-gap 20 OPEN --note "Gemini-пошук завершено, але всі 5 джерел перевірено відвідуванням і жодне не підтвердилось."
 
 python kb.py check
 python kb.py status
@@ -290,5 +273,9 @@ python kb.py flash-preflight --target <образ> --log <лог>
 у fp16 (~1.2 GB) стане на RTX 3050 і дасть dense + sparse з однієї моделі.
 Qdrant при 5 тисячах чанків не потрібен — це десятки мегабайт у RAM.
 
-**Корпус у git не кладемо.** `.gitignore` вже це блокує: `git push` — це
-поширення, а не особиста копія.
+**Canonical SQLite не комітиться.** Поточний репозиторій уже містить частину
+source library під `base-knowledge/library/` — це окрема repository-level
+політика й не змінює статусу доказів у KB. Remote specialist export у
+`ecu-kb/remote/` не копіює SQLite, firmware binaries або повні corpus chunks;
+він публікує лише current claims/citations metadata, gaps, conflicts та A2L
+catalogue.

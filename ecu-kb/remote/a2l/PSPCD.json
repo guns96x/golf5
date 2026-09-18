@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "PSPCD",
+  "raw_groups": [
+    "PSPCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_DebExcTempDef_C",
+      "description": "Fehlerentprellzeit Uebertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFCE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_DebExcTempOk_C",
+      "description": "Heilungsentprellzeit Uebertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFD0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_DebNoLoadDef_C",
+      "description": "Fehlerentprellzeit keine Last",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFD2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_DebNoLoadOk_C",
+      "description": "Heilungsentprellzeit keine Last",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFD4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_DebShortCircBatDef_C",
+      "description": "Fehlerentprellzeit Kurzschluß nach UBatt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFD6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_DebShortCircBatOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach UBatt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFD8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_DebShortCircGndDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFDA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_DebShortCircGndOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFDC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_ctPwrStgOnMax_C",
+      "description": "maximale Anzahl von Endstufen-Einschaltungen pro Fahrzyklus bei SCB oder Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFCC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_stDigInvOut_C",
+      "description": "Invertierung des Ausgangssignals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFDE",
+      "record_layout": "Kw_Wu8",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_stOutHWE_mp",
+      "description": "Vorvoerderpumpe Ausgangssignals",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF9F",
+      "record_layout": null,
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_stSPICtl_C",
+      "description": "Parameter um Endstufentyp festzulegen (1=SPI Endstufe; 0=Non_SPI Endstufe)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFDF",
+      "record_layout": "Kw_Wu8",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_tiBtwTst_C",
+      "description": "Zeitraster zwischen der Endstufeneinschaltung zur Prüfung der Fehlerbedingung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFE0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSPCD_tiPwrStgOn_C",
+      "description": "Zeit, für welche die Endstufe beim Fall der nicht-SPI-Endstufe eingeschaltet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFE2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "PSPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

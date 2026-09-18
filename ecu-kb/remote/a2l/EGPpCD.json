@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EGPpCD",
+  "raw_groups": [
+    "EGPpCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_DebSRCHighDefTemp_C",
+      "description": "Fehlerentprellung SRC-High-Fehler der Abgastemperatur vor Turbine",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2856",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_DebSRCHighOkTemp_C",
+      "description": "Heilungsentprellung SRC-High-Fehler der Abgastemperatur vor Turbine",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2858",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_DebSRCLowDefTemp_C",
+      "description": "Fehlerentprellung SRC-Low-Fehler für die Abgastemperatur vor Turbine",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D285A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_DebSRCLowOkTemp_C",
+      "description": "Heilungsentprellzeit für SRC-Low-Fehler für die Abgastemperatur vor Turbine",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D285C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_dtRmpSlpDwnTemp_C",
+      "description": "Abwärts-Schrittweite für Abgastemperatur vor Abgasturbolader",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2864",
+      "record_layout": "Kw_Wu32",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_dtRmpSlpUpTemp_C",
+      "description": "Aufwärts-Schrittweite für Abgastemperatur vor Abgasturbolader",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2860",
+      "record_layout": "Kw_Wu32",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_stSensIDWordTemp_C",
+      "description": "Kennzahl zur Festlegung des Fehlerverhaltens der Abgastemperatur vor Abgasturbolader",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D286A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_swtActvTPreTrbn_C",
+      "description": "Aktivierung/Deaktivierung  des Komponententreibers für Abgastemperatur vor Abgasturbolader",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2868",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_swtFltTempPreTrbn_C",
+      "description": "Schalter fuer Aktivierung des Filters der T3 Sensor Spannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2869",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_tDflTemp_C",
+      "description": "Vorgabewert für Abgastemperatur vor Abgasturbolader",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D286C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_tLinPreTrbn",
+      "description": "Linearisierter Wert der Abgastemperatur vor Abgasturbolader",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9848",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_tLinTemp_CUR",
+      "description": "Linearisierungskennlinie der Abgastemperatur vor Abgasturbolader",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D27B4",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_tPreTrbn",
+      "description": "Abgastemperatur vor Abgasturbolader",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F984A",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_tPreTrbn1",
+      "description": "Abgastemperatur vor Abgasturbolader 1",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F984C",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_tPreTrbn2",
+      "description": "Abgastemperatur vor Turbolader 2",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F984E",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_uRawTempPreTrbn",
+      "description": "Spannungsrohwert der Abgastemperatur vor Abgasturbolader",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9850",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_uRawTempPreTrbnFast",
+      "description": "Abgastemperatur vor Turbolader Spannungsarray 20 ms",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9FCA",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_uRawTempPreTrbnInt_mp",
+      "description": "Messpunkt fuer gefilterte Spannung des 20 ms EGPpCD",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF054",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_uRawTempPreTrbnSlow",
+      "description": "Abgastemperatur vor Turbolader Spannungsarray 100 ms",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9FD4",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_uRawTempPreTrbnUnFlt_mp",
+      "description": "Messpunkt fuer ungefilterte Sannung des 20 ms EGPpCD",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF056",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_uRawTempPreTrbn_mp",
+      "description": "Spannungsrohwert der Abgastemperatur vor Abgasturbolader[mv]",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF058",
+      "record_layout": null,
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_uSRCMaxTemp_C",
+      "description": "SRC-MAX-Wert für Abgastemperatur vor Abgasturbolader",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D27B2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPpCD_uSRCMinTemp_C",
+      "description": "SRC-MIN-Wert für Abgastemperatur vor Abgasturbolader",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D27B0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EGPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

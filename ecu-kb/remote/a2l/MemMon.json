@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "MemMon",
+  "raw_groups": [
+    "MemMon"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_ctErrChkRam",
+      "description": "Fehlerzähler für Doppelablage und zyklischen RAM-Test",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FA7C1",
+      "record_layout": null,
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_ctErrChkRom",
+      "description": "Fehlerzähler für zyklischen ROM-Test",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FA7C2",
+      "record_layout": null,
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_ctHealChkRam",
+      "description": "Heilungszähler für Doppelablage und zyklischen RAM-Test",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FA7C3",
+      "record_layout": null,
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_ctHealChkRom",
+      "description": "Heilungszähler für zyklischen ROM-Test",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FA7C4",
+      "record_layout": null,
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_numErrChkRam_C",
+      "description": "Fehlertoleranzschwelle für Doppelablage und zyklischen RAM-Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FE8",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_numErrChkRom_C",
+      "description": "Fehlertoleranzschwelle für zyklischen ROM-Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FE9",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_st",
+      "description": "Status der Speicherüberwachung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FA7C0",
+      "record_layout": null,
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_tiHealChkRam_C",
+      "description": "Heilungszeit für Fehler in der Doppelablage und im zyklischen RAM-Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FEA",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MemMon_tiHealChkRom_C",
+      "description": "Heilungszeit für Fehler im zyklischen ROM-Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FEB",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MemMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

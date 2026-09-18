@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "BIPCD",
+  "raw_groups": [
+    "BIPCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_ddiBWMin_C",
+      "description": "Minimale BIP-Bandbreite (Entscheidungsschwelle)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B3C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_ddiBW_mp",
+      "description": "Aktuelle BIP-Bandbreite (zylinderselektives Array)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE994",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_iDelta",
+      "description": "Differenz zwischen gemessenem Strom im BIP-Fenster und maximal erlaubtem Strom gemäß Kennlinie",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9672",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_iMaxMI1_mp",
+      "description": "Größter gemessener Stromwert im BIP-Fenster MI1 (zylinderselektives Array)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE99E",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_iMaxPiI1_mp",
+      "description": "Größter gemessener Stromwert im BIP-Fenster PiI1 (zylinderselektives Array)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE9A0",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_iMaxPoI2_mp",
+      "description": "Größter gemessener Stromwert im BIP-Fenster PoI2 (zylinderselektives Array)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE9A2",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_iWinLim_CUR",
+      "description": "Maximal zulaessiger Strom im BIP- Fenster, je nach UBatt",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC5A0",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_iWinLim_mp",
+      "description": "Aktueller maximal zulaessiger Strom im BIP- Fenster",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE9BA",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_numSkip_C",
+      "description": "Anzahl der Samples, die zu Beginn des BIP-Fensters verworfen werden",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC5AE",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_numSpreadPoI2_C",
+      "description": "Tangentenspreizung PoI2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B3E",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_numSpread_C",
+      "description": "Tangentenspreizung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B3F",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_stBIPDetMI1",
+      "description": "BIP-Erfassungs-Status MI1 (zylinderselektives Array)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9ED8",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_stBIPDetPiI1",
+      "description": "BIP-Erfassungs-Status PiI1 (zylinderselektives Array)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9EDD",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_stBIPDetPoI2",
+      "description": "BIP-Erfassungs-Status PoI2 (zylinderselektives Array)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9EE2",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_tiBIPActMI1",
+      "description": "Aktuelle BIP-Zeit (=Magnetventil-Schließzeit) MI1 (zylinderselektives Array)",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9F3E",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_tiBIPActPiI1",
+      "description": "Aktuelle BIP-Zeit (=Magnetventil-Schließzeit) PiI1 (zylinderselektives Array)",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9F48",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_tiBIPActPoI2",
+      "description": "Aktuelle BIP-Zeit (=Magnetventil-Schließzeit) PoI2 (zylinderselektives Array)",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9F52",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_tiDvtCtrMI1_mp",
+      "description": "Abweichung zwischen aktueller BIP-Zeit und Vorhaltezeit MI1 (zylinderselektives Array)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE9A4",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_tiDvtCtrPiI1_mp",
+      "description": "Abweichung zwischen aktueller BIP-Zeit und Vorhaltezeit PiI1 (zylinderselektives Array)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE9AE",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BIPCD_tiDvtCtrPoI2_mp",
+      "description": "Abweichung zwischen aktueller BIP-Zeit und Vorhaltezeit PoI2 (zylinderselektives Array)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE9B0",
+      "record_layout": null,
+      "func_group": "BIPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

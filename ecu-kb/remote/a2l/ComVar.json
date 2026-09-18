@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "ComVar",
+  "raw_groups": [
+    "ComVar"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "ComVar_stDebClaEn",
+      "description": "Status der verriegelten Debounce Klassen.",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F97FE",
+      "record_layout": null,
+      "func_group": "ComVar",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ComVar_stK2Com",
+      "description": "Status der K-Line Kommunikation",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F934D",
+      "record_layout": null,
+      "func_group": "ComVar",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ComVar_swtRemote",
+      "description": "Status des Remote Schalters",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F934E",
+      "record_layout": null,
+      "func_group": "ComVar",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

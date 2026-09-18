@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EGT",
+  "raw_groups": [
+    "EGT"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_facRmpVal",
+      "description": "Zentraler Rampenwert (drehzahlsynchron)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98A6",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_mAirDesTempGvnr",
+      "description": "Temperaturreglerkorrektur für den Luftmassensollwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98A8",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_qPoI1TempGvnr",
+      "description": "EGT Temperaturregler PoI1 Menge während einer Regeneration",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98AA",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_qPoI2TempGvnr",
+      "description": "EGT Temperaturreglerkorrektur der angelagerten Nacheinspritzung 2 während einer Partikelfilterregeneration",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98AC",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_st",
+      "description": "Regenerationsanforderung für Abgasnachbehandlung (drehzahlsynchron)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9E18",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stByp_mp",
+      "description": "Meßpunkt für Bypass",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE55C",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stCoRgn",
+      "description": "Innerer Zustand des Regenerationskoordinator (drehzahlsynchron)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93AB",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stCoRgnTSync",
+      "description": "Innerer Zustand des Regenerationskoordinator (zeitsynchron)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93AC",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stIntOld_mp",
+      "description": "Letzte interne Regenerationsanforderung nach Priorisierung",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE560",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stInt_mp",
+      "description": "Interne Regenerationsanforderung nach Priorisierung",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE564",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stLck",
+      "description": "Status EGT_stTSync-Kopiervorgang (drehzahlsynchron)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93AD",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stLckTSync",
+      "description": "Verzögerte Regenerationsanforderung für die Abgasnachbehandlung (zeitsynchron)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93AE",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stSubCoRgn_mp",
+      "description": "Interner Zustand des Zustandsautomaten",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE24",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stTSync",
+      "description": "Regenerationsanforderung für Abgasnachbehandlung (zeitsynchron)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9E1C",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stTSyncByp_mp",
+      "description": "Meßpunkt für Bypass Freischnitt",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE56C",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stTSync_Channel",
+      "description": "Konfigurationslabels für Bypass",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A83",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stTSync_Vector",
+      "description": "Konfigurationslabel für Bypass",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A82",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_stTmp_mp",
+      "description": "Temporäre Regenerationsanforderung nach Einfügung des Zustands \"\"adsorbe",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE568",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_st_Channel",
+      "description": "Bypass-Label, nicht editieren !",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A81",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_st_Vector",
+      "description": "Bypass-Label, nicht editieren !",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A80",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_swtEGTActv",
+      "description": "Message zur Deaktivierung der gesamten Funktionalität der Abgasnachbehandlung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93AF",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_swtEGTActv_C",
+      "description": "Schalter- Wert, um die EGT- Funktionen ein- oder auszuschalten",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4274",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_tInrBiTrb",
+      "description": "Temperatur des inneren Reglers für Bi-Turbo Motoren.",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98AE",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_tInrDesCorBiTrb",
+      "description": "Vorgabe Korrekturwert des inneren Reglers für Bi_Turbo Motoren",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98B0",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_tInrDesInTempGvnr",
+      "description": "Kundenspezifischer Temperaturvorgabewert des inneren Reglers.",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98B2",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_tOutrDesInTempGvnr",
+      "description": "Kundenspezifischer Temperaturvorgabewert des äußeren Reglers.",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98B4",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_tiRgn",
+      "description": "Zeit seit letzter Änderung von EGT_st (drehzahlsynchron)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9E20",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_tiRgnTSync",
+      "description": "Zeit seit letzter Änderung von EGT_st (zeitsynchron)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9E24",
+      "record_layout": null,
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_tiRmpSlpMax_C",
+      "description": "Maximale Rampenlaufzeit für EGT-Mehrfachschalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4278",
+      "record_layout": "Kw_Wu32",
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGT_tiRmpSlp_C",
+      "description": "Rampensteigungswert zur Auswertung des zentralen EGT-Rampenwertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4270",
+      "record_layout": "Kw_Wu32",
+      "func_group": "EGT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

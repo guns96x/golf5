@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "CtApCD",
+  "raw_groups": [
+    "CtApCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_DebExcTempDef_C",
+      "description": "Fehlerentprellzeit für Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0AC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_DebExcTempOk_C",
+      "description": "Heilungsentprellzeit für Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0AE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_DebNoLoadDef_C",
+      "description": "Fehlerentprellzeit für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0B0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_DebNoLoadOk_C",
+      "description": "Heilungsentprellzeit für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0B2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_DebShortCircBatDef_C",
+      "description": "Fehlerentprellzeitzeit für Kurzschluß nach Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0B4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_DebShortCircBatOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0B6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_DebShortCircGndDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0B8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_DebShortCircGndOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0BA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_ctPwrStgOnMax_C",
+      "description": "maximale Anzahl von Endstufen-Einschaltungen pro Fahrzyklus bei SCB oder Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0A4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_dcycMax_C",
+      "description": "Vorgabewert im Status \"\"AFTERRUN\"\" der Kühlerlüftersteuerung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0A6",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_dcycMin_C",
+      "description": "Vorgabewert im Status \"\"NORMALRUN\"\" der Kühlerlüftersteuerung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0A8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_dcycShutOff_C",
+      "description": "Vorgabewert im Status \"\"POSTAFTERRUN\"\" der Kühlerlüftersteuerung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0AA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_rHWE_mp",
+      "description": "Ausgabetastverhältnis zur HWK",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7FDDE0",
+      "record_layout": null,
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_rHWE_mpByp_mp",
+      "description": "Bypass message für CtApCD_rHWE_mp",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEABA",
+      "record_layout": null,
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_rHWE_mp_Channel",
+      "description": "Konfigurationslabel für Bypass message",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A79",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_rHWE_mp_Vector",
+      "description": "Konfigurationslabel für Bypass message",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A78",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_stInvOut_C",
+      "description": "Invertierung des Ausgangssignals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0BC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_stSPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart ( 1 = SPI kontrollierbare Endstufe, 0 = nicht SPI-Endstufe )",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0C0",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_stVarDef_mp",
+      "description": "Status fuer Ausgabe ueber PWM- oder Digitalendstufe",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFA50",
+      "record_layout": null,
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_tAirXHi_C",
+      "description": "oberer Schwellwert der Umgebungstemperaturhysterese",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0C2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_tAirXLo_C",
+      "description": "untere Schwellwert der Umgebungstemperaturhystere",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0C4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_tClntCanXHi_C",
+      "description": "oberer Schwelle der Hysterese für die Wassertemperatur über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0C6",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_tClntCanXLo_C",
+      "description": "untere Schwelle der Hysterese für die Wassertemperatur über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0C8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_tiBtwTst_C",
+      "description": "Zeitabstand, in dem im Fehlerfall die Endstufe getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0CA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_tiDelOn_C",
+      "description": "Verzögerungszeit nach Startabwurf für CtApCD",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0CC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_tiPer_C",
+      "description": "Periodendauer des Ausgangssignal der Kühlmitteltnachlaufpumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0BE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtApCD_tiPwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall eingeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD0CE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtApCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EepInit",
+  "raw_groups": [
+    "EepInit"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_AirCtlTrm_C",
+      "description": "Trimmwert Sollwertbildung AGR",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CB8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_SWT1_C",
+      "description": "Funktionsschalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0D02",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_SWT2_C",
+      "description": "Signalschalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0D04",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_dCodeTbl_C",
+      "description": "Codiertabelle",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CBA",
+      "record_layout": "Kwb_Wu8",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_dHwPartNum_C",
+      "description": "Erstinitalisirungswert für dHwPartNum",
+      "obj_type": "ASCII",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CBE",
+      "record_layout": "Ktx",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_dPartNr_C",
+      "description": "VW/Audi - Teilenummer",
+      "obj_type": "ASCII",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CD2",
+      "record_layout": "Ktx",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_dPrgVer_C",
+      "description": "Programmstand",
+      "obj_type": "ASCII",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CDF",
+      "record_layout": "Ktx",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_dSysName_C",
+      "description": "Systembezeichnung",
+      "obj_type": "ASCII",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CE4",
+      "record_layout": "Ktx",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_dnCoVehLvl1_C",
+      "description": "Offset- Wert der Zielmotorehzahl fuer Leerlauf [ E1 ]",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CCC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_dnCoVehLvl2_C",
+      "description": "Offset- Wert der Zielmotorehzahl fuer Leerlauf [ E2 ]",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CCE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_dnSetpointTrm_C",
+      "description": "Trimmwert Leerlaufdrehzahl",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CD0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_factAltDemTrm_C",
+      "description": "Trimmwert des Generatormomentes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CFA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_factSvrPmpDemTrm_C",
+      "description": "Trimmwert der Lenkungsservopumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CFC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_factTrqACTrm_C",
+      "description": "Trimmwert für Klimakompressormomentenabgleich",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0CFE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_factTrqLimTrm_C",
+      "description": "Trimmwert des Maximalmomentes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0D00",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_stFrstInit",
+      "description": "Markierung für ECU Erstinitialisierung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93B3",
+      "record_layout": null,
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_tGlwCtlTrm_C",
+      "description": "EEPROM-Initialisierungswert des Trimmwerts für Kühlmitteltemperaturabgleich",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0D06",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_trqStartTrm_C",
+      "description": "Trimmwert des Startbasismomentes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0D08",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_vSpdLimMax2_C",
+      "description": "Trimmwert der Höchstgeschwindigkeitsbegrenzung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0D0A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepInit_vSpdLimMax_C",
+      "description": "Trimmwert der Höchstgeschwindigkeitsbegrenzung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0D0C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EepInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

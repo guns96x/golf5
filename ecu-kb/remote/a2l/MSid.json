@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "MSid",
+  "raw_groups": [
+    "MSid"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "MSid_swtMAIN_C",
+      "description": "Typ der ECU: Single ECU=0xFF, Master Slave - Master: 0, Master Slave - Slave: 1,2,3 or 4",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FC7",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MSid",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

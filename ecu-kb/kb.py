@@ -17,6 +17,13 @@ kb — локальна база знань ECU calibration.
 import argparse, glob, hashlib, json, os, re, sqlite3, sys, unicodedata
 from pathlib import Path
 
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 ROOT = Path(__file__).resolve().parent
 DB   = ROOT / "knowledge" / "kb.sqlite3"
 
@@ -574,7 +581,7 @@ def cmd_load_claims(a):
     збігу немає — цитата не записується, і це видно в звіті.
     """
     c    = connect()
-    data = json.loads(Path(a.path).read_text(encoding="utf-8"))
+    data = json.loads(Path(a.path).read_text(encoding="utf-8-sig"))
     ws   = lambda t: " ".join((t or "").split())
     added = citn = miss = 0
 
@@ -598,7 +605,7 @@ def cmd_load_claims(a):
                  cl.get("sw_number"), cl.get("engine_code"), cl.get("turbo_model"),
                  cl.get("confidence"), cl.get("missing_evidence"), cl.get("supersedes_id"),
                  cl.get("retracted_at"), cl.get("retraction_reason"),
-                 source_class, a.created_by)).lastrowid
+                 source_class, getattr(a, "created_by", None))).lastrowid
             added += 1
 
         for q in cl.get("citations", []):
@@ -696,6 +703,58 @@ def cmd_retract(a):
     c.commit()
     print(f"#{a.id} → {a.state}: {row['statement'][:80]}…")
     print(f"   причина: {a.reason}")
+
+
+def cmd_claims(a):
+    """Пошук і перегляд верифікованих тверджень (claims)."""
+    c = connect()
+    q = getattr(a, "query", "") or ""
+    state = getattr(a, "state", None)
+    kind = getattr(a, "kind", None)
+
+    sql = """
+        SELECT id, statement, evidence_kind, verification_state, unit, confidence,
+               sw_number, engine_code, retraction_reason, missing_evidence
+        FROM claims
+        WHERE 1=1
+    """
+    params = []
+    if q:
+        sql += " AND (statement LIKE ? OR missing_evidence LIKE ?)"
+        params.extend([f"%{q}%", f"%{q}%"])
+    if state:
+        sql += " AND verification_state = ?"
+        params.append(state)
+    elif not getattr(a, "all", False):
+        sql += " AND verification_state NOT IN ('deprecated', 'superseded')"
+    if kind:
+        sql += " AND evidence_kind = ?"
+        params.append(kind)
+
+    sql += " ORDER BY id ASC LIMIT ?"
+    params.append(a.limit)
+
+    rows = c.execute(sql, params).fetchall()
+    print(f"\n── Верифіковані твердження ({len(rows)}) ──")
+    if not rows:
+        print("  Тверджень за запитом не знайдено.")
+        return
+    for r in rows:
+        badge = f"[{r['evidence_kind']}|{r['verification_state']}]"
+        sw = f"SW:{r['sw_number']}" if r['sw_number'] else ""
+        print(f"  #{r['id']} {badge} {sw}")
+        print(f"     {r['statement']}")
+        if r['missing_evidence']:
+            print(f"     ⚠ потрібні докази: {r['missing_evidence']}")
+        if r['retraction_reason']:
+            print(f"     ⤺ відкликано: {r['retraction_reason']}")
+
+
+def cmd_consult(a):
+    """Запит до вузькопрофільного спеціаліста (анти-сикофантія)."""
+    from specialist import DieselSpecialist
+    spec = DieselSpecialist()
+    print(spec.consult(a.query, engine=a.engine))
 
 
 # ── flash-preflight: docs/FIRMWARE-MODIFICATION-RELIABILITY.md § 9 ─────────
@@ -906,6 +965,13 @@ def cmd_flash_preflight(a):
     return 0
 
 
+def cmd_consult(a):
+    """Запит до вузькопрофільного спеціаліста (анти-сикофантія)."""
+    from specialist import DieselSpecialist
+    spec = DieselSpecialist()
+    print(spec.consult(a.query, engine=a.engine))
+
+
 def main():
     ap = argparse.ArgumentParser(prog="kb", description="Локальна база знань ECU calibration")
     sp = ap.add_subparsers(dest="cmd", required=True)
@@ -915,6 +981,13 @@ def main():
     p.set_defaults(fn=cmd_ingest)
     p = sp.add_parser("search"); p.add_argument("query"); p.add_argument("--limit", type=int, default=8)
     p.set_defaults(fn=cmd_search)
+    p = sp.add_parser("claims", help="пошук і перегляд верифікованих тверджень")
+    p.add_argument("query", nargs="?", default="", help="текстовий фільтр")
+    p.add_argument("--state", choices=['raw','corroborated','project_matched','experiment_supported','verified','contradicted','deprecated','superseded'], help="фільтр стану")
+    p.add_argument("--kind", help="фільтр evidence_kind (MAP_FACT, INFERRED тощо)")
+    p.add_argument("--all", action="store_true", help="показувати також відкликані (deprecated/superseded)")
+    p.add_argument("--limit", type=int, default=30)
+    p.set_defaults(fn=cmd_claims)
     p = sp.add_parser("ingest-a2l"); p.add_argument("path")
     p.add_argument("--sw", required=True, help="номер SW, напр. 1037391847")
     p.set_defaults(fn=cmd_ingest_a2l)
@@ -938,6 +1011,12 @@ def main():
     p.add_argument("--state", default="deprecated", choices=["deprecated", "superseded"],
                    help="deprecated — хибне; superseded — замінене точнішим")
     p.set_defaults(fn=cmd_retract)
+
+    p = sp.add_parser("consult", help="запит до вузькопрофільного спеціаліста (анти-сикофантія)")
+    p.add_argument("query", help="запитання або гіпотеза")
+    p.add_argument("--engine", choices=["local", "codex", "claude"], default="local",
+                   help="двигун: local, codex, claude")
+    p.set_defaults(fn=cmd_consult)
 
     p = sp.add_parser("log-check", help="перевірити CSV-лог на замерзлі/мертві канали")
     p.add_argument("path")
@@ -968,7 +1047,6 @@ def main():
                    help="за скільки годин до запуску має бути засвідчене живлення")
     p.add_argument("--note")
     p.set_defaults(fn=cmd_flash_preflight)
-
     a = ap.parse_args()
     sys.exit(a.fn(a) or 0)
 

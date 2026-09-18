@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "Rtmo",
+  "raw_groups": [
+    "Rtmo"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_adCallingBegin_cu32",
+      "description": "Beginn des Adressbereiches der aufrufenden Funktion zum Messen der aufgerufenen Funktion",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFE4",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_adCallingEnd_cu32",
+      "description": "Ende des Adressbereiches der aufrufenden Funktion zum Messen der aufgerufenen Funktion",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFE8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_adStart_cu32",
+      "description": "Startadresse der zu messenden Funktion",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFEC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_ctInterrupt_u32",
+      "description": "Anzahl der Unterbrechungen der zu messenden Funktion innerhalb des letzten Messzyklus (keine reentranten Interrupts)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD48",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_ctReentrantSample_u32",
+      "description": "Aufrufanzahl der zu messenden Funktion innerhalb des letzten Messzyklus, wobei Funktion bereits aktiv war (reentranter Aufruf)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD50",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_ctSampleProc_u8",
+      "description": "Zähler wird nach jeder Messwertermittlung inkrementiert",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD60",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_ctSample_u32",
+      "description": "Anzahl der Aufrufe der zu messenden Funktion innerhalb des letzten Messzyklus (keine reentranten Aufrufe)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD4C",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_stIntOverhead_cu8",
+      "description": "gemessener/vermuteter Interrupt Overhead, als Korrekturfaktor für Laufzeitmessung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFF0",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_stSampleTime_cu8",
+      "description": "Messzykluszeit: 0: keine Messung; 1-253: 100 ms Raster für jeden 1-253 Durchgang; 254: 10/20ms; 255: segment sync.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFF1",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_swLoadMode_cu8",
+      "description": "bit 0:Messung ein/aus bit 1: Maximum zurücksetzen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFF2",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_swMode_cu8",
+      "description": "rtmo Konfig: bit0: reset of Min/Max, bit1: function/task, bit2: depend. of Funct/Tasks, bit3: Netto/Brutto",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFF3",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiAbsMax_u32",
+      "description": "Maximale Laufzeit der zu messenden Funktion seit letztem Rücksetzen (Rtmo_swMinMaxReset_cu8)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD44",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiAbsMin_u32",
+      "description": "Minimale Laufzeit der zu messenden Funktion seit letztem Rücksetzen (Rtmo_swMinMaxReset_cu8)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD40",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiAvrg_u32",
+      "description": "durchschnittliche Laufzeit der zu messenden Funktion innerhalb des letzten Messzyklus",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD34",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiLoad_u32",
+      "description": "aktuelle Laufzeit",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FAA70",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiMaxCallDist_u32",
+      "description": "Maximaler Zeitabstand zwischen zwei Funktions/Task-Aufrufen",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD58",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiMaxLoad_u32",
+      "description": "Maximale Laufzeit",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD5C",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiMax_u32",
+      "description": "Maximale Laufzeit der zu messenden Funktion innerhalb des letzten Messzyklus",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD3C",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiMinCallDist_u32",
+      "description": "Minimaler Zeitabstand zwischen zwei Funktions/Task-Aufrufen",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD54",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Rtmo_tiMin_u32",
+      "description": "Minimale Laufzeit der zu messenden Funktion innerhalb des letzten Messzyklus",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FCD38",
+      "record_layout": null,
+      "func_group": "Rtmo",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

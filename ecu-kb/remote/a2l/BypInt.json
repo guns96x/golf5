@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "BypInt",
+  "raw_groups": [
+    "BypInt"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "BypInt_adFunc_C",
+      "description": "Feld von Funktionszeigern auf interne Bypass Funktionen",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC81C",
+      "record_layout": "Kwb_Wu32",
+      "func_group": "BypInt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypInt_stAscet_C",
+      "description": "Status interner ASCET Bypass (0: deaktiviert; 1: internen Bypass starten, wenn Wert vorher 0; 2: sofort starten)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC848",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypInt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypInt_stEcu_u8",
+      "description": "Status interner Bypass in SG (0: inaktiv im SG; 1: aktiv im SG; 2: wartet auf Kommunikation)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD745",
+      "record_layout": null,
+      "func_group": "BypInt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

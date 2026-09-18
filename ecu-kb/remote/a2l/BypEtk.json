@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "BypEtk",
+  "raw_groups": [
+    "BypEtk"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_ctStepDelayNsync_u8",
+      "description": "ETK Bypass Schritt drehzahlsynchron",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD73A",
+      "record_layout": null,
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_ctStepDelayTsync_u8",
+      "description": "ETK Bypass Schritt zeitsynchron",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD73B",
+      "record_layout": null,
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_dNsyncStimuli16_C",
+      "description": "Bypass, nicht ändern. Anzahl der winkelsynchron übertragenen Zwei-Byte-Größen von ASCET zur ECU.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC812",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_dNsyncStimuli32_C",
+      "description": "Bypass, nicht ändern. Anzahl der winkelsynchron übertragenen Vier-Byte-Größen von ASCET zur ECU.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC811",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_dNsyncStimuli64_C",
+      "description": "Bypass, nicht ändern. Anzahl der winkelsynchron übertragenen Acht-Byte-Größen von ASCET zur ECU.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC810",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_dNsyncStimuli8_C",
+      "description": "Bypass, nicht ändern. Anzahl der winkelsynchron übertragenen Ein-Byte-Größen von ASCET zur ECU.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC813",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_dTsyncStimuli16_C",
+      "description": "Bypass, nicht ändern. Anzahl der zeitsynchron übertragenen Zwei-Byte-Größen von ASCET zur ECU.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC817",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_dTsyncStimuli32_C",
+      "description": "Bypass, nicht ändern. Anzahl der zeitsynchron übertragenen Vier-Byte-Größen von ASCET zur ECU.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC816",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_dTsyncStimuli64_C",
+      "description": "Bypass, nicht ändern. Anzahl der zeitsynchron übertragenen Acht-Byte-Größen von ASCET zur ECU.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC815",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_dTsyncStimuli8_C",
+      "description": "Bypass, nicht ändern. Anzahl der zeitsynchron übertragenen Ein-Byte-Größen von ASCET zur ECU.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC818",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_stAscet_C",
+      "description": "Status ASCET ETK Bypass (0: deaktiviert; 1: ETK-Bypass starten, wenn Wert vorher 0; 2: sofort starten)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC814",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BypEtk_stEcu_u8",
+      "description": "Status ETK-Bypass in SG (0: inaktiv im SG; 1: aktiv im SG; 2: wartet auf Kommunikation)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD739",
+      "record_layout": null,
+      "func_group": "BypEtk",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

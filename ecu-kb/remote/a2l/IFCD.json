@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "IFCD",
+  "raw_groups": [
+    "IFCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_DebExcTempDef_C",
+      "description": "Fehlerentprellzeit für Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D32",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_DebExcTempOK_C",
+      "description": "Heilungsentprellzeit für Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D34",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_DebNoLoadDef_C",
+      "description": "Fehlerentprellzeit für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D36",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_DebNoLoadOK_C",
+      "description": "Heilungsentprellzeit für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D38",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_DebShortCircBatDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D3A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_DebShortCircBatOK_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D3C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_DebShortCircGndDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluss nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D3E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_DebShortCircGndOK_C",
+      "description": "Heilungsentprellzeit für Kurzschluss nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D40",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_ctPwrStgOnMax_C",
+      "description": "maximale Anzahl von Endstufen-Einschaltungen pro Fahrzyklus bei SCB oder Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D30",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_stInvOut_C",
+      "description": "Invertierungsparameter für das Endstufensignal der Lüftersteuerung für den Ladeluftkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D42",
+      "record_layout": "Kw_Wu8",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_stOutHWE_mp",
+      "description": "Ausgabewert zur Hardware nach der Fehlerbehandlung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF4F6",
+      "record_layout": null,
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_stPwrStgActv_C",
+      "description": "Statuswort für die Deaktivierung der Endsufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D43",
+      "record_layout": "Kw_Wu8",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_stPwrStgDia_C",
+      "description": "Status Wort für die Deaktivierung der Diagnose",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D44",
+      "record_layout": "Kw_Wu8",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_stSPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart ( 1 = SPI kontrollierbare Endstufe, 0 = nicht SPI-Endstufe )",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D45",
+      "record_layout": "Kw_Wu8",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_tiBtwTst_C",
+      "description": "Zeitabstand, in dem im Fehlerfall die Endstufe getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D46",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCD_tiPwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall eingeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D48",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IFCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

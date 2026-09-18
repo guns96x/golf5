@@ -263,3 +263,92 @@ CREATE TABLE IF NOT EXISTS preflight_checks (
     flash_event_id INTEGER REFERENCES flash_events(id),
     created_at    TEXT DEFAULT (datetime('now'))
 );
+
+
+-- ── ECU CORPUS HARVESTER ───────────────────────────────────────────────────
+-- Registry of external ECU artefacts. Metadata may be public while the actual
+-- file remains unavailable/paid/user-supplied. Registry presence is NOT evidence
+-- that a binary/DAMOS is correct; it only makes provenance and applicability
+-- machine-readable.
+
+CREATE TABLE IF NOT EXISTS corpus_sources (
+    id              INTEGER PRIMARY KEY,
+    source_key      TEXT NOT NULL UNIQUE,
+    title           TEXT NOT NULL,
+    source_type     TEXT NOT NULL CHECK (source_type IN (
+                        'oem_catalog','public_repo','vendor_catalog','forum',
+                        'community_archive','manual_entry')),
+    url             TEXT,
+    access_mode     TEXT NOT NULL CHECK (access_mode IN (
+                        'metadata_only','public_download','authenticated',
+                        'paid','user_supplied')),
+    trust_tier      TEXT NOT NULL CHECK (trust_tier IN ('A','B','C','D')),
+    license_note    TEXT,
+    notes           TEXT,
+    discovered_at   TEXT DEFAULT (datetime('now')),
+    last_checked_at TEXT
+);
+
+CREATE TABLE IF NOT EXISTS corpus_artifacts (
+    id                  INTEGER PRIMARY KEY,
+    source_id           INTEGER NOT NULL REFERENCES corpus_sources(id),
+    artifact_type       TEXT NOT NULL CHECK (artifact_type IN (
+                            'A2L','DAMOS','OLS','XDF','MAPPACK','MAPPACK_SIGNATURES',
+                            'BIN_ORI','BIN_MODIFIED','FULL_DUMP','EEPROM',
+                            'SGO','FRF','OTHER')),
+    name                TEXT NOT NULL,
+    source_url          TEXT,
+    ecu_family          TEXT,
+    ecu_variant         TEXT,
+    vag_part_number     TEXT,
+    vag_hw_number       TEXT,
+    vag_sw_version      TEXT,
+    bosch_sw_number     TEXT,
+    calibration_id      TEXT,
+    project_code        TEXT,
+    engine_code         TEXT,
+    vehicle             TEXT,
+    power_kw            REAL,
+    file_size           INTEGER,
+    sha256              TEXT,
+    local_rel_path      TEXT,
+    access_state        TEXT NOT NULL DEFAULT 'METADATA_ONLY' CHECK (access_state IN (
+                            'METADATA_ONLY','AVAILABLE_LOCAL','VERIFIED_LOCAL',
+                            'REJECTED','UNAVAILABLE')),
+    identity_state      TEXT NOT NULL DEFAULT 'UNVERIFIED' CHECK (identity_state IN (
+                            'UNVERIFIED','HEADER_MATCHED','HASH_MATCHED','PROJECT_VERIFIED',
+                            'REJECTED')),
+    license_note        TEXT,
+    notes               TEXT,
+    first_seen_at       TEXT DEFAULT (datetime('now')),
+    verified_at         TEXT,
+    UNIQUE (source_id, name, source_url)
+);
+CREATE INDEX IF NOT EXISTS idx_corpus_artifact_family ON corpus_artifacts(ecu_family);
+CREATE INDEX IF NOT EXISTS idx_corpus_artifact_part ON corpus_artifacts(vag_part_number);
+CREATE INDEX IF NOT EXISTS idx_corpus_artifact_bosch_sw ON corpus_artifacts(bosch_sw_number);
+CREATE INDEX IF NOT EXISTS idx_corpus_artifact_cal ON corpus_artifacts(calibration_id);
+CREATE INDEX IF NOT EXISTS idx_corpus_artifact_hash ON corpus_artifacts(sha256);
+
+CREATE TABLE IF NOT EXISTS corpus_matches (
+    artifact_id      INTEGER PRIMARY KEY REFERENCES corpus_artifacts(id) ON DELETE CASCADE,
+    target_profile   TEXT NOT NULL,
+    match_class      TEXT NOT NULL CHECK (match_class IN (
+                        'EXACT','SAME_HW_SIBLING','SAME_PROJECT_FAMILY',
+                        'STRUCTURAL_ANALOG','UNKNOWN','REJECT')),
+    score            INTEGER NOT NULL CHECK (score BETWEEN 0 AND 100),
+    reasons_json     TEXT NOT NULL,
+    computed_at      TEXT DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS corpus_observations (
+    id               INTEGER PRIMARY KEY,
+    artifact_id      INTEGER NOT NULL REFERENCES corpus_artifacts(id) ON DELETE CASCADE,
+    observation_kind TEXT NOT NULL CHECK (observation_kind IN (
+                        'filename','ascii_id','file_size','sha256','manual_review',
+                        'source_metadata','parser_result')),
+    value            TEXT NOT NULL,
+    source           TEXT,
+    observed_at      TEXT DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_corpus_obs_artifact ON corpus_observations(artifact_id);

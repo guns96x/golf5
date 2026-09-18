@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "SOPTst",
+  "raw_groups": [
+    "SOPTst"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "SOPTst_numSOPTst_C",
+      "description": "Anzahl der Testläufe im Fall eines Fehlers",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04B8",
+      "record_layout": "Kw_Wu8",
+      "func_group": "SOPTst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SOPTst_stActvWD_C",
+      "description": "Aktivierung Watchdogtest",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04B9",
+      "record_layout": "Kw_Wu8",
+      "func_group": "SOPTst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SOPTst_stCyl",
+      "description": "Endstufen die sich trotz redundanter Abschaltung aktivieren ließen",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9542",
+      "record_layout": null,
+      "func_group": "SOPTst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SOPTst_stShOffAR",
+      "description": "Abschaltpfadtest im Nachlauf",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C5C",
+      "record_layout": null,
+      "func_group": "SOPTst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SOPTst_tiWaitWDAOff_C",
+      "description": "Wartezeit nach dem Abschalten der WDA Leitung um SV-Ansteuerung zu unterbinden",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04BC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "SOPTst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SOPTst_tiWaitWDAOn_C",
+      "description": "Wartezeit für das Anschalten der WDA Leitung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04C0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "SOPTst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

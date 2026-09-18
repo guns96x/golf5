@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "WDASCD",
+  "raw_groups": [
+    "WDASCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_dfacDwn_C",
+      "description": "Negtiver Rampenfaktor für das Winterfahrprogramm.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3404",
+      "record_layout": "Kw_Wu32",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_dfacUp_C",
+      "description": "Positiver Rampenfaktor für das Winterfahrprogramm.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3400",
+      "record_layout": "Kw_Wu32",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_facWntrRmp",
+      "description": "Wert der Rampenberechnung des Winterfahrprogramms",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9CD4",
+      "record_layout": null,
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_stAftRunDelDem",
+      "description": "Status der Nachlaufverlängerung-Anforderung des Winterfahrprogramm-Komponententreibers WDASCD",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9591",
+      "record_layout": null,
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_stLamp",
+      "description": "Status des Winterfahrprogramm für die Lampenansteuerung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9592",
+      "record_layout": null,
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_stWntr",
+      "description": "aktueller Status des Winterfahrprogramm",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9593",
+      "record_layout": null,
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_stWntrCAN",
+      "description": "Status des Winterfahrprogramm für den CAN",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9594",
+      "record_layout": null,
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_stWntrEna_mp",
+      "description": "Status des Winterfahrprogramm Komponententreibers (WDASCD)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFDD",
+      "record_layout": null,
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_stWntrLogVal_mp",
+      "description": "Status des einegelesenen Schalterwertes",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FDE38",
+      "record_layout": null,
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_stWntrSwtVal",
+      "description": "Status des gewünschten Winterfahrprogrammmodus",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9595",
+      "record_layout": null,
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_swtEEPStore_C",
+      "description": "Schalter zum Aktivieren der dauerhaften EEPROM Ablage des Winterfahrprogramm Zustands",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3408",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_swtErrFrz_C",
+      "description": "Schalter um den aktuellen Wert im Fehlerfall beizubehalten oder einen Ersatzwert zu verwenden.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3409",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_swtInv_C",
+      "description": "Schalter zum invertieren des Eingangs des Winterfahrprogrammschalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F340A",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_swtLampMode_C",
+      "description": "Schalter um den Modus der Winterfahrprogrammlampe auszuwählen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F340B",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_swtRampOff_C",
+      "description": "Schalter um die Kalkulation der Rampenberechnung des Winterfahrprogramm zu deaktivieren.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F340C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_swtWntrEna_C",
+      "description": "Schalter zum Aktivieren des Winterfahrprogramm Komponententreibers WDASCD",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F340D",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_tiDebHiLo_C",
+      "description": "Debouncezeit für High zu Low Übergang",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33FE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_tiDebLoHi_C",
+      "description": "Debouncedzeit für Low zu High Flanken.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33FC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_tiStoreState_C",
+      "description": "Dauer für die der Winterfahrprogramm Zustand temporär während des Nachlaufs zwischengespeichert werden soll",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F340E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDASCD_vMax_C",
+      "description": "Gewschwindigkeitsschwelle bis zu welcher der neue Status des Winterfarhprogramms übernommen wird.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3410",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

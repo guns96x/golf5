@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "HDSCD",
+  "raw_groups": [
+    "HDSCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_DebSRCHighDef_C",
+      "description": "HZA Fehlerentprellzeit fuer SRC-High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C7A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_DebSRCHighOk_C",
+      "description": "HZA Heilungsentprellzeit fuer SRC-High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C7C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_DebSRCLowDef_C",
+      "description": "HZA Fehlerentprellzeit fuer SRC-Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C7E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_DebSRCLowOk_C",
+      "description": "HZA Heilungsentprellzeit fuer SRC-Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C80",
+      "record_layout": "Kw_Wu16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_dprcRmpSlpDwn_C",
+      "description": "negative Rampensteigung zum Erreichen des Vorgabewertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C88",
+      "record_layout": "Kw_Wu32",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_dprcRmpSlpUp_C",
+      "description": "positive Rampensteigung zum Erreichen des Vorgabewertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C84",
+      "record_layout": "Kw_Wu32",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_prcAir",
+      "description": "Prozent der Heizungstemperaturanforderung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A3C",
+      "record_layout": null,
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_prcAirDfl_C",
+      "description": "Ersatzwert für Heizungsanforderung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C8E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_prcAirLin",
+      "description": "Prozent der Heizungsanforderungstemperatur linearisiert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A3E",
+      "record_layout": null,
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_prcLin_CUR",
+      "description": "Linearisierungskennlinie für Heizungsanforderung",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C68",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_stSensIDWord_C",
+      "description": "Geberkennwort HZA-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C8C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_uRaw",
+      "description": "Rohwert des HZA-Senorsignals",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A40",
+      "record_layout": null,
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_uSRCMax_C",
+      "description": "Maximalwert für SRC HZA-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C66",
+      "record_layout": "Kw_Ws16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HDSCD_uSRCMin_C",
+      "description": "Minimalwert für SRC HZA-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C64",
+      "record_layout": "Kw_Ws16",
+      "func_group": "HDSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

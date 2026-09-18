@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EMCCD",
+  "raw_groups": [
+    "EMCCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_DebExcTempDef_C",
+      "description": "Zeit bis defekt für EXC_TEMP Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D427E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_DebExcTempOk_C",
+      "description": "Heilungszeit für EXC_TEMP Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4280",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_DebNoLoadDef_C",
+      "description": "Zeit bis defekt für NO_LOAD Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4282",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_DebNoLoadOk_C",
+      "description": "Heilungszeit für NO_LOAD Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4284",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_DebShortCircBatDef_C",
+      "description": "Zeit bis defekt für SHORTCIRC_BAT Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4286",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_DebShortCircBatOk_C",
+      "description": "Heilungszeit für SHORTCIRC_BAT Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4288",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_DebShortCircGndDef_C",
+      "description": "Zeit bis defekt für SHORTCIRC_GND Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D428A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_DebShortCircGndOk_C",
+      "description": "Heilungszeit für SHORTCIRC_GND Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D428C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_ctM1PwrStgOnMax_C",
+      "description": "maximale Anzahl von Endstufen-Einschaltungen pro Fahrzyklus bei SCB oder Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D427C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_stEngMntCtl1_mp",
+      "description": "Status Motorlagersteuerung Ausgang 1",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE25",
+      "record_layout": null,
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_stEngMntCtl_Init_C",
+      "description": "Initialisierungswert für den Status der Motorlagersteuerung Ausgang 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D428E",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_stM1SPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart ( 1 = SPI kontrollierbare Endstufe, 0 = nicht SPI-Endstufe )",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D428F",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_swtEnOut_C",
+      "description": "Aggregatelager Endstufen deaktivieren",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4290",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_swtInvOut_C",
+      "description": "Invertierter Ausgang der Aggregatelagersteuerung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4291",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_tiM1BtwTst_C",
+      "description": "Zeitabstand, in dem im Fehlerfall die Endstufe getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4292",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EMCCD_tiM1PwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall eingeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D4294",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EMCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -21,5 +21,10 @@ conversation_history/*.jsonl
 knowledge/raw/
 knowledge/library/
 ecu-kb/knowledge/kb.sqlite3*
-# Артефакти дослідження
-archive/scratch/
+knowledge/08_firmware/originals/
+*.bin
+*.BIN
+!firmware/reference_dumps/**
+.venv/
+*.a2ldb
+scratch/

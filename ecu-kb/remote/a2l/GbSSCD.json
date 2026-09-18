@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "GbSSCD",
+  "raw_groups": [
+    "GbSSCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_nNplMin_C",
+      "description": "minimale Motordrehzahl für Plausibilisierung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8122",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_nRev",
+      "description": "Getriebeeingangsdrehzahl",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A0C",
+      "record_layout": null,
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_nRevPlausMin_C",
+      "description": "minimale Getriebeeingangsdrehzahl für Plausibilisierung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8124",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_nRevPlausTolc_C",
+      "description": "Minimale Getriebeeingangsdrehzahl für Plausibilisierung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8126",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_nRevSens",
+      "description": "Sensordrehzahl am Getriebeeingang",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A0E",
+      "record_layout": null,
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_numSegSens_C",
+      "description": "Anzahl Segmente des Geberrades des Getriebedrehzahlsensors",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D811C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_rTrnsRevSens_C",
+      "description": "Übersetzungsverhältnis Kupplungseingangs- und Getriebesensorwelle",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8128",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_rVNRevMin_C",
+      "description": "Minimal zu erwartendes V/n Verhältnis",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D812A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_stErrPwm",
+      "description": "HWE Status TPWM",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F948B",
+      "record_layout": null,
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_stNpl_mp",
+      "description": "Drehzahlerfassung nicht plausibel",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFEEA",
+      "record_layout": null,
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_stSensEna",
+      "description": "Aktivierung der Getriebedrehzahlerfassung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F948C",
+      "record_layout": null,
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_swtSensEna_C",
+      "description": "Aktivierung der Getriebedrehzahlerfassung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D812C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_tiDebNplDef_C",
+      "description": "Fehlerentprellzeit Drehzahlsensorsignal nicht plausibel",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D812E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_tiDebNplOk_C",
+      "description": "Heilzeit für Drehazahlsignalpalusibilitätsfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8130",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_tiDebSigDef_C",
+      "description": "Entprellzeit für Fehler der Getriebedrehzahlerfassung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8132",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_tiDebSigHWDef_C",
+      "description": "Entprellzeit für Drehzahlsignalsensor Hadwarefehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D811E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_tiDebSigHWOk_C",
+      "description": "Heilzeit für Drehzahlsignalsensor Hardwarefehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8120",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_tiDebSigOk_C",
+      "description": "Heilzeit für Fehler der Getriebedrehzahlerfassung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8134",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_tiPerSens_mp",
+      "description": "Aktuelle Periodendauer des Getriebedrehzahlsignales",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE5DC",
+      "record_layout": null,
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "GbSSCD_vNplMin_C",
+      "description": "minimale Fahrzeuggeschwindigkeit für Plausibilisierung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8136",
+      "record_layout": "Kw_Wu16",
+      "func_group": "GbSSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "UKey",
+  "raw_groups": [
+    "UKey"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "UKey_UpLoadPassWD_C",
+      "description": "Passwort fuer Readiness-Beschleunigung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F31AC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "UKey",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "UKey_stAdjChan_CA",
+      "description": "Matrix zum sperren und entsperren der Anpassungskanäle",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F30C8",
+      "record_layout": "Kf_Xu8_Yu8_Wu8",
+      "func_group": "UKey",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "UKey_stNumCannel_mp",
+      "description": "Meßpunkt der als Eingangsgrösse für UKey_stAdjChan_CA dient und bei der Initialisierung den jeweiligen Kanal anzeigt",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFD9",
+      "record_layout": null,
+      "func_group": "UKey",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "UKey_stNumPassWD_mp",
+      "description": "Meßpunkt der als Eingangsgrösse für UKey_stAdjChan_CA dient und bei der Initialisierung das jeweilige Passwort anzeigt",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFDA",
+      "record_layout": null,
+      "func_group": "UKey",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "UKey_stPassWD_C",
+      "description": "Array indem der Wert für jedes Passwort appliziert ist",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3184",
+      "record_layout": "Kwb_Wu32",
+      "func_group": "UKey",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

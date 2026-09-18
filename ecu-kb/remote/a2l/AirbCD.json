@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "AirbCD",
+  "raw_groups": [
+    "AirbCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_DebCrashCrCtlDef_C",
+      "description": "Entprellzeit für Fehlerpfad Abschaltung CrCtl durch airbag",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C4858",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_DebCrashCrCtlOk_C",
+      "description": "Entprellzeit für Fehlerpfad Abschaltung CrCtl durch Airbag",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C485A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_DebCrashFCMDef_C",
+      "description": "Entprellzeit für FCM Fehlerzugang der Airbaginformation",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C485C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_DebCrashFCMOk_C",
+      "description": "Entprellzeit für FCM Fehlerzugang der Airbaginformation",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C485E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_DebCrashPSPDef_C",
+      "description": "Entprellzeit für Fehlerpfad Abschaltung PSP durch Airbag",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C4860",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_DebCrashPSPOk_C",
+      "description": "Entprellzeit für Fehlerpfad Abschaltung PSP durch Airbag",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C4862",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_nEngThresMin_C",
+      "description": "Min Motor Drehzahl",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C4868",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_nEngThresStrtMax_C",
+      "description": "Max Motor Drehzahl für ein Startversuch",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C486A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_nEngThresStrtMin_C",
+      "description": "Min Motor Drehzahl für ein Startversuch",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C486C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_st",
+      "description": "Abschaltanforderungen für Airbag/Überrollbügel",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9301",
+      "record_layout": null,
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_stCrshInfoEEP_mp",
+      "description": "Meßpunkt für  crash Signal ( EEPROM)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9D5",
+      "record_layout": null,
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_stCrshRst_mp",
+      "description": "Reset Status des Airbags",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9D6",
+      "record_layout": null,
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_stEngStop_mp",
+      "description": "Status der Motorstillstandserkennung für Airbag",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9D7",
+      "record_layout": null,
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_stEngStrtDet_mp",
+      "description": "Null Erkennung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9D8",
+      "record_layout": null,
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_stEngZrDetEEP_mp",
+      "description": "Meßpunkt für ein stehender Motor  (EEPROM",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9D9",
+      "record_layout": null,
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_stEngZrDet_mp",
+      "description": "Meßpunkt für  ein stehender Motor",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9DA",
+      "record_layout": null,
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_tiDebNeg_C",
+      "description": "Entprellzeit für negative Schwelle der Motorstillstandserkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C4864",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AirbCD_tiDebPos_C",
+      "description": "Entprellzeit für Fehlerpfad tatsächlicher Crash",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C4866",
+      "record_layout": "Kw_Wu16",
+      "func_group": "AirbCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

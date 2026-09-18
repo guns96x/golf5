@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EGPp",
+  "raw_groups": [
+    "EGPp"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_dmEG_mp",
+      "description": "Abgasmassenstrom",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF046",
+      "record_layout": null,
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_dvolSilBnk_mp",
+      "description": "Abgasvolumenstrom nach Partikelfilter",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF048",
+      "record_layout": null,
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_dvolSil_mp",
+      "description": "Abgasvolumenstrom nach Partikelfilter",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF04A",
+      "record_layout": null,
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_facGeoSil_C",
+      "description": "geometrischer Faktor Schalldämpfer",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2654",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_facPow_CUR",
+      "description": "Potenzfunktion für Abgasvolumenstrom",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2656",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_facRhoEta_CUR",
+      "description": "temperaturabhängiger Dichte- und Viskositätsfaktor",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2660",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_pPstPFlt",
+      "description": "Druckabfall des Abgassystems nach Partikelfilter",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9852",
+      "record_layout": null,
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_pPstPFltEG_MAP",
+      "description": "Druckabfallkennfeld",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D266A",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_pPstPFltMap_mp",
+      "description": "Druckabfall nach Partikelfilter aus Kennfeldberechnung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF04C",
+      "record_layout": null,
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_pPstPFltSim_mp",
+      "description": "Druckabfall nach Partikelfilter aus Simulation",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF04E",
+      "record_layout": null,
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_pPstPFlt_MAP",
+      "description": "Druckabfallkennfeld",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D275E",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_swtPresCalcMod_C",
+      "description": "Schalter zur Auswahl zwischen dem Modell 1 und dem Modell 2 für die Auswertung des Abgasgegendrucks [ ]",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D27AC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_swtPresCalc_C",
+      "description": "Schalter für Druckberechnung (0-Kennfeld, 1- Simulation)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D27AD",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_tPstSimBnk_mp",
+      "description": "Simulierte Temperatur nach Partikelfilter",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF050",
+      "record_layout": null,
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_tSurf_mp",
+      "description": "Oberflächen Temperatur vom Partikel Filter",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF052",
+      "record_layout": null,
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EGPp_tiPresFltPT1_C",
+      "description": "PT1 Filterzeit für die Druckmodellierung im Abgasrohr",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D27A8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "EGPp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

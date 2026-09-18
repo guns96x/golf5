@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "DSCHED",
+  "raw_groups": [
+    "DSCHED"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "DSCHED_numDefDfpArray_mp",
+      "description": "Array von defekten DFPs welche einen ausgewählten FID verriegeln",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEF58",
+      "record_layout": null,
+      "func_group": "DSCHED",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSCHED_numOkDfpArray_mp",
+      "description": "Array von nicht defekten DFPs welche einen ausgewählten FID verriegeln",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEF6C",
+      "record_layout": null,
+      "func_group": "DSCHED",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DSCHED_numSelFID_C",
+      "description": "FID auswählbar zur Anzeige der defekten und nicht defekten DFPs welche den ausgewählten FID verriegeln",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD73C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "DSCHED",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

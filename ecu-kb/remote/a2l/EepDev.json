@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EepDev",
+  "raw_groups": [
+    "EepDev"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EepDev_dBlockVal_mp",
+      "description": "Mepßunkt der Anzeige eines gelesenen bzw. geschriebenen Blockinhaltes (max. 100 Byte)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7FB700",
+      "record_layout": null,
+      "func_group": "EepDev",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepDev_dVal_C",
+      "description": "der zu schreibende Wert (EEPROM)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2628",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EepDev",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepDev_dWrInitPattern_C",
+      "description": "Trigger für das Schreiben des Erstinitialisirungsmarkers",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2629",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EepDev",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepDev_numBlock_C",
+      "description": "Nummer des zu lesenden bzw.schreibenden Blockes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D262A",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EepDev",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepDev_numInitBlocks_CA",
+      "description": "Kennwerteblock welcher die Blocknummern der zu initialisierenden Blöcke enthält",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D262B",
+      "record_layout": "Kwb_Wu8",
+      "func_group": "EepDev",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepDev_numOffset_C",
+      "description": "Byteoffset des zu schreibenden Wertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D264F",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EepDev",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepDev_stJob_C",
+      "description": "Starten des Lese- bzw. Schreibaufgabe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2650",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EepDev",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EepDev_stLastJob_mp",
+      "description": "Status des letzten Lese- bzw. Schreibauftrages",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7FB7EC",
+      "record_layout": null,
+      "func_group": "EepDev",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

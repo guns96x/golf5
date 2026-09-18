@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "ACTrqC",
+  "raw_groups": [
+    "ACTrqC"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_dDT1TrqDynfact_C",
+      "description": "Verstärkungsfaktor für DT1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C3ADC",
+      "record_layout": "Kw_Ws32",
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_factDiv_C",
+      "description": "Divisionsfaktor für Übersetzungsverhältnis (Motor / Kompressor)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C3AE0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_factMul_C",
+      "description": "Multiplikationsfaktor für Übersetzungsverhältnis (Motor / Kompressor)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C3AE2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_swtCANtrq_C",
+      "description": "Schalter für die Momentenanforderug via CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C3AE5",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_swtCalc_C",
+      "description": "Wert des Softwareschalters Eingangsgröße ACTrqC",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C3AE4",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_swtTrqCalcType",
+      "description": "Wert des Softwareschalters für Reibmomentberechnung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F92C9",
+      "record_layout": null,
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_tiDT1TrqDyn_C",
+      "description": "Reziprokzeit T1 für DT1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C3AD8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_trqConvp_MAP",
+      "description": "Kennfeld für Reibmomentberechnung Über KÜhlmitteldruck",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C3AE6",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_trqConvt_MAP",
+      "description": "Kennfeld für Reibmomentberechnung Über Luft-temperaturgeber",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C3B8A",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_trqDes",
+      "description": "Momentenforderung Klimakompressor",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F95C6",
+      "record_layout": null,
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_trqDyn_mp",
+      "description": "Messpunkt für den dynamischen Momentenanforderungsanteil (Ausgang DT1)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE7B2",
+      "record_layout": null,
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_trqLead",
+      "description": "Momentenvorhalt Klimakompressor",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F95C8",
+      "record_layout": null,
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ACTrqC_trqStat_mp",
+      "description": "Momentenbedarf Klimakompressor im statischen Betrieb",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE7B4",
+      "record_layout": null,
+      "func_group": "ACTrqC",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

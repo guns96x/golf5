@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "FQlSCD",
+  "raw_groups": [
+    "FQlSCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_DebSRCHighDef_C",
+      "description": "Fehlerentprellzeit für SRC Fehler High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75CE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_DebSRCHighOk_C",
+      "description": "Heilungsentprellzeit für SRC Fehler High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75D0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_DebSRCLowDef_C",
+      "description": "Fehlerentprellzeit für SRC Fehler Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75D2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_DebSRCLowOk_C",
+      "description": "Heilungsentprellzeit für SRC Fehler Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75D4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_DebSigDef_C",
+      "description": "Fehlerentprellzeit für CAN Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75CA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_DebSigOk_C",
+      "description": "Heilungsentprellzeit für CAN Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75CC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_dtRmpSlpDwn_C",
+      "description": "Rampe für Analogeingang Struktur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75DC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_dtRmpSlpUp_C",
+      "description": "Rampe für Analogeingang Struktur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75D8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_numSSp_C",
+      "description": "Wahlschalter für Sensorversorgungsschaltermonitor für RME-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75D6",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_rDfl_C",
+      "description": "Ersatzwert bei Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75E8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_rFlQl",
+      "description": "Momentaner RME Gehalt in Kraftstoff",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9944",
+      "record_layout": null,
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_rFlQlLin",
+      "description": "Lineralisierte Gehalt RME im Kraftstoff",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9946",
+      "record_layout": null,
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_rLin_CUR",
+      "description": "Linearisierungskennlinie für RME",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7578",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_rRpOilHi_C",
+      "description": "Obere Hystereseschwelle für Erkennung Kraftstoffart",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75E0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_rRpOilLo_C",
+      "description": "Untere Hystereschwelle für Erkennung Kraftstoffart",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75E2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_stRpOil",
+      "description": "Kraftstoffart (RME oder Diesel)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9948",
+      "record_layout": null,
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_stSensIDWord_C",
+      "description": "Status ID für Statemaschine",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75E6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_swtSig",
+      "description": "RME Signalquelle",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93E9",
+      "record_layout": null,
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_swtSig_C",
+      "description": "Auswahlschalter RME über ADC oder CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D75E4",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_uRaw",
+      "description": "RME Sensor Rohwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F994A",
+      "record_layout": null,
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_uSRCMax_C",
+      "description": "SRC High Schwelle",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7576",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FQlSCD_uSRCMin_C",
+      "description": "SRC Low Schwelle",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7574",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FQlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

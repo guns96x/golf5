@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "ESS",
+  "raw_groups": [
+    "ESS"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_nBattIncrMin_C",
+      "description": "Anforderungwert zur Erhöhung der Leerlaufsolldrehzahl bei schwacher Batterie",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5100",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_nBattMin",
+      "description": "Leerlaufdrehzahl wegen schwacher Batterie",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98B6",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_nBattMinThres_C",
+      "description": "Threshold to avoid a sudden increase of torque",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5102",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_nBattMin_C",
+      "description": "Wert der geforderten Drehzahl nach Freigabe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5104",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_nLIBattThres_C",
+      "description": "Schwelle Drehzahl zur Aktivierung der Drehzahlforderung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5106",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_nMax",
+      "description": "Hoechstdrehzahl für ESS",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98B8",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_nMin",
+      "description": "Leerlaufdrehzahl aus ESS",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98BA",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_pwrDes",
+      "description": "Leistungsbedarf aller Aggregate des Bordnetzes",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98BC",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_pwrLead",
+      "description": "Vorhaltleistung des el. Bordnetzes",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F98BE",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_stNBattFFRes_mp",
+      "description": "Drehzahl Resetbedingung für batteriespannungsabhängige Leerlaufsolldrehzahlerhöhung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE41",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_stNBattFFSet_mp",
+      "description": "Drehzahl Setbedingung für batteriespannungsabhängige Leerlaufsolldrehzahlerhöhung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE42",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_stStrtDoneFFSet_mp",
+      "description": "Startabwurf Set-Bedingung für batteriespannungsabhängige Leerlaufsolldrehzahlerhöhung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE43",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_stUBattFFRes_mp",
+      "description": "Reset-Bedingung batteriespannungsabhängige Leerlaufsolldrehzahlerhöhung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE44",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_stUBattFFSet_mp",
+      "description": "Set-Bedingung batteriespannungsabhängige Leerlaufsolldrehzahlerhöhung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE45",
+      "record_layout": null,
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_tiDelayStrtDoneFFSet_C",
+      "description": "Zeit bis Freigabe des Startabwurfs",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D510C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_tiDelayUBattFFRes_C",
+      "description": "Zeit bis Rücknahme der Drehzahlforderung nach Deaktivierung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D510E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_tiDelayUBattFFSet_C",
+      "description": "Zeit bis Freigabe der Drehzahlforderung nach Aktivierung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5108",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_uLIBattThresFFRes_C",
+      "description": "Schwelle Batteriespannung zur Deaktivierung der Drehzahlforderung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5110",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ESS_uLIBattThresFFSet_C",
+      "description": "Schwelle Batteriespannung zur Aktivierung der Drehzahlforderung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D510A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ESS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

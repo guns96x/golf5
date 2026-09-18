@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "Conv",
+  "raw_groups": [
+    "Conv"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_dtrqRmpSlpNeg_C",
+      "description": "Abwärts-Rampenschrittweite bei Aktivierung der Begrenzung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD7C",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_dtrqRmpSlpPos_C",
+      "description": "Aufwärts-Rampenschrittweite bei Deaktivierung der Begrenzung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD78",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_nClthPrtDiffMin_C",
+      "description": "Schwellwert zur Schlupferkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD80",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_nDiff_mp",
+      "description": "Drehzahldifferenz zw. Motor und Getriebe-Eingang",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA98",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_pwrLossAllw_C",
+      "description": "Wärmeabgabe pro Zeit an die Umgebung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD82",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_rTrans",
+      "description": "Übertragungsverhältins Momentenwandler (Kupplung)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9800",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_stClthPrtDisbl_mp",
+      "description": "Status der Funktions-Deaktivierung (1=deaktiviert)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFA34",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_stSlipDet_mp",
+      "description": "Status der Schlupferkennung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFA35",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_stTrqLimActv",
+      "description": "Status der Begrenzung (1=Begrenzung aktiv)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F935B",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_stTrqLimDem_mp",
+      "description": "Status der Begrenzungsanforderung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFA36",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_tiClthClsdMin_C",
+      "description": "Entprellzeit negative Flanke des Kupplungssignals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD84",
+      "record_layout": "Kw_Wu16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_tiNoSlipDetMin_C",
+      "description": "Entprellzeit der Schlupferkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD86",
+      "record_layout": "Kw_Wu16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_trqClthPrtLim",
+      "description": "Begrenzungsmoment",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9802",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_trqClthPrtLimRaw_mp",
+      "description": "Ausgang der Begrenzungsrampe",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA9A",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_trqClthPrtMin_C",
+      "description": "Begrenzungsmoment",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD88",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_vClthPrtNotPlaus_C",
+      "description": "Mindest-Geschwindigkeit für Schlupferkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD8A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_wLossHys_C",
+      "description": "Hysteresewert des Leistungsintegrals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD8C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_wLossIntegMax_C",
+      "description": "Hysteresewert des Leistungsintegrals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD8E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_wLossInteg_mp",
+      "description": "aktueller Integratorwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA9C",
+      "record_layout": null,
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Conv_wLossMax_C",
+      "description": "obere Hystereseschwelle des Leistungsintegrals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCD90",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Conv",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

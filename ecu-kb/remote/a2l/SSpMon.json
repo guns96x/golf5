@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "SSpMon",
+  "raw_groups": [
+    "SSpMon"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCHighSplyVltgDef1_C",
+      "description": "Fehlerentprellung SRC High für Sensorversorgungsspannung 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0652",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCHighSplyVltgDef2_C",
+      "description": "Fehlerentprellung SRC High für Sensorversorgungsspannung 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0656",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCHighSplyVltgDef3_C",
+      "description": "Fehlerentprellung SRC High für Sensorversorgungsspannung 3",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F065A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCHighSplyVltgOk1_C",
+      "description": "Heilungsentprellung SRC High für Sensorversorgungsspannung 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0654",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCHighSplyVltgOk2_C",
+      "description": "Heilungsentprellung SRC High für Sensorversorgungsspannung 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0658",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCHighSplyVltgOk3_C",
+      "description": "Heilungsentprellung SRC High für Sensorversorgungsspannung 3",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F065C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCLowSplyVltgDef1_C",
+      "description": "Defektentprellung SRC Low für Sensorversorgungsspannung 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F065E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCLowSplyVltgDef2_C",
+      "description": "Defektentprellung SRC Low für Sensorversorgungsspannung 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0662",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCLowSplyVltgDef3_C",
+      "description": "Defektentprellung SRC Low für Sensorversorgungsspannung 3",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0666",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCLowSplyVltgOk1_C",
+      "description": "Heilungsentprellung SRC Low für Sensorversorgungsspannung 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0660",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCLowSplyVltgOk2_C",
+      "description": "Heilungsentprellung SRC Low für Sensorversorgungsspannung 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0664",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_DebSRCLowSplyVltgOk3_C",
+      "description": "Heilungsentprellung SRC Low für Sensorversorgungsspannung 3",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0668",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_stRaw_1_mp",
+      "description": "Rohwert der Defekterkennung der Sensorversorgungsspannung 1",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF90A",
+      "record_layout": null,
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_stRaw_2_mp",
+      "description": "Rohwert der Defekterkennung der Sensorversorgungsspannung 2",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF90C",
+      "record_layout": null,
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_stRaw_3_mp",
+      "description": "Rohwert der Defekterkennung der Sensorversorgungsspannung 3",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF90E",
+      "record_layout": null,
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SSpMon_stSSpErr",
+      "description": "Fehlerstatus der Sensorversorgungsspannungen",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C5E",
+      "record_layout": null,
+      "func_group": "SSpMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

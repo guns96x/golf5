@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "UAddr",
+  "raw_groups": [
+    "UAddr"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "UAddr_stCalibration_C",
+      "description": "ECU Applikationszugriff (0 = unterbunden, 1 = erlaubt)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C14A6",
+      "record_layout": "Kw_Wu8",
+      "func_group": "UAddr",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

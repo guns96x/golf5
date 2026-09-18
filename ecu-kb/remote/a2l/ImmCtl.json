@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "ImmCtl",
+  "raw_groups": [
+    "ImmCtl"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_Labelkey_C",
+      "description": "Markenkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DB6",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_P_Class_C",
+      "description": "Leistungsklasse MSG",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DB7",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_StateImmCtl_mp",
+      "description": "Wegfahrsperre - Status Lern-state-machine",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF08",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_cntNegRespMaxAuto_C",
+      "description": "Maximale Anzahl an negativen Antworten von WFS4 (Automatik)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DB0",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_cntNegRespMaxMnl_C",
+      "description": "Maximale Anzahl an negativen Antworten von WFS4 (Manuel)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DB1",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_ctImmo2_mp",
+      "description": "Zaehler 2 fuer Wegfahrsperre",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF07",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_dRndNr_mp",
+      "description": "Zufallszahl, berechnet vom MSG",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE5EC",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_lrnRndNr",
+      "description": "Zufallszahl",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9E7C",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stAftRunRdy",
+      "description": "Nachlauf für Wegfahrsperre fertig",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94B0",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stAutoLrnActv_C",
+      "description": "Zustand von Erlaubnis des automatischen Lernens",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DB8",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stCom",
+      "description": "Kommunikationsstatus der Wegfahrsperre",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94B1",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stDatChanAcc_C",
+      "description": "WFS Datenannahme erlaubt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DB9",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stDatChan_C",
+      "description": "Status Wegfahrsperre - Datentransfer erlaubt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DBA",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stDattest_C",
+      "description": "WFS Daten-Download vom Diagnosetester erlaubt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DBB",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stGblCANErrRXIMMCTL_mp",
+      "description": "Zustand der CAN-Botschaft RXIMMCTL und Fehlerzustand vom CAN global.",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF09",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stImmo",
+      "description": "Status der Wegfahrsperre",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94B2",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stOnOff",
+      "description": "Status der Wegfahrsperre (Aktiv/Inaktiv)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94B3",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stProcess",
+      "description": "Prozessinformation der Wegfahrsperre",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A54",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stStartEnable",
+      "description": "Motorstart erlaubt",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94B4",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_stVersion",
+      "description": "Wegfahrsperrengeneration -> 1 = WFS4; 0 = WFS3",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94B5",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_swtStartSKC_C",
+      "description": "Schalter zur Auswahl des SKC-Starts aus dem EEPROM (1) oder des SKC-Standardstarts (0)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DBD",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_swtpasswd_ECU_C",
+      "description": "Selektiert ob der Kennwort aus der Seriennummer extrahiert wird oder aus der EEPROM gelesen wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DBC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_tiDataReq_C",
+      "description": "Zeit fuer Wiederholungen der Datenanforderung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DC4",
+      "record_layout": "Kw_Wu32",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_tiLockCount",
+      "description": "Sperrzeit vom Combi-Instrument",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94B6",
+      "record_layout": null,
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_tiLrnReqRep_C",
+      "description": "Wartezeit für Wiederholung der Anfrage für das Anlernen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DCA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_tiP2CANLimit_C",
+      "description": "Zeit nach der bei Nichtantworten der WFS der TP-Kanal geschlossen wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DCC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ImmCtl_tiP2CANMax_C",
+      "description": "Überwachung zeit für P2CAN TIMEOUT",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DCE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ImmCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "WDCom",
+  "raw_groups": [
+    "WDCom"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "WDCom_ErrorCntForSPI_u8",
+      "description": "Fehlerzähler für den SPI Handler",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE2D6",
+      "record_layout": null,
+      "func_group": "WDCom",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDCom_ErrorCntForUC_u8",
+      "description": "Kopie des Fehlerzählers des externen Watch Dog",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE2D7",
+      "record_layout": null,
+      "func_group": "WDCom",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDCom_ErrorCntForWD_u8",
+      "description": "Fehlerzähler für den externen Watch dog",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE2D8",
+      "record_layout": null,
+      "func_group": "WDCom",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDCom_dChisteResponse_u32",
+      "description": "Antwortbeitrag des Befehlstests",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD4B4",
+      "record_layout": null,
+      "func_group": "WDCom",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDCom_dErrorCountForCntler_u8",
+      "description": "Kopie des überwachungsmodul-internen Fehlerzählers für den Funktionsrechner",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD4FE",
+      "record_layout": null,
+      "func_group": "WDCom",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDCom_dErrorCountForWD_u8",
+      "description": "Fehlerzähler für das Überwachungsmodul",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FA86D",
+      "record_layout": null,
+      "func_group": "WDCom",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDCom_dRequest_u32",
+      "description": "Aktuelle Frage des Überwachungsmoduls",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD4C4",
+      "record_layout": null,
+      "func_group": "WDCom",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

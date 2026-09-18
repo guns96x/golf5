@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "TstTog",
+  "raw_groups": [
+    "TstTog"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_ActRout_mp",
+      "description": "Anzahl der Testroutinen die durchlaufen werden müssen",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFCE",
+      "record_layout": null,
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_Code_C",
+      "description": "Test des Testercodes",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1422",
+      "record_layout": "Kwb_Wu16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_DNULL_mp",
+      "description": "Dummy Meßpunkt für tsttog.kgs",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFCF",
+      "record_layout": null,
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_DemStartMaxEngN_C",
+      "description": "maximale Motordrehzahl für den Start des Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F148C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_Demand_C",
+      "description": "Signalnummer des Testers",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1468",
+      "record_layout": "Kwb_Wu8",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_K2SigBlkVal1_MAP",
+      "description": "Signalblock für Wert 1",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F148E",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_K2SigBlkVal2_MAP",
+      "description": "Signalblock für Wert 2",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F15F8",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_Val1_C",
+      "description": "1. Tastverhältnis",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F17AC",
+      "record_layout": "Kwb_Ws16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_Val2_C",
+      "description": "2. Tastverhältnis",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F17F2",
+      "record_layout": "Kwb_Ws16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_lastRout_mp",
+      "description": "letzte Testerroutine",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFD0",
+      "record_layout": null,
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_stActRout_mp",
+      "description": "Status der durchgeführten Routine",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFD1",
+      "record_layout": null,
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_stRoutDem_mp",
+      "description": "Status der Anforderung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFD2",
+      "record_layout": null,
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_stTstEnd",
+      "description": "Teststatus, der das Ende des aktuellen Tests kennzeichnet",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F957A",
+      "record_layout": null,
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_st_mp",
+      "description": "TstTog Togglestatus",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFD3",
+      "record_layout": null,
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_tiBetweenTogVal_C",
+      "description": "Zeit zwischen Tastverhältnisveränderungen",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1762",
+      "record_layout": "Kwb_Wu16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_tiMaxUserInput_C",
+      "description": "Variable Zeit für den User, wann der Stellertest beendet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F17A8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_tiRoutDemMax_C",
+      "description": "Zeit des Testers um ein Kommando zu wiederholen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F17AA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TstTog_tiUserInput_mp",
+      "description": "Zeit wann der Stellertest endet, wenn kein Eingriff durch den Benutzer erfolgt",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF974",
+      "record_layout": null,
+      "func_group": "TstTog",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

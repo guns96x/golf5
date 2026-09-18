@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "ErLp",
+  "raw_groups": [
+    "ErLp"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_MilEngN_C",
+      "description": "Drehzahlgrenze für MIL-Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50E2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_SysLampEngN_C",
+      "description": "Drehzahlgrenze für SysLamp-Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50F4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_swtMilEn_C",
+      "description": "MIL Freigabe Schalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50EC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_swtSysEqGlwLamp_C",
+      "description": "SysLamp entspricht Glühlampe (Signalumleitung)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50EE",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_swtSysLampEn_C",
+      "description": "SysLamp Freigabe Schalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50FE",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiMilBlk_C",
+      "description": "halbe Periodendauer  der MIL-Blinkphase",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50EA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiMilDefectTime_C",
+      "description": "Zeit für MIL Defekterkennung (Endstufenüberwachung)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50DE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiMilDel_C",
+      "description": "Verzögerung der MIL Anzeige nach Lampentest",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50E8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiMilMax_C",
+      "description": "Zeitgrenze für MIL-Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50E4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiMilOkTime_C",
+      "description": "Zeit für MIL in Ordnung Erkennung (Endstufenüberwachung)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50E0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiMilTst_C",
+      "description": "zusätzliche MIL Test Zeit nach Überschreiten Drehzahlschwelle",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50E6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiSysLampBlk_C",
+      "description": "halbe Periodendauer der Systemlampen-Blinkphase",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50FC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiSysLampDefectTime_C",
+      "description": "Zeit für SysLamp Defekterkennung (Endstufenüberwachung)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50F0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiSysLampDel_C",
+      "description": "Verzögerung der SysLamp Anzeige nach Lampentest",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50FA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiSysLampMax_C",
+      "description": "Zeitgrenze für SysLamp-Test",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50F6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiSysLampOkTime_C",
+      "description": "Zeit für SysLamp in Ordnung Erkennung (Endstufenüberwachung)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50F2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLp_tiSysLampTst_C",
+      "description": "zusätzliche SysLamp Test Zeit nach Überschreiten Drehzahlschwelle",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50F8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

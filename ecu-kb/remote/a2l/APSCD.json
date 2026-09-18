@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "APSCD",
+  "raw_groups": [
+    "APSCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_BpsAllowed_mp",
+      "description": "Wahlschalter - Atmosphaerendruck gemessen (wenn verbaut) od. gerechnet von Ladedrucksensor",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE90C",
+      "record_layout": null,
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_DebSRCDef_C",
+      "description": "Entprellzeit fuer SRC Defektzeit",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA992",
+      "record_layout": "Kw_Wu16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_DebSRCOk_C",
+      "description": "Entprellzeit fuer SRC-Heilzeit",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA994",
+      "record_layout": "Kw_Wu16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_DebSigDef_C",
+      "description": "Entprellzeit defekt für ungültiges CAN-Signal für Atmosphärendruck",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA98E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_DebSigOk_C",
+      "description": "Heilungsentprellzeit für ungültiges CAN-Signal Atmosphärendruck",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA990",
+      "record_layout": "Kw_Wu16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_dpRmpSlpDwn_C",
+      "description": "negative Atmosphaerendruck - Rampensteigung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAA90",
+      "record_layout": "Kw_Wu32",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_dpRmpSlpUp_C",
+      "description": "positive Atmosphaerendruck - Rampensteigung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAA8C",
+      "record_layout": "Kw_Wu32",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_nLimHigh_C",
+      "description": "obere Drehzahlgrenze zur Berechnung des Luftdrucks aus dem Ladedruck",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA996",
+      "record_layout": "Kw_Ws16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pCorVal_mp",
+      "description": "Korrekturwert fuer Atmosphaerendruck von Ladedrucksensor",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE90E",
+      "record_layout": null,
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pCor_MAP",
+      "description": "Atmosphaerendruck Korrekturkennfeld (Drehzahlabhaengig)",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA998",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pDfl_C",
+      "description": "Atmosphaerendruck Vorgabewert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAA9C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pLinVal",
+      "description": "Rohwert Atmosphärendruck über ADC",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9610",
+      "record_layout": null,
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pLin_CUR",
+      "description": "Atmosphaerendruck Liniarisierungskennlinie",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA928",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pSensorVal",
+      "description": "Atmosphaerendruck Sensorwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9612",
+      "record_layout": null,
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pVal",
+      "description": "Atmosphärendruck",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9614",
+      "record_layout": null,
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pValByp_mp",
+      "description": "Bypass Wert für Atmosphärendruck",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE910",
+      "record_layout": null,
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pVal_Channel",
+      "description": "Bypass Konfiguration Label für Bypass Wert Atmosphärendruck",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A45",
+      "record_layout": "Kw_Wu8",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_pVal_Vector",
+      "description": "Bypass Konfiguration Label für Bypass Wert Atmosphärendruck",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A44",
+      "record_layout": "Kw_Wu8",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_stSensIDWord_C",
+      "description": "Atmosphaerendruck Geberkennwort",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAA9A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_stSensorInst",
+      "description": "Status, ob Atmosphärendrucksensor eingebaut ist (0 == nicht eingebaut)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F92E2",
+      "record_layout": null,
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_swtInst_C",
+      "description": "Atmosphaerendruck Funktionsschalter (1: verbaut, 0: nicht verbaut)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAA94",
+      "record_layout": "Kw_Wu8",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_swtSigVal_C",
+      "description": "Schalter zur Umschaltung der Signalquelle ADC/CAN (0 = ADC, 1 = CAN)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAA95",
+      "record_layout": "Kw_Wu8",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_swtSrcpVal_C",
+      "description": "Schalter ob APSCD_pVal aus Ladedruck berechnet wird (1) oder nicht (0)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAA96",
+      "record_layout": "Kw_Wu8",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_tiDel_C",
+      "description": "Atmosphaerendruck Verzögerungszeit bis Berechnung von Ladedruck beginnt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAA98",
+      "record_layout": "Kw_Wu16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_uRaw",
+      "description": "Rohspannung ADC-Signal Atmosphärendruck",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9616",
+      "record_layout": null,
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_uSRCMax_C",
+      "description": "Atmosphaerendruckfuehler SRC-Max Fehlerschwelle",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA926",
+      "record_layout": "Kw_Ws16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "APSCD_uSRCMin_C",
+      "description": "Atmosphaerendruckfuehler SRC-Min Fehlerschwelle",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA924",
+      "record_layout": "Kw_Ws16",
+      "func_group": "APSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "LASCD",
+  "raw_groups": [
+    "LASCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_aLinPT1OP_mp",
+      "description": "Ausgang des ersten PT1-Filters",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF66E",
+      "record_layout": null,
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_aLong",
+      "description": "gefilterte Längsbeschleunigung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9B06",
+      "record_layout": null,
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_aLongDfl_C",
+      "description": "Ersatz im Fehlerfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65DA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_aLongUnFlt_mp",
+      "description": "ungefilterter Beschleunigungswert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF670",
+      "record_layout": null,
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_daLongRmpSlpDwn_C",
+      "description": "Abwärtsrampensteigung zum Übergang auf Defektwert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65BC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_daLongRmpSlpUp_C",
+      "description": "Aufwärtsrampensteigung zum Übergang auf Defektwert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65B8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_stSensIDWord_C",
+      "description": "Variantenschalter bei defektivem Verhalten",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65D8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_swtAccSens",
+      "description": "Schalter zur Aktivierung des LASCD-Moduls",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94D4",
+      "record_layout": null,
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_swtAccSens_C",
+      "description": "Schalter zur Aktivierung des LASCD-Moduls",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65C0",
+      "record_layout": "Kw_Wu8",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_tiDebCANSigDef_C",
+      "description": "Entprellzeit bei CAN-Signalfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65B4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_tiDebCANSigOk_C",
+      "description": "Heilungszeit bei CAN-Signalfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65B6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_tiFlt_CUR",
+      "description": "Kennlinie zur Ermittlung der Zeitkonstante des nicht-lineraen",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65C2",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "LASCD_tiPT1_C",
+      "description": "Time constant for first level PT1 filter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E65B0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "LASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

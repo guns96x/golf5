@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-18T15:30:30Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "AddPmp",
+  "raw_groups": [
+    "AddPmp"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "AddPmp_rAdd_mp",
+      "description": "Konzentration des Additiv im Kraftstoff",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF042",
+      "record_layout": null,
+      "func_group": "AddPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AddPmp_volAddDia_mp",
+      "description": "Laufend berechnete Additivmenge für Diagnose [ml]",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF044",
+      "record_layout": null,
+      "func_group": "AddPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "AddPmp_volAddTotDia_mp",
+      "description": "Absolute Additivmenge seit letzter Filterreinigung für Diagnose [ml]",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE4E4",
+      "record_layout": null,
+      "func_group": "AddPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}
