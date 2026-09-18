@@ -31,10 +31,51 @@ python seed_gaps.py
 python kb.py ingest-a2l "..\diagnostic-review\definitions\*\*.a2l" --sw 1037391847
 python kb.py ingest D:\CLAUDE\base\knowledge\library
 python kb.py ingest D:\CLAUDE\base\knowledge\drafts
+
 python kb.py load-claims claims\boost-path-stock.json
+python kb.py load-claims claims\turbo-bv39-scope.json
+python kb.py load-claims claims\boost-path-values.json
+
+REM claims\boost-path-values.json на самоперевірці змішав значення мапи (MAP_FACT)
+REM з читанням цього значення (INFERRED/CALCULATED) в одному твердженні, і частина
+REM тексту втрачала референт поза контекстом сусіднього рядка. Замість тихого
+REM редагування — явне відкликання й заміна (правило "зміна думки — поле в БД"):
+python kb.py retract 22 "Реєстр library_registry.json насправді вже коректно приписує документ TDIClub Technical Archive (не Pierburg). Помилка була моя — не перевірив реєстр перед тим, як написати claim."
+python kb.py retract 28 "Змішано MAP_FACT і INFERRED в одному твердженні." --state superseded
+python kb.py retract 29 "Те саме змішування, плюс несамодостатній текст «у тому самому образі»." --state superseded
+python kb.py retract 30 "Змішано MAP_FACT (сирі байти) з INFERRED (сентинел); неповний перелік читань." --state superseded
+python kb.py retract 32 "Несамодостатній текст «у цьому образі»." --state superseded
+python kb.py retract 33 "Змішано MAP_FACT з INFERRED; несамодостатній текст." --state superseded
+python kb.py retract 34 "Несамодостатній текст «у цьому образі»." --state superseded
+python kb.py resolve-gap 13 RESOLVED --note "Не було потрібно — реєстр уже коректний."
+
+python kb.py load-claims claims\boost-path-values-corrections.json
+python kb.py resolve-gap 9 PARTIAL --note "Структуру й значення декодовано з reconstructed BIN; живого readback немає."
+
+python kb.py load-claims claims\n75-duty-direction.json
+python kb.py resolve-gap 12 PARTIAL --note "Напрямок встановлено MEASURED з logs/VCDS_WOT_Log_20260914_153242.csv: більша шпаруватість -> менший наддув (замкнений контур)."
+
+python kb.py load-claims claims\logs-inventory.json
+python kb.py resolve-gap 16 RESOLVED --note "Проскановано (Gemini-інвентаризація 52 файлів + вибіркова ручна перевірка)."
+
+python kb.py load-claims claims\firmware-modification-reliability.json
+
+REM Фото заводської таблички турбіни (закриває блокуючу P1-прогалину #1).
+REM Ця сесія самого фото не бачила — текст переказаний іншою сесією, тому
+REM короткі відмінні мітки (бренд, родина) MEASURED з вищою впевністю, довгі
+REM буквено-цифрові коди — з нижчою. Старий каталожний номер турбіни на
+REM табличці АГРЕГАТА відсутній — відкликано, не переписано тихо:
+python kb.py load-claims claims\turbo-nameplate-photo.json
+python kb.py retract 24 "Головна теза (безпечна межа наддуву невідома) лишається правильною. Але посилання на конкретне виконання '54399880072' застаріло: фото заводської таблички показує іншу систему нумерації агрегата — BV39A-0012 / NE 1003/1756-00002. Каталожний номер на табличці відсутній." --state superseded
+python kb.py resolve-gap 1 RESOLVED --note "Фото зроблено й проаналізовано (переказ). BorgWarner BV39 підтверджено фізично."
+python kb.py resolve-gap 14 BLOCKED --note "Замінено прогалиною #21: номер 54399880072 на табличці агрегата відсутній, пошук за ним був приречений."
+
 python kb.py check
 python kb.py status
 ```
+
+Порядок команд відтворює реальний хід роботи, включно з власною помилкою і
+самовиправленням — саме тому ретракції тут явні кроки, а не переписаний файл.
 
 Що виходить на поточному корпусі: **16 772 об'єкти A2L** (11 537 CHARACTERISTIC,
 5 220 MEASUREMENT, 15 AXIS_PTS), **97 документів** = 76 `HAVE_LOCAL` +
@@ -134,6 +175,25 @@ pressure for the BV39 turbocharger is 2450 mbar absolute», приписана S
 `retraction_reason`), бо в цьому проєкті відкликання висновків реальність,
 а не теорія.
 
+**Третій, окремий вимір — `source_class`: ЯК саме підтверджено.**
+`document_citation` (перевіряється `kb check` дослівним збігом) відрізняється
+від `bin_derived`/`log_derived`/`computed` (провенанс — шлях і sha256 у
+самому тексті твердження, як у `claims/boost-path-values.json`,
+`claims/n75-duty-direction.json`) і від `human_attested` (`confirm-check`).
+Раніше цього поля не було, і BIN/log-похідні claims просто не мали
+структурованого способу сказати, чим саме вони підтверджені — тепер є.
+
+**Межа, яку `kb check` НЕ закриває.** Перевірка ловить, що цитата
+дослівно існує в чанку (`citation_verified`). Вона НЕ перевіряє, що ця
+цитата логічно ПІДТВЕРДЖУЄ саме те твердження, до якого прикріплена
+(`support_verified`) — цю різницю автоматизувати означало б знову довірити
+моделі семантичне судження, тобто повернути саме той ризик, проти якого
+все будувалось. Це залишається людською роботою при читанні claims.
+З тієї самої причини `claims.created_by` і `claims.reviewed_by` — окремі
+поля: `load-claims` завжди заповнює перше, друге лишається `NULL`, доки
+хтось (за змогою — інша сесія чи людина) не підтвердить окремо. Self-review
+(`created_by = reviewed_by`) схема не забороняє, але робить видимим.
+
 ## Прогалини
 
 ```bat
@@ -161,6 +221,40 @@ python kb.py retract 22 "чому саме — причина обов'язко�
 доказу нічого не змінює (`CLAUDE.md`, правило 7). Використано на живому
 прикладі: claim про те, що реєстр бібліотеки нібито приписує документ
 Pierburg — реєстр насправді вже коректний, помилка була моя.
+
+## Ворота перед прошивкою
+
+`docs/FIRMWARE-MODIFICATION-RELIABILITY.md` — умови, за яких запис у ECU
+перестає бути азартною грою. Розділ 9 того документа реалізований командами:
+
+```bat
+python kb.py record-readback dump1.bin dump2.bin --source own_readback --by "<ім'я>" --label "..."
+python kb.py confirm-check recovery_tested --by "<ім'я>" --scope standing
+python kb.py confirm-check power_confirmed --by "<ім'я>" --scope per_event
+python kb.py confirm-check rollback_documented --by "<ім'я>" --scope per_event --note "який файл, чим, скільки часу"
+python kb.py log-check logs\....csv --required Driver_Wish_IQ_mg,Torque_Limit_IQ_mg,Smoke_Limit_IQ_mg
+python kb.py flash-preflight --target <образ> --log <лог>
+```
+
+`flash-preflight` повертає `exit 0` і `{"blocked": []}`, тільки якщо всі
+шість умов виконані. Те, що софт може перевірити сам — перевіряється
+автоматично й першим, ще до питань про процес:
+
+- сам файл: існує, точно очікуваного розміру (2 097 152 байт), містить
+  ASCII SW/HW-ідентифікатори цієї машини, контрольна сума EDC16 (дві
+  32-бітні суми блоків, межі й ціль — з `tools/calmath_engine.py`,
+  верифіковано раніше на цьому ж корпусі) збігається;
+- живі канали в логах (той самий детектор, що ловив замерзлу телеметрію
+  в `logs/`).
+
+Те, чого софт знати не може (чи підключений зарядний, чи пройдено
+відновлення на живому блоці, чи задокументований шлях відкату) — вимагає
+`confirm-check` як людського засвідчення, і команда лише вимагає його
+наявності. `record-readback` не приймає той самий файл як обидва
+зчитування (`os.path.samefile`) — інакше ворота 2.1 тривіально обходились
+копією одного дампа. Кожен виклик `flash-preflight` пишеться в
+`flash_events` незалежно від результату; сам журнал незмінний —
+`UPDATE`/`DELETE` на ньому забороняє тригер схеми.
 
 ## Що далі
 

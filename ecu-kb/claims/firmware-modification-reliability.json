@@ -1,0 +1,54 @@
+{
+  "_comment": "Твердження з docs/FIRMWARE-MODIFICATION-RELIABILITY.md. Документ написаний прямо в markdown без claims-файлу (порушення власної конвенції 'кожне твердження лежить у ecu-kb') — цей файл виправляє це заднім числом. Числа перельоту наддуву перевірені незалежно (не той самий скрипт, що дав перші цифри) і виправлені там, де розійшлися.",
+
+  "claims": [
+    {
+      "statement": "У SW 1037391847 існує замкнутий контур регулювання температури перед турбіною (T3): InjCrv_tPreTrbn1..4_MAP (0x1E333A, 0x1E34FE, 0x1E36C2, 0x1E3886, «Kennfeld N für T3-Sollwert») задають уставки, InjCrv_facPreTrbnKp_CUR (0x1E322A, «Kleinsignal-P-Faktor der T3-Regelung») і InjCrv_facPreTrbnKi_CUR (0x1E3208, «Kleinsignal-I-Faktor der T3-Regelung») — P/I коефіцієнти регулятора, EngPrt_facTempPreTrbn_MAP (0x1D4EBC) і EngPrt_facTempBoostPreTrbn_MAP (0x1D4EA8) обмежують момент від температури.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Значення комірок не декодовані. Структура регулятора (PI, а не тільки P+I окремо) з назв полів прямо не випливає, хоча Kp/Ki разом на це вказують."
+    },
+    {
+      "statement": "PFlt_tDiffPreTrbnPos_CUR (0x1EEEF8) і PFlt_tDiffPreTrbnNeg_CUR (0x1EEEE6) в A2L описані дослівно як «Kennlinie zur Best. der maximal erlaubten pos./neg. Abweichung zur Temperature Plausiblisierung vor Turbine» — криві максимально дозволеного відхилення для ПЕРЕВІРКИ ПРАВДОПОДІБНОСТІ температури перед турбіною. Окремо є PFlt_tExhGsSty_MAP (0x1EF21E, «Kennfeld für Stationärtemperaturen [K]») — мапа стаціонарних температур випуску.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS"
+    },
+    {
+      "statement": "Чи T3 в цьому контурі МІРЯЄТЬСЯ (є фізичний датчик) чи МОДЕЛЮЄТЬСЯ (розрахунок з інших параметрів) — з наявних об'єктів A2L не встановлюється однозначно. Слово «Plausiblisierung» у назві PFlt_tDiffPreTrbnPos/Neg_CUR передбачає звірку ДВОХ незалежних джерел, що радше на користь датчика, ніж проти нього — але звірятись можуть і дві моделі (наприклад, стаціонарна PFlt_tExhGsSty_MAP проти динамічної з InjCrv_tPreTrbn*_MAP) без жодного фізичного датчика в контурі.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.4,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Питання критичне для будь-якої зміни палива/SOI: якщо T3 модельна, захист рахує проти калібрування під стокову подачу і поїде відносно реальності при зміні. OEM-документація на датчик температури перед турбіною (G-номер сенсора, якщо є) в корпусі відсутня — заведено окремою прогалиною."
+    },
+    {
+      "statement": "У logs/VCDS_WOT_Log_20260914_153242.csv (sha256 fccf54caad1d…) на 37 рядках з Boost_Specified_mbar==2203 (уставка близька до стелі) 30 рядків мають Boost_Actual_mbar > уставки. Перевищення: медіана серед додатних +174 мбар, максимум +235 мбар, піковий фактичний наддув 2438 мбар абс. Незалежна перевірка попереднього прочитання (те саме джерело, інший підрахунок): крайні значення (30 з N, +235, 2438) збіглися точно; кількість точок (37 проти раніше заявлених 41) і медіана (+174 проти +153) розійшлися — ймовірно інший поріг фільтрації в першому проході, причина не встановлена.",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "diagnostic", "unit": "mbar", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Один лог, одна дата (14.09.2026). Причина систематичного перельоту (динаміка регулятора, відсутність лінеаризації в PCR_rBPGovLin_CUR — уже MAP_FACT в іншому claim) не досліджена тут, лише факт величини."
+    },
+    {
+      "statement": "Наслідок систематичного перельоту наддуву для планування будь-якої зміни: фактичний пік потрібно рахувати як уставка + спостережений переліт (щонайменше +174..+235 мбар за наявними даними), а не як саме число з мапи. Підняття уставки на N мбар імовірно дасть фактичний пік вище на N + переліт, а не рівно на N.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "mbar", "is_modeled": 0, "confidence": 0.6,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Переліт виміряний лише БІЛЯ поточної стелі (уставка 2203). Чи масштабується переліт лінійно при вищій уставці, чи поведінка регулятора змінюється — не встановлено. Це екстраполяція за одну точку."
+    }
+  ],
+
+  "gaps": [
+    {
+      "question": "Знайти OEM-документацію на датчик температури перед турбіною (G-номер) для EDC16U34/BLS",
+      "why_needed": "Прямий спосіб закрити 'T3 виміряна чи модельована': якщо в OEM-схемі є конкретний фізичний сенсор з G-номером на цій позиції — датчик є. Якщо документація описує лише розрахункову модель — модельна.",
+      "priority": 1,
+      "needed_source": "VW SSP або Bosch-документ з переліком датчиків EDC16U34/BLS, що включає позицію перед турбіною; або DTC-список (код несправності датчика T3 exhaust підтвердив би фізичний сенсор)"
+    }
+  ]
+}
