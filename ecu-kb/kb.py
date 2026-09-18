@@ -641,6 +641,162 @@ def cmd_retract(a):
     print(f"   причина: {a.reason}")
 
 
+# ── flash-preflight: docs/FIRMWARE-MODIFICATION-RELIABILITY.md § 9 ─────────
+# Правило з того документа: передумови мають стати командою з кодом виходу,
+# а не прозою, яку хтось міг не прочитати. Софт перевіряє сам те, що може
+# (хеші, варіативність каналів у логах); те, чого знати не може (чи
+# підключений зарядний, чи пройдено відновлення на живому блоці) — вимагає
+# людського засвідчення через preflight_checks, і лише перевіряє його
+# наявність.
+
+# Мінімальна кількість різних значень у колонці, нижче якої канал вважається
+# «не писався живо» — той самий поріг, що й у ручній перевірці logs/, і той
+# самий, що застосував Gemini в інвентаризації (ecu-kb/claims/logs-inventory.json).
+FROZEN_MIN_DISTINCT = 5
+FROZEN_MIN_ROWS = 30
+
+
+def analyze_log_csv(path):
+    """Повертає {колонка: {parsed,distinct,min,max}} і список підозрілих колонок.
+
+    Підозріла — <FROZEN_MIN_DISTINCT унікальних значень при >=FROZEN_MIN_ROWS
+    рядків. Не каже «лог зіпсований» сам по собі: колонка каналу, який справді
+    не логувався (0 весь час теж вважається «1 унікальне»), і колонка з
+    реальною малою варіацією (справжній холостий хід) виглядають однаково —
+    рішення, довіряти чи ні, лишається за людиною, яка читає summary.
+    """
+    import csv as csv_mod
+    with open(path, encoding="utf-8-sig", newline="") as f:
+        rows = list(csv_mod.DictReader(f))
+    if not rows:
+        return {}, [], 0
+    cols = {}
+    suspect = []
+    for name in rows[0].keys():
+        vals = [r[name] for r in rows if r.get(name) not in (None, "")]
+        nums = []
+        for v in vals:
+            try:
+                nums.append(float(v))
+            except ValueError:
+                pass
+        if len(nums) < len(vals) / 2:  # переважно нечислова колонка — пропускаємо
+            continue
+        distinct = len(set(nums))
+        cols[name] = {"parsed": len(nums), "distinct": distinct,
+                      "min": min(nums) if nums else None,
+                      "max": max(nums) if nums else None}
+        if len(rows) >= FROZEN_MIN_ROWS and distinct < FROZEN_MIN_DISTINCT:
+            suspect.append(name)
+    return cols, suspect, len(rows)
+
+
+def cmd_log_check(a):
+    cols, suspect, nrows = analyze_log_csv(a.path)
+    print(f"{Path(a.path).name}: {nrows} рядків, {len(cols)} числових колонок")
+    for name, s in cols.items():
+        flag = " ⚠ SUSPECT_FROZEN" if name in suspect else ""
+        print(f"  {name:24} parsed={s['parsed']:<5} distinct={s['distinct']:<5} "
+              f"[{s['min']}..{s['max']}]{flag}")
+    if a.required:
+        req = [c.strip() for c in a.required.split(",")]
+        missing = [c for c in req if c not in cols]
+        frozen_req = [c for c in req if c in suspect]
+        if missing:
+            print(f"\n✗ немає в файлі: {', '.join(missing)}")
+        if frozen_req:
+            print(f"✗ живі не по всіх обов'язкових: {', '.join(frozen_req)}")
+        return 1 if (missing or frozen_req) else 0
+    return 1 if suspect else 0
+
+
+def cmd_record_readback(a):
+    c = connect()
+    digest = sha256(Path(a.path))
+    twin = sha256(Path(a.path2)) if a.path2 else None
+    if a.path2 and twin != digest:
+        print(f"✗ два зчитування НЕ збігаються: {digest[:16]}… ≠ {twin[:16]}…")
+        print("  Це саме по собі знахідка (нестабільне читання), не technicality.")
+        print("  Записую з read_count=1 — двійник НЕ підтверджений.")
+        twin = None
+        read_count = 1
+    else:
+        read_count = 2 if twin else 1
+    cid = c.execute(
+        """INSERT INTO firmware_versions(label,path,sha256,source,read_count,
+                                         verified_twin_sha256,notes)
+           VALUES(?,?,?,?,?,?,?)""",
+        (a.label, str(Path(a.path).resolve()), digest, a.source, read_count,
+         twin, a.note)).lastrowid
+    c.commit()
+    print(f"#{cid} {a.source} sha256={digest[:16]}… read_count={read_count}"
+          + (f" verified_twin={twin[:16]}…" if twin else ""))
+
+
+def cmd_confirm_check(a):
+    c = connect()
+    cid = c.execute(
+        """INSERT INTO preflight_checks(condition,scope,confirmed,confirmed_by,note)
+           VALUES(?,?,1,?,?)""",
+        (a.condition, a.scope, a.by, a.note)).lastrowid
+    c.commit()
+    print(f"#{cid} {a.condition} [{a.scope}] засвідчено: {a.by}")
+
+
+def cmd_flash_preflight(a):
+    """Чотири ворота з § 2 документа. Кожен — окремий код у blocked_reasons."""
+    c = connect()
+    blocked = []
+
+    own = c.execute("""SELECT * FROM firmware_versions
+                       WHERE source='own_readback' AND read_count>=2
+                             AND verified_twin_sha256 IS NOT NULL
+                             AND verified_twin_sha256=sha256
+                       ORDER BY id DESC LIMIT 1""").fetchone()
+    if not own:
+        blocked.append("NO_OWN_READBACK")
+
+    recovery = c.execute("""SELECT 1 FROM preflight_checks
+                            WHERE condition='recovery_tested' AND confirmed=1
+                                  AND scope='standing' LIMIT 1""").fetchone()
+    if not recovery:
+        blocked.append("RECOVERY_UNPROVEN")
+
+    power = c.execute("""SELECT 1 FROM preflight_checks
+                         WHERE condition='power_confirmed' AND confirmed=1
+                               AND datetime(created_at) >= datetime('now', ?)
+                         LIMIT 1""", (f"-{a.power_max_age_h} hours",)).fetchone()
+    if not power:
+        blocked.append("POWER_NOT_CONFIRMED")
+
+    if not a.log:
+        blocked.append("LOG_NOT_PROVIDED")
+    else:
+        req = ["Boost_Specified_mbar", "Boost_Actual_mbar", "N75_Duty_pct",
+               "Driver_Wish_IQ_mg", "Torque_Limit_IQ_mg", "Smoke_Limit_IQ_mg"]
+        cols, suspect, nrows = analyze_log_csv(a.log)
+        missing = [x for x in req if x not in cols]
+        frozen = [x for x in req if x in suspect]
+        if missing or frozen or nrows < FROZEN_MIN_ROWS:
+            blocked.append("LIMITER_LOG_MISSING")
+
+    target_sha = sha256(Path(a.target)) if a.target and Path(a.target).exists() else None
+    result = "blocked" if blocked else "passed"
+    eid = c.execute(
+        """INSERT INTO flash_events(target_path,target_sha256,baseline_firmware_id,
+                                    preflight_result,blocked_reasons,notes)
+           VALUES(?,?,?,?,?,?)""",
+        (a.target, target_sha, own["id"] if own else None, result,
+         json.dumps(blocked, ensure_ascii=False), a.note)).lastrowid
+    c.commit()
+
+    if blocked:
+        print(json.dumps({"event_id": eid, "blocked": blocked}, ensure_ascii=False))
+        return 2
+    print(json.dumps({"event_id": eid, "blocked": []}, ensure_ascii=False))
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(prog="kb", description="Локальна база знань ECU calibration")
     sp = ap.add_subparsers(dest="cmd", required=True)
@@ -671,6 +827,36 @@ def main():
     p.add_argument("--state", default="deprecated", choices=["deprecated", "superseded"],
                    help="deprecated — хибне; superseded — замінене точнішим")
     p.set_defaults(fn=cmd_retract)
+
+    p = sp.add_parser("log-check", help="перевірити CSV-лог на замерзлі/мертві канали")
+    p.add_argument("path")
+    p.add_argument("--required", help="список колонок через кому, які мають бути живими")
+    p.set_defaults(fn=cmd_log_check)
+
+    p = sp.add_parser("record-readback", help="зареєструвати зчитування прошивки")
+    p.add_argument("path")
+    p.add_argument("path2", nargs="?", help="друге незалежне зчитування — для перевірки")
+    p.add_argument("--source", required=True,
+                   choices=["own_readback", "reconstructed", "vendor_release", "modified"])
+    p.add_argument("--label"); p.add_argument("--note")
+    p.set_defaults(fn=cmd_record_readback)
+
+    p = sp.add_parser("confirm-check", help="людське засвідчення умови з § 2 документа")
+    p.add_argument("condition")
+    p.add_argument("--by", required=True, help="хто засвідчує")
+    p.add_argument("--scope", default="standing", choices=["standing", "per_event"])
+    p.add_argument("--note")
+    p.set_defaults(fn=cmd_confirm_check)
+
+    p = sp.add_parser("flash-preflight",
+                      help="ворота перед прошивкою: docs/FIRMWARE-MODIFICATION-RELIABILITY.md § 2")
+    p.add_argument("--target", required=True, help="файл образу, який намірились записати")
+    p.add_argument("--log", help="CSV-лог із живими каналами лімітерів")
+    p.add_argument("--power-max-age-h", type=int, default=6,
+                   help="за скільки годин до запуску має бути засвідчене живлення")
+    p.add_argument("--note")
+    p.set_defaults(fn=cmd_flash_preflight)
+
     a = ap.parse_args()
     sys.exit(a.fn(a) or 0)
 

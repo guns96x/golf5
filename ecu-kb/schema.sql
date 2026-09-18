@@ -179,3 +179,56 @@ CREATE TRIGGER IF NOT EXISTS a2l_ai AFTER INSERT ON a2l_objects BEGIN
     INSERT INTO a2l_fts(rowid,name,description,func_group)
     VALUES (new.id,new.name,new.description,new.func_group);
 END;
+
+-- ── FLASH-PREFLIGHT: docs/FIRMWARE-MODIFICATION-RELIABILITY.md § 9 ──────────
+-- Умови з розділу 2 того документа, зроблені машинно-перевірюваними: правило
+-- не залежить від того, чи його хтось прочитав, так само як kb check не
+-- залежить від сумління моделі. Те, що софт справді може перевірити сам
+-- (хеші файлів, варіативність каналів у логах) — перевіряється автоматично.
+-- Те, чого софт знати не може (чи підключений зарядний, чи справді пройдено
+-- відновлення на живому блоці) — фіксується як людське засвідчення
+-- (preflight_checks), і `flash-preflight` лише вимагає його НАЯВНОСТІ.
+
+CREATE TABLE IF NOT EXISTS firmware_versions (
+    id                  INTEGER PRIMARY KEY,
+    label               TEXT,
+    path                TEXT,
+    sha256              TEXT NOT NULL,
+    -- own_readback   знято з ЦІЄЇ машини;
+    -- reconstructed  зібрано з hex/аналізу, не знято з ECU (як reference-from-hex);
+    -- vendor_release заводський реліз без прив'язки до конкретного блоку;
+    -- modified       наша власна змінена версія
+    source              TEXT NOT NULL CHECK (source IN
+                          ('own_readback','reconstructed','vendor_release','modified')),
+    read_count          INTEGER NOT NULL DEFAULT 1,
+    verified_twin_sha256 TEXT,     -- sha256 другого незалежного зчитування, якщо було
+    notes               TEXT,
+    created_at          TEXT DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS flash_events (
+    id                   INTEGER PRIMARY KEY,
+    target_path          TEXT,
+    target_sha256        TEXT,
+    baseline_firmware_id INTEGER REFERENCES firmware_versions(id),
+    preflight_result      TEXT CHECK (preflight_result IN ('passed','blocked')),
+    blocked_reasons       TEXT,        -- JSON-масив кодів
+    written_at            TEXT,
+    readback_after_sha256 TEXT,
+    verified_byte_match   INTEGER CHECK (verified_byte_match IN (0,1)),
+    notes                 TEXT,
+    created_at             TEXT DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS preflight_checks (
+    id            INTEGER PRIMARY KEY,
+    condition     TEXT NOT NULL,      -- recovery_tested | power_confirmed | log_baseline_captured …
+    -- standing   одноразовий факт, лишається істинним (напр. "відновлення перевірене хоч раз");
+    -- per_event  дійсний лише коротко навколо моменту засвідчення (напр. живлення ПЕРЕД записом)
+    scope         TEXT NOT NULL DEFAULT 'standing' CHECK (scope IN ('standing','per_event')),
+    confirmed     INTEGER NOT NULL DEFAULT 1 CHECK (confirmed IN (0,1)),
+    confirmed_by  TEXT NOT NULL,      -- хто засвідчує — людина, не модель
+    note          TEXT,
+    flash_event_id INTEGER REFERENCES flash_events(id),
+    created_at    TEXT DEFAULT (datetime('now'))
+);

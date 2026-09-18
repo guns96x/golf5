@@ -185,6 +185,27 @@ python kb.py retract 22 "чому саме — причина обов'язко�
 прикладі: claim про те, що реєстр бібліотеки нібито приписує документ
 Pierburg — реєстр насправді вже коректний, помилка була моя.
 
+## Ворота перед прошивкою
+
+`docs/FIRMWARE-MODIFICATION-RELIABILITY.md` — умови, за яких запис у ECU
+перестає бути азартною грою. Розділ 9 того документа реалізований командами:
+
+```bat
+python kb.py record-readback dump1.bin dump2.bin --source own_readback --label "..."
+python kb.py confirm-check recovery_tested --by "<ім'я>" --scope standing
+python kb.py confirm-check power_confirmed --by "<ім'я>" --scope per_event
+python kb.py log-check logs\....csv --required Driver_Wish_IQ_mg,Torque_Limit_IQ_mg,Smoke_Limit_IQ_mg
+python kb.py flash-preflight --target <образ> --log <лог>
+```
+
+`flash-preflight` повертає `exit 0` і `{"blocked": []}`, тільки якщо всі
+чотири умови розділу 2 виконані. Те, що софт може перевірити сам (хеші,
+живі канали в логах) — перевіряється автоматично; те, чого знати не може
+(чи підключений зарядний, чи пройдено відновлення на живому блоці) —
+вимагає `confirm-check` як людського засвідчення, і команда лише вимагає
+його наявності. Кожен виклик пишеться в `flash_events` незалежно від
+результату.
+
 ## Що далі
 
 Спочатку FTS5 на реальному корпусі — він уже покриває точні запити повністю.
