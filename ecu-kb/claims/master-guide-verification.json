@@ -1,0 +1,33 @@
+{
+  "_comment": "Перевірка docs/tuning/stage1_bls_edc16u34_master_guide.md у golf5-ecu-system (коміт 40c11f9). Фокус на числах з міткою VERIFIED — там ціна помилки найвища.",
+  "claims": [
+    {
+      "statement": "У майстер-гайді Stage 1 значення 2214 мбар позначене міткою VERIFIED_OEM_SPEC як ЗАВОДСЬКИЙ цільовий тиск наддуву. Це помилка: прямим декодуванням стокового образу максимум PCR_pBDesBas_MAP дорівнює 2050 мбар, а 2214 — це значення ТЮНУ, вже виміряне раніше в цьому проєкті. Тобто тюнінгову цифру позначено як заводську, та ще й найсильнішою міткою вірогідності. Наслідок: усі подальші рекомендації гайда (2320-2350 мбар як безпечна ціль) відлічуються від хибної бази і насправді означають підняття ще на 270-300 мбар понад справжній стік.",
+      "evidence_kind": "MAP_FACT", "verification_state": "contradicted",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.95,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "engine_code": "BLS",
+      "source_class": "bin_derived"
+    },
+    {
+      "statement": "У тому ж гайді значення 45.0 мг/такт позначене як VERIFIED_OEM_SPEC заводська максимальна циклова подача. Це помилка через змішування двох різних величин: максимум стокової FlMng_qPresSmoke_MAP (димова межа) дорівнює 60.0 мг/хід, а 45 — це верхня точка ОСІ PCR_qDes у карті PCR_pBDesBas_MAP, тобто межа координатної сітки, а не подача. Це рівно та підміна, яку забороняє CLAUDE.md: калібрувальна величина не дорівнює фізичній.",
+      "evidence_kind": "MAP_FACT", "verification_state": "contradicted",
+      "quantity_kind": "calibration", "unit": "mg/hub", "is_modeled": 0, "confidence": 0.95,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "engine_code": "BLS",
+      "source_class": "bin_derived"
+    },
+    {
+      "statement": "PCR_pBDesMax_C існує в A2L за адресою 0x1EB3A2 і у стоковому образі дорівнює 2350 мбар. Це підтверджує твердження гайда про Single Value Boost Limiter і є новим для цього проєкту об'єктом — раніше ми декодували лише PCR_pBDesBas_MAP (максимум стоку 2050) і PCR_pBDesMaxAP_MAP (максимум стоку 2200). Отже в ланцюгу наддуву є ТРИ обмежувачі, а не два: базова уставка 2050, висотна стеля 2200 і скалярна аварійна межа 2350. Попередня версія цього ж гайда називала його PCR_pBMax_C — такого символу в A2L немає; у комітованій версії назву виправлено на правильну.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.9,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "engine_code": "BLS",
+      "source_class": "bin_derived"
+    },
+    {
+      "statement": "Перевірено виконанням, що дев'ятнадцять зауважень ревю calharness справді усунені, а не лише задекларовані. Відтворення, які раніше ловили дефекти, тепер дають правильний результат: псування заголовка карти (nx 16 на 18) дає header_changed True і вердикт HARD_FAIL замість колишнього PASS; зміна одного байта в 512 KB зрізі класифікується як MAP_VALUE замість CODE_AREA; зміна повного 80-байтового VAL_BLK Carb_Mode1Signal_CA дає KNOWN_CALIBRATION 80 замість 2 відомих і 78 невідомих; get_identity повертає 03G906021QJ, окремо vag_hw_part_number 03G906021AB, vag_sw_version 1984 і прапорець is_ambiguous. Сюїт збирається і проходить: 120 тестів. Додатково реалізовано декодування за розпарсеним RECORD_LAYOUT — InjCrv_phiBas0_GMAP (layout Gkf_Ws16, 16x14) тепер декодується зі значеннями 11.2-29.0 deg CrS, тобто 31 карта базових кутів впорскування вийшла зі сліпої зони; невідомий COMPU_METHOD TAB_VERB тепер кидає UnsupportedConversionError замість тихого повернення сирих значень; DecodedMap несе a2l_sha256 і bin_sha256.",
+      "evidence_kind": "MEASURED", "verification_state": "corroborated",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.95,
+      "source_class": "computed",
+      "missing_evidence": "Не перевірено: layout Kf_Xr32_Yr32_Wr32 (FLOAT32) досі не підтримується, тому PCR_nTrbn_MAP не декодується. Файл knowledge/08_firmware/originals/03G906021QJ_1984_391847_full_stock.bin досі має sha256 cf891152, тобто це reference-from-hex.analysis-only.bin під іменем, яке стверджує більше за провенанс."
+    }
+  ]
+}
