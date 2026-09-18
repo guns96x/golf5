@@ -31,10 +31,33 @@ python seed_gaps.py
 python kb.py ingest-a2l "..\diagnostic-review\definitions\*\*.a2l" --sw 1037391847
 python kb.py ingest D:\CLAUDE\base\knowledge\library
 python kb.py ingest D:\CLAUDE\base\knowledge\drafts
+
 python kb.py load-claims claims\boost-path-stock.json
+python kb.py load-claims claims\boost-path-values.json
+python kb.py load-claims claims\turbo-bv39-scope.json
+
+REM claims\boost-path-values.json на самоперевірці змішав значення мапи (MAP_FACT)
+REM з читанням цього значення (INFERRED/CALCULATED) в одному твердженні, і частина
+REM тексту втрачала референт поза контекстом сусіднього рядка. Замість тихого
+REM редагування — явне відкликання й заміна (правило "зміна думки — поле в БД"):
+python kb.py retract 22 "Реєстр library_registry.json насправді вже коректно приписує документ TDIClub Technical Archive (не Pierburg). Помилка була моя — не перевірив реєстр перед тим, як написати claim."
+python kb.py retract 28 "Змішано MAP_FACT і INFERRED в одному твердженні." --state superseded
+python kb.py retract 29 "Те саме змішування, плюс несамодостатній текст «у тому самому образі»." --state superseded
+python kb.py retract 30 "Змішано MAP_FACT (сирі байти) з INFERRED (сентинел); неповний перелік читань." --state superseded
+python kb.py retract 32 "Несамодостатній текст «у цьому образі»." --state superseded
+python kb.py retract 33 "Змішано MAP_FACT з INFERRED; несамодостатній текст." --state superseded
+python kb.py retract 34 "Несамодостатній текст «у цьому образі»." --state superseded
+python kb.py resolve-gap 13 RESOLVED --note "Не було потрібно — реєстр уже коректний."
+
+python kb.py load-claims claims\boost-path-values-corrections.json
+python kb.py resolve-gap 9 PARTIAL --note "Структуру й значення декодовано з reconstructed BIN; живого readback немає."
+
 python kb.py check
 python kb.py status
 ```
+
+Порядок команд відтворює реальний хід роботи, включно з власною помилкою і
+самовиправленням — саме тому ретракції тут явні кроки, а не переписаний файл.
 
 Що виходить на поточному корпусі: **16 772 об'єкти A2L** (11 537 CHARACTERISTIC,
 5 220 MEASUREMENT, 15 AXIS_PTS), **97 документів** = 76 `HAVE_LOCAL` +
