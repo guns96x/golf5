@@ -97,13 +97,22 @@ class A2LDocLinter:
                 symbols.add(r[0])
             for r in catalog.session.query(model.CompuMethod.name).all():
                 symbols.add(r[0])
+            # FUNCTION names are first-class A2L symbols. This A2L defines 486 of
+            # them and they carry the authoritative Bosch functional decomposition
+            # (PCR_DesValCalc "Ladedruck Sollwertbildung", FlMng_InjMassLim, ...).
+            # Omitting them made the linter reject correct references to functions.
+            try:
+                for r in catalog.session.query(model.Function.name).all():
+                    symbols.add(r[0])
+            except Exception:
+                pass
             return symbols
         except Exception as e:
             # Fallback: scan raw A2L text directly if database unavailable
             a2l_path = Path("diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l")
             if a2l_path.exists():
                 text = a2l_path.read_text(encoding="latin-1", errors="ignore")
-                matches = set(re.findall(r"/begin\s+(?:CHARACTERISTIC|AXIS_PTS|MEASUREMENT)\s+([A-Za-z0-9_]+)\b", text))
+                matches = set(re.findall(r"/begin\s+(?:CHARACTERISTIC|AXIS_PTS|MEASUREMENT|FUNCTION)\s+([A-Za-z0-9_]+)\b", text))
                 return matches
             return set()
 
