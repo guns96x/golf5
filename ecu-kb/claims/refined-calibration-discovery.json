@@ -1,0 +1,51 @@
+{
+  "_comment": "Знахідка: третій набір BIN-файлів за межами golf5, у C:\\Users\\pavlo\\golf5-android-flasher\\binaries\\. Не new-inputs/on, не new-inputs/off. Виявлено при пошуку файлу '03G906021QJ_stage1_refined_CS_OK.bin', названого в golf5-android-flasher/docs/notes/project_summary.md (дата 2026-09-14) як 'Golden Calibration Binary... checksum-verified'.",
+
+  "claims": [
+    {
+      "statement": "У C:\\Users\\pavlo\\golf5-android-flasher\\binaries\\ лежать два файли: 03G906021QJ_stage1_refined_CS_OK.bin (sha256 a517affa3f89…, checksum EDC16 ВІРНИЙ D01FE500/D01FE500) і 03G906021QJ_stage1_refined_dpf_egr_off.bin (sha256 48c8f368b5ce…, checksum НЕВІРНИЙ). Ці два файли розходяться РІВНО на 8 байтів — саме два 4-байтові слова контрольної суми за 0x1BFFFC і 0x1FDFFC. Увесь інший вміст ідентичний.",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.95,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Ці файли лежать поза репозиторієм golf5, у сусідньому проєкті golf5-android-flasher (Android-застосунок для прошивання через USB-OTG). Не задокументовано в CLAUDE.md/HANDOFF.md цього проєкту."
+    },
+    {
+      "statement": "03G906021QJ_stage1_refined_CS_OK.bin, порівняно з new-inputs/on/03G906021QJ.Bin (перевірений checksum-валідний файл, який раніше вважався 'поточною прошивкою'): зберігає ВСІ калібрування потужності з ON без змін (наддув, torque limiter, FMTC, димова межа окрім 1 комірки, кут впорскування MI1). Додає: DPF/EGR-off перемикачі (EGT_swtEGTActv_C і LSU_swtVal_C, обидва 1→0), ПОВНІСТЮ відновлює EngPrt_facTempPreTrbn_MAP до стокових значень (0 з 64 комірок відрізняються від стоку — у ON їх було 12/64 ослаблено), і ПОВНІСТЮ ЗАНУЛЯЄ два великі об'єкти другого впорскування: InjVlv_phiInjPoI2_MAP0 (252 значення, було -4.38…39.52° КВ) і InjVlv_phiInjPoI2_MAP1 (252 значення, було -4.01…49.03° КВ), плюс InjCrv_qPoI2HCAvrgCor_MAP (63 значення, середня додаткова кількість HC-післявпорскування, було 1.00…5.50 мг/хід, стало 0).",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "InjVlv_phiInjPoI2_MAP0/MAP1 описані в A2L як 'Förderdauer für Nacheinspritzung' (тривалість подачі для ПІСЛЯвпорскування) — друга подія впорскування за цикл, типово для підвищення температури вихлопу заради DPF-регенерації чи HC-дозування в каталізатор. Функціональне призначення не перевірено дизасемблюванням — лише за назвою й описом A2L."
+    },
+    {
+      "statement": "Занулення InjVlv_phiInjPoI2_MAP0/MAP1 і InjCrv_qPoI2HCAvrgCor_MAP означає ПОВНЕ ВИМКНЕННЯ ПОДІЇ післявпорскування, а не лише приховування діагностики. Це структурно відмінно від new-inputs/off/*.Bin (checksum невірний, ніколи не міг бути записаний), де DPF/EGR-off реалізовано зануленням матриці станів регенерації PFlt_numEngPOp1_CA і 58 класів діагностики DSM_ClaDfp_*, БЕЗ зачіпання самих карт впорскування PoI2 — тобто в OFF друга подія впорскування, найімовірніше, продовжувала б фізично відбуватись, подаючи паливо в циліндр пізно в циклі за відсутності DPF, що його мало вловити.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.65,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "computed",
+      "missing_evidence": "Це читання логіки, не вимір роботи двигуна. Чи PoI2 справді викликається в OFF за наявних умов (можливо є окремий enable-прапорець в іншому місці, не в самих картах) — не перевірено. Прямий зв'язок із раніше повідомленим і вже зниклим симптомом диму/гулу після нагріву не встановлений, лише правдоподібний — механізм 'незгоріле пізнє впорскування без DPF' відповідає опису симптому (дим після агресивної їзди й нагріву, минає при охолодженні — саме умови, за яких найчастіше активується температурне післявпорскування)."
+    },
+    {
+      "statement": "Не встановлено, чи 03G906021QJ_stage1_refined_CS_OK.bin коли-небудь фактично записаний у блок. Git-історія проєкту golf5-android-flasher (сусіднього з golf5) показує активну розробку самого застосунку прошивання аж до останніх комітів: 'gate flashing UI by verified capabilities', 'fix: critical safety improvements (C1, C2, C4)', 'fail closed on unknown MPPS authentication challenge' — це узгоджується радше з розробкою безпечного шляху запису, ще не завершеною, ніж із підтвердженим завершеним записом. Жодного лог-файлу чи повідомлення про успішний запис у цьому проєкті не знайдено.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.5,
+      "missing_evidence": "Пряме питання власнику: чи запис через golf5-android-flasher вже виконувався, і якщо так — яким саме файлом. Це критично для розуміння, який BIN зараз реально в ECU."
+    }
+  ],
+
+  "gaps": [
+    {
+      "question": "Встановити, чи 03G906021QJ_stage1_refined_CS_OK.bin вже записаний у ECU, чи це лише ціль для майбутнього запису",
+      "why_needed": "Це прямо впливає на інтерпретацію того, чому симптом диму/гулу зник: якщо цей файл уже записаний, зникнення симптому мехнічно пояснюється вимкненням PoI2-післявпорскування. Якщо ще не записаний, зникнення симптому має іншу причину, і питання про PoI2 лишається відкритим ризиком на майбутнє.",
+      "priority": 1,
+      "needed_source": "USER_DATA: пряма відповідь власника, чи виконувався запис через golf5-android-flasher"
+    },
+    {
+      "question": "Перевірити функціональне призначення InjVlv_phiInjPoI2_MAP0/MAP1 дизасемблюванням чи документацією Bosch",
+      "why_needed": "Назва й опис A2L ('Förderdauer für Nacheinspritzung') дають правдоподібне, але не підтверджене призначення. Якщо ця пара карт відповідає за щось інше (наприклад, згладжування шуму, а не температурне після-впорскування для DPF), висновок про причину зниклого симптому хибний.",
+      "priority": 2,
+      "needed_source": "дизасемблювання коду навколо цих адрес або документація Bosch EDC16 post-injection strategy"
+    }
+  ]
+}
