@@ -69,11 +69,32 @@ def connect():
     return c
 
 
+def migrate_schema(c):
+    """Idempotent schema migration to ensure schema v2 consistency."""
+    cols = {r["name"] for r in c.execute("PRAGMA table_info(claims)").fetchall()}
+    if "claim_key" not in cols:
+        c.execute("ALTER TABLE claims ADD COLUMN claim_key TEXT")
+    c.execute("""
+        CREATE UNIQUE INDEX IF NOT EXISTS uq_claims_claim_key
+        ON claims(claim_key)
+        WHERE claim_key IS NOT NULL
+    """)
+    c.commit()
+
+
 def cmd_init(a):
     c = connect()
     c.executescript((ROOT / "schema.sql").read_text(encoding="utf-8"))
+    migrate_schema(c)
     c.commit()
     print(f"База готова: {DB}")
+
+
+def cmd_migrate(a):
+    c = connect()
+    migrate_schema(c)
+    print(f"Міграцію схеми виконано успішно: {DB}")
+
 
 
 # ── читання документів ─────────────────────────────────────────────────────
@@ -586,9 +607,11 @@ def cmd_load_claims(a):
     added = citn = miss = 0
 
     for cl in data["claims"]:
-        row = c.execute("SELECT id FROM claims WHERE statement=?", (cl["statement"],)).fetchone()
+        row = c.execute("SELECT id, claim_key FROM claims WHERE statement=?", (cl["statement"],)).fetchone()
         if row:
             cid = row["id"]
+            if not row["claim_key"] and cl.get("claim_key"):
+                c.execute("UPDATE claims SET claim_key=? WHERE id=?", (cl["claim_key"], cid))
         else:
             source_class = cl.get("source_class") or (
                 "document_citation" if cl.get("citations") else None)
@@ -597,15 +620,15 @@ def cmd_load_claims(a):
                                       unit,frame,is_modeled,ecu_family,ecu_variant,sw_number,
                                       engine_code,turbo_model,confidence,missing_evidence,
                                       supersedes_id,retracted_at,retraction_reason,
-                                      source_class,created_by)
-                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                                      source_class,created_by,claim_key)
+                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (cl["statement"], cl["evidence_kind"], cl.get("verification_state", "raw"),
                  cl.get("quantity_kind"), cl.get("unit"), cl.get("frame"),
                  int(cl.get("is_modeled", 0)), cl.get("ecu_family"), cl.get("ecu_variant"),
                  cl.get("sw_number"), cl.get("engine_code"), cl.get("turbo_model"),
                  cl.get("confidence"), cl.get("missing_evidence"), cl.get("supersedes_id"),
                  cl.get("retracted_at"), cl.get("retraction_reason"),
-                 source_class, getattr(a, "created_by", None))).lastrowid
+                 source_class, getattr(a, "created_by", None), cl.get("claim_key"))).lastrowid
             added += 1
 
         for q in cl.get("citations", []):
@@ -999,6 +1022,7 @@ def main():
     p.set_defaults(fn=cmd_load_claims)
     sp.add_parser("status").set_defaults(fn=cmd_status)
     sp.add_parser("check").set_defaults(fn=cmd_check)
+    sp.add_parser("migrate", help="виконати ідемпотентну міграцію схеми БД").set_defaults(fn=cmd_migrate)
     sp.add_parser("gaps").set_defaults(fn=cmd_gaps)
     p = sp.add_parser("resolve-gap", help="позначити прогалину статусом")
     p.add_argument("id", type=int)

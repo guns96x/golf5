@@ -20,7 +20,8 @@ STAGE1_BIN_PATH = Path("firmware/03G906021QJ_stage1_full_power_dpf_egr_off.bin")
 
 @pytest.fixture(scope="module")
 def decoder():
-    assert STOCK_BIN_PATH.exists(), f"Reference stock binary missing at {STOCK_BIN_PATH}"
+    if not STOCK_BIN_PATH.exists():
+        pytest.skip(f"Reference stock binary not found at {STOCK_BIN_PATH} (proprietary dump not in git)")
     return MapDecoder(STOCK_BIN_PATH)
 
 

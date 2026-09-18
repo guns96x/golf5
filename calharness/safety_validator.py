@@ -25,6 +25,7 @@ from calharness.rules import (
     ProvenanceRecord,
     RuleKind,
     SafetyRule,
+    SafetyWaiver,
 )
 
 
@@ -32,8 +33,9 @@ class SafetyLevel(str, enum.Enum):
     """Severity and epistemic level of a safety check result."""
     PASS = "PASS"                      # Formally verified requirement met
     UNVERIFIED = "UNVERIFIED"          # Within candidate threshold, but threshold itself lacks evidence
+    WAIVED = "WAIVED"                  # Intentional, authorized waiver with auditable provenance
     WARNING = "WARNING"                # Advisory tuning policy deviation
-    NEEDS_EVIDENCE = "NEEDS_EVIDENCE"  # Exceeds candidate threshold; evidence required
+    NEEDS_EVIDENCE = "NEEDS_EVIDENCE"  # Exceeds candidate threshold or unassessed change; evidence required
     HARD_FAIL = "HARD_FAIL"            # Non-negotiable structural invariant violation or OEM limit breach
     NOT_EVALUATED = "NOT_EVALUATED"    # Rule target map was not modified in diff
 
@@ -52,7 +54,7 @@ class SafetyRuleResult(BaseModel):
 
 
 class SafetyAuditReport(BaseModel):
-    """Comprehensive safety audit report with distinct structural and epistemic verdicts."""
+    """Comprehensive safety audit report with distinct structural, epistemic, and waiver verdicts."""
     model_config = ConfigDict(extra="forbid")
 
     overall_verdict: SafetyLevel
@@ -61,10 +63,13 @@ class SafetyAuditReport(BaseModel):
     needs_evidence_count: int
     unverified_count: int
     warnings_count: int
+    waived_count: int = 0
+    unauthorized_waivers_count: int = 0
     not_evaluated_count: int = 0
     rule_results: List[SafetyRuleResult] = Field(default_factory=list)
     a2l_sha256: Optional[str] = None
     bin_sha256: Optional[str] = None
+    logical_snapshot_sha256: Optional[str] = None
 
     @property
     def is_structurally_sound(self) -> bool:
@@ -73,11 +78,28 @@ class SafetyAuditReport(BaseModel):
 
     @property
     def is_safe(self) -> bool:
-        """True only if structurally sound AND all evaluated rules have verified provenance without pending evidence."""
+        """
+        True only if structurally sound, zero hard fails, zero needs_evidence,
+        zero unverified candidate thresholds, and zero waivers.
+        """
         return (
             self.hard_fails_count == 0
             and self.needs_evidence_count == 0
             and self.unverified_count == 0
+            and self.waived_count == 0
+        )
+
+    @property
+    def is_release_eligible(self) -> bool:
+        """
+        Release candidate eligibility: workflow governance permits proceeding
+        (0 hard fails, 0 pending evidence, 0 unauthorized waivers).
+        DOES NOT mean physically proven safe.
+        """
+        return (
+            self.hard_fails_count == 0
+            and self.needs_evidence_count == 0
+            and self.unauthorized_waivers_count == 0
         )
 
     def summary(self) -> str:
@@ -89,20 +111,29 @@ class SafetyAuditReport(BaseModel):
             f"  - Hard Fails:     {self.hard_fails_count}",
             f"  - Needs Evidence: {self.needs_evidence_count}",
             f"  - Unverified:     {self.unverified_count}",
+            f"  - Waived:         {self.waived_count}",
+            f"  - Unauthorized Waivers: {self.unauthorized_waivers_count}",
             f"  - Warnings:       {self.warnings_count}",
             f"  - Total Rules:    {self.total_rules_evaluated}",
         ]
+        if self.logical_snapshot_sha256:
+            lines.append(f"  - KB Snapshot SHA256: {self.logical_snapshot_sha256[:16]}...")
         if self.hard_fails_count > 0:
             lines.append("\n[!] Structural Invariant Violations (HARD FAIL):")
             for r in self.rule_results:
                 if r.level == SafetyLevel.HARD_FAIL:
                     lines.append(f"  [X] {r.rule_id} ({r.name}): {r.message}")
         if self.needs_evidence_count > 0:
-            lines.append("\n[?] Unproven Limits Exceeded (NEEDS_EVIDENCE):")
+            lines.append("\n[?] Unproven Limits Exceeded or Unassessed Changes (NEEDS_EVIDENCE):")
             for r in self.rule_results:
                 if r.level == SafetyLevel.NEEDS_EVIDENCE:
                     claim_info = f" [Claim #{r.provenance.claim_id}]" if r.provenance.claim_id else ""
                     lines.append(f"  [?] {r.rule_id}: {r.message}{claim_info}")
+        if self.waived_count > 0:
+            lines.append("\n[~] Authorized Waivers (WAIVED):")
+            for r in self.rule_results:
+                if r.level == SafetyLevel.WAIVED:
+                    lines.append(f"  [W] {r.rule_id} ({r.name}): {r.message}")
         if self.unverified_count > 0:
             lines.append("\n[~] Unverified Thresholds (UNVERIFIED / INFO):")
             for r in self.rule_results:
@@ -128,9 +159,17 @@ class SafetyValidator:
       4. Tuning policy guidelines trigger WARNING.
     """
 
-    def __init__(self, rules: Optional[List[SafetyRule]] = None):
+    def __init__(
+        self,
+        rules: Optional[List[SafetyRule]] = None,
+        waivers: Optional[List[SafetyWaiver]] = None,
+        logical_snapshot_sha256: Optional[str] = None,
+    ):
         self.rules = rules if rules is not None else list(DEFAULT_RULES)
         self._rules_by_id = {r.rule_id: r for r in self.rules}
+        self.waivers = waivers or []
+        self.waivers_by_map: Dict[str, SafetyWaiver] = {w.map_name: w for w in self.waivers}
+        self.logical_snapshot_sha256 = logical_snapshot_sha256
 
     def validate(self, diff_report: SemanticDiffReport) -> SafetyAuditReport:
         """Run all provenance-backed safety rules against the semantic diff report."""
@@ -292,6 +331,7 @@ class SafetyValidator:
                                 provenance=rule.provenance,
                                 details={
                                     "target_parameter": param,
+                                    "assessed_map": param,
                                     "observed_value": observed_val,
                                     "threshold_value": limit,
                                     "claim_id": rule.provenance.claim_id,
@@ -321,6 +361,7 @@ class SafetyValidator:
                                 provenance=rule.provenance,
                                 details={
                                     "target_parameter": param,
+                                    "assessed_map": param,
                                     "observed_value": observed_val,
                                     "threshold_value": limit,
                                 },
@@ -368,10 +409,104 @@ class SafetyValidator:
                             )
                         )
 
+        # Execution-based coverage check over diff_report.maps_changed (Zero Silent Pass Policy)
+        actual_evaluated_maps = {
+            r.details["assessed_map"]
+            for r in results
+            if r.details and r.details.get("assessed_map")
+        }
+
+        for map_diff in diff_report.maps_changed:
+            if map_diff.name not in actual_evaluated_maps:
+                if map_diff.name in self.waivers_by_map:
+                    waiver = self.waivers_by_map[map_diff.name]
+                    # Machine-verifiable authorization check
+                    if not waiver.authorization_ref or not waiver.authorization_ref.strip():
+                        results.append(
+                            SafetyRuleResult(
+                                rule_id=f"INVALID_WAIVER_{waiver.waiver_id}",
+                                name=f"Unauthorized Calibration Waiver: {map_diff.name}",
+                                level=SafetyLevel.NEEDS_EVIDENCE,
+                                message=(
+                                    f"Waiver '{waiver.waiver_id}' for map '{map_diff.name}' lacks valid authorization_ref. "
+                                    "Unverified waiver cannot grant exception."
+                                ),
+                                rule_kind=RuleKind.CALIBRATION_POLICY,
+                                provenance=ProvenanceRecord(
+                                    source=f"Safety Waiver {waiver.waiver_id}",
+                                    kind=ProvenanceKind.PROJECT_POLICY,
+                                    notes=f"Missing authorization reference for waiver {waiver.waiver_id}",
+                                ),
+                                details={
+                                    "unassessed_map": map_diff.name,
+                                    "waiver": waiver.model_dump(),
+                                    "waiver_status": "UNAUTHORIZED",
+                                    "changed_cells_count": map_diff.changed_cells_count,
+                                    "max_delta": map_diff.max_delta,
+                                },
+                            )
+                        )
+                    else:
+                        results.append(
+                            SafetyRuleResult(
+                                rule_id=f"WAIVER_{waiver.waiver_id}",
+                                name=f"Waived Map Modification: {map_diff.name}",
+                                level=SafetyLevel.WAIVED,
+                                message=(
+                                    f"Map '{map_diff.name}' modification waived by {waiver.approved_by} "
+                                    f"(Waiver ID: {waiver.waiver_id}, Scope: {waiver.scope}, Auth: {waiver.authorization_ref}). "
+                                    f"Reason: {waiver.reason}. Evidence: {waiver.evidence_ref or 'None'}."
+                                ),
+                                rule_kind=RuleKind.CALIBRATION_POLICY,
+                                provenance=ProvenanceRecord(
+                                    source=f"Safety Waiver {waiver.waiver_id}",
+                                    kind=ProvenanceKind.PROJECT_POLICY,
+                                    notes=waiver.reason,
+                                ),
+                                details={
+                                    "assessed_map": map_diff.name,
+                                    "waiver": waiver.model_dump(),
+                                    "waiver_status": "AUTHORIZED",
+                                    "changed_cells_count": map_diff.changed_cells_count,
+                                    "max_delta": map_diff.max_delta,
+                                },
+                            )
+                        )
+                else:
+                    results.append(
+                        SafetyRuleResult(
+                            rule_id="RULE_UNASSESSED_CHANGE",
+                            name=f"Unassessed Calibration Map Modification: {map_diff.name}",
+                            level=SafetyLevel.NEEDS_EVIDENCE,
+                            message=(
+                                f"Map '{map_diff.name}' was modified ({map_diff.changed_cells_count} cells changed, "
+                                f"max delta {map_diff.max_delta:.2f}) but has no active safety verification rule "
+                                "or authorized waiver. Unreviewed calibration changes cannot be certified safe."
+                            ),
+                            rule_kind=RuleKind.CALIBRATION_POLICY,
+                            provenance=ProvenanceRecord(
+                                source="SafetyValidator Zero-Silent-Pass Policy",
+                                kind=ProvenanceKind.PROJECT_POLICY,
+                                citation="All calibration changes in a verified binary must be evaluated by explicit rules or authorized waivers.",
+                                notes="Unassessed modifications prevent is_safe certification.",
+                            ),
+                            details={
+                                "unassessed_map": map_diff.name,
+                                "changed_cells_count": map_diff.changed_cells_count,
+                                "max_delta": map_diff.max_delta,
+                                "address": map_diff.hex_address,
+                            },
+                        )
+                    )
+
         # Calculate counts and overall verdict
         hard_fails = sum(1 for r in results if r.level == SafetyLevel.HARD_FAIL)
         needs_evidence = sum(1 for r in results if r.level == SafetyLevel.NEEDS_EVIDENCE)
         unverified = sum(1 for r in results if r.level == SafetyLevel.UNVERIFIED)
+        waived = sum(1 for r in results if r.level == SafetyLevel.WAIVED)
+        unauthorized_waivers = sum(
+            1 for r in results if r.details and r.details.get("waiver_status") == "UNAUTHORIZED"
+        )
         warnings = sum(1 for r in results if r.level == SafetyLevel.WARNING)
         not_evaluated = sum(1 for r in results if r.level == SafetyLevel.NOT_EVALUATED)
 
@@ -381,6 +516,8 @@ class SafetyValidator:
             overall = SafetyLevel.NEEDS_EVIDENCE
         elif unverified > 0:
             overall = SafetyLevel.UNVERIFIED
+        elif waived > 0:
+            overall = SafetyLevel.WAIVED
         elif warnings > 0:
             overall = SafetyLevel.WARNING
         else:
@@ -393,8 +530,11 @@ class SafetyValidator:
             needs_evidence_count=needs_evidence,
             unverified_count=unverified,
             warnings_count=warnings,
+            waived_count=waived,
+            unauthorized_waivers_count=unauthorized_waivers,
             not_evaluated_count=not_evaluated,
             rule_results=results,
             a2l_sha256=diff_report.a2l_sha256,
             bin_sha256=diff_report.mod_bin_sha256,
+            logical_snapshot_sha256=self.logical_snapshot_sha256,
         )

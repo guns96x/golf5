@@ -30,6 +30,20 @@ class ProvenanceKind(str, enum.Enum):
     UNVERIFIED_CANDIDATE = "UNVERIFIED_CANDIDATE"  # Community heuristic / unproven threshold needing evidence
 
 
+class SafetyWaiver(BaseModel):
+    """Machine-verifiable calibration modification waiver."""
+    model_config = ConfigDict(extra="forbid")
+
+    waiver_id: str
+    map_name: str
+    reason: str
+    approved_by: str
+    scope: str
+    evidence_ref: Optional[str] = None
+    expiration_date: Optional[str] = None
+    authorization_ref: Optional[str] = None
+
+
 class ProvenanceRecord(BaseModel):
     """Provenance tracking metadata for a safety rule or threshold."""
     model_config = ConfigDict(extra="forbid")
@@ -37,6 +51,9 @@ class ProvenanceRecord(BaseModel):
     source: str
     kind: ProvenanceKind
     claim_id: Optional[int] = None
+    claim_key: Optional[str] = None
+    constraint_claims: List[str] = Field(default_factory=list)
+    statement_hash: Optional[str] = None
     citation: Optional[str] = None
     notes: Optional[str] = None
 
@@ -131,46 +148,197 @@ DEFAULT_RULES: List[SafetyRule] = [
         unit="hPa",
         operator="<=",
         provenance=ProvenanceRecord(
-            source="BorgWarner TurboNews 2004-1 & KB Claim #83",
+            source="Project candidate calibration threshold",
             kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
-            claim_id=83,
-            citation="Claim #25 notes 2.3 bar absolute in TurboNews 2004/1 for Audi A2 1.4 TDI. Claim #83 establishes safe operating limit for BV39A-0072 on 1.9 TDI BLS is NOT proven in OEM datasheets.",
-            notes="Unverified candidate: within limit -> UNVERIFIED; exceeded -> NEEDS_EVIDENCE.",
+            constraint_claims=["turbo-bv39-boost-envelope-unresolved"],
+            citation="Continuous safe operating envelope for BV39A-0072 / 03G253014M is not documented in OEM datasheets.",
+            notes=(
+                "Canonical KB constraint claim turbo-bv39-boost-envelope-unresolved states that the currently ingested "
+                "evidence contains no OEM compressor map or continuous allowable boost rating specific to BV39A-0072 / "
+                "NE 1003/1756-00002. Therefore 2350 mbar remains a project UNVERIFIED_CANDIDATE threshold."
+            ),
         ),
-        description="Target boost pressure ceiling for BorgWarner BV39 turbocharger.",
+        description="Target boost pressure ceiling for BorgWarner BV39 turbocharger (Bank 1).",
+    ),
+    SafetyRule(
+        rule_id="RULE_BOOST_LIMIT_2",
+        name="BorgWarner BV39 Turbo Boost Safety Limit (Bank 2 / Variant)",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="PCR_pBDesBas2_MAP",
+        threshold_value=2350.0,
+        unit="hPa",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            constraint_claims=["turbo-bv39-boost-envelope-unresolved"],
+            citation="Continuous safe operating envelope for BV39A-0072 / 03G253014M is not documented in OEM datasheets.",
+            notes="Evaluates candidate boost boundary for secondary/variant boost baseline map.",
+        ),
+        description="Target boost pressure ceiling for variant boost baseline map.",
     ),
     SafetyRule(
         rule_id="RULE_TORQUE_LIMIT",
-        name="Engine Connecting Rod Mechanical Torque Limit",
+        name="Engine Connecting Rod Mechanical Torque Limit (Gear 0)",
         rule_kind=RuleKind.PHYSICAL_THRESHOLD,
         target_parameter="AccPed_trqEng0_MAP",
         threshold_value=380.0,
         unit="Nm",
         operator="<=",
         provenance=ProvenanceRecord(
-            source="TDI Community Heuristic & KB Claim #71",
+            source="Project candidate calibration threshold",
             kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
-            claim_id=71,
-            citation="Claim #71 notes tuned file EngPrt_trqLimP_MAP at 380.7 Nm. Official VW/Bosch connecting rod fatigue threshold for BLS is not documented.",
-            notes="Unverified candidate: within limit -> UNVERIFIED; exceeded -> NEEDS_EVIDENCE.",
+            citation="Maximum engine torque request ceiling candidate. Mechanical connecting rod fatigue limits for BLS are unverified in OEM documentation.",
+            notes=(
+                "Unverified candidate: within limit -> UNVERIFIED; exceeded -> NEEDS_EVIDENCE. "
+                "Note: Tuned BIN observation in Claim #71 records 380.7 Nm in EngPrt_trqLimP_MAP as calibration context, not physical proof."
+            ),
         ),
-        description="Maximum engine torque request ceiling to protect BLS rods and DMF.",
+        description="Maximum engine torque request ceiling to protect BLS rods and DMF (Gear 0).",
+    ),
+    SafetyRule(
+        rule_id="RULE_TORQUE_LIMIT_DW1",
+        name="Driver Wish Torque Limit (Gear 1)",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="AccPed_trqEng1_MAP",
+        threshold_value=380.0,
+        unit="Nm",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            citation="Driver wish torque map for Gear 1 candidate ceiling.",
+            notes="Unverified candidate ceiling.",
+        ),
+        description="Maximum driver wish torque request ceiling (Gear 1).",
+    ),
+    SafetyRule(
+        rule_id="RULE_TORQUE_LIMIT_DW2",
+        name="Driver Wish Torque Limit (Gear 2)",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="AccPed_trqEng2_MAP",
+        threshold_value=380.0,
+        unit="Nm",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            citation="Driver wish torque map for Gear 2 candidate ceiling.",
+            notes="Unverified candidate ceiling.",
+        ),
+        description="Maximum driver wish torque request ceiling (Gear 2).",
+    ),
+    SafetyRule(
+        rule_id="RULE_TORQUE_LIMIT_DW3",
+        name="Driver Wish Torque Limit (Gear 3)",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="AccPed_trqEng3_MAP",
+        threshold_value=380.0,
+        unit="Nm",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            citation="Driver wish torque map for Gear 3 candidate ceiling.",
+            notes="Unverified candidate ceiling.",
+        ),
+        description="Maximum driver wish torque request ceiling (Gear 3).",
+    ),
+    SafetyRule(
+        rule_id="RULE_TORQUE_LIMIT_DW4",
+        name="Driver Wish Torque Limit (Gear 4)",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="AccPed_trqEng4_MAP",
+        threshold_value=380.0,
+        unit="Nm",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            citation="Driver wish torque map for Gear 4 candidate ceiling.",
+            notes="Unverified candidate ceiling.",
+        ),
+        description="Maximum driver wish torque request ceiling (Gear 4).",
+    ),
+    SafetyRule(
+        rule_id="RULE_TORQUE_LIMIT_DW5",
+        name="Driver Wish Torque Limit (Gear 5)",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="AccPed_trqEng5_MAP",
+        threshold_value=380.0,
+        unit="Nm",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            citation="Driver wish torque map for Gear 5 candidate ceiling.",
+            notes="Unverified candidate ceiling.",
+        ),
+        description="Maximum driver wish torque request ceiling (Gear 5).",
+    ),
+    SafetyRule(
+        rule_id="RULE_TORQUE_LIMIT_DW6",
+        name="Driver Wish Torque Limit (Gear 6)",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="AccPed_trqEng6_MAP",
+        threshold_value=380.0,
+        unit="Nm",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            citation="Driver wish torque map for Gear 6 candidate ceiling.",
+            notes="Unverified candidate ceiling.",
+        ),
+        description="Maximum driver wish torque request ceiling (Gear 6).",
+    ),
+    SafetyRule(
+        rule_id="RULE_TORQUE_LIMIT_ENGPRT",
+        name="Engine Protection Main Torque Limiter",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="EngPrt_trqLimP_MAP",
+        threshold_value=380.0,
+        unit="Nm",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            citation="Main torque limiter vs ambient pressure candidate ceiling.",
+            notes="Unverified candidate ceiling.",
+        ),
+        description="Main torque limiter vs atmospheric pressure candidate ceiling.",
     ),
     SafetyRule(
         rule_id="RULE_SMOKE_LIMIT",
-        name="Pumpe-Düse Injector Delivery Ceiling",
+        name="Pumpe-Düse Injector Delivery Ceiling (Boost Pressure Based)",
         rule_kind=RuleKind.PHYSICAL_THRESHOLD,
         target_parameter="FlMng_qPresSmoke_MAP",
         threshold_value=65.0,
         unit="mg/hub",
         operator="<=",
         provenance=ProvenanceRecord(
-            source="PDE-P2 Nozzle Flow Estimation",
+            source="Project candidate calibration threshold",
             kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
             citation="Stock PDE-P2 038130073BN nozzle maximum delivery estimate without factory test bench calibration sheet.",
             notes="Unverified candidate: within limit -> UNVERIFIED; exceeded -> NEEDS_EVIDENCE.",
         ),
-        description="Fuel delivery ceiling per stroke on stock PDE-P2 nozzles.",
+        description="Fuel delivery ceiling per stroke on stock PDE-P2 nozzles (Boost MAP based).",
+    ),
+    SafetyRule(
+        rule_id="RULE_SMOKE_LIMIT_MAF",
+        name="Pumpe-Düse Injector Delivery Ceiling (Air Mass Based)",
+        rule_kind=RuleKind.PHYSICAL_THRESHOLD,
+        target_parameter="FlMng_qAFSCDSmoke_MAP",
+        threshold_value=65.0,
+        unit="mg/hub",
+        operator="<=",
+        provenance=ProvenanceRecord(
+            source="Project candidate calibration threshold",
+            kind=ProvenanceKind.UNVERIFIED_CANDIDATE,
+            citation="Stock PDE-P2 038130073BN nozzle maximum delivery estimate without factory test bench calibration sheet.",
+            notes="Unverified candidate: within limit -> UNVERIFIED; exceeded -> NEEDS_EVIDENCE.",
+        ),
+        description="Fuel delivery ceiling per stroke on stock PDE-P2 nozzles (Air mass MAF based).",
     ),
     SafetyRule(
         rule_id="RULE_SOI_LIMIT",

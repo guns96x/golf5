@@ -125,9 +125,11 @@ CREATE TABLE IF NOT EXISTS claims (
     supersedes_id      INTEGER REFERENCES claims(id),
     retracted_at       TEXT,
     retraction_reason  TEXT,
+    claim_key          TEXT,
     created_at         TEXT DEFAULT (datetime('now')),
     updated_at         TEXT DEFAULT (datetime('now'))
 );
+CREATE UNIQUE INDEX IF NOT EXISTS uq_claims_claim_key ON claims(claim_key) WHERE claim_key IS NOT NULL;
 
 CREATE VIRTUAL TABLE IF NOT EXISTS claims_fts USING fts5(
     statement, content='claims', content_rowid='id', tokenize='unicode61');

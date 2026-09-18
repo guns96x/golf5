@@ -1,0 +1,20 @@
+# Core Data Models & Serialization
+pydantic==2.13.5
+
+# Numerical & Analysis
+numpy==2.5.3
+pandas==3.0.6
+
+# A2L ASAP2 & Hex Processing
+pya2ldb==1.0.353
+SQLAlchemy==2.0.54
+intelhex==2.3.0
+
+# CLI & Presentation
+typer==0.27.2
+rich==15.0.0
+
+# Testing & Verification
+pytest==9.1.1
+hypothesis==6.168.0
+pytest-cov==7.1.0

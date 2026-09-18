@@ -42,10 +42,12 @@ from calharness import (
     LogAnalyzer,
     LogFormat,
     MapDecoder,
+    MapDiffSummary,
     PullKind,
     RecordLayoutResolver,
     SafetyLevel,
     SafetyValidator,
+    SafetyWaiver,
     SemanticDiffEngine,
     TelemetryPoint,
     UnsupportedConversionError,
@@ -57,7 +59,8 @@ A2L_PATH = Path("knowledge/08_firmware/a2l/03G906021QJ_1984.a2l")
 
 @pytest.fixture(scope="module")
 def stock_bytes():
-    assert STOCK_BIN_PATH.exists(), f"Stock binary missing at {STOCK_BIN_PATH}"
+    if not STOCK_BIN_PATH.exists():
+        pytest.skip(f"Stock binary not found at {STOCK_BIN_PATH} (proprietary dump not in git)")
     with open(STOCK_BIN_PATH, "rb") as f:
         return f.read()
 
@@ -550,3 +553,130 @@ def test_m13_diagnostic_findings_include_evidence_and_confidence():
     for f in findings:
         assert "[EVIDENCE:" in f
         assert "[CONFIDENCE:" in f
+
+
+# ---------------------------------------------------------------------------
+# Finding M14: Unassessed Map Changes Trigger NEEDS_EVIDENCE
+# ---------------------------------------------------------------------------
+def test_unassessed_map_change_triggers_needs_evidence(engine, validator, stock_bytes):
+    """
+    M14: Any modified map lacking explicit rule evaluation triggers RULE_UNASSESSED_CHANGE
+    with NEEDS_EVIDENCE, changed_cells_count in details, and prevents is_safe certification.
+    """
+    report = engine.compare(stock_bytes, stock_bytes)
+    synthetic_unassessed = MapDiffSummary(
+        name="MoF_unassessed_test_MAP",
+        address=0x1E0000,
+        hex_address="0x1E0000",
+        record_layout="Gkf_s16",
+        unit="mg/hub",
+        shape=(16, 16),
+        total_cells=256,
+        changed_cells_count=7,
+        axis_changed=False,
+        header_changed=False,
+        min_old=10.0,
+        max_old=50.0,
+        min_new=10.0,
+        max_new=55.0,
+        min_delta=0.0,
+        max_delta=5.0,
+        changed_cells=[],
+    )
+    report_with_unassessed = report.model_copy(update={"maps_changed": [synthetic_unassessed]})
+
+    audit = validator.validate(report_with_unassessed)
+    assert audit.is_safe is False
+    assert audit.is_release_eligible is False
+    assert audit.needs_evidence_count >= 1
+
+    unassessed_results = [r for r in audit.rule_results if r.rule_id == "RULE_UNASSESSED_CHANGE"]
+    assert len(unassessed_results) == 1
+    res = unassessed_results[0]
+    assert res.level == SafetyLevel.NEEDS_EVIDENCE
+    assert res.details["unassessed_map"] == "MoF_unassessed_test_MAP"
+    assert res.details["changed_cells_count"] == 7
+    assert res.details["max_delta"] == 5.0
+    assert "7 cells changed" in res.message
+
+
+# ---------------------------------------------------------------------------
+# Finding M15: Structured SafetyWaiver Machine Authorization Behavior
+# ---------------------------------------------------------------------------
+def test_structured_waiver_behavior(engine, stock_bytes):
+    """
+    M15: Machine-verifiable SafetyWaiver handling:
+    - Authorized waiver yields WAIVED, increments waived_count, is_safe=False, is_release_eligible=True.
+    - Unauthorized waiver (missing authorization_ref) yields NEEDS_EVIDENCE, is_safe=False, is_release_eligible=False.
+    """
+    report = engine.compare(stock_bytes, stock_bytes)
+    synthetic_map = MapDiffSummary(
+        name="MoF_waiver_test_MAP",
+        address=0x1E2000,
+        hex_address="0x1E2000",
+        record_layout="Gkf_s16",
+        unit="mg/hub",
+        shape=(16, 16),
+        total_cells=256,
+        changed_cells_count=3,
+        axis_changed=False,
+        header_changed=False,
+        min_old=10.0,
+        max_old=50.0,
+        min_new=10.0,
+        max_new=52.0,
+        min_delta=0.0,
+        max_delta=2.0,
+        changed_cells=[],
+    )
+    report_modified = report.model_copy(update={"maps_changed": [synthetic_map]})
+
+    # Case 1: Authorized Waiver
+    authorized_waiver = SafetyWaiver(
+        waiver_id="SW-2026-TEST",
+        map_name="MoF_waiver_test_MAP",
+        scope="Stage 1 experimental test",
+        reason="Bench testing injection curve without release",
+        approved_by="Lead Tuner",
+        authorization_ref="AUTH-BLS-20260918-01",
+        evidence_ref="Dyno test #42",
+    )
+    val_auth = SafetyValidator(waivers=[authorized_waiver])
+    audit_auth = val_auth.validate(report_modified)
+
+    assert audit_auth.waived_count == 1
+    assert audit_auth.unauthorized_waivers_count == 0
+    assert audit_auth.needs_evidence_count == 0
+    assert audit_auth.hard_fails_count == 0
+    assert audit_auth.is_safe is False  # Waiver does not prove physical safety
+    assert audit_auth.is_release_eligible is True  # Workflow governance permits release
+
+    waived_results = [r for r in audit_auth.rule_results if r.rule_id == "WAIVER_SW-2026-TEST"]
+    assert len(waived_results) == 1
+    assert waived_results[0].level == SafetyLevel.WAIVED
+    assert waived_results[0].details["waiver_status"] == "AUTHORIZED"
+    assert waived_results[0].details["changed_cells_count"] == 3
+
+    # Case 2: Unauthorized Waiver (empty / whitespace authorization_ref)
+    unauthorized_waiver = SafetyWaiver(
+        waiver_id="SW-UNAUTH-01",
+        map_name="MoF_waiver_test_MAP",
+        scope="Stage 1 experimental test",
+        reason="Missing authorization string",
+        approved_by="Lead Tuner",
+        authorization_ref="   ",
+    )
+    val_unauth = SafetyValidator(waivers=[unauthorized_waiver])
+    audit_unauth = val_unauth.validate(report_modified)
+
+    assert audit_unauth.unauthorized_waivers_count == 1
+    assert audit_unauth.needs_evidence_count == 1
+    assert audit_unauth.waived_count == 0
+    assert audit_unauth.is_safe is False
+    assert audit_unauth.is_release_eligible is False
+
+    unauth_results = [r for r in audit_unauth.rule_results if r.rule_id == "INVALID_WAIVER_SW-UNAUTH-01"]
+    assert len(unauth_results) == 1
+    assert unauth_results[0].level == SafetyLevel.NEEDS_EVIDENCE
+    assert unauth_results[0].details["waiver_status"] == "UNAUTHORIZED"
+

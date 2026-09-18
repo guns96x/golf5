@@ -23,7 +23,8 @@ STOCK_BIN_PATH = Path("knowledge/08_firmware/originals/03G906021QJ_1984_391847_f
 
 @pytest.fixture(scope="module")
 def stock_bytes():
-    assert STOCK_BIN_PATH.exists(), f"Stock binary missing at {STOCK_BIN_PATH}"
+    if not STOCK_BIN_PATH.exists():
+        pytest.skip(f"Stock binary not found at {STOCK_BIN_PATH} (proprietary dump not in git)")
     with open(STOCK_BIN_PATH, "rb") as f:
         return f.read()
 

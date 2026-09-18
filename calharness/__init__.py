@@ -26,7 +26,9 @@ from calharness.rules import (
     ProvenanceRecord,
     RuleKind,
     SafetyRule,
+    SafetyWaiver,
 )
+from calharness.provenance_verifier import KBProvenanceVerifier, ProvenanceVerificationError
 from calharness.log_analyzer import (
     LimiterBottleneck,
     LimiterMetrics,
@@ -86,6 +88,9 @@ __all__ = [
     "ChecksumInspector",
     "ChecksumInspectionReport",
     "SafetyRule",
+    "SafetyWaiver",
+    "KBProvenanceVerifier",
+    "ProvenanceVerificationError",
     "ProvenanceRecord",
     "ProvenanceKind",
     "RuleKind",

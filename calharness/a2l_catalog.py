@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import os
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
@@ -29,7 +30,12 @@ DEFAULT_A2L_PATH = Path(
     "diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/"
     "03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l"
 )
-DEFAULT_CACHE_DIR = Path("D:/pya2ldb_cache")
+DEFAULT_CACHE_DIR = Path(
+    os.environ.get(
+        "CALHARNESS_CACHE_DIR",
+        Path.home() / ".cache" / "golf5-calharness" / "pya2ldb"
+    )
+)
 
 
 class A2LConverter:

@@ -31,7 +31,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "knowledge" / "kb.sqlite3"
 DEFAULT_OUT = ROOT / "remote"
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 PROFILE = {
     "vehicle": "Volkswagen Golf 5 (1K1), 2008",
@@ -152,7 +152,7 @@ def export_retractions(c: sqlite3.Connection) -> list[dict]:
     sc_select = "source_class," if "source_class" in cols else "NULL AS source_class,"
     rows = c.execute(
         f"""
-        SELECT id, statement, evidence_kind, verification_state, {sc_select}
+        SELECT id, claim_key, statement, evidence_kind, verification_state, {sc_select}
                ecu_family, ecu_variant, sw_number, engine_code, turbo_model,
                supersedes_id, retracted_at, retraction_reason, updated_at
         FROM claims
