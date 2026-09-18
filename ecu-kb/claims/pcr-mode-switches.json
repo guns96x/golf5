@@ -1,0 +1,28 @@
+{
+  "_comment": "Використано функційну структуру A2L (486 блоків FUNCTION з DEF_CHARACTERISTIC), якою проєкт досі не користувався. Вона показала перемикачі режимів, що пояснюють порожні карти.",
+  "claims": [
+    {
+      "statement": "A2L цієї прошивки містить 486 блоків FUNCTION з німецькими описами, 401 з них має DEF_CHARACTERISTIC (перелік калібрувальних об'єктів, що належать функції) і 85 мають SUB_FUNCTION (ієрархія). Це офіційна функційна декомпозиція Bosch, яка дає авторитетне групування карт замість здогадок за префіксом імені. Ключові карти належать функціям так: PCR_pBDesBas_MAP і PCR_pBDesMax_C -> PCR_DesValCalc (Ladedruck Sollwertbildung); PCR_rBPCtlBas_MAP -> PCR_CtlValCalc (Ladedruck-Steuerung); PCR_nTrbnMax_CUR -> PCR_Cmpr (Basisstruktur für die Berechnung der Turboladergeschwindigkeit); FlMng_qPresSmoke_MAP -> FlMng_InjMassLim (Rauchbegrenzungsmenge); FMTC_trq2qBas_MAP -> FMTC_q2trq (Umrechnung Menge in Moment); EngPrt_trqLimP_MAP і EngPrt_facTempPreTrbn_MAP -> EngPrt_PrtLim (Motormechanikschutz); AccPed_trqEng0_MAP -> AccPed_DrvDem (Fahrerwunschermittlung).",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.95,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived"
+    },
+    {
+      "statement": "ВІДПОВІДЬ НА ПРОГАЛИНУ #15. Функція PCR_DesValCalc містить перемикач PCR_swtTrbnMod_C за адресою 0x1EBDB0, описаний в A2L дослівно як 'Schalter ein/aus Laderdrehzahlbegrenzung in der Höhe' — вмикач/вимикач обмеження обертів нагнітача на висоті. У СТОКУ і в ТЮНІ він однаково дорівнює 0.0. Це пояснює всі три раніше знайдені аномалії одночасно і однією причиною: компресорна карта PCR_nTrbn_MAP заповнена нулями, висотна карта PCR_facBPAltMax_MAP заповнена нулями, а гранична крива PCR_nTrbnMax_CUR дорівнює 0x7FFF у всіх точках, тому що вся гілка обмеження обертів турбіни ВИМКНЕНА калібруванням. З чотирьох раніше записаних читань 0x7FFF підтверджується читання (в) — гілка, яка читає криву, не виконується; читання (б) про навмисно недосяжну стелю при робочій гілці спростовується.",
+      "evidence_kind": "MAP_FACT", "verification_state": "corroborated",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Полярність перемикача (0 = вимкнено) є конвенційною і прямо в A2L не задокументована; доведенням була б гілка коду, що його читає. Але збіг трьох незалежно порожніх об'єктів тієї самої підсистеми з нульовим перемикачем робить протилежне читання малоймовірним."
+    },
+    {
+      "statement": "Інші константи функції PCR_DesValCalc, прочитані з обох образів і ОДНАКОВІ в стоку й тюні: PCR_pBDesMax_C (0x1EB3A2) = 2350 гПа, опис 'Größter erlaubter Ladedrucksollwert' — тобто це стеля УСТАВКИ, а не фактичного тиску, і вона не суперечить виміряному фактичному піку 2438 гПа; PCR_pBDesMin_C = 0; PCR_pLim_C (0x1E9C48) = 2000 гПа, 'Maximaler Ladedruck im Notfahrmodus' — межа наддуву в аварійному режимі; PCR_pAirAltCorr_C = 962 гПа і PCR_tAirAltCorr_C = 29.66 °C — опорні тиск і температура для висотної корекції; PCR_swtQDesType_C = 2 і PCR_swtQDesVal_C = 1 — перемикачі типу і значення вхідного запиту палива для розрахунку уставки, тобто саме вони визначають, яка величина палива живить вісь PCR_qDes.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.9,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "engine_code": "BLS",
+      "source_class": "bin_derived",
+      "missing_evidence": "Семантика значень PCR_swtQDesType_C=2 і PCR_swtQDesVal_C=1 не встановлена — A2L дає опис перемикача, але не таблицю його значень. Це прямо впливає на корелятор: саме ці константи визначають, що насправді подається на вісь PCR_qDes."
+    }
+  ]
+}
