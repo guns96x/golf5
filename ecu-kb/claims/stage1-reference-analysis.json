@@ -1,0 +1,51 @@
+{
+  "_comment": "Аналіз 8 пар сток-тюн зі збірки reference_dumps. Провенанс збірки невідомий (піратський архів), тому висновки тримаються на внутрішній узгодженості між файлами, не на довірі до назв.",
+  "claims": [
+    {
+      "statement": "У ВСІХ восьми парах сток-тюн зі збірки reference_dumps (Caddy BLS 377228 Stage1, Jetta BLS 383708 EGRoff, Passat 380420 VRP Tune, Octavia 382414 Stage1+EGR, Audi A4 371805 VRP Tune, Golf5 389289 Stage1+DPF, Jetta 391847 EGRoff і наш власний тюн) кількість змінених байтів у кодовій зоні 0x000000-0x17FFFF дорівнює НУЛЮ без жодного винятку. Stage 1 на EDC16 у цих файлах робиться виключно калібруванням. Обсяг змін у зоні калібрування 0x180000-0x1FDFFF: від 408 байтів (Golf5 389289 Stage1+DPF) до 3075 (Caddy BLS Stage1), тоді як наш тюн змінює 4851 байт у 288 ділянках — більше за будь-який професійний тюн у наборі.",
+      "evidence_kind": "MEASURED", "verification_state": "project_matched",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Провенанс самої збірки невідомий — файли з піратського архіву, підписи в назвах не перевірені. Твердження стосується саме цих файлів, а не галузі загалом."
+    },
+    {
+      "statement": "Ділянки 0x1BFF74-0x1BFFFB (136 байтів) і 0x1FDF78-0x1FDFFB (132 байти), які в нашому тюні досі рахувались невідомими змінами поза покриттям A2L (частина прогалини #22), змінюються з точністю до того самого розміру щонайменше у п'яти незалежних тюнах: Caddy BLS 377228 (136/132), Octavia 382414 (136/132), Audi A4 371805 (135/131), Jetta 391847 EGRoff (136/132) і наш (136/132). Вміст високоентропійний і повністю різний у стоку й тюні, при цьому останні 4 байти перед словом корекції адитивної суми (значення 0x00000058) НЕ змінюються. Ділянки прилягають впритул до слів корекції 0x1BFFFC і 0x1FDFFC і закінчуються рівно перед ними. Жоден об'єкт A2L їх не покриває.",
+      "evidence_kind": "MEASURED", "verification_state": "corroborated",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "source_class": "bin_derived"
+    },
+    {
+      "statement": "Найімовірніше читання цих 268 байтів: додаткові контрольні суми або підписи EDC16, які інструмент корекції перераховує разом з адитивною сумою. Підстава: дані не є калібруванням (не покриті A2L, високоентропійні), прилягають до слів корекції, і корелюють зі станом суми — файли, які правильно перераховують адитивну суму, переписують і ці блоки, а два файли, що їх не чіпають (Jetta BLS 383708 і Passat 380420 VRP), мають несхожу суму. Практичний наслідок: щоб ЗІБРАТИ робочий файл, недостатньо виправити дві адитивні суми — треба правильно сформувати ще 268 байтів, чий алгоритм невідомий. Це раніше не враховувався блокер для плану складання Stage 1 від стоку.",
+      "evidence_kind": "INFERRED", "verification_state": "raw",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.6,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "source_class": "computed",
+      "missing_evidence": "Доведенням була б гілка коду ECU, яка ці блоки перевіряє, або відтворення алгоритму. Альтернативне читання, яке поки не виключене: це не контрольні суми, а область, яку інструмент тюнера переписує з іншої причини."
+    },
+    {
+      "statement": "Професійний робочий набір карт для 1.9 TDI EDC16, витягнутий з шести пакетів WinOLS (.kp) у збірці, стабільно повторюється і складається з: Drivers Wish, Torque Limiter, Smoke Limiter, Nm to Iq, N75 Duty Cycle, Duration, Lambda, Expected Fuel Temp, Fuel Volume Correction, Start Torque. У ЖОДНОМУ з шести пакетів немає карти теплового захисту за температурою перед турбіною. Наш тюн при цьому саме її і змінив — прибрав сходинки обмеження моменту при 805 і 820 градусах. Тобто зняття теплового захисту не входить до стандартного набору цих тюнерів.",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.7,
+      "ecu_family": "EDC16", "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Назви карт витягнуто текстовим пошуком по бінарному формату .kp; можливо, частина назв не розпізналась. Відсутність карти в пакеті не доводить, що тюнер її не чіпав іншим шляхом."
+    },
+    {
+      "statement": "Зона калібрування 0x180000-0x1FDFFF файлу flashORGIG зі збірки (тека VW_Jetta_1.9TDI_SW391847_HW03G906021QJ_Stock_and_EGRoff) ІДЕНТИЧНА байт-у-байт нашому стоковому еталону, нуль відмінностей, обидва мають валідні контрольні суми D01FE500/D01FE500. Це незалежне підтвердження нашої стокової калібровки з іншого джерела. АЛЕ кодова зона flashORGIG порожня: 0.0 відсотка не-0xFF на 0x000000-0x17FFFF, тобто це читання лише зони даних, добите 0xFF до 2 МБ. Прогалина про повний readback із кодовою зоною НЕ закрита.",
+      "evidence_kind": "MEASURED", "verification_state": "corroborated",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.9,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "source_class": "bin_derived"
+    },
+    {
+      "statement": "Файл golf5-ecu-system/knowledge/08_firmware/originals/03G906021QJ_1984_391847_full_stock.bin має sha256 cf891152a97f... тобто це той самий файл, що в проєкті golf5 називається reference-from-hex.analysis-only.bin і документований як РЕКОНСТРУЙОВАНИЙ з hex, не знятий з машини. Ім'я full_stock стверджує більше, ніж дозволяє провенанс. Це не дрібниця: саме цей файл є еталоном у КОЖНОМУ тесті calharness.",
+      "evidence_kind": "MEASURED", "verification_state": "project_matched",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.95,
+      "sw_number": "1037391847", "source_class": "bin_derived"
+    },
+    {
+      "statement": "Механізм вимкнення EGR у професійному файлі на НАШОМУ SW 1037391847 (WinOLS VW Jetta egr off dtc off - 391847, 424 змінені байти): змінено пороги контролю маси повітря AirCtl_qMiddle_CUR (0x1C9EA0, 40 байтів), AirCtl_qHigh_CUR (0x1C9DAA, 28 байтів), AirCtl_qMonMaxNS_C (0x1C9EF2), і знижено клас помилки для семи діагностичних шляхів EGR: DSM_ClaDfp_EGRCD_CBV_C, _Max_C, _Min_C, _Sig_C, _SigNpl_C, DSM_ClaDfp_EGRSCD_C, _JamVlv_C, DSM_ClaDfp_EGRVlv_JamVlv_C (0x1CF31D-0x1CF327). Тобто EGR вимикається не обнулінням карти EGR, а зсувом порогів нагляду плюс приглушенням діагностики. Фізичний клапан при цьому лишається в роботі.",
+      "evidence_kind": "MEASURED", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.85,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "source_class": "bin_derived",
+      "missing_evidence": "Атрибутовано 78 з 424 байтів через A2L; решта — 268 байтів хвостів (контрольні суми) і дві ділянки 0x189E34-0x189E4F та 0x189F26-0x189F4F, які не ідентифіковані."
+    }
+  ]
+}
