@@ -35,21 +35,27 @@
 
 ## 3. Точні шляхи до первинної істини (НЕ сканувати диски)
 
+- **Робочі директорії на ПК:**
+  * Головний робочий репозиторій: `D:\golf5-ecu-system\` (GitHub: `guns96x/golf5-ecu-system`, гілка `main`).
+  * Дзеркало робочого простору Claude: `D:\CLAUDE\golf5\` (гілка `claude/prompt-review-iuvqhg`).
 - **A2L-специфікація (16 772 об'єкти):**
-  `D:\geminibase\golf5\diagnostic-review\definitions\03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42\03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l`
-- **Еталон прошивки для аналізу:**
-  `D:\geminibase\golf5\diagnostic-review\reference-from-hex.analysis-only.bin` (реконструйований з hex, sha256 `cf891152…`)
-- **Декодовані значення карт наддуву стоку:**
-  `D:\geminibase\golf5\diagnostic-review\math-engine\boost-path-stock-values.json`
-- **Документація ланцюга наддуву стоку:**
-  `D:\geminibase\golf5\docs\CONTROL-PATH-STOCK-boost.md`
+  `diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.a2l`
+- **Еталон прошивки для аналізу (HEX / BIN):**
+  * `diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42.HEX`
+  * `diagnostic-review/reference-from-hex.analysis-only.bin` (реконструйований з hex, sha256 `cf891152…`)
+  * `firmware/reference_dumps/VW_Jetta_1.9TDI_SW391847_HW03G906021QJ_Stock_and_EGRoff/flashORGIG` (100% точний сток калібрувань)
+- **База еталонних дампів та WinOLS проєктів (`firmware/reference_dumps/`):**
+  * `VW_Golf5_1.9TDI_SW389289_HW03G906021QJ_Stage1_DPFoff_WinOLS_OLS_KP/` — повний проєкт WinOLS `.ols` та Map Pack `.kp` під залізо `03G906021QJ`.
+  * `Seat_Leon_1.9TDI_SW382081_HW03G906021LK_EDC16U34_EGRoff/` — повний 2MB BDM-дамп EDC16U34 з 1 МБ кодової зони процесора MPC562 (вирішення Gap #23/#2).
+  * `VW_Caddy_1.9TDI_BLS_SW377228_HW03G906021AR_Stage1/` — референс Stage 1 на моторі BLS.
+  * `VW_PassatB6_1.9TDI_SW380420_HW03G906021LR_EDC16U34_Stage1/` — референс EDC16U34 Stage 1.
+- **Інженерна документація калібрування:**
+  * `docs/tuning/stage1_bls_edc16u34_master_guide.md` — інженерний посібник Stage 1: розрахунок наддуву BV39, захист вкладишів BLS, карти A2L, вирішення Gap #10.
+  * `docs/knowledge/4pda_firmware_damos_catalog.md` — каталог посилань 4PDA, структура WinOLS Damos Sammlung (800 GB) та опис `aria2c`.
+  * `docs/CONTROL-PATH-STOCK-boost.md` — ланцюг керування наддувом стоку.
+  * `docs/CONTROL-PATH-STOCK-fuel.md` — ланцюг керування паливом стоку.
 - **База знань (SQLite + FTS5):**
-  `D:\geminibase\golf5\ecu-kb\knowledge\kb.sqlite3`
-- **Бібліотека джерел:** локальна/репозиторна структура та registry змінювались у ході проєкту.
-  Поточний Git містить source library під `base-knowledge/library/`; canonical ingest/status
-  визначається SQLite, а не самим фактом наявності PDF у репозиторії.
-- **Робочі чернетки проєкту (21 файл):**
-  `D:\geminibase\base\knowledge\drafts\`
+  `ecu-kb/knowledge/kb.sqlite3` (реєстр: `ecu-kb/remote/manifest.json`).
 
 ---
 
@@ -68,7 +74,7 @@
 
 ### Швидкі команди роботи з базою знань:
 ```bat
-cd D:\geminibase\golf5\ecu-kb
+cd D:\golf5-ecu-system\ecu-kb
 python kb.py status                 # загальний стан
 python kb.py check                  # перевірка порушень цитувань (0 порушень)
 python kb.py claims                 # перегляд усіх затверджених тверджень

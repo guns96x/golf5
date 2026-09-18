@@ -46,13 +46,20 @@
 - `ecu-kb/remote/` — згенерований зовнішній specialist view:
   `manifest.json`, current claims/gaps/conflicts, `corpus.json`, A2L по функціональних групах.
 - `ecu-kb/corpus/seeds.json` + `tools/ecu_corpus_harvester.py` — metadata-first каталог DAMOS/A2L/OLS/XDF/ORI/SGO з EXACT/SIBLING/ANALOG класифікацією.
+- `firmware/reference_dumps/` — база еталонних дампів, WinOLS проєктів та маппаків:
+  - `VW_Jetta_1.9TDI_SW391847_HW03G906021QJ_Stock_and_EGRoff` (сток 0-byte match до калібрувань Golf 5, EGR off);
+  - `VW_Golf5_1.9TDI_SW389289_HW03G906021QJ_Stage1_DPFoff_WinOLS_OLS_KP` (проєкт WinOLS `.ols`, Map Pack `.kp`, Stage 1);
+  - `Seat_Leon_1.9TDI_SW382081_HW03G906021LK_EDC16U34_EGRoff` (повний 2MB BDM-дамп EDC16U34 з 1 МБ коду MPC562);
+  - Caddy BLS Stage 1, Passat B6 EDC16U34, Octavia, Audi A3/A4.
 - `docs/` — інженерні зрізи та ревю:
+  - `tuning/stage1_bls_edc16u34_master_guide.md` — інженерний посібник Stage 1 (BV39, вкладиші BLS, лімітери);
+  - `knowledge/4pda_firmware_damos_catalog.md` — каталог 4PDA, роздача Damos 800GB, інструмент торентів `aria2c`;
   - `CONTROL-PATH-STOCK-boost.md`
   - `CONTROL-PATH-STOCK-fuel.md`
   - `FIRMWARE-REVIEW-current.md`
   - `FIRMWARE-MODIFICATION-RELIABILITY.md`
   - `CHATGPT-KB-BRIDGE.md`
-- `diagnostic-review/` — A2L, BIN/HEX, декодовані карти, статичний аналіз.
+- `diagnostic-review/` — A2L (`P447_HAXN`), BIN/HEX, декодовані карти, статичний аналіз.
 - `base-knowledge/library/` — tracked source library та registry. Наявність файла
   в Git не робить його автоматично доказом: applicability/authority/ingest state
   визначає KB.

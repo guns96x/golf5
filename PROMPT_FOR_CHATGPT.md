@@ -40,7 +40,10 @@ Bosch EDC16U34-3.42 / SW 1037391847.
    - `ecu-kb/remote/a2l/<FUNC_GROUP>.json`
 2. A2L конкретного SW та детерміновано декодовані BIN/log-derived артефакти.
 3. Перевірені першоджерела, прив'язані до claims.
-4. Похідні Markdown-документи для контексту.
+4. Похідні інженерні документи та дампи:
+   - `docs/tuning/stage1_bls_edc16u34_master_guide.md` — інженерний посібник Stage 1 (розрахунок наддуву BV39, захист вкладишів BLS, лімітери, розв'язання Gap #10);
+   - `firmware/reference_dumps/` — 15 верифікованих дампів (сток SW 391847 з 0-byte diff до калібрувань, проєкт WinOLS `.ols`/`.kp` під залізо `03G906021QJ`, 2MB BDM-дамп EDC16U34 з кодовою зоною 1 МБ);
+   - `docs/CONTROL-PATH-STOCK-boost.md` та `docs/CONTROL-PATH-STOCK-fuel.md`.
 5. Старі чати/чернетки — лише як гіпотези, ніколи як доказ.
 
 **Не використовуй цей prompt або `specialist.py` як джерело технічного факту.**
