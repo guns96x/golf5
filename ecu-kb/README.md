@@ -88,6 +88,15 @@ REM на 0012, відкликані — не переписані тихо. Lade
 python kb.py resolve-gap 20 RESEARCHING --note "Gemini запущено на пошук за BV39A-0072 (виправлений номер)."
 python kb.py load-claims claims\turbo-designation-corrected.json
 
+REM Gemini повернув 5 "джерел" з конкретними цифрами (розміри коліс,
+REM ElsaWin-діапазон, заводська уставка). Перевірено відвідуванням КОЖНОГО
+REM URL напряму — ЖОДНЕ не підтвердилось: головні сторінки без вмісту або
+REM сторінки за антибот-захистом. Одне з чисел (2050 мбар) збігалось із вже
+REM відомим фактом — саме тому й підозріле, не тому що надійне. gap #20
+REM повернуто в OPEN, не залишено RESOLVED на слово воркера:
+python kb.py load-claims claims\gemini-search-verification-failed.json
+python kb.py resolve-gap 20 OPEN --note "Gemini-пошук завершено, але всі 5 джерел перевірено відвідуванням і жодне не підтвердилось."
+
 python kb.py check
 python kb.py status
 ```
