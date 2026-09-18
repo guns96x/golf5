@@ -70,6 +70,24 @@ python kb.py retract 24 "Головна теза (безпечна межа на
 python kb.py resolve-gap 1 RESOLVED --note "Фото зроблено й проаналізовано (переказ). BorgWarner BV39 підтверджено фізично."
 python kb.py resolve-gap 14 BLOCKED --note "Замінено прогалиною #21: номер 54399880072 на табличці агрегата відсутній, пошук за ним був приречений."
 
+REM Ревю поточної прошивки (new-inputs/on проти стоку) на прохання власника.
+python kb.py load-claims claims\current-firmware-review.json
+
+REM Знахідка: третій, чистіший кандидат лежить у сусідньому проєкті
+REM golf5-android-flasher, поза golf5. Ще не з'ясовано, чи він записаний.
+python kb.py load-claims claims\refined-calibration-discovery.json
+
+REM Власник підтвердив: НЕ записаний. У машині — прошивка до проєкту
+REM флешера (new-inputs/on). Закриває gap про те, чи refined_CS_OK у блоці.
+python kb.py resolve-gap 24 RESOLVED --note "Власник підтвердив прямо: refined_CS_OK НЕ записаний. У машині — прошивка з ДО проєкту флешера, тобто new-inputs/on."
+python kb.py load-claims claims\current-state-confirmed.json
+
+REM Пряме читання фото (не переказ) + власник продиктував наживо: позначення
+REM турбіни насправді BV39A-0072, не BV39A-0012. Три claims, що посилались
+REM на 0012, відкликані — не переписані тихо. Lader-Nr лишається непевним.
+python kb.py resolve-gap 20 RESEARCHING --note "Gemini запущено на пошук за BV39A-0072 (виправлений номер)."
+python kb.py load-claims claims\turbo-designation-corrected.json
+
 python kb.py check
 python kb.py status
 ```
