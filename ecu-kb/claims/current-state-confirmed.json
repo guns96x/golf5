@@ -1,0 +1,29 @@
+{
+  "_comment": "Пряме підтвердження власника закриває gap #24 і оновлює картину. Two things follow: (1) яка прошивка реально в машині зараз, (2) це послаблює гіпотезу про PoI2 як причину зниклого симптому диму.",
+
+  "claims": [
+    {
+      "statement": "Власник підтвердив прямо: 03G906021QJ_stage1_refined_CS_OK.bin (з golf5-android-flasher/binaries/) НЕ записаний у ECU. У машині зараз — прошивка, яка була ДО початку роботи над проєктом golf5-android-flasher. Єдиний інший checksum-валідний файл із наявних — new-inputs/on/03G906021QJ.Bin — тому саме він, найімовірніше, відповідає поточному стану блока.",
+      "evidence_kind": "MEASURED", "verification_state": "corroborated",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "human_attested",
+      "missing_evidence": "Ототожнення 'прошивка до флешера' = 'new-inputs/on' — логічний висновок з наявних файлів (єдиний інший checksum-валідний кандидат), не прямо назване власником по імені файлу. Незайманий readback (прогалина P1) підтвердив би це остаточно."
+    },
+    {
+      "statement": "Отже ЗАРАЗ, у поточній машині: EngPrt_facTempPreTrbn_MAP реально ослаблена (12 з 64 комірок, сходинки 805/820°C) — це не гіпотетичний сценарій, а факт поточного стану. InjVlv_phiInjPoI2_MAP0/MAP1 (друге впорскування) і InjCrv_qPoI2HCAvrgCor_MAP реально НЕ вимкнені — теж факт поточного стану, не рефінед-версії.",
+      "evidence_kind": "CALCULATED", "verification_state": "corroborated",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "computed"
+    },
+    {
+      "statement": "Симптом диму/гулу після нагріву зник (за словами власника), хоча PoI2-післявпорскування в машині ЗАРАЗ ще активне — refined_CS_OK, який його вимикає, ніколи не записувався. Це ПОСЛАБЛЮЄ гіпотезу з claims/refined-calibration-discovery.json (claim #76 missing_evidence) про те, що вимкнення PoI2 пояснило б зникнення симптому: симптом зник БЕЗ цієї зміни, отже причина зникнення — інша (сезонність, стиль їзди, щось у паливній системі, чи щось не зафіксоване тут).",
+      "evidence_kind": "CALCULATED", "verification_state": "contradicted",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.6,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "computed",
+      "missing_evidence": "'Симптом зник' не означає 'причина усунена назавжди' — умови нагріву й агресивної їзди могли просто не повторюватись останнім часом. Це не доводить, що PoI2-механізм НЕ був причиною попереднього епізоду, лише що зникнення симптому конкретно ЗАРАЗ не пояснюється вимкненням PoI2, бо його ніхто не вимикав."
+    }
+  ]
+}
