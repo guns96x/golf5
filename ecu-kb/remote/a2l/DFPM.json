@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "DFPM",
+  "raw_groups": [
+    "DFPM"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "DFPM_stFCMChkCause",
+      "description": "Message für DSM internen gebrauch (unterstützung bei DSM problemen)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FA940",
+      "record_layout": null,
+      "func_group": "DFPM",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

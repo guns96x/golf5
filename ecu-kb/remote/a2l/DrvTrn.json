@@ -1,0 +1,129 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "DrvTrn",
+  "raw_groups": [
+    "DrvTrn"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_drSlpNeg_C",
+      "description": "Negative Rampensteigung für das Triebstrangübersetzungsverhältnis",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD730",
+      "record_layout": "Kw_Wu32",
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_drSlpPos_C",
+      "description": "Positive Rampensteigung für das Triebstrangübersetzungsverhältnis",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD72C",
+      "record_layout": "Kw_Wu32",
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_rTransDT",
+      "description": "Triebstrang-Übersetzung (Radmoment pro Motormoment)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9840",
+      "record_layout": null,
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_rTransDTInit_C",
+      "description": "Triebstrangübersetzungs-Vorgabewert (Radmoment pro Motormoment)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD734",
+      "record_layout": "Kw_Ws16",
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_rTrans_mp",
+      "description": "Messpunkt der Triebstrang-Übersetzung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEB90",
+      "record_layout": null,
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_stSigCVTVal_C",
+      "description": "Ersatzwert für den Getriebetype aus dem Gearbx-Modul bei CVT-Getrieben",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD736",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_swtNotFrozen_C",
+      "description": "Schalter zum deaktivieren der Einfrierfunktion vom Übersetzungsverhältnis",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD737",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_swtSig",
+      "description": "Signalquelle für Triebstrangübersetzung bei stehendem Fahrzeug",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F939E",
+      "record_layout": null,
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_swtSigCVT_C",
+      "description": "Entkopplung der Quelle der Triebsstrangübersetzung von der Gangerkennung für CVT",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD738",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DrvTrn_swtSigVal_C",
+      "description": "Signalquelle ADC/CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD739",
+      "record_layout": "Kw_Wu8",
+      "func_group": "DrvTrn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

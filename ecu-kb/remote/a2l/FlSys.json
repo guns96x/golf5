@@ -1,0 +1,294 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "FlSys",
+  "raw_groups": [
+    "FlSys"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_nHysXHigh_C",
+      "description": "Obere Schaltdrehzahl der Drehzahlhysterese",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70FC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_nHysXLow_C",
+      "description": "Untere Schaltdrehzahl der Drehzahlhysterese",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70FE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_rhoFl",
+      "description": "Koeffizient Kraftstoffdichte",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9974",
+      "record_layout": null,
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_rhoFl_C",
+      "description": "Kraftstoffdichte bei Normtemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70E8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_rhoFl_CUR",
+      "description": "temperaturabhängige Kraftstoffdichte",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70EA",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_stFlClg",
+      "description": "Status des Ventils für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93F7",
+      "record_layout": null,
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_stFlPp",
+      "description": "Statusmessage der Kraftstoffumwälzpumpenlogik",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93F8",
+      "record_layout": null,
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_stLogicFlPp_mp",
+      "description": "Meßpunkte für die Ansteuerungslogik der Kraftstoffumwälzpumpe",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE54",
+      "record_layout": null,
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_stTemp_mp",
+      "description": "Statusbits zur Erfassung der Kraftstoffsystemtemperatur",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE55",
+      "record_layout": null,
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_swtEGRClgBypVlvEna_C",
+      "description": "Schalter zum Aktivieren der Kraftstoffumwälzpumpe im Falle AGR-Regelung aktiv und AGR-Bypass geschlossen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7100",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_swtTempSel_C",
+      "description": "Auswahl der Kraftstoffsystemtemperatur (0: Kraftstofftemperatur, 1: Wassertemperatur, 2: Ersatzwert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7114",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_swtTempSensCfg",
+      "description": "Schalter, ob Kraftstofftemperaturfühler vorhanden",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93F9",
+      "record_layout": null,
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_swtTempSensCfgType_C",
+      "description": "Auswahl der Quelle des Softwareschalters ob Kraftstofftemperaturfühler vorhanden. (Datensatz oder EEPROM)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7116",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_swtTempSensCfgVal_C",
+      "description": "Schalterwert, ob Kraftstofftemperaturfühler vorhanden (0: nicht vorhanden, 1: vorhanden)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7115",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_t",
+      "description": "aktuelle Systemtemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9976",
+      "record_layout": null,
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_t2HysXHigh_C",
+      "description": "Obere Schalttemperatur der Temperaturhysterese 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7102",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_t2HysXLow_C",
+      "description": "Untere Schalttemperatur der Temperaturhysterese 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7104",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_tAirHysHigh_C",
+      "description": "Obere Schalttemperatur der Aussentemperaturhysterese",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7106",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_tAirHysLow_C",
+      "description": "Untere Schalttemperatur der Aussentemperaturhysterese",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7108",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_tDfl_C",
+      "description": "Ersatzwert für Kraftstoffsystemtemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7118",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_tHysXHigh_C",
+      "description": "Obere Schalttemperatur der Temperaturhysterese",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D710A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_tHysXLow_C",
+      "description": "Untere Schalttemperatur der Temperaturhysterese",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D710C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_tiDelAddFlPpActv_C",
+      "description": "Wartezeit fuer die Aktivierung nach dem Startabwurf",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D710E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_tiFlPpOff_C",
+      "description": "Minimale Einschaltzeit der Kühlmittelumwälzpumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7110",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSys_tiMinFlPpActv_C",
+      "description": "Zeit für die Mindesteinschaltdauer der Aktivierung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7112",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSys",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

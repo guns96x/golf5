@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "ARnMon",
+  "raw_groups": [
+    "ARnMon"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "ARnMon_stARnMon_mp",
+      "description": "Zustand des After Run Monitors",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9F5",
+      "record_layout": null,
+      "func_group": "ARnMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ARnMon_stInvIn_C",
+      "description": "Eingangssignal der KL15 invertieren",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAAA0",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ARnMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ARnMon_stInvOut_C",
+      "description": "Ausgangssignal für Selbsthaltung des HR invertieren",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAAA1",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ARnMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ARnMon_stT15DebVal_mp",
+      "description": "Zustand der Hardware-entprellten Klemme 15",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9F6",
+      "record_layout": null,
+      "func_group": "ARnMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ARnMon_tiARnMax_C",
+      "description": "Zeitdauer des erlaubten Nachlaufs",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CAAA4",
+      "record_layout": "Kw_Wu32",
+      "func_group": "ARnMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

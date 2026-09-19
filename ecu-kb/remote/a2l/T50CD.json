@@ -1,0 +1,327 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "T50CD",
+  "raw_groups": [
+    "T50CD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stDebVal",
+      "description": "entprellter Statuswert der Klemme 50",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F956C",
+      "record_layout": null,
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stDebValByp_mp",
+      "description": "Bypass für T50CD_stDebVal",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFB6",
+      "record_layout": null,
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stDebVal_Channel",
+      "description": "Konfigurationslabel für Bypass Freischnitt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B31",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stDebVal_Vector",
+      "description": "Konfigurationslabel für Bypass Freischnitt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B30",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stDigInvIn_C",
+      "description": "Invertierungsparameter des Eingangssignals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F121C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stRawVal",
+      "description": "unentprellter Wert des Eingangssignals für Klemme 50",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F956D",
+      "record_layout": null,
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stRxDebVal",
+      "description": "Entprellter Statuswert der Anlasserrückmeldeleitung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F956E",
+      "record_layout": null,
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stRxDebValByp_mp",
+      "description": "Bypass für T50CD_stRxDebVal",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFB7",
+      "record_layout": null,
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stRxDebVal_Channel",
+      "description": "Konfigurationslabel für Bypass Freischnitt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B33",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stRxDebVal_Vector",
+      "description": "Configuration Label for Bypass message",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B32",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stRxDigInvIn_C",
+      "description": "Invertierungsparameter des Eingangssignals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1224",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_stRxRawVal",
+      "description": "Anlasserrückmeldeleitung Rohwert",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F956F",
+      "record_layout": null,
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_swtDigInPresentType_C",
+      "description": "Type des Softwareschalters",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F121E",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_swtDigInPresentVal",
+      "description": "Klemme 50 vorhanden",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9570",
+      "record_layout": null,
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_swtDigInPresentVal_C",
+      "description": "Softwareschalter ob Klemme 50 vorhanden ist (0 = Nein; 1 = Ja)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F121D",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_swtRxDigInPType_C",
+      "description": "Type des Softwareschalters",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1226",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_swtRxDigInPVal",
+      "description": "Anlasserrückmeldeleitung vorhanden",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9571",
+      "record_layout": null,
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_swtRxDigInPVal_C",
+      "description": "Softwareschalter ob Anlasserrückmeldeleitung vorhanden (0 = Nein; 1 = Ja)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1225",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiDebNplDef_C",
+      "description": "Defekt-Entprellzeit für Fehler \"\"Klemme 50 permanent high",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1214",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiDebNplOk_C",
+      "description": "Heilung-Entprellzeit für Fehler \"\"Klemme 50 permanent high",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1216",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiDebShortCircBatDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluss von Klemme 50 nach Ubatt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F120C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiDebShortCircBatOk_C",
+      "description": "Heilung-Entprellzeit für Kurzschluss von Klemme 50 nach Ubatt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F120E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiDebShortCircGndDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluss von Klemme 50 nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1210",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiDebShortCircGndOk_C",
+      "description": "Heilung-Entprellzeit für Kurzschluss von Klemme 50 nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1212",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiDigInDebNeg_C",
+      "description": "Entprellzeit für negative Flanken",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1218",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiDigInDebPos_C",
+      "description": "Entprellzeit für positive Flanken",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F121A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiRxDigInDebNeg_C",
+      "description": "Entprellzeit der neg. Flanke der Anlasserückmeldeleitung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1220",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T50CD_tiRxDigInDebPos_C",
+      "description": "Entprellzeit der pos. Flanke der Anlasserrückmeldeleitung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1222",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T50CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

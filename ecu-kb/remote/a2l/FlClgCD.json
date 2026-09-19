@@ -1,0 +1,173 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "FlClgCD",
+  "raw_groups": [
+    "FlClgCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_DebExcTempDef_C",
+      "description": "Debounce Zeit für Übertemperaturfehler Defekterkennung des Ventils für den Kühlmitteldurchfluss durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5EF2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_DebExcTempOk_C",
+      "description": "Debounce Zeit für Übertemperaturfehler Heilung für das Ventil für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5EF4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_DebNoLoadDef_C",
+      "description": "Open Load Fehler Defekterkennungszeit für Ventil für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5EF6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_DebNoLoadOk_C",
+      "description": "Open Load Fehler Heilungszeit für Ventil für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5EF8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_DebShortCircBatDef_C",
+      "description": "Debounce Zeit für Kurzschluß nach Ubatt Defekterkennung für Ventil für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5EFA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_DebShortCircBatOk_C",
+      "description": "Debounce Zeit für Kurzschluß nach Ubatt Heilung für dan Ventil für den Kuhlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5EFC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_DebShortCircGndDef_C",
+      "description": "Debounce Zeit für Kurzschluß nach Masse Defekterkennung  für das Ventil für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5EFE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_DebShortCircGndOk_C",
+      "description": "Debounce Zeit für Kurzschlus nach Masse Heilung für das Ventil für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5F00",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_ctPwrStgOnMax_C",
+      "description": "maximale Anzahl von Endstufen-Einschaltungen pro Fahrzyklus bei SCB oder Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5EF0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_stFlClg",
+      "description": "Status des Ventils für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93F1",
+      "record_layout": null,
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_stInvOut_C",
+      "description": "Invertierungsschalter für HW Ausgang für das Ventil für den Kühlmitteldurchfluß durch den Kraftstoffkühler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5F02",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_stSPICtl_C",
+      "description": "Parameter zuur Anzeige der verwendeten Endstufenart (1 = SPI kontrollierte Endstufe, 0 = nicht SPI Endstufe)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5F03",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_tiBtwTst_C",
+      "description": "Zeitabstand, in dem im Fehlerfall die Endstufe getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5F04",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlClgCD_tiPwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall engeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5F06",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlClgCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

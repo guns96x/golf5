@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "OxiCCD",
+  "raw_groups": [
+    "OxiCCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_DebSRCHighDefTPre_C",
+      "description": "Entprellzeit für Fehlererkennung SRC-high-Fehler für Dfp_OxiCCDTPre",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C56",
+      "record_layout": "Kw_Wu16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_DebSRCHighOkTPre_C",
+      "description": "Entprellzeit für Fehlerheilung SRC-high-Fehler für Dfp_OxiCCDTPre",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C58",
+      "record_layout": "Kw_Wu16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_DebSRCLowDefTPre_C",
+      "description": "Entprellzeit für Fehlererkennung SRC-low-Fehler für Dfp_OxiCCDTPre",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C5A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_DebSRCLowOkTPre_C",
+      "description": "Entprellzeit für Fehlerheilung SRC-low-Fehler für Dfp_OxiCCDTPre",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C5C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_dtRmpSlpDwnPre_C",
+      "description": "Rampensteigung abwärts für Komponententreiber Temperatur vor Oxidationskatalysator",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C64",
+      "record_layout": "Kw_Wu32",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_dtRmpSlpUpPre_C",
+      "description": "Rampensteigung aufwärts für Komponententreiber Temperatur vor Oxidationskatalysator",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C60",
+      "record_layout": "Kw_Wu32",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_stSensIDWordTPre_C",
+      "description": "Sensor ID Word für Übergangsbedingungen Temperatursensor vor Oxidationskatalysator",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C6A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_swtActvTPre_C",
+      "description": "Aktivierung/Deaktivierung  des Komponententreibers für Abgastemperatur vor Oxidationskatalysator.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C68",
+      "record_layout": "Kw_Wu8",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_tDflPre_C",
+      "description": "Ersatzwert Temperatur vor Oxidationskatalysator im Fehlerfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8C6C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_tLinPre",
+      "description": "linearisierter Wert Abgastemperatur vor Oxidationskatalysator",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9BB0",
+      "record_layout": null,
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_tLinPre1_CUR",
+      "description": "Linearisierungskennlinie für Temperatur vor Abgasturbolader[deg C]",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8BF0",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_tPre",
+      "description": "Abgastemperatur vor Oxidationskatalysator",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9BB2",
+      "record_layout": null,
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_uRawTempPre",
+      "description": "Abgastemperatur vor Oxidationskatalysator Rohwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9BB4",
+      "record_layout": null,
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_uSRCMaxTPre_C",
+      "description": "Maximalwert SRC-Überwachung von OxiCCD_uRawTempPre",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8BEE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "OxiCCD_uSRCMinTPre_C",
+      "description": "Minimalwert SRC-Überwachung von OxiCCD_uRawTempPre",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8BEC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "OxiCCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

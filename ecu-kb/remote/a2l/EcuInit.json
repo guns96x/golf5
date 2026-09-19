@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EcuInit",
+  "raw_groups": [
+    "EcuInit"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EcuInit_ExpEcu_u8",
+      "description": "Ein *( $2A) zeigt an ob es sich um ein Versuchssteuergerät handelt, ein Blank ' ' ($20) ist ein Serien SG",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93B1",
+      "record_layout": null,
+      "func_group": "EcuInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EcuInit_HW_u8",
+      "description": "zeigt die Hardwareteilenummer an",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9FF2",
+      "record_layout": null,
+      "func_group": "EcuInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EcuInit_stProduction",
+      "description": "Programmierstatus des SG",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93B2",
+      "record_layout": null,
+      "func_group": "EcuInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EcuInit_tiTimestampTO_C",
+      "description": "Timeout für Timestamp, welche in Flash geschrieben werden",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D261A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EcuInit",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

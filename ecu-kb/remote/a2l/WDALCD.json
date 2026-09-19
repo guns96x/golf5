@@ -1,0 +1,195 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "WDALCD",
+  "raw_groups": [
+    "WDALCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_ctPwrStgOnMax_C",
+      "description": "Maximale Anzahl von Endstufen-Einschaltungen pro Fahrzyklus bei SCB oder Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33E0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_stInvOut_C",
+      "description": "Schalter um den Ausgang der Winterfahrprogrammlampe zu invertieren.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33E2",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_stOut_mp",
+      "description": "Status des Ausgangs der Winterfahrprogrammlampe",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFDC",
+      "record_layout": null,
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_stPwrStgActv_C",
+      "description": "Statuswort zur Aktivierung der Abschaltbedingung für die Endstufe Winterfahrprogrammlampe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33E3",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_stPwrStgDia_C",
+      "description": "Statuswort zur Aktivierung der Abschaltbedingung der Endstufendiagnose für Winterfahrprogrammlampe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33E4",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_stSPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart ( 1 = SPI kontrollierbare Endstufe, 0 = nicht SPI-Endstufe )",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33E5",
+      "record_layout": "Kw_Wu8",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiBtwTst_C",
+      "description": "Zeitabstand, in dem im Fehlerfall die Endstufe getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33E6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiDebExcTempDef_C",
+      "description": "Fehlerentprellzeit, Übertemperaturfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33E8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiDebExcTempOk_C",
+      "description": "Heilungsentprellzeit, Übertemperaturfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33EA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiDebNoLoadDef_C",
+      "description": "Defektzeit fuer Fehler \"\"Endstufe im Leerlauf",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33EC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiDebNoLoadOk_C",
+      "description": "Heilungszeit fuer Fehler \"\"Endstufe im Leerlauf",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33EE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiDebShrtBatDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach U-Batt der Winterfahrprogrammlampe [ms]",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33F0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiDebShrtBatOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach U-Batt der Winterfarhprogrammlampe [ms]",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33F2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiDebShrtGndDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Masse der Winterfahrprogrammlampe [ms]",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33F4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiDebShrtGndOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Masse der Winterfahrprogrammlampe [ms]",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33F6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "WDALCD_tiPwrStgOn_C",
+      "description": "Zeit, für welche die Endstufe beim Fall der nicht-SPI-Endstufe eingeschaltet wird.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F33F8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "WDALCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

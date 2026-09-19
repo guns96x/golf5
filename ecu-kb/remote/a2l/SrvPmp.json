@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "SrvPmp",
+  "raw_groups": [
+    "SrvPmp"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_DebStSADef_C",
+      "description": "Entprellzeit für Lenkwinkelsteuergerätefehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04C6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_DebStSAOk_C",
+      "description": "Heilungszeit für Lenkwinkelsteuergerätefehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04C8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_facAdjValDef_C",
+      "description": "Ersatzwert für Abgleich Leistungsanforderung Servopumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04CA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_facAdjValMax_C",
+      "description": "Maximalwert für Abgleich Leistungsanforderung Servopumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04CC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_facAdjValMin_C",
+      "description": "Minimalwert für Abgleich Leistungsanforderung Servopumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04CE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_facDemandEEP_mp",
+      "description": "Limitierter Ableichwert von EEPROM Wert SRVPMP_PWR_DEMAND",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF902",
+      "record_layout": null,
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_pwrDes",
+      "description": "Leistungsbedarf der Servopumpe",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C6E",
+      "record_layout": null,
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_pwrDesActVal_mp",
+      "description": "Aktueller Leistungsverlust durch Lenkhilfepumpe",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF904",
+      "record_layout": null,
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_pwrDes_C",
+      "description": "mittlerer Leistungsbedarf der Servopumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04D0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_pwrLead",
+      "description": "Leistungsvorhalt der Servopumpe",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C70",
+      "record_layout": null,
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_pwrPhiSteer_MAP",
+      "description": "Verlustleistung in Abhängigkeit von VSSCD_v und FrmMng_phiSteer",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F04D2",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_pwrPhiSteer_mp",
+      "description": "Leistungsverlust Lenkwinkelabhängig",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF906",
+      "record_layout": null,
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_pwrVPhiSteer_MAP",
+      "description": "Verlustleistung in Abhängigkeit von VSSCD_v und FrmMng_vPhiSteer",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F05AC",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_pwrVPhiSteer_mp",
+      "description": "Leistungsverlust in Abhängigkeit von der Lenkwinkelgeschwindigkeit",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF908",
+      "record_layout": null,
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SrvPmp_stSAEcuMax_C",
+      "description": "Fehlerstatus des Lenkwinkelsteuergerätes muss grösser sein um einen Fehler auszulösen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0650",
+      "record_layout": "Kw_Wu8",
+      "func_group": "SrvPmp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

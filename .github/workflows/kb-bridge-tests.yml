@@ -1,0 +1,37 @@
+name: KB bridge tests
+
+on:
+  pull_request:
+    paths:
+      - "ecu-kb/**"
+      - "scripts/Publish-KBRemoteSnapshot.ps1"
+      - "docs/CHATGPT-KB-BRIDGE.md"
+      - "PROMPT_FOR_CHATGPT.md"
+  push:
+    branches:
+      - "main"
+      - "chatgpt/kb-remote-bridge"
+    paths:
+      - "ecu-kb/**"
+      - "scripts/Publish-KBRemoteSnapshot.ps1"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ensure canonical SQLite is not tracked
+        shell: bash
+        run: |
+          if git ls-files --error-unmatch ecu-kb/knowledge/kb.sqlite3 >/dev/null 2>&1; then
+            echo "Canonical SQLite DB must remain local and untracked."
+            exit 1
+          fi
+      - name: Compile bridge modules
+        run: python -m py_compile ecu-kb/remote_bridge.py ecu-kb/specialist.py
+      - name: Run bridge unit tests
+        run: python -m unittest discover -s ecu-kb/tests -p "test_*.py" -v

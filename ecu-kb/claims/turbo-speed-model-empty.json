@@ -1,0 +1,37 @@
+{
+  "_comment": "Знахідка при відповіді на питання «який в мене компресор»: у прошивці Є слот під компресорну карту, і він порожній. Декодовано tools/calmath/a2l.py з обох образів.",
+
+  "claims": [
+    {
+      "statement": "PCR_nTrbn_MAP (0x1E97B0), описана в A2L дослівно як «Verdichterkennfeld zu Ermittlung der Laderdrehzahl» (компресорна карта для визначення обертів нагнітача), має осі PCR_facBPAltCorr_mp (відношення тисків, [-]) × PCR_dmAirAltCorrFl_mp ([kg/h]) і вихід у [rpm] — тобто це саме компресорна карта в класичному сенсі. Її record layout — Kf_Xr32_Yr32_Wr32, тобто значення FLOAT32_IEEE, а не цілі. У ДВОХ образах (reference-from-hex.analysis-only.bin sha256 cf891152a97f… і new-inputs/on/03G906021QJ.Bin sha256 a1fc76a6ca96…, тобто в тому числі у прошивці, що зараз у машині) усі 100 комірок цієї карти дорівнюють 0.0, а її осі заповнені службовим сміттям: X = [100.0, 125.5, 125.51, 125.52, 125.53, 125.54, 125.55, 125.563, 125.57, 125.58], Y = [0, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8].",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "unit": "rpm", "is_modeled": 1, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Обидва образи мають обмеження провенансу: reference реконструйований з hex, new-inputs/on — читання лише зони даних. Третій незалежний образ того самого SW підтвердив би, що нулі не є артефактом читання."
+    },
+    {
+      "statement": "PCR_facBPAltMax_MAP (0x1E8EDA, «Ladedruckverhältnis ohne Vorfilter in großen Höhen») з осями PCR_nTrbnMax_mp (10000…200000 rpm обертів нагнітача) × PCR_dmAirAltCorr_mp (0…80 kg/h повітря) також повністю заповнена нулями в обох образах. Осі цієї карти, на відміну від PCR_nTrbn_MAP, виглядають осмислено відкаліброваними.",
+      "evidence_kind": "MAP_FACT", "verification_state": "project_matched",
+      "quantity_kind": "calibration", "is_modeled": 1, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived"
+    },
+    {
+      "statement": "Три об'єкти підсистеми захисту нагнітача від перекрутки нейтралізовані узгоджено в одному й тому самому напрямку: компресорна карта PCR_nTrbn_MAP = усі нулі, висотна карта відношення тисків PCR_facBPAltMax_MAP = усі нулі, гранична крива PCR_nTrbnMax_CUR = 327670 rpm (сирий 0x7FFF) у всіх восьми точках. Це суттєво підсилює раніше записане читання, що гілка моделювання обертів турбіни на цьому варіанті не є діючою (варіанти «а» сентинел і «в» гілка не виконується з claim про 0x7FFF), і послаблює читання «навмисно недосяжна стеля при робочій гілці»: робоча гілка не мала б сенсу з порожньою вхідною картою. Остаточно це НЕ доведено — потрібна гілка коду, яка читає PCR_nTrbn_MAP.",
+      "evidence_kind": "INFERRED", "verification_state": "corroborated",
+      "quantity_kind": "calibration", "is_modeled": 1, "confidence": 0.75,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "computed",
+      "missing_evidence": "Дизасемблювання гілки, що читає 0x1E97B0; або та сама карта в іншій калібровці EDC16U34, де вона заповнена — це показало б, що нулі є вибором калібрування, а не нормою для сімейства."
+    },
+    {
+      "statement": "Практичний наслідок для питання «які межі цієї турбіни»: у самій прошивці даних про компресор НЕМАЄ. Слот під компресорну карту існує і порожній, отже ECU не має моделі обертів нагнітача, не має висотного обмеження за відношенням тисків і не має діючої стелі обертів. Тобто ECU не захищає компресор від перекрутки, і водночас прошивка не є джерелом даних про його характеристики. Геометрія компресорного колеса (діаметри inducer/exducer, trim) лишається невідомою з будь-якого наявного джерела.",
+      "evidence_kind": "INFERRED", "verification_state": "corroborated",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "turbo_model": "BorgWarner BV39A-0072", "source_class": "computed",
+      "missing_evidence": "Прямий замір діаметрів компресорного колеса штангенциркулем через знятий патрубок впуску — єдиний наявний шлях отримати числа про сам компресор без документації виробника."
+    }
+  ]
+}

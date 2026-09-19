@@ -1,0 +1,30 @@
+{
+  "_comment": "Інвентаризація заводського інженерного комплекту в diagnostic-review/definitions/. Знайдено раніше не відкритий файл .sgm — офіційний контейнер програмування VW.",
+  "claims": [
+    {
+      "statement": "Заводський інженерний комплект під SW 1037391847 / HW 03G906021QJ складається з чотирьох файлів у diagnostic-review/definitions/03G906021QJ_1984_391847_P447_HAXN_EDC16U34_3.42/: A2L на 12.6 МБ (ASAM MCD-2MC, 16772 об'єкти, з них 11537 CHARACTERISTIC, 5220 MEASUREMENT, 15 AXIS_PTS, 486 FUNCTION, 442 COMPU_METHOD, 39 RECORD_LAYOUT), Intel HEX на 5.9 МБ, Motorola S19 на 6.3 МБ і SGML-контейнер .sgm на 2.8 МБ. Файл .sgm до цього моменту в проєкті не відкривався жодного разу.",
+      "evidence_kind": "MEASURED", "verification_state": "project_matched",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.95,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "source_class": "bin_derived"
+    },
+    {
+      "statement": "Файл .sgm є ОФІЦІЙНИМ контейнером програмування Volkswagen AG: DOCTYPE дослівно '-//Volkswagen AG//DTD Datencontainer fuer die SG-Programmierung V00.80:MiniDC08.DTD//GE', блок IDENT містить CNT-DATEI 03G906021QJ_1984.sgm, SW-VERSION-KURZ 1984 і SW-VERSION-LANG 03G906021QJ. Це той самий формат, яким заводське обладнання VAG прошиває блок. На відміну від усіх дампів зі збірки 4PDA, цей артефакт має справжній заводський провенанс.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "project_matched",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.95,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "source_class": "bin_derived"
+    },
+    {
+      "statement": "Контейнер оголошує ЧОТИРИ блоки програмування з офіційними зонами стирання, зонами контролю і 16-бітними контрольними сумами: dav_pfu_01 стирання 0x10000-0x3FFFF, контроль 0x10000-0x3FEFF, CHECKSUMME 0x8F04; dav_pfu_02 стирання й контроль 0x40000-0x17FFFF, CHECKSUMME 0x225D; dav_pfu_05 стирання й контроль 0x180000-0x1BFFFF, CHECKSUMME 0xEE55; dav_pfu_04 стирання 0x1C0000-0x1FFFFF, контроль 0x1C0000-0x1FDFFF, CHECKSUMME 0x73BA. Три наслідки. Перший: офіційні межі блоків 0x180000-0x1BFFFF і 0x1C0000-0x1FDFFF ТОЧНО збігаються з тими, які проєкт використовує для адитивної суми D01FE500 — тобто розбиття підтверджене заводським джерелом, а не лише емпірикою. Другий: зона 0x000000-0x0FFFF не входить у ЖОДЕН блок стирання, тобто завантажувач при штатному прошиванні не стирається й не перезаписується. Третій: у блоці dav_pfu_04 зона стирання (до 0x1FFFFF) ширша за зону контролю (до 0x1FDFFF), тобто хвіст 0x1FE000-0x1FFFFF стирається, але контрольною сумою не покривається.",
+      "evidence_kind": "OEM_DOCUMENTED", "verification_state": "corroborated",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.9,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "source_class": "bin_derived"
+    },
+    {
+      "statement": "Самі дані блоків у контейнері ЗАШИФРОВАНІ й видобути з них образ неможливо. Підстави: вкладення в MIME має ім'я 03G906021QJ_1984.BC4, довжина після base64-декодування точно дорівнює оголошеній GROESSE-DEKOMPRIMIERT (тобто це не стиснення), ентропія декодованих даних становить 8.00 біт на байт проти 4.97 у нашому образі в тій самій зоні, а збіг із нашим образом дорівнює 0.4 відсотка, тобто рівню випадкового. Контрольні суми VAG (16-бітні 0x8F04, 0x225D, 0x73BA, 0xEE55) є контролем РІВНЯ ПРОГРАМУВАННЯ і не збігаються за природою з внутрішньою адитивною сумою ECU D01FE500.",
+      "evidence_kind": "MEASURED", "verification_state": "corroborated",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.9,
+      "ecu_variant": "EDC16U34", "sw_number": "1037391847", "source_class": "computed",
+      "missing_evidence": "Алгоритм 16-бітної контрольної суми VAG не відтворений — невідомо, чи рахується вона від відкритих даних, чи від зашифрованих. Відтворення дозволило б додати цю перевірку у flash-preflight."
+    }
+  ]
+}

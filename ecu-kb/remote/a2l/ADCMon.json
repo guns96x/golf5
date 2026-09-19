@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "ADCMon",
+  "raw_groups": [
+    "ADCMon"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_DebQueueDef_C",
+      "description": "Fehlerentprellzeit für ADC-Queue-Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FC2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_DebRefVltgSRCDef_C",
+      "description": "Fehlerentprellzeit für ADC-Referenzspannungsfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FC4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_DebTstImpDef_C",
+      "description": "Fehleranzahl für ADC-Testimpulsfehler (ereignisentprellt)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FC6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_ctQueueNSync_mp",
+      "description": "Zähler zur Lebenderkennung der ereignissynchronen Queue",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE7B6",
+      "record_layout": null,
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_ctQueueTSync_mp",
+      "description": "Zähler zur Lebenderkennung der zeitsynchronen Queue",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE7B8",
+      "record_layout": null,
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_nQueueMon_C",
+      "description": "Drehzahlschwelle für Ablaufkontrolle der ereignissynchronen ADC-Queueüberwachung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FC8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_stADCMon",
+      "description": "Status der ADC-Überwachung",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F95CE",
+      "record_layout": null,
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_stQueue_mp",
+      "description": "Wandlungsstatus der ADC-Queues",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9D1",
+      "record_layout": null,
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_tiQueueMon_C",
+      "description": "Timeout für Ablaufkontrolle der ereignissynchronen ADC-Queueüberwachung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FCC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_tiSendTstImp_C",
+      "description": "Zeitabstand zwischen zwei ADC-Testimpulsen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FCE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_uRefRaw_mp",
+      "description": "Rohwert der ADC-Referenzspannung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE7BA",
+      "record_layout": null,
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_uRefSRCMax_C",
+      "description": "Obere Grenze für ADC-Referenzspannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FD0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_uRefSRCMin_C",
+      "description": "Untere Grenze für ADC-Referenzspannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FD2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_uTstImpRaw_mp",
+      "description": "Rohwert der ADC-Testimpulsspannung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE7BC",
+      "record_layout": null,
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ADCMon_uTstImpSRCMax_C",
+      "description": "Obere Grenze für ADC-Testimpulsspannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FD4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "ADCMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

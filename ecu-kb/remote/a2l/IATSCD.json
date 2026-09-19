@@ -1,0 +1,228 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "IATSCD",
+  "raw_groups": [
+    "IATSCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_DebSRCHighDef_C",
+      "description": "LTF Fehlerentprellzeit fuer SRC-High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D16",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_DebSRCHighOk_C",
+      "description": "LTF Heilungsentprellzeit fuer SRC-High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D18",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_DebSRCLowDef_C",
+      "description": "LTF Fehlerentprellzeit fuer SRC-Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D1A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_DebSRCLowOk_C",
+      "description": "LTF Heilungsentprellzeit fuer SRC-Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D1C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_DebSigDef_C",
+      "description": "Ladelufttemperatur - Entprellzeit bis Signal defekt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D12",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_DebSigOk_C",
+      "description": "Ladelufttemperatur - Entprellzeit bis Signal geheilt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D14",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_dtAir",
+      "description": "Änderungsrate der angesaugten Lufttemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A4C",
+      "record_layout": null,
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_dtRmpSlpDwn_C",
+      "description": "Rampensteigung bei Heilung/Vorgabewert für LTF",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D24",
+      "record_layout": "Kw_Wu32",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_dtRmpSlpUp_C",
+      "description": "Rampensteigung bei Heilung/Vorgabewert für LTF",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D20",
+      "record_layout": "Kw_Wu32",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_stSensIDWord_C",
+      "description": "Geberkennwort LTF-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D2A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_swtSig",
+      "description": "Signalquelle Schalter ADC/CAN",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94AD",
+      "record_layout": null,
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_swtSigVal_C",
+      "description": "Lufttemperatur - Funktionsschalter Signalquelle ADC oder CAN (0=ADC, 1= CAN)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D28",
+      "record_layout": "Kw_Wu8",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_tAir",
+      "description": "Ansauglufttemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A4E",
+      "record_layout": null,
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_tAirLin",
+      "description": "linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A50",
+      "record_layout": null,
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_tDfl_C",
+      "description": "Vorgabewert bei defektem LTF-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D2C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_tLin_CUR",
+      "description": "Linearisierungskennlinie für LTF-Sensor",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8CAC",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_uRaw",
+      "description": "Lufttemperatur Spannungsrohwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A52",
+      "record_layout": null,
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_uSRCMax_C",
+      "description": "Maximalwert für SRC LTF-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8CAA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IATSCD_uSRCMin_C",
+      "description": "Minimalwert für SRC LTF-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8CA8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "IATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

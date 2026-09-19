@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "HCInj",
+  "raw_groups": [
+    "HCInj"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "HCInj_dqInjAct",
+      "description": "Aktuell extern eingespritzte Kraftstoffmenge pro Sekunde",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A36",
+      "record_layout": null,
+      "func_group": "HCInj",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HCInj_rLmbdPstPFlt",
+      "description": "Lambda nach Partikelfilter",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A38",
+      "record_layout": null,
+      "func_group": "HCInj",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HCInj_tDiffPFltExo",
+      "description": "HCI Temperaturunterschied für PFlt",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A3A",
+      "record_layout": null,
+      "func_group": "HCInj",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

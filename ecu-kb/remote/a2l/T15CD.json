@@ -1,0 +1,382 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "T15CD",
+  "raw_groups": [
+    "T15CD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_DebNplDef_C",
+      "description": "Fehlerentprellzeit für Plausibilitätsfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11E2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_DebNplOk_C",
+      "description": "Heilungsentprellzeit für Plausibilitätsfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11E4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_DebSRCHighDef_C",
+      "description": "Fehlerentprellzeit für SRC-High Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11EA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_DebSRCHighOk_C",
+      "description": "Heilungsentprellzeit für SRC-High Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11EC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_DebSRCLowDef_C",
+      "description": "Fehlerentprellzeit für SRC-Low Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11EE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_DebSRCLowOk_C",
+      "description": "Heilungsentprellzeit für SRC-Low Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11F0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_dtRmpSlpDwn_C",
+      "description": "Abwärts-Rampenschrittweite für Klemme 15 Analogwerterfassung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11F8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_dtRmpSlpUp_C",
+      "description": "Aufwärts-Rampenschrittweite für Klemme 15 Analogwerterfassung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11F4",
+      "record_layout": "Kw_Wu32",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stAnDebVal",
+      "description": "Entprellter Wert der Klemme 15 aus Analogerfassung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9567",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stAnRawVal",
+      "description": "Status der Klemme 15 aus Analogerfassung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9568",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stCutOff",
+      "description": "Abschaltung der CAN/Suspend-Mode Überwachung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9569",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stCutOffHysYHigh_C",
+      "description": "Oberer Ausgangswert der Hysterese der Klemme 15 Spannungsüberwachung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11E0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stCutOffHysYLow_C",
+      "description": "Unterer Ausgangswert der Hysterese der Klemme 15 Spannungsüberwachung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11DE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stCutOffPreset_C",
+      "description": "Initialisierungswert für die Message der CAN/Suspendmode-Überwachungsabschaltung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11FC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stDebVal",
+      "description": "entprellter Wert der Klemme 15",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F956A",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stInvIn_C",
+      "description": "Invertierungsparameter für Klemme 15 Eingangssignal",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11FD",
+      "record_layout": "Kw_Wu8",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stRawVal",
+      "description": "Rohwert der Klemme 15",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F956B",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_stSensIDWord_C",
+      "description": "Geberkennwort für Analogauswertung der Klemme 15",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1204",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_tiDebNeg_C",
+      "description": "Filterzeitkonstante der Klemme 15 für fallende Flanken",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11E6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_tiDebPos_C",
+      "description": "Filterzeitkonstante der Klemme 15 für steigende Flanken",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11E8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_tiucoPT1_C",
+      "description": "Zeitkonstante für PT1-Filterung der linearisierten Klemme 15",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1200",
+      "record_layout": "Kw_Wu32",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uA2DThres_C",
+      "description": "Schwellwert für Umwandlung des analogen in digitalen Klemme 15-Wert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1208",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uCutOffHysXHigh_C",
+      "description": "Obere Hysteresegrenze für Klemme 15 Spannungsüberwachung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11DC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uCutOffHysXLow_C",
+      "description": "Untere Hysteresegrenze für Klemme 15 Spannungsüberwachung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11DA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uCutOffPreset_C",
+      "description": "Initialisierungswert für die PT1-Filterung der linearisierten Klemme 15",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F120A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uDfl_C",
+      "description": "Vorgabewert für Analogwert der Klemme 15",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1206",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uFltVal",
+      "description": "Klemme 15 gefilterter Analogwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C8E",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uLinVal",
+      "description": "Klemme 15 linearer Analogwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C90",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uLin_CUR",
+      "description": "Kennlinie für Linearisierung des Rohwerts der Klemme 15",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11C4",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uRawVal",
+      "description": "Klemme 15 analoger Rohwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C92",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uSRCMax_C",
+      "description": "Obere Grenze des SRC der Klemme 15",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11C2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uSRCMin_C",
+      "description": "Untere Grenze des SRC der Klemme 15",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11C0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "T15CD_uVal",
+      "description": "Aktueller Wert der Klemme 15",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C94",
+      "record_layout": null,
+      "func_group": "T15CD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

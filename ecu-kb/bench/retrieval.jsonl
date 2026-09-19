@@ -1,0 +1,25 @@
+{"id":"E01","kind":"a2l","query":"PCR_facBPAltMax_MAP","expect_address":"0x1E8EDA","note":"зниження наддуву на висоті"}
+{"id":"E02","kind":"a2l","query":"InjCrv_tPreTrbn1_MAP","expect_address":"0x1E333A","note":"уставка T3"}
+{"id":"E03","kind":"a2l","query":"EngPrt_qLimPBoost_MAP","expect_address":"0x1D45EE","note":"захист двигуна за наддувом"}
+{"id":"E04","kind":"a2l","query":"InjCrv_facPreTrbnKp_CUR","expect_address":"0x1E322A","note":"P-складова регулятора T3"}
+{"id":"E05","kind":"a2l","query":"PFlt_tExhGsSty_MAP","expect_address":"0x1EF21E","note":"стаціонарні температури випуску"}
+{"id":"E06","kind":"a2l","query":"LSU_rLmbd","expect_kind":"MEASUREMENT","note":"вимір лямбди з широкосмугового зонда"}
+{"id":"E07","kind":"a2l","query":"FlMng_rLmbdSmk_mp","expect_kind":"MEASUREMENT","note":"лямбда межі димності"}
+{"id":"E08","kind":"a2l_group","query":"PCR","expect_min_count":200,"note":"група шляху наддуву"}
+{"id":"E09","kind":"a2l_group","query":"EngPrt","expect_min_count":50,"note":"група захисту двигуна"}
+{"id":"E10","kind":"a2l","query":"ASDrf_KdPCRsafe_C","expect_kind":"CHARACTERISTIC","note":"безпечний режим турбіни"}
+{"id":"C01","kind":"fts","query":"charge pressure control solenoid valve","expect_doc_like":"%EDC 16%","k":5,"note":"SSP 304 про керування наддувом"}
+{"id":"C02","kind":"fts","query":"variable turbine geometry vanes","expect_doc_like":"%BorgWarner%","k":8,"note":"має знайти документ виробника турбіни, не Garrett"}
+{"id":"C03","kind":"fts","query":"unit injector pump nozzle cam","expect_doc_like":"%Pumpe%","k":8,"note":"Pumpe-Duse, а не VP37 чи CR"}
+{"id":"C04","kind":"fts","query":"hot film air mass meter characteristic","expect_doc_like":"%HFM%","k":5,"note":"даташит Bosch"}
+{"id":"C05","kind":"fts","query":"exhaust gas temperature soot formation diesel","expect_text_like":"%soot%","k":8,"note":"сажоутворення"}
+{"id":"C06","kind":"fts","query":"measuring value blocks diagnosis","expect_doc_like":"%VCDS%","k":5,"note":"Ross-Tech"}
+{"id":"C07","kind":"fts","query":"keyword protocol diagnostic services","expect_doc_like":"%14230%","k":8,"note":"KWP2000"}
+{"id":"C08","kind":"fts","query":"microcontroller memory flash sectors","expect_doc_like":"%MPC56%","k":8,"note":"залізо ECU"}
+{"id":"C09","kind":"fts","query":"electro pneumatic transducer solenoid vacuum","expect_doc_like":"%N75%","k":8,"note":"Pierburg"}
+{"id":"C10","kind":"fts","query":"torque structure inner outer engine management","expect_doc_like":"%EDC 16%","k":8,"note":"торк-структура"}
+{"id":"S01","kind":"scope","query":"boost pressure control","forbid_doc_like":"%Common Rail%","k":5,"note":"CR не має бути релевантним для PD"}
+{"id":"S02","kind":"scope","query":"injection quantity","forbid_doc_like":"%Distributor%","k":5,"note":"VP37 не має витісняти PD"}
+{"id":"S03","kind":"scope","query":"turbocharger compressor map","forbid_top1_doc_like":"%Garrett%","k":5,"note":"турбіна BorgWarner; Garrett не має бути першим"}
+{"id":"N01","kind":"negative","query":"BV39 maximum safe boost pressure limit mbar","note":"жодне джерело не дає цього числа — перевірка, що видача не виглядає авторитетною"}
+{"id":"N02","kind":"negative","query":"injector part number 038130073 flow rate","note":"номерів форсунок у корпусі немає"}

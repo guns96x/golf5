@@ -1,0 +1,217 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "Clg",
+  "raw_groups": [
+    "Clg"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_dtDynTst",
+      "description": "Ansteig der Wassertemperatur seit start",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9738",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_dtDynTstCARB",
+      "description": "Anstieg der Kühlmitteltemperatur beim letzten Test",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F973A",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_dtMinDynTstCARB",
+      "description": "Kopie von Clg_dtMinDynTst_C für Tester",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F973C",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_dtMinDynTst_C",
+      "description": "Minimaler Anstieg der Wassertemperatur zur Verifizierung derPlausibilität der Wassertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA3A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_nMinEnaDynTst_C",
+      "description": "Minimale Drehzahl zur Aktivierung des dynamischen Plausibilitätstests",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA3C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_qMinEnaDynTst_C",
+      "description": "Minimale Einspritzmenge zur Aktivierung des dynamischen Plausibilitätstests",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA3E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_stCtl_C",
+      "description": "Bitcodierter Schalter für das Modul:Kühlung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA40",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tClntStrtVal_mp",
+      "description": "Wassertemperatur zu Beginn des dynamischen Plausibilitätstests",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE9FA",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tEndDynTst",
+      "description": "CTSCD_tClnt am Ende des Tests",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F973E",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tEndDynTstCARB",
+      "description": "Kühlmitteltemperatur am Ende des letzten Tests",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9740",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tMinClntDynTstCARB",
+      "description": "Kopie von Clg_tMinClntDynTst_C für Tester",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9742",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tMinClntDynTst_C",
+      "description": "Minimale Wassertemperatur zur Verifizierung der Plausibilitäts der Wassertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA6E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tiDynTst",
+      "description": "Abgelaufene Zeit, seit der der dynamische plausibilitätstest aktiv ist",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9744",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tiDynTstCARB",
+      "description": "Dauer des letzten Tests",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9746",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tiInitTmr_C",
+      "description": "Zeitspanne nach Motorstatrt bis die Wassertemperatur erfasst wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA42",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tiMaxDynTst",
+      "description": "Maximal zulässige Testzeit des dynamischen Plausibilitätstest",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9748",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tiMaxDynTstCARB",
+      "description": "Maximale Testzeit beim letzten Test",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F974A",
+      "record_layout": null,
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Clg_tiMaxDynTst_CUR",
+      "description": "Kennlinie der maximal zulässigen Testzeit des dynamischen Plausibilitätstest",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA44",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "Clg",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "Can",
+  "raw_groups": [
+    "Can"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "Can_noGearActDisp_VW",
+      "description": "Actual gear for CAN communication",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x007FABF0",
+      "record_layout": null,
+      "func_group": "Can",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Can_noGearReqDisp_VW",
+      "description": "Requested gear for CAN communication",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x007FABF1",
+      "record_layout": null,
+      "func_group": "Can",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

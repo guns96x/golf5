@@ -1,0 +1,92 @@
+{
+  "_comment": "Фізика та гідравліка системи насос-форсунок (Pumpe-Düse / UIS) та турбокомпресора BorgWarner BV39. Цитати з офіційних першоджерел VW SSP 209, SSP 315 та BorgWarner Turbo News 2004-1. Завантажувати через python kb.py load-claims.",
+  "claims": [
+    {
+      "statement": "У системі насос-форсунок (Pumpe-Düse / UIS) піковий тиск впорскування сягає до 2050 бар завдяки механічному витісненню палива плунжером від розподільного вала в замкненій камері високого тиску.",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "quantity_kind": "physical",
+      "unit": "bar",
+      "confidence": 0.98,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "VW_SSP_209",
+          "quote": "The pressure rises to 2050 bar, because more fuel is displaced in the high-pressure chamber than can escape through the nozzle holes."
+        }
+      ]
+    },
+    {
+      "statement": "Відкриття голки розпилювача для основної фази впорскування відбувається при тиску приблизно 300 бар, коли тиск палива перевищує попередній натяг пружини форсунки при закритому соленоїдному клапані.",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "quantity_kind": "physical",
+      "unit": "bar",
+      "confidence": 0.95,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "VW_SSP_209",
+          "quote": "At approx. 300 bar, the fuel pressure is greater than the force exerted by the pre-loaded injector spring."
+        }
+      ]
+    },
+    {
+      "statement": "Механічне попереднє впорскування (Voreinspritzung) у насос-форсунці реалізується гідравлічним демпферним поршнем (damping piston), який формує гідравлічну подушку при зануренні в отвір корпусу форсунки і обмежує хід голки.",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "quantity_kind": "physical",
+      "confidence": 0.95,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "VW_SSP_209",
+          "quote": "As soon as the damping piston plunges into the bore in the injector housing, the fuel above the injector needle can only be displaced into the injector spring chamber through a leakage gap."
+        }
+      ]
+    },
+    {
+      "statement": "Момент початку подачі (BIP — Begin of Injection Period) у системі насос-форсунок детектується блоком керування EDC16 за характерним перегином (kink) на кривій струму соленоїдного клапана форсунки при його повному закритті.",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "quantity_kind": "diagnostic",
+      "confidence": 0.98,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "VW_SSP_315",
+          "quote": "The BIP of the unit injector valve is identifiable by a noticeable kink in the current curve."
+        }
+      ]
+    },
+    {
+      "statement": "Турбокомпресори серії BV (зокрема BV39 для 4-циліндрових дизелів VW 1.9 TDI) належать до 3-го покоління технології змінної геометрії турбіни (VTG 3rd Generation) компанії BorgWarner зі зменшеним зносом, стійкістю до деформацій корпусу та покращеним гістерезисом.",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "turbo_model": "BV39",
+      "confidence": 0.95,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "BV39_Introduction",
+          "quote": "The 3rd generation of BorgWarner’s VTG technology for passenger cars is a powerful and proven solution right from the series launch."
+        }
+      ]
+    }
+  ]
+}

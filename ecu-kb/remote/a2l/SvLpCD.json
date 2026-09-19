@@ -1,0 +1,272 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "SvLpCD",
+  "raw_groups": [
+    "SvLpCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_dFillLvlCnt",
+      "description": "Anzahl der plausiblen Füllstände",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9561",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_dGradFillCrv_C",
+      "description": "Faktor für die Konvertierung der Füllstandszeit in die Einzelfüllstandsdifferenz",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0FEC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_lFillLvl_1_mp",
+      "description": "Füllstand 1",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF93C",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_lFillLvl_2_mp",
+      "description": "Füllstand 2",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF93E",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_lFillLvl_3_mp",
+      "description": "Füllstand 3",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF940",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_lFillLvl_4_mp",
+      "description": "Füllstand 4",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF942",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_lFillLvl_CUR",
+      "description": "Kennlinie für die Berechnung der Füllstände von der Füllstandszeit",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0FF4",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_lOilWarn_MAP",
+      "description": "Ölwarnschwellen - Kompensationskennfeld",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F102A",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_ltmpMin2",
+      "description": "Ölwarnungskompensation",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C7E",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_nAvrgFlt",
+      "description": "geglättete Drehzahl",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C80",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_nEngMax_C",
+      "description": "Maximalgrenzwert der Motordrehzahl für die Berechnung der Summe der Einzelfüllstandsdifferenzen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11B4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_nEngMin_C",
+      "description": "Minimalgrenzwert der Motordrehzahl für die Berechnung der Summe der Einzelfüllstandsdifferenzen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11B6",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_stFillLvlNotPlaus",
+      "description": "Status der Füllstandsplausibilisierung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9562",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_tOilMax_C",
+      "description": "Maximalgrenzwert der Öltemperatur für die Berechnung der Summe der Einzelfüllstandsdifferenzen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11BC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_tOilMin_C",
+      "description": "Minimalgrenzwert der Öltemperatur für die Berechnung der Summe der Einzelfüllstandsdifferenzen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11BE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_tiEngNPT1_C",
+      "description": "Zeitkonstante für das PT1-Filter für die Motordrehzahl",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0FF0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_tiFillLvlMax_C",
+      "description": "Maximalgrenzwert für die Füllstandszeit",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11B8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_tiFillLvlMin_C",
+      "description": "Minimalgrenzwert für die Füllstandszeit",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F11BA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_volSingleDiff_1_mp",
+      "description": "Einzelfüllstandsdifferenz 1",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF944",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_volSingleDiff_2_mp",
+      "description": "Einzelfüllstandsdifferenz 2",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF946",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_volSingleDiff_3_mp",
+      "description": "Einzelfüllstandsdifferenz 3",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF948",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_volSingleDiff_4_mp",
+      "description": "Einzelfüllstandsdifferenz 4",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF94A",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "SvLpCD_volSumSingleDiff",
+      "description": "Summe der einzelnen Füllstandsmengenunterschiede",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C82",
+      "record_layout": null,
+      "func_group": "SvLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

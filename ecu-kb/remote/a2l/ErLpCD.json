@@ -1,0 +1,382 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "ErLpCD",
+  "raw_groups": [
+    "ErLpCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_OrdGlwLamp",
+      "description": "Message vom Fehlerlampen Handler and Glühzeitsteuerung, steuert die Glühlampe bei Systemlampenfehlern an.",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93D8",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_ctMilPwrStgOnMax_C",
+      "description": "Maximaler Zähler für Powerstage On im Fehlerfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50C0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_ctSysLmpPwrStgOnMax_C",
+      "description": "Maximaler Zähler für Powerstage On im Fehlerfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50C2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_rHWEMILOut_mp",
+      "description": "Meßpunkt des Ausgangswertes vom MIL-Signal zur Hardware",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF246",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_rHWESysLampOut_mp",
+      "description": "Meßpunkt des Ausgangswertes vom Systemlampe-Signal zur Hardware",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF248",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stMIL_mp",
+      "description": "Testzustand und Fehlerspeicheranforderung der MIL",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE3F",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stMil",
+      "description": "Gesamtatus der MIL und Status der Aktivierungsquellen",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93D9",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stMilInvOut_C",
+      "description": "Invertierung des Ausgangssignals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50C8",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stMilReq",
+      "description": "Status der externen MIL Ansteuerungs Anforderung (Achtung: wechselt während der Ansteuerung dauernd den Zustand)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93DA",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stMilSPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart (1 = SPI kontrolliert, 0 = nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50C9",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stPwrStgLampActv_C",
+      "description": "Spezifikation des Abschaltverhaltens der Lamp-Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50CA",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stPwrStgLampDia_C",
+      "description": "Spezifikation des Diagnoseabschaltverhaltens der Lamp-Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50CB",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stPwrStgMilActv_C",
+      "description": "Spezifikation des Abschaltverhaltens der MIL-Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50CC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stPwrStgMilDia_C",
+      "description": "Spezifikation des Diagnoseabschaltverhaltens der MIL-Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50CD",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stSysLamp",
+      "description": "Gesamtatus der System Lampe und Status der Aktivierungsquellen",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93DB",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stSysLampInvOut_C",
+      "description": "Invertierung des Ausgangssignals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50CE",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stSysLampOut",
+      "description": "Status der Systemlampe",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93DC",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stSysLampReq",
+      "description": "Status der externen Systemlampen  Ansteuerungs Anforderung (Achtung: wechselt während der Ansteuerung dauernd den Zustand)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93DD",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stSysLamp_mp",
+      "description": "Testzustand und Anforderung durch Fehlerspeicher für Systemlampe",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE40",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_stSysLmpSPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart (1 = SPI kontrolliert, 0 = nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50CF",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_swtMIL",
+      "description": "Satusinformation des MIL-Lampen Schalters",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93DE",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_swtMILType_C",
+      "description": "Parameter zur Auswahl des Schaltertyps (soll Wert aus Datensatz oder aus EEPROM kommen)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50D1",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_swtMILVal_C",
+      "description": "Datensatzwert für den Schalter ErLpCD_swtMIL",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50D0",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_swtSYS",
+      "description": "Satusinformation des SYS-Lampen Schalters",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93DF",
+      "record_layout": null,
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_swtSYSType_C",
+      "description": "Parameter zur Auswahl des Schaltertyps (soll Wert aus Datensatz oder aus EEPROM kommen)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50D3",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_swtSYSVal_C",
+      "description": "Datensatzwert für den Schalter ErLpCD_swtSYS",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50D2",
+      "record_layout": "Kw_Wu8",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_tiBtwTstMil_C",
+      "description": "Zeitabstand, in dem die Endstufe im Fehlerfall getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50D4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_tiBtwTstSysLmp_C",
+      "description": "Zeitabstand, in dem die Endstufe im Fehlerfall getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50D6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_tiDebMILReqOnDef_C",
+      "description": "Debounce Dauer",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50C4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_tiDebMILReqOnOk_C",
+      "description": "Fehlerheilungserkennungszeit",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50C6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_tiMilPwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall eingeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50D8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_tiSysLampBlkDia_C",
+      "description": "Blinkfrequenz bei externer Diagnoseanforderung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50DA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "ErLpCD_tiSysLmpPwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall eingeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D50DC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "ErLpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

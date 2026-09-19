@@ -1,0 +1,195 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "BattCD",
+  "raw_groups": [
+    "BattCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_duRmpSlpDwn_C",
+      "description": "Rampe Zunahme Batteriespannung positive Steigung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1C4",
+      "record_layout": "Kw_Wu32",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_duRmpSlpUp_C",
+      "description": "Rampe Zunahme Batteriespannung negative Steigung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1C0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_stSensIDWord_C",
+      "description": "Kennung Batteriespannungserfassung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1D0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_tiDebSRCHighDef_C",
+      "description": "Entprellzeit für Erkennung des SRC-High-Fehlers der Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1C8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_tiDebSRCHighOk_C",
+      "description": "Entprellzeit für Heilung des SRC-High-Fehlers der Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1CA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_tiDebSRCLowDef_C",
+      "description": "Entprellzeit für Erkennung des SRC-Low-Fehlers der Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1CC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_tiDebSRCLowOk_C",
+      "description": "Entprellzeit für Heilung des SRC-Low-Fehlers der Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1CE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_u",
+      "description": "Batteriespannung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F96DC",
+      "record_layout": null,
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_uDfl_C",
+      "description": "Vorgabewert Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1D2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_uFlt",
+      "description": "PT1-gefilterte Batteriespannung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F96DE",
+      "record_layout": null,
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_uLin_CUR",
+      "description": "Linearisierungskennlinie",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1A8",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_uLin_mp",
+      "description": "Rohwert Batterspannung über ADC",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE976",
+      "record_layout": null,
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_uRaw",
+      "description": "Rohwert ADC-Signalspannung für Batteriespannung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F96E0",
+      "record_layout": null,
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_uSRCMax_C",
+      "description": "SRC-Max der Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1A6",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_uSRCMin_C",
+      "description": "SRC-Min der Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1A4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BattCD_vLim_C",
+      "description": "Geschwindigkeitsgrenze zum Ausblenden von BattCD-SRC-High-Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC1D4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BattCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

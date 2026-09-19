@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "CtTCD",
+  "raw_groups": [
+    "CtTCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_DebExcTempDef_C",
+      "description": "Fehlerentprellzeit für Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD342",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_DebExcTempOk_C",
+      "description": "Heilungsentprellzeit für Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD344",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_DebNoLoadDef_C",
+      "description": "Fehlerentprellzeit für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD346",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_DebNoLoadOk_C",
+      "description": "Heilungsentprellzeit für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD348",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_DebShortCircBatDef_C",
+      "description": "Fehlerentprellzeitzeit für Kurzschluß nach Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD34A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_DebShortCircBatOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Batteriespannung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD34C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_DebShortCircGndDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD34E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_DebShortCircGndOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD350",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_ctPwrStgOnMax_C",
+      "description": "maximale Anzahl von Endstufen-Einschaltungen pro Fahrzyklus bei SCB oder Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD340",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_rHWE_mp",
+      "description": "Ausgabetastverhältnis zur HWK",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEACC",
+      "record_layout": null,
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_stInvOut_C",
+      "description": "Invertierung des Ausgangssignals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD352",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_stSPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart ( 1 = SPI kontrollierbare Endstufe, 0 = nicht SPI-Endstufe )",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD356",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_tiBtwTst_C",
+      "description": "Zeit zwischen Endstufentest bei erkanntem Endstufenfehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD358",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_tiPer_C",
+      "description": "Periodendauer des Ausgangssignal der Kühlmitteltermostatendstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD354",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtTCD_tiPwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall eingeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD35A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtTCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

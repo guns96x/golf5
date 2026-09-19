@@ -1,0 +1,349 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "InjUn",
+  "raw_groups": [
+    "InjUn"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_QntyPerTemp_MAP",
+      "description": "Mengen-Korrektur-Kennfeld (Menge pro Temperatureinheit)",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4D4A",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_ShOffTstCyl_mp",
+      "description": "Zylinder mit dem der Test der redundanten Abschaltpfade durchgeführt wurde",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF1A",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_ctFBC_qArr_FTC_mp",
+      "description": "Index des Feldes der FBC Mengen",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF19",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_facFlTempCor_mp",
+      "description": "Korrekturfaktor für die Einspritzmengen",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF604",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_facqRedovn_CUR",
+      "description": "Kennlinie für die drehzahlabhängige Reduzierung der Einspritzmenge im Notfahren",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4D3C",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qFBC_FTC_mp",
+      "description": "Zylinderspezifische Menge der FBC",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF606",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qMI1DesCorr",
+      "description": "kraftstofftemperaturkorrigierte Einspritzmenge für die Haupteinspritzung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AC0",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qMI1DesCorrByp_mp",
+      "description": "Messpunkt um InjUn_qMI1DesCorr ueber ASCET vor Bypass auszulesen",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF608",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qMI1DesCorr_Channel",
+      "description": "Konfigurationslabel für Bypass",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0AFB",
+      "record_layout": "Kw_Wu8",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qMI1DesCorr_Vector",
+      "description": "Konfigurationslabel für Bypass",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0AFA",
+      "record_layout": "Kw_Wu8",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qPiI1DesCorr",
+      "description": "kraftstofftemperaturkorrigierte Einspritzmenge für die Voreinspritzung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AC2",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qPiI1DesCorrByp_mp",
+      "description": "Messpunkt um InjUn_qPiI1DesCorr ueber ASCET vor Bypass auszulesen",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF60A",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qPiI1DesCorr_Channel",
+      "description": "Konfigurationslabel für Bypass",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0AFD",
+      "record_layout": "Kw_Wu8",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qPiI1DesCorr_Vector",
+      "description": "Konfigurationslabel für Bypass",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0AFC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qPoI2DesCorr",
+      "description": "kraftstofftemperaturkorrigierte Einspritzmenge für die 2 Nacheinspritzung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AC4",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qPoI2DesCorrByp_mp",
+      "description": "Messpunkt um InjUn_qPoI2DesCorr ueber ASCET vor Bypass auszulesen",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF60C",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qPoI2DesCorr_Channel",
+      "description": "Konfigurationslabel für Bypass",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0AFF",
+      "record_layout": "Kw_Wu8",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qPoI2DesCorr_Vector",
+      "description": "Konfigurationslabel für Bypass",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0AFE",
+      "record_layout": "Kw_Wu8",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qTotIDes_mp",
+      "description": "Gesamteinspritzmenge",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF60E",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_qTotInj",
+      "description": "Gesamteinspritzmenge für die Schubüberwachung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AC6",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_stInjValve",
+      "description": "Abschaltanforderungen für Injektor",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94CD",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_stShOffTst_mp",
+      "description": "Status der Einspritzung während eines Abschaltpfadtests",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF1B",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_stSysErr",
+      "description": "systemspezifische Fehler",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AC8",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_stTst",
+      "description": "allgemeiner Status der Tests, die im Einspritzsystem durchgeführt werden",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9ACA",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_swtTempSel_C",
+      "description": "Schalter für die Mengenkorrektur im Startfall (0: Kraftstofftemperatur; 1:Wassertemperatur)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4E00",
+      "record_layout": "Kw_Ws16",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_tFlDiffCor_CUR",
+      "description": "Korrekturkennlinie der Kraftstofftemperaturabweichung",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4E02",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_tFlDiffCorr_mp",
+      "description": "korrigierte Kraftstofftemperaturabweichung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF610",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_tFlDiff_mp",
+      "description": "Kraftstofftemperaturabweichung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF612",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_tFlRef_MAP",
+      "description": "Kraftstoffbezugstemperatur Kennfeld",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4E54",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjUn_tFlRef_mp",
+      "description": "Kraftstoffbezugstemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF614",
+      "record_layout": null,
+      "func_group": "InjUn",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

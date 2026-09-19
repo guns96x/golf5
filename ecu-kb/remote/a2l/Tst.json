@@ -1,0 +1,96 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "Tst",
+  "raw_groups": [
+    "Tst"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "Tst_Zyklflag_SB1",
+      "description": "Zyklusflagstatus für Bandende",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F957B",
+      "record_layout": null,
+      "func_group": "Tst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tst_Zyklflag_SB2",
+      "description": "Zyklusflagstatus für Bandende",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F957C",
+      "record_layout": null,
+      "func_group": "Tst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tst_Zyklflag_SB3",
+      "description": "Zyklusflagstatus für Bandende",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F957D",
+      "record_layout": null,
+      "func_group": "Tst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tst_Zyklflag_SB4",
+      "description": "Zyklusflagstatus für Bandende",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F957E",
+      "record_layout": null,
+      "func_group": "Tst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tst_Zyklflag_SB5",
+      "description": "Zyklusflagstatus für Bandende",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F957F",
+      "record_layout": null,
+      "func_group": "Tst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tst_Zyklflag_SB6",
+      "description": "Zyklusflagstatus für Bandende",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9580",
+      "record_layout": null,
+      "func_group": "Tst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tst_Zyklflag_SB7",
+      "description": "Zyklusflagstatus für Bandende",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9581",
+      "record_layout": null,
+      "func_group": "Tst",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

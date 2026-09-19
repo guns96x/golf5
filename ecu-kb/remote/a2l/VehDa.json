@@ -1,0 +1,305 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "VehDa",
+  "raw_groups": [
+    "VehDa"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_AdjVal_lSum_mp",
+      "description": "Zuletzt gespeicherter Wert der gefahrenen Strecke im EEPROM oder Wert über KWP2000 (32-Bit)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE718",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_AdjVal_stSum_mp",
+      "description": "uint8 - Meßpunkt von VehDa_stSum des EEPROM-Wertes",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFDB",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_AdjVal_tiEngOn_mp",
+      "description": "Zuletzt gespeicherter Wert der aktuellen Betriebszeit im EEPROM oder Wert über KWP2000 (32-Bit)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE71C",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_PerCntCarb_mp",
+      "description": "Zähler der den Zeitwechsel bei VehDa_tiCarbEngOn schaltet",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF98E",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_PerCntFTS_mp",
+      "description": "Zähler für Timer-increment VehDa_tiFTSEngOn",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF990",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_PerCnt_mp",
+      "description": "Zählerwert",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF992",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_lStore_C",
+      "description": "EEPROM Speicherintervall im Betrieb",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32BC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_lSum",
+      "description": "Erfassung gefahrene Strecke",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9ECC",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_nCarbThres_C",
+      "description": "Drehzahl Schwelle ab der VehDa_tiCarbEngOn zu zählen beginnt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32C0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_nEngFilt_mp",
+      "description": "vorgefilterte Motordrehzahl für v/n Verhältnis",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF994",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_nFTSThres_C",
+      "description": "Drehzahlschwelle Betriebsstundenerfassung für FTS",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32C2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_nThres_C",
+      "description": "Drehzahlschwelle für Betriebsstundenerfassung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32C4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_qFTSThres_C",
+      "description": "Einspritzmengenschwelle Betriebsstundenerfassung für FTS",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32C6",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_qThres_C",
+      "description": "akt. Einspritzmengenschwelle für Betriebsstundenerfassung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32C8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_rVn",
+      "description": "Verhältnis von Fahrgeschwindigkeit zur Motordrehzahl",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9CC6",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_rVnMax_C",
+      "description": "maximales v/n-Verhältnis",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32CA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_stSum",
+      "description": "Status der gefahrenen Strecke",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9590",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_stTrqDem",
+      "description": "Status der aktuellen Momentenanforderungen",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9CC8",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_tiCarbEngOn",
+      "description": "Motor Laufzeit [sec] für Carb Mode 1 PID 1F",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9CCA",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_tiEngOn",
+      "description": "Erfassung der aktuellen Betriebszeit",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9ED0",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_tiFTSEngOn",
+      "description": "Aktuelle Betriebszeit für FTS (uint32 - Variable)",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9ED4",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_tiNPT1_C",
+      "description": "T1 Zeitkonstante zur Vorfilterung der Motordrehzahl für v/n-Verhältnis",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32CC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_tiStore_C",
+      "description": "EEPROM Speicherintervall im Betrieb",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32D0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_tiVnPT1_C",
+      "description": "T1 Zeitkonstante zur Filterung des v/n-Verhältnisses",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32D4",
+      "record_layout": "Kw_Wu32",
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_vSum_mp",
+      "description": "aufsummierte Geschwindigkeit",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF98A",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VehDa_vThres_mp",
+      "description": "Schwellwert der aufsummierten Geschwindigkeit",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF98C",
+      "record_layout": null,
+      "func_group": "VehDa",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

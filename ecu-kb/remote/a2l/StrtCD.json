@@ -1,0 +1,393 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "StrtCD",
+  "raw_groups": [
+    "StrtCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_stInvOutOffRly_C",
+      "description": "Invertiertes Signal des Starter Aus-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0678",
+      "record_layout": "Kw_Wu8",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_stInvOutOnRly_C",
+      "description": "Invertiertes Signal des Starter Ein-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F069C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_stPwrStgDiaOffRly_C",
+      "description": "Aktivierung der Abschaltbedingungen der Endstufendiagnose",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0679",
+      "record_layout": "Kw_Wu8",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_stPwrStgDiaOnRly_C",
+      "description": "Aktivierung der Abschaltbedingungen der Endstufendiagnose",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F069D",
+      "record_layout": "Kw_Wu8",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_stPwrStgOffRly_mp",
+      "description": "Endstufenfehlerinformation des Starter Aus-Relais",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF910",
+      "record_layout": null,
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_stPwrStgOnRly_mp",
+      "description": "Endstufenfehlerinformation des Starter Ein-Relais",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF912",
+      "record_layout": null,
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiNoLoadDefOfR_C",
+      "description": "Fehlerentprellzeit für Leerlauf des Starter Aus Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F067A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiNoLoadDefOnR_C",
+      "description": "Fehlerentprellzeit für Leerlauf des Starter Ein-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F069E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiNoLoadOkOfR_C",
+      "description": "Heilungsentprellzeit für Leerlauf des Starter Aus-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F067C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiNoLoadOkOnR_C",
+      "description": "Heilungsentprellzeit für Leerlauf des Starter Ein-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06A0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiShrtBatDefOfR_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach U-Batt des Starter Aus-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F067E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiShrtBatDefOnR_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach U-Batt des Starter Ein-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06A2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiShrtBatOkOfR_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach U-Batt des Starter Aus-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0680",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiShrtBatOkOnR_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach U-Batt des Starter Ein-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06A4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiShrtGndDefOfR_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Masse des Starter Aus-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0682",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiShrtGndDefOnR_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Masse des Starter Ein-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06A6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiShrtGndOkOfR_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Masse des Starter Aus-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0684",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_tiShrtGndOkOnR_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Masse des Starter Ein-Relais",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06A8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uLinOffRly_CUR",
+      "description": "Linearisierungskennlinie fuer Klemme 50 Aus-Relais",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F066E",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uLinOnRly_CUR",
+      "description": "Linearisierungskennlinie fuer Klemme 50 Ein-Relais",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0692",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uNoLoadMaxOffR_C",
+      "description": "Maximalspannung für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0686",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uNoLoadMaxOnR_C",
+      "description": "Maximalspannung für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06AA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uNoLoadMinOffR_C",
+      "description": "Minimalspannung für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0688",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uNoLoadMinOnR_C",
+      "description": "Minimalspannung für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06AC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uPhyValOffRly",
+      "description": "Spannung der Endstufe Klemme 50 Aus-Relais",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C7A",
+      "record_layout": null,
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uPhyValOnRly",
+      "description": "Spannung der Endstufe Klemme 50 Ein-Relais",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9C7C",
+      "record_layout": null,
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uSRCMaxOffRly_C",
+      "description": "SRC-Max des Spannungsrohwertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F066C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uSRCMaxOnRly_C",
+      "description": "SRC-Max des Spannungsrohwertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0690",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uSRCMinOffRly_C",
+      "description": "SRC-Min des Spannungsrohwertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F066A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uSRCMinOnRly_C",
+      "description": "SRC-Min des Spannungsrohwertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F068E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uShortBatMinOffR_C",
+      "description": "Minimalspannung für Kurzschluß nach U-Batt.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F068A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uShortBatMinOnR_C",
+      "description": "Minimalspannung für Kurzschluß nach U-Batt.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06AE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uShortGndMaxOffR_C",
+      "description": "Maximalspannung für Kurzschluß nach U-Batt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F068C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "StrtCD_uShortGndMaxOnR_C",
+      "description": "Maximalspannung für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F06B0",
+      "record_layout": "Kw_Ws16",
+      "func_group": "StrtCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

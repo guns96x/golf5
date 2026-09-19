@@ -1,0 +1,173 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "CrS",
+  "raw_groups": [
+    "CrS"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_ctInjStrt_mp",
+      "description": "Anzahl der durchgeführten Testeinspritzungen",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEAAE",
+      "record_layout": null,
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_ctMaxInjStrt_C",
+      "description": "Maximale Anzahl von Testeinspritzungen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0C88",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_facSegTimeMax_C",
+      "description": "Maximales Verhältnis der Segmentzeiten, das eine konstante Motordrehzahl signalisiert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0C8C",
+      "record_layout": "Kw_Ws32",
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_facSegTimeMin_C",
+      "description": "Minimales Verhältnis der Segmentzeiten, das eine konstante Motordrehzahl signalisiert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0C90",
+      "record_layout": "Kw_Ws32",
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_facSegTime_CUR",
+      "description": "Verhältnis der Segmentzeiten (motordrehzahlabhängig)",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCFBC",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_facSegTime_mp",
+      "description": "Verhältnis der Segmentzeiten",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE498",
+      "record_layout": null,
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_numTDCStrtLst_mp",
+      "description": "Zeigt den Zylinder an, in den als letztes eingespritzt wurde",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEAB0",
+      "record_layout": null,
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_numTDCStrt_mp",
+      "description": "Zeigt die Zylinder an, in die bereits eingespritzt wurde",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEAB2",
+      "record_layout": null,
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_phiSegLengthStrtSpd_C",
+      "description": "Segmentlänge, die berechnet werden soll",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0C94",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_phiSegOfsStrtSpdOld_C",
+      "description": "Segment Offset des alten Segmentes bezüglich TDC",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0C96",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_phiSegOfsStrtSpd_C",
+      "description": "Segment Offset des aktuellen Segmentes bezüglich TDC",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0C98",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_stStrt_mp",
+      "description": "Messpunkt für Zustandsautomat",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFA4A",
+      "record_layout": null,
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_tiSegOld_mp",
+      "description": "Segmentzeit vor einer Testeinspritzung",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE49C",
+      "record_layout": null,
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CrS_tiSeg_mp",
+      "description": "Segmentzeit nach einer Testeinspritzung",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE4A0",
+      "record_layout": null,
+      "func_group": "CrS",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

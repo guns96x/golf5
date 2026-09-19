@@ -1,0 +1,338 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "BPASCD",
+  "raw_groups": [
+    "BPASCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_DebSRCHiDefRelPos_C",
+      "description": "Fehlerentprellzeit für SRC High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6F2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_DebSRCHiOkRelPos_C",
+      "description": "Heilungsentprellzeit für SRC High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6F4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_DebSRCLoDefRelPos_C",
+      "description": "Fehlerentprellzeit für SRC Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6F6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_DebSRCLoOkRelPos_C",
+      "description": "Heilungsentprellzeit für SRC Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6F8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_DebSigDefRelPos_C",
+      "description": "Fehlerentprellzeit für CAN Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6EE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_DebSigOkRelPos_C",
+      "description": "Heilungsentprellzeit für CAN Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6F0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_dtRmpSlpDwnRelPos_C",
+      "description": "Rampensteigung bei Heilung/Vorgabewert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC700",
+      "record_layout": "Kw_Wu32",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_dtRmpSlpUpRelPos_C",
+      "description": "Rampensteigung bei Heilung/Vorgabewert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6FC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_facOfs_C",
+      "description": "Gewichtungsfaktor des Offsetwertes",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC704",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_nMinOfs_CUR",
+      "description": "Kennlinie für minimales Motordrehzahl- Offset.",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC706",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_numSSpRelPos_C",
+      "description": "Nummer des Spannungsmodules an dem die Sensorversorgung angeschlossen ist",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC718",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_rDflRelPos_C",
+      "description": "Vorgabewert für die Position des Ladedruckstellers",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC726",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_rLinNoOfs",
+      "description": "Rueckmeldesignal des Laderstellers ohne Offset",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F96A4",
+      "record_layout": null,
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_rLinRelPos",
+      "description": "Linearisierter Wert vor der Fehlerbehandlung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F96A6",
+      "record_layout": null,
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_rLinRelPos_CUR",
+      "description": "Linearisierungs Kennlinie für den Positionsrückmelder",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6C8",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_rOfs",
+      "description": "Offsetwert zur Adaption",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F96A8",
+      "record_layout": null,
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_rOutMinOfs_C",
+      "description": "Minimaler Ansteuerwert zur Offsetadaption",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC71A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_rRefOfs_C",
+      "description": "Referenzwert des Offset",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC71C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_rRelPos",
+      "description": "Relative Position des Ladedruckstellers nach der Fehlerbehandlung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F96AA",
+      "record_layout": null,
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_stOfs",
+      "description": "Status der Offsetadaption",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F930D",
+      "record_layout": null,
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_stSensIDWordRelPos_C",
+      "description": "Geberkennwort des Ladedrucksteller Positionssensors",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC724",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_swtSigRelPos_C",
+      "description": "Wahlschalter für Signalquelle ADC oder CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC71E",
+      "record_layout": "Kw_Wu8",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_tMinOfs_C",
+      "description": "Minimale Motortemperatur zur Offsetadaption",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC722",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_tiOfs_C",
+      "description": "Dauer der Bedingungen für Offsetadaption",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC720",
+      "record_layout": "Kw_Wu16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_uMaxOfs_C",
+      "description": "Maximalwert der Rohspannung zur Offsetadaption",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC728",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_uMinOfs_C",
+      "description": "Minimalwert der Rohspannung zur Offsetadaption",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC72A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_uRawRelPos",
+      "description": "Spannungsrohwert des Ladedrucksteller Positionsgebers",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F96AC",
+      "record_layout": null,
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_uSRCMaxRelPos_C",
+      "description": "Spannungsgrenze für SRC High Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6C6",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "BPASCD_uSRCMinRelPos_C",
+      "description": "Spannungsgrenze für SRC Min Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CC6C4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "BPASCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

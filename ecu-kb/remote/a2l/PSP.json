@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "PSP",
+  "raw_groups": [
+    "PSP"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "PSP_nPSPOn_C",
+      "description": "Drehzahlschwelle für PSP ein",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFC4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "PSP",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSP_stLogicOut",
+      "description": "Quelle für Aktivierung der Vorförderpumpr (1=Ein / 0=Aus)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9536",
+      "record_layout": null,
+      "func_group": "PSP",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSP_stPSPLogicOff_C",
+      "description": "Hauptschalter für die Vorförderpumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFC6",
+      "record_layout": "Kw_Wu8",
+      "func_group": "PSP",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "PSP_tiEco_C",
+      "description": "Mindesteinschaltzeit für EKP nach Init. oder ECO Anforderung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1EFFC8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "PSP",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

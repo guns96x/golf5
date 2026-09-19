@@ -1,0 +1,217 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "CCAdp",
+  "raw_groups": [
+    "CCAdp"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_ACCCD_aDrvDem",
+      "description": "Fahrerwunschbeschleunigung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9708",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_ACCCD_aDrvDem_crctl",
+      "description": "Fahrerwunschbeschleunigung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD574",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_ACCCD_phiRoad",
+      "description": "Fahrbahnsteigung umgerechnet für CrCtl",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F970A",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_ACCCD_rMVeh",
+      "description": "Massenverhältnis aus beladenem und unbeladenem Fahrzeug",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9321",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_ACCCD_rMVeh_crctl",
+      "description": "relative Fahrzeugmasse (Gesamtgewicht / Leergewicht)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD57C",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_BattCD_u",
+      "description": "Batteriespannung umgerechnet für CrCtl",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9322",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_DrvTrn_rTransDT",
+      "description": "Triebstrang-Übersetzung (Radmoment pro Motormoment) umgerechnet für CrCtl",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F970C",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_Eng_nAvrg",
+      "description": "mittlere Motordrehzahl umgerechnet für CrCtl",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F970E",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_FrmMng_PwrMax",
+      "description": "maximale Motorleistung umgerechnet für CrCtl",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9710",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_FrmMng_PwrMax_crctl",
+      "description": "Maximale Motorleistung",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD576",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_FrmMng_aTrans",
+      "description": "Querbeschleunigung von BRK2 umgerechnet für CrCtl",
+      "obj_type": "SBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9323",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_FrmMng_vDsplTacho",
+      "description": "Angezeigte Geschwindigkeit im Kombi",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9712",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_VSSCD_a",
+      "description": "Fahrbeschleunigung umgerechnet für CrCtl",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9714",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_VSSCD_a_crctl",
+      "description": "Aktuelle Fahrzeuglängsbeschleunigung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD578",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_VSSCD_v",
+      "description": "Fahrzeuggeschwindigkeit umgerechnet für CrCtl",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9716",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_VSSCD_v_crctl",
+      "description": "Aktuelle Fahrzeuggeschwindigkeit",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7FD57A",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_VehDa_rVn",
+      "description": "Verhältnis von Fahrgeschwindigkeit zur Motordrehzahl umgerechnet für CrCtl",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9718",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CCAdp_stFidShutOff",
+      "description": "Status Freigaben Geschwindigkeitsregelanlage",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F971A",
+      "record_layout": null,
+      "func_group": "CCAdp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

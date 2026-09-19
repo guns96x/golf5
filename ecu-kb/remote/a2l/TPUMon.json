@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "TPUMon",
+  "raw_groups": [
+    "TPUMon"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_ctDfctLim_C",
+      "description": "Oberer Entprellzähler Grenzwert für Defekterkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FD8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_ctTPU_C",
+      "description": "Index der auf den Messpunkten dargestellten TPU",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FDA",
+      "record_layout": "Kw_Wu8",
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_ctUpDwnDeb_mp",
+      "description": "Meßpunkt für den Entprellungszähler der TPUMon Zeitabweichung",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF972",
+      "record_layout": null,
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_tiDiffMaxLimit_C",
+      "description": "Maximal zulässige einzelne Timerdifferenz",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FDC",
+      "record_layout": "Kw_Ws32",
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_tiDiffMax_mp",
+      "description": "Meßpunkt der maximalen Differenzen aus Timervergleich in den letzten 100 ms",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE70C",
+      "record_layout": null,
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_tiDiffMinLimit_C",
+      "description": "Minimal zulässige einzelne Timerdifferenz (negativer Wert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FE0",
+      "record_layout": "Kw_Ws32",
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_tiDiffMin_mp",
+      "description": "Meßpunkt der minimalen (negativer Wert) Differenzen aus Timervergleich in den letzten 100 ms",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE710",
+      "record_layout": null,
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_tiDiffSumLimit_C",
+      "description": "Maximal zulässige Betragsumme Timerdifferenz",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C1FE4",
+      "record_layout": "Kw_Ws32",
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "TPUMon_tiDiffSum_mp",
+      "description": "Meßpunkt der Summe aller Differenzen aus Timervergleich in den letzten 100 ms",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE714",
+      "record_layout": null,
+      "func_group": "TPUMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

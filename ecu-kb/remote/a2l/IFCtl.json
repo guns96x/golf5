@@ -1,0 +1,140 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "IFCtl",
+  "raw_groups": [
+    "IFCtl"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_stFan",
+      "description": "Status der Lüfteranforderung für den Ladeluftkühler",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94AE",
+      "record_layout": null,
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_stFanOffMsk_C",
+      "description": "Bitmaske zur Auswahl der Regenerationsstati für die Abschaltung des Lüfters",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D4C",
+      "record_layout": "Kw_Wu32",
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_stFantAir_mp",
+      "description": "Lüfterstatus aufgrund Lufttemperatur",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF05",
+      "record_layout": null,
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_stFantClnt_mp",
+      "description": "Lüfterstatus aufgrund Kühlmitteltemperatur",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF06",
+      "record_layout": null,
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_stOff_C",
+      "description": "Abschaltung der Funktion",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D50",
+      "record_layout": "Kw_Wu8",
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_tAirHysHi_CUR",
+      "description": "Obere Fahrgeschwindigkeitsabhängige Hystereseschwelle für die Lüftersteuerung über  die Ladelufttemperatur",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D52",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_tAirHysLo_CUR",
+      "description": "Untere geschwindigkeitsabhängige Hysteresisschwelle zur Ventilatorsteuerung über die Einlaßlufttemperatur",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D68",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_tClntThrHiHysHi_CUR",
+      "description": "Obere Geschwindigkeitsabhängige Hystereseschwelle für die obere Kühlmitteltemperaturschwelle der Lüftersteuerung",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D7E",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_tClntThrHiHysLo_CUR",
+      "description": "Untere Geschwindigkeitsabhängige Hystereseschwelle für die obere Kühlmitteltemperaturschwelle der Lüftersteuerung",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8D94",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_tClntThrLoHysHi_C",
+      "description": "Obere Hystereseschwelle für die untere Kühlmitteltemperaturschwelle der Lüftersteuerung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DAA",
+      "record_layout": "Kw_Ws16",
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "IFCtl_tClntThrLoHysLo_C",
+      "description": "Untere Hysteresisschwelle für die unterere Kühlmitteltemperaturschwelle der Lüftersteuerung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8DAC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "IFCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "_comment": "Закриває gap P1 'Декодувати значення мап шляху наддуву з BIN'. Джерело чисел — не документ, а безпосередній decode reference-from-hex.analysis-only.bin через tools/decode_boost_path_stock.py (A2L-driven: адреса, RECORD_LAYOUT і COMPU_METHOD беруться з самого A2L, нічого не вгадується). Тому в цих claims немає полів citations — цитата з документа тут не застосовна; провенанс — sha256 BIN і A2L, вказані у кожному statement. Повні решітки лежать у diagnostic-review/math-engine/boost-path-stock-values.json.",
+
+  "claims": [
+    {
+      "statement": "У reference-from-hex.analysis-only.bin (sha256 cf891152a97f…) значення PCR_pBDesBas_MAP (0x1EB0B2, A2L sha256 04ab636a3f56…) сягають стелі 2050 гПа абс. у зоні rpm≈2247–3990 при PCR_qDes≥40 мг/хід; на холостому ході (rpm=0) значення дорівнює 198 гПа для будь-якого палива — це, найімовірніше, значення-заглушка для вимкненого двигуна, а не реальна уставка.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.75,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "reference-from-hex.analysis-only.bin РЕКОНСТРУЙОВАНИЙ з hex, а не знятий з машини (gap P1: незайманий readback). Числа з нього не є MEASURED — вони описують те, що прошите в цьому конкретному образі, не обов'язково поточний стан машини."
+    },
+    {
+      "statement": "У тому самому образі PCR_pBDesMaxAP_MAP (0x1EB22A) при атмосферному тиску ≥900 гПа дає стелю 2200 гПа абс. — ВИЩЕ за стелю самого PCR_pBDesBas_MAP (2050 гПа). Тобто на рівні моря обмежувальним фактором є не ця висотна таблиця, а сама базова мапа уставки. При 600 гПа (висота) стеля падає до 1500 гПа — це підтверджує (числами) якісне твердження SSP 304 про поступове зниження наддуву на висоті.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.75,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Той самий застережний коментар про reference-from-hex, що й вище."
+    },
+    {
+      "statement": "У reference-from-hex.analysis-only.bin крива PCR_nTrbnMax_CUR (0x1E978E, «maximale Laderdrehzahl») закодована ЯК СИРЕ ЗНАЧЕННЯ 0x7FFF (32767) в УСІХ 8 точках осі rpm — це максимальне представиме 16-бітне знакове число. Після переведення в фізичні одиниці (×10) це дає 327670 об/хв, що не є реальною межею, а є значенням-сентинелом «не задано / насичено».",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "rpm", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Не можна відрізнити дві гіпотези без незайманого readback: (а) цей ліміт СВІДОМО не задіяний у цій калібровці — обмеження обертів турбіни робиться в іншому місці; (б) це артефакт реконструкції з hex. Обидві залишають висновок однаковим для практики: ЦЯ крива в ЦЬОМУ образі не обмежує нічого."
+    },
+    {
+      "statement": "У reference-from-hex.analysis-only.bin PCR_rBPGovMax_MAP (0x1EC52C) дає стелю керувальної величини 80% у більшій частині площини (низькі-середні оберти й кількість палива) і плавно спадає до 51% у зоні rpm=5000 × InjCtl_qCurr=35 мг/хід. PCR_rBPGovMin_MAP (0x1EC6A4) — плоска підлога 5% на всіх виміряних вузлах.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "%", "is_modeled": 0, "confidence": 0.75,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Той самий застережний коментар про reference-from-hex."
+    },
+    {
+      "statement": "У цьому образі PCR_rBPGovLin_CUR (0x1EC4D6, лінеаризація виходу регулятора наддуву) закодована як тотожність: вихід дорівнює входу в усіх 21 точці (0–100% крок 5%). Тобто в ЦІЙ калібровці додаткової корекції нелінійності на цьому каналі немає.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "%", "is_modeled": 0, "confidence": 0.8,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS"
+    },
+    {
+      "statement": "У цьому образі PCR_qRgtOn_CUR і PCR_qRgtOff_CUR (пороги вмикання/вимикання регулятора наддуву за кількістю палива) на холостому ході вимагають ~99–100 мг/хід, а вже за rpm>1700 падають до одиниць мг/хід (7 і 6 відповідно) і лишаються такими до максимальних обертів. Це відповідає логіці «регулятор не працює на холостому ході з малим паливом, але включається майже завжди після нього».",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "mg/hub", "is_modeled": 0, "confidence": 0.7,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Той самий застережний коментар про reference-from-hex."
+    },
+    {
+      "statement": "Друга система PCR_pBDesBas2_MAP (0x1EAF3A) у цьому образі НЕ порожня й НЕ ідентична PCR_pBDesBas_MAP: інша стеля (1950–1951 гПа проти 2050), інший вузол осі rpm (4020 замість 3990), і значення в кількох клітинках розходяться на 50–150 гПа. Це не доводить, що гілка активна на BLS, але спростовує просту гіпотезу «це порожня чи скопійована таблиця» — дані реальні й самостійні.",
+      "evidence_kind": "MAP_FACT", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.7,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "missing_evidence": "Прошивка компілюється для сімейства ECU з можливими двоконтурними реалізаціями; те, що таблиця заповнена НЕ означає, що код BLS-варіанту її читає. Потрібен аналіз коду або DTC/логи по другому контуру."
+    }
+  ]
+}

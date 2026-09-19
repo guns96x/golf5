@@ -1,0 +1,218 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "Signals",
+  "raw_groups": [
+    "Signals",
+    "signals"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_PID0x1C",
+      "description": "Info für Generic Scan Tool (OBD-Tester) für welche Vorschrift das Fahrzeug appliziert wurde",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F954E",
+      "record_layout": null,
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_PID0x1C_C",
+      "description": "Info für Generic Scan Tool (OBD-Tester) für welche Vorschrift das Fahrzeug appliziert wurde",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C13CC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_adFreeApplic1_C",
+      "description": "adresse eines frei applizierbaren Signals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FC8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_adFreeApplic2_C",
+      "description": "adresse eines frei applizierbaren Signals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FD0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_adFreeApplic3_C",
+      "description": "adresse eines frei applizierbaren Signals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FD8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_adFreeApplic4_C",
+      "description": "Adresse eines frei applizierbaren Signals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FE0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_numTypFreeApplic1_C",
+      "description": "Datentyp eines frei applizierbaren Signals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FCC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_numTypFreeApplic2_C",
+      "description": "Datentyp eines frei applizierbaren Signals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FD4",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_numTypFreeApplic3_C",
+      "description": "Datentyp eines frei applizierbaren Signals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FDC",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Signals_numTypFreeApplic4_C",
+      "description": "Datentyp für freiapplizierbare Signals",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FE4",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "signals_TmrBehaviour_C",
+      "description": "Verhalten der Zeitbegrenzung für Stellertest",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F048C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "signals_TstDemMaxEngN_C",
+      "description": "Maximale Drehzahl für Stellertest über Diagnosetester",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F048E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "signals_TstDemMaxVSSCDV_C",
+      "description": "Maximale Geschwindigkeit für Stellertest über Diagnosetester",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0490",
+      "record_layout": "Kw_Ws16",
+      "func_group": "signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "signals_stTestNLim_mp",
+      "description": "Meßpunkt für Status Drehzahlbegrenzung von Stellertests",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFFA5",
+      "record_layout": null,
+      "func_group": "signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "signals_stTest_mp",
+      "description": "Meßpunkt für Status Stellertest",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE6F0",
+      "record_layout": null,
+      "func_group": "signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "signals_tiTstDemHeal_C",
+      "description": "Minimale Zeit ohne Stellertestanforderung nach Verriegelung wegen Zeitüberschreitung.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F0488",
+      "record_layout": "Kw_Wu16",
+      "func_group": "signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "signals_tiTstDemMax_C",
+      "description": "Maximale zulässige Testzeit für Stellertest über Diagnosetester",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F048A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "signals_tiTstRemain_mp",
+      "description": "Meßpunkt für verbleibende Zeit bis zur Abschaltung Stellertest über Zeitgrenze",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF900",
+      "record_layout": null,
+      "func_group": "signals",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "CtT",
+  "raw_groups": [
+    "CtT"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_MonDebNplDef_C",
+      "description": "Fehlerentprellzeit für Npl",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD25A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_MonDebNplOK_C",
+      "description": "Fehlerheilzeit für Npl",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD25C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dtConsum_CUR",
+      "description": "Wärmezufuhrinkremente verbrauchsabhängig",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD1E4",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dtDec_mp",
+      "description": "Summe Dekremente Wärmeabfuhr vom Wassertemperaturmodell",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE4D4",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dtEnv_CUR",
+      "description": "Wärmeabfuhrinkremente abhängig von Wärmeabgabe an Umgebung",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD216",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dtHt1_C",
+      "description": "Wärmezufuhrinkrement für aktiven Zuheizer 1",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD254",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dtHt2_C",
+      "description": "Wärmezufuhrinkrement für aktiven Zuheizer 2",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD256",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dtHt3_C",
+      "description": "Waermezufuhrinkrement für aktiven Zuheizer 3",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD258",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dtInc_mp",
+      "description": "Summe Inkremente Wärmezufuhr zum Wassertemperaturmodell",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE4D8",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dt_mp",
+      "description": "Inkrement für Integration Wassertemperaturmodell",
+      "obj_type": "SLONG",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE4DC",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_dvolFlConsumPT1_mp",
+      "description": "Gefilterter Verbrauch für Thermostatdiagnose",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEABE",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_nThres_C",
+      "description": "Minimale Drehzahl zur Freigabe der Thermostatdiagnose",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD25E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_stCondMon",
+      "description": "Abschaltbedingungen Thermostatdiagnose",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F982A",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_stNumMon_mp",
+      "description": "Status der Thermostatdiagnose",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEAC0",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_swtAirMod_C",
+      "description": "Schalter zur Aktivierung der Modeltempeartur-Berechnung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD260",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tAir",
+      "description": "Differenz Wassertemperatur - Umgebungstemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F982C",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tAirCorrPT1_mp",
+      "description": "Gefilterte druckkorrigierte Ansauglufttemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEAC2",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tAirCorr_MAP",
+      "description": "Druckkorrektur Lufttemperatur Ansaugtrakt",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD262",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tAirCorr_mp",
+      "description": "Druckkorrigierte Ansauglufttemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEAC4",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tAirMod",
+      "description": "Modellberechnung der Umgebungstemperatur EATSCD_tAir",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F982E",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tClntEDCInitVal_mp",
+      "description": "1. gültiger Wert der Wassertemperatur nach Init EDC",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEAC6",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tClntLo_C",
+      "description": "Min. Grenze für Wassertemperaturüberprüfung OK",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD306",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tClntMod",
+      "description": "Modellberechnung der Wassertemperatur CTSCD_tClnt",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9830",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tClntModCur_mp",
+      "description": "Wassertemperatureinfluss auf Umgebungstemperaturmodell",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEAC8",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tClntMod_C",
+      "description": "Modelltemperaturschwelle Start Wassertemperaturüberprüfung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD308",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tClntMod_CUR",
+      "description": "Einflussveränderung Wassertemperatur für Umgebungstemperaturmodell",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD30A",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tClntPT1_mp",
+      "description": "Gefilterte Wassertemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEACA",
+      "record_layout": null,
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tThresHi_C",
+      "description": "Max. Wassertemperatur nach Init EDC Freigabe Thermostatdiagnose",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD33C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tThresLo_C",
+      "description": "Min. Wassertemperatur Freigabe Thermostatdiagnose",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD33E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tiConsumPT1_C",
+      "description": "PT1 Filter für Verbrauch",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD32C",
+      "record_layout": "Kw_Wu32",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tiTempAirPT1_C",
+      "description": "PT1 Filter Lufttemperatur Ansaugtrakt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD330",
+      "record_layout": "Kw_Wu32",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tiTempClntPT1_C",
+      "description": "PT1 Filter Wassertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD334",
+      "record_layout": "Kw_Wu32",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CtT_tiTst_C",
+      "description": "Max. Zeit für Thermostatdiagnose nach Init EDC",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CD338",
+      "record_layout": "Kw_Wu32",
+      "func_group": "CtT",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

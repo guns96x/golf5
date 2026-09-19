@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "McMess",
+  "raw_groups": [
+    "McMess"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "McMess_stEnable_C",
+      "description": "McMess Service aktivieren (1) / deaktivieren (0)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0FC2",
+      "record_layout": "Kw_Wu8",
+      "func_group": "McMess",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

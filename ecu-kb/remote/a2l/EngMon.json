@@ -1,0 +1,173 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EngMon",
+  "raw_groups": [
+    "EngMon"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_DebIrrCmbDef_C",
+      "description": "Grenze Fehlerentprellung für Fehler irreguläre Verbrennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45A2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_DebIrrCmbOk_C",
+      "description": "Grenze Heilungsentprellung für Fehler irreguläre Verbrennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45A4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_DebIrrCmbStepDown_C",
+      "description": "Abwärtsschrittweite für Entprellung des Fehlers irreguläre Verbrennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45A1",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_DebIrrCmbStepUp_C",
+      "description": "Aufwärtsschrittweite für Entprellung des Fehlers irreguläre Verbrennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45A0",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_nMonActv_C",
+      "description": "Mindestdrehzahl für Aktivierung der Überwachung auf irreguläre Verbrennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45A6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_rO2MaxVal_C",
+      "description": "Sauerstoffendwert der Schwellwertberechnung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45A8",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_rO2Thres_mp",
+      "description": "Ausgangsgröße des Schwellwertfilters der Funktion Verbrennungserkennung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF218",
+      "record_layout": null,
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_stActv_C",
+      "description": "Schalter der Funktion Verbrennungserkennung (1=aktiv, 0= nicht aktiv)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45AA",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_stMon_mp",
+      "description": "Zustand der Überwachung auf irreguläre Verbrennung (1=aktiv, 0=nicht aktiv)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE39",
+      "record_layout": null,
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_stShOffIrrCmb",
+      "description": "Abschaltbotschaft an Abschaltkoordinator auf Grund irregulärer Verbrennung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93CE",
+      "record_layout": null,
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_stTstRslt_mp",
+      "description": "Testergebnis der Überwachung auf irreguläre Verbrennung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFE3A",
+      "record_layout": null,
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_tiDel_C",
+      "description": "Totzeit nach Schubbeginn für Aktivierung des Schwellwertfilters",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45B0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_tiFltPT1_C",
+      "description": "Filterzeitkonstante für Schwellwertberechnung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45AC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EngMon_tiMonActv_C",
+      "description": "Totzeit nach Schubbeginn für Aktivierung der Überwachung auf irreguläre Verbrennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D45B2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EngMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

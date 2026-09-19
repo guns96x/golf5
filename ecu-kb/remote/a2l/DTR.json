@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "DTR",
+  "raw_groups": [
+    "DTR"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "DTR_limKLine_CA",
+      "description": "Grenzkalibrierung fuer K-Line, wenn die Testergebnisse nicht zur Verfuegung stehen",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2526",
+      "record_layout": "Kwb_Wu8",
+      "func_group": "DTR",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DTR_numCANOBDMId_CA",
+      "description": "OBDMID Kalibration für Mode $06",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2538",
+      "record_layout": "Kwb_Wu8",
+      "func_group": "DTR",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DTR_numCANTestId_CA",
+      "description": "Test Id applikation für CARB Mode $6 über CAN",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D254A",
+      "record_layout": "Kwb_Wu8",
+      "func_group": "DTR",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DTR_numKLineCmpntId_CA",
+      "description": "Komponenten ID Kalibration für K-Line Diagsnose für Mode $06",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D255C",
+      "record_layout": "Kwb_Wu8",
+      "func_group": "DTR",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "DTR_numKLineTestId_CA",
+      "description": "Test Id applikation für CARB Mode $6 über K-Line",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D256E",
+      "record_layout": "Kwb_Wu8",
+      "func_group": "DTR",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

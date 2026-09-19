@@ -1,0 +1,140 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EEPCD",
+  "raw_groups": [
+    "EEPCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_DsSWT1_AAG_C",
+      "description": "Kennwerte pflegen, eine Variante zu befreien",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D261C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_DsSWT1_KSK_C",
+      "description": "Applikationslabelmaske für EEPROM-Schalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D261E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_DsSWT1_SWTCC_C",
+      "description": "Applikationslabelmaske für EEPROM-Schalter PRP_CCON",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2620",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_DsSWT2_CCTYPE_C",
+      "description": "Applikationslabelmaske für EEPROM-Schalter PRP_CCSel",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2622",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_DsSWT2_EATS_C",
+      "description": "Applikationslabelmaske für EEPROM-Schalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2624",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_DsSWT2_OTS_C",
+      "description": "Applikationslabelmaske für EEPROM-Schalter",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2626",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_stErrSet",
+      "description": "Allgemeiner Fehlerzustand bei der Aktivierung einer Konfiguration",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93A0",
+      "record_layout": null,
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_stOptErrCodKwp",
+      "description": "Fehlercode der Option, in der beim Download (KWP) ein Fehler auftrat",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93A1",
+      "record_layout": null,
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_stOptErrCodSet",
+      "description": "Fehlercode der Option, in der während der Aktivierung der neuen Konfiguration ein Fehler auftrat",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93A2",
+      "record_layout": null,
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_stOptNumKwp",
+      "description": "Nummer der Option, in der beim Download (KWP) ein Fehler auftrat",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93A3",
+      "record_layout": null,
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EEPCD_stOptNumSet",
+      "description": "Nummer der Option, in der während der Aktivierung der neuen Konfiguration ein Fehler auftrat",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93A4",
+      "record_layout": null,
+      "func_group": "EEPCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

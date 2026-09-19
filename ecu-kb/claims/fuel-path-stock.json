@@ -1,0 +1,73 @@
+﻿{
+  "_comment": "Вертикальний зріз стоку: ланцюг крутного моменту, паливоподачі та насос-форсунок для VW Golf 5 1.9 TDI BLS / EDC16U34 SW 1037391847. Дослівно перевірено з VW SSP 304, SSP 315 та SSP 209.",
+  "claims": [
+    {
+      "statement": "Система керування Bosch EDC16 є концептуально орієнтованою на крутний момент (torque-oriented), де всі внутрішні та зовнішні запити моменту збираються, оцінюються та координуються в блоці керування двигуном.",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "quantity_kind": "ecu_internal",
+      "confidence": 0.98,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "VW_SSP_304",
+          "quote": "Bosch EDC 16 is a torque-orientated engine management system which is featured for the first time in a diesel engine."
+        }
+      ]
+    },
+    {
+      "statement": "У блоці керування EDC16 заданий крутний момент обчислюється з внутрішніх і зовнішніх вимог до моменту, після чого для досягнення цього крутного моменту розраховується необхідна кількість палива (FMTC).",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "quantity_kind": "ecu_internal",
+      "confidence": 0.98,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "VW_SSP_304",
+          "quote": "The specified torque is calculated from the internal and external torque demands. To reach this torque specification, a set quantity of fuel is required."
+        }
+      ]
+    },
+    {
+      "statement": "Для захисту двигуна від механічних пошкоджень та для запобігання утворенню чорного диму (сажі) блок EDC16 розраховує граничне значення кількості палива (smoke limiter), яке залежить від обертів двигуна, маси повітря та атмосферного тиску.",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "quantity_kind": "calibration",
+      "confidence": 0.98,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "VW_SSP_304",
+          "quote": "However, to protect the engine against mechanical damage and to prevent black smoke, there should be limitations on the quantity of fuel injected. For this reason, the engine control unit calculates a limit value for this quantity."
+        }
+      ]
+    },
+    {
+      "statement": "Тривалість основного циклу впорскування в системі насос-форсунок визначається тривалістю активації соленоїдного клапана форсунки блоком керування, а завершення подачі настає при знятті напруги, коли пружина повертає голку клапана у відкритий стан.",
+      "evidence_kind": "OEM_DOCUMENTED",
+      "verification_state": "project_matched",
+      "quantity_kind": "physical",
+      "confidence": 0.95,
+      "ecu_family": "EDC16",
+      "ecu_variant": "EDC16U34",
+      "sw_number": "1037391847",
+      "engine_code": "BLS",
+      "citations": [
+        {
+          "doc": "VW_SSP_209",
+          "quote": "The injection cycle ends when the engine control unit stops activating the injector solenoid valve."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "USAp",
+  "raw_groups": [
+    "USAp"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_CodeTbl1_CA",
+      "description": "Variantencode Umsetztabelle 1",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F31B0",
+      "record_layout": "Kwb_Wu32",
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_CodeTbl2_CA",
+      "description": "Variantencode Umsetztabelle 2",
+      "obj_type": "VAL_BLK",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3230",
+      "record_layout": "Kwb_Wu32",
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_dCodeTblInv_C",
+      "description": "Identifier dieser Datensatzvariante (invertiert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32B0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_dCodeTbl_C",
+      "description": "Identifier dieser Datensatzvariante",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32B4",
+      "record_layout": "Kw_Wu32",
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_dDatasetType",
+      "description": "Message von USAp_dDatasetType_C für FrmMng",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F958B",
+      "record_layout": null,
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_dDatasetType_C",
+      "description": "Duch diesen Label wird der Datensatz für Master- oder Slave- oder Single-Steuergerät markiert.",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32B8",
+      "record_layout": "Kw_Wu8",
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_numFuncCodeBits",
+      "description": "Anzahl der Function Code Bits",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F958C",
+      "record_layout": null,
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_numFuncCodeBits_C",
+      "description": "Bitanzahl für Function Code",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C14A7",
+      "record_layout": "Kw_Wu8",
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "USAp_stFuncCode",
+      "description": "Function Code für CAN",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9EC4",
+      "record_layout": null,
+      "func_group": "USAp",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

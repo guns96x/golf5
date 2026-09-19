@@ -1,0 +1,360 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "Alt",
+  "raw_groups": [
+    "Alt"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_dcycAlt",
+      "description": "Tastverhältnis für Generatorerregung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F966A",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_facDemandEEP_mp",
+      "description": "Limitierter EEPROM Abgleichwert von ALT_PWR_DEMAND",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE8DA",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_nThresERR_C",
+      "description": "Drehzahlschwelle für Generatorerregung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA526",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrAdjValDef_C",
+      "description": "Standardwert für Abgleich Leistungsanforderung Generator",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA2D2",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrAdjValMax_C",
+      "description": "Maximalwert für Abgleich Leistungsanforderung Generator",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA2D4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrAdjValMin_C",
+      "description": "Minimalwert für Abgleich Leistungsanforderung Generator",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA2D6",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrAltLoadVar2_MAP",
+      "description": "Kennfeld der Generatorlast, Variante 2",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA2D8",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrAltLoadVar3_MAP",
+      "description": "Generatorlastkennfeld, Variante 3",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA37C",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrAltLoad_MAP",
+      "description": "Kennfeld der Generatorlast",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA420",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrCanDef_MAP",
+      "description": "Kennfeld von Vorgabewerten bei CAN-Fehler",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA4C4",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrCanMax_C",
+      "description": "Maximale Generatorleistung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA520",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrCanMin_C",
+      "description": "Minimale Generatorleistung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA522",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrDes",
+      "description": "mechanischer Leistungsbedarf des Generators",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F966C",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrDes_Channel",
+      "description": "Bypass Label, nicht ändern!",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A43",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrDes_Vector",
+      "description": "Bypass Label, nicht ändern!",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0A42",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_pwrLead",
+      "description": "Vorhaltleistung des Generators",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F966E",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_stAltExc_mp",
+      "description": "Status der Statemachine",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF9ED",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_stTrqInprec",
+      "description": "Ersatzwert für Generatorleistung wird verwendet",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9305",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_swtPwrCan",
+      "description": "Schalter für Generatorleistung über CAN",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9306",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_swtPwrCan_C",
+      "description": "Schalter für Generatorleistung über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA524",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_swtPwrDetCan",
+      "description": "Generatorleistung über CAN BEM Botschaft (=1) oder PWM/BSG Botschaft (=0)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9307",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_swtPwrDetCan_C",
+      "description": "alternator power over CAN  BEM message (=1) or PWM/BSG message (=0)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA525",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_tiBEMLdResp",
+      "description": "Lastreaktionszeit Generator",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9670",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_tiDebPwrCanDef_C",
+      "description": "Fehlerentprellzeit für Dfp_AltpPwrCan_mp",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA2CE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_tiDebPwrCanOk_C",
+      "description": "Fehlerheilzeit für Dfp_AltpPwrCan_mp",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA2D0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_tiDelPT_MAP",
+      "description": "Kennfeld (p,t) zur Verzögerungsbestimmung für Generatorerregung",
+      "obj_type": "MAP",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA528",
+      "record_layout": "Kf_Xs16_Ys16_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_tiExcdly_mp",
+      "description": "Verzögerungszeit der Generatorerregung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE8D8",
+      "record_layout": null,
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_tiExcdur_C",
+      "description": "Impulszeit der Generatorerregung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA566",
+      "record_layout": "Kw_Wu16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_tiLdRespTi_CUR",
+      "description": "Kennlinie zur Ermittlung der Lastreaktionszeit aus der Motor-temperatur",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA568",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_tiLdRespTi_ReqDur_C",
+      "description": "Übermittlungsdauer der Lastreaktionszeit",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA57A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Alt_uBattThres_C",
+      "description": "Batteriespannungsschwelle zum Unterdrücken der Erregungs-Verzögerung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CA57C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Alt",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

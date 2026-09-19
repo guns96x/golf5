@@ -1,0 +1,206 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "InjCtl",
+  "raw_groups": [
+    "InjCtl"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_dqLimDwn_C",
+      "description": "Rampensteigung bei Auftreten eines Systemfehlers",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4CD0",
+      "record_layout": "Kw_Wu32",
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_dqLimUp_C",
+      "description": "Rampensteigung bei Wegfall des Systemfehlers",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4CCC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qAct",
+      "description": "Fahrerwunschmenge inklusive Leerlaufregler ohne Ruckeldämpfer",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AAC",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qCurr",
+      "description": "Einspritzmenge aktueller Wert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AAE",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qCurrUnCor",
+      "description": "aktuelle Menge ohne Korrektur durch Mengenmittelwertadaption (FMA)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AB0",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qDes",
+      "description": "Einspritzmenge Wunschwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AB2",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qLim",
+      "description": "Begrenzungsmenge",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AB4",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qLimErr",
+      "description": "Begrenzungsmenge im Falle eines Systemfehlers",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AB6",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qLimErr_CUR",
+      "description": "Begrenzungsmeneg bei Systemfehler",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4CD4",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qLimNorm_mp",
+      "description": "Begrenzungsmenge im Normalbetrieb (kein Systemfehler)",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF602",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qLimSwt",
+      "description": "Ausgang RampSwitch-Block für Begrenzungsmenge im Systemfehlerfall",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9AB8",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qRaw",
+      "description": "Einspritzmenge Rohwert",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9ABA",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_qSetUnBal",
+      "description": "Einspritzmenge Sollwert ohne Mengenausgleichsregelung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9ABC",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_stNoInj",
+      "description": "Status für keine Einspritzung (0 -> Einspritzung, 1 -> InjCtl_qSetUnBal == 0)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94CB",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_stQLimErr",
+      "description": "Status Begrenzungsmenge im Falle eines Systemfehlers (soll verwendet werden)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94CC",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_swtFMACor_C",
+      "description": "Schalter für FMA Korrektur (1: indirekte Korrektion ist aktiev, 0: inaktiev)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E4CC8",
+      "record_layout": "Kw_Wu8",
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "InjCtl_trqInrLim",
+      "description": "Begrenzungsmoment (als inneres Moment) resultierend aus der Begrenzungsmenge InjCtl_qLim",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9ABE",
+      "record_layout": null,
+      "func_group": "InjCtl",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

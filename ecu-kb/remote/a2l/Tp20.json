@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "Tp20",
+  "raw_groups": [
+    "Tp20"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "Tp20_swtAppl_C",
+      "description": "Applikations Schalter zum Umschalten zwischen K-Line und Can",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F141C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Tp20",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tp20_swtFuncEnbl_C",
+      "description": "Applikationsvariable für die Dienste TP20APPL_CAN_MUTESET_MSK, TP20APPL_CAN_MUTERESET_MSK, TP20APPL_DFES_FCMCLEAR_MSK",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F141D",
+      "record_layout": "Kw_Wu8",
+      "func_group": "Tp20",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tp20_tiCanMuteTimeOut_C",
+      "description": "Zeit für Timeout der CAN-Deaktivierung durch Tp2.0 broadcast Service",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F141E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "Tp20",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "Tp20_vCanMuteThres_C",
+      "description": "Obere Grenze Zur Deaktivierung CAN-Messages durch ein Tp2.0 Broadcast Services",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F1420",
+      "record_layout": "Kw_Ws16",
+      "func_group": "Tp20",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "HWEMon",
+  "raw_groups": [
+    "HWEMon"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_DebComDef_C",
+      "description": "Entprellung für defekt Erkennung der SPI Kommunikation",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C92",
+      "record_layout": "Kw_Wu16",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_DebComOk_C",
+      "description": "Entprellung für intakt Erkennung der SPI Kommunikation",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C94",
+      "record_layout": "Kw_Wu16",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_DebComStepDown_C",
+      "description": "Abwärts Schrittweite für Entprellung SPI Kommunikation",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C90",
+      "record_layout": "Kw_Wu8",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_DebComStepUp_C",
+      "description": "Aufwärts Schrittweite für Entprellung SPI Kommunikation",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C91",
+      "record_layout": "Kw_Wu8",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_DebEepDef_C",
+      "description": "Defektschwelle für einfach abgelegte Blöcke",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C96",
+      "record_layout": "Kw_Wu8",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_ctErrEEPROM_mp",
+      "description": "Fehlerzaehler fuer Eeprom Fehler",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF03",
+      "record_layout": null,
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_ctRecovery",
+      "description": "Anzahl der während 2 Sekunden aufgetretenen Recoverys",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F94AC",
+      "record_layout": null,
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_lOld",
+      "description": "Letzter E2PROM Schreibvorgang bei dieser gefahrenen Strecke",
+      "obj_type": "ULONG",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9E78",
+      "record_layout": null,
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_lStoreEEP_C",
+      "description": "zu fahrende Strecke zwischen E2PROM schreiben",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C98",
+      "record_layout": "Kw_Wu32",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_nAvrg_C",
+      "description": "Motordrehzahlschwelle zum E2PROM schreiben",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C9C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_nThres_C",
+      "description": "Drehzahlschwelle für Latchbetrieb der Überspannungsüberwachung (nur für CJ945)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8C9E",
+      "record_layout": "Kw_Ws16",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_numRecovery",
+      "description": "Herkunft des letzten Reset ( >0 = Recovery )",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9A4A",
+      "record_layout": null,
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_numTrigRecovery_C",
+      "description": "Nummer der durch Änderung dieses Labels auszulösenden Recovery",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8CA0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_stVoltMon_mp",
+      "description": "Latchbetrieb der Überspannungsüberwachung (1 = Latch aktiv)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF04",
+      "record_layout": null,
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "HWEMon_tiStoreEEP_C",
+      "description": "zu fahrende Zeit zwischen dem zyklischen Abspeichern von Daten in das EEPROM",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D8CA4",
+      "record_layout": "Kw_Wu32",
+      "func_group": "HWEMon",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "EATSCD",
+  "raw_groups": [
+    "EATSCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebCanDefDef_C",
+      "description": "Fehlerentprellung  Umgebungstemperatursensor defekt über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D25F2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebCanDefOk_C",
+      "description": "Heilungsentprellung  Umgebungstemperatursensor defekt über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D25F4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebCanInacDef_C",
+      "description": "Fehlerentprellung  Umgebungstemperatursensor ungenau über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D25F6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebCanInacOk_C",
+      "description": "Heilungsentprellung  Umgebungstemperatursensor ungenau über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D25F8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebCanNotImplDef_C",
+      "description": "Fehlerentprellung  Umgebungstemperatursensor nicht verbaut über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D25FA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebCanNotImplOk_C",
+      "description": "Heilungsentprellung  Umgebungstemperatursensor nicht verbaut über CAN",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D25FC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebSRCHighDef_C",
+      "description": "EATS Fehlerentprellungszeit fuer SRC-High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D25FE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebSRCHighOk_C",
+      "description": "EATS Heilungsentprellzeit fuer SRC-High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2600",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebSRCLowDef_C",
+      "description": "EATS Fehlerentprellungszeit fuer SRC-Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2602",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_DebSRCLowOk_C",
+      "description": "EATS Heilungsentprellzeit fuer SRC-Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2604",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_dtRmpSlpDwn_C",
+      "description": "negative Rampensteigung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D260C",
+      "record_layout": "Kw_Wu32",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_dtRmpSlpUp_C",
+      "description": "popsitive Rampensteigung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2608",
+      "record_layout": "Kw_Wu32",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_stSensIDWord_C",
+      "description": "Geberkennwort Umgebungstemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2612",
+      "record_layout": "Kw_Wu16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_swtSig",
+      "description": "Signalquelle Umgebungstemperatur (ADC oder CAN)",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F939F",
+      "record_layout": null,
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_swtSigType_C",
+      "description": "Auswahlschalter Belegung EATSCD_swtSig mit EATSCD_swtSigVal_C oder E2PROM",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2611",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_swtSigVal_C",
+      "description": "Datensatzwert Signalquelle Umgebungsluftemperatur (0 = ADC, 1 = CAN)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2610",
+      "record_layout": "Kw_Wu8",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_tAir",
+      "description": "Umgebungstemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9842",
+      "record_layout": null,
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_tAirLin",
+      "description": "linearisierter Wert der Umgebungstemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9844",
+      "record_layout": null,
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_tDfl_C",
+      "description": "Vorgabewert Umgebungstemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2614",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_tLin_CUR",
+      "description": "Linearisierungskennlinie der Umgebungstemperatur",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D258C",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_uRaw",
+      "description": "Spannungsrohwert der Umgebungstemperatur",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9846",
+      "record_layout": null,
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_uSRCMax_C",
+      "description": "SRC Maximum Umgebungstemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D258A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "EATSCD_uSRCMin_C",
+      "description": "SRC Minimum Umgebungstemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D2588",
+      "record_layout": "Kw_Ws16",
+      "func_group": "EATSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

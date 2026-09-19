@@ -76,7 +76,10 @@ class Interpolation(unittest.TestCase):
         self.assertAlmostEqual(a2l.to_phys(5650, '__test'), 56.5)
 
 
-BIN = open(os.path.join(ROOT, '03G906021QJ_stage1_full_power_dpf_egr_off.bin'), 'rb').read()
+bin_path = os.path.join(ROOT, 'firmware', '03G906021QJ_stage1_full_power_dpf_egr_off.bin')
+if not os.path.exists(bin_path):
+    bin_path = os.path.join(ROOT, '03G906021QJ_stage1_full_power_dpf_egr_off.bin')
+BIN = open(bin_path, 'rb').read()
 
 
 class A2LDecoding(unittest.TestCase):

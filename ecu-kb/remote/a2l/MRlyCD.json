@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "MRlyCD",
+  "raw_groups": [
+    "MRlyCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_ctTooEarlyThres_C",
+      "description": "Schwelle die MRlyCD_ctTooEarly_mp überschreiten muß bis Fehler Hauptrelais öffnet zu früh gemeldet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8A2C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_ctTooEarly_mp",
+      "description": "Fehlerzähler für \"\"Hauptrelais öffnet zu früh\"\" Fehler",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x9FFF48",
+      "record_layout": null,
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_stFanShutOff",
+      "description": "Anforderung zum Anfang des Lüfterabschaltvorgangs",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9503",
+      "record_layout": null,
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_stInvOutNAB_C",
+      "description": "Invertierungsparameter für Notabschaltsignal",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8A2D",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_stInvOutPSOFF_C",
+      "description": "Invertierungsparameter für Abschaltsignal  des Spannungsstabilisators",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8A2E",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_stInvOut_C",
+      "description": "Invertierungsparameter für Hauptrelais Ausgangssignal",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8A2F",
+      "record_layout": "Kw_Wu8",
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_stMon",
+      "description": "aktueller Zustand der Hauptrelaisüberwachung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9504",
+      "record_layout": null,
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_stPrevOpening",
+      "description": "Bedingung / Grund für das Öffnen des Hauptrelais während letztem Steuergerätelauf",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9505",
+      "record_layout": null,
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "MRlyCD_tiNotOpen_C",
+      "description": "Zeit nach dem Öffnen des Hauptrelais bis Fehler Hauptrelais öffnet nicht rechtzeitig erkannt wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1E8A30",
+      "record_layout": "Kw_Wu16",
+      "func_group": "MRlyCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

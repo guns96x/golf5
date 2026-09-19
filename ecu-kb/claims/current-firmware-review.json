@@ -1,0 +1,76 @@
+{
+  "_comment": "Ревю прошивки, яка зараз у файлах проєкту (new-inputs/on). Усе перевірено прямим декодуванням через tools/calmath/a2l.py — адреси, розміри й перетворення з A2L, нічого не вгадано. Порівняння коректне: заголовки зони даних 0x180000 у стоку й тюні ідентичні, SW-рядок 1037391847 на тому самому зсуві, HW-рядки збігаються.",
+
+  "claims": [
+    {
+      "statement": "Файли diagnostic-review/new-inputs/on/03G906021QJ.Bin (sha256 a1fc76a6ca96…) і new-inputs/off/… (sha256 8b0f9b9a8943…) — НЕПОВНІ образи: реальний вміст лише 0x180000–0x1FDFFF (14.2% файла), уся зона нижче 0x180000 заповнена 0xFF. Для порівняння, reference-from-hex.analysis-only.bin має вміст від 0x000000 (64.3%). Тобто це читання лише зони даних/калібрування, без програмного коду.",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Практичний наслідок: цей файл НЕ є повним образом для відновлення. Якщо запис пошкодить кодову зону, відновити з нього не вийде. Це конкретна, щойно перевірена причина, чому прогалина 'незайманий повний readback' лишається блокуючою."
+    },
+    {
+      "statement": "Образ new-inputs/off/03G906021QJ (DPF EGR OFF) NoCS.Bin має НЕВІРНІ контрольні суми EDC16: блоки дають 36383FC7 і 8E7884C3 замість очікуваного D01FE500. Образи new-inputs/on і reference-from-hex обидва дають D01FE500 у двох блоках, тобто коректні. Суфікс NoCS у назві узгоджується з цим станом.",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "diagnostic", "is_modeled": 0, "confidence": 0.95,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Цей файл у поточному стані не придатний для запису — ECU відкине його або піде в аварійний режим. kb flash-preflight ловить це кодом CHECKSUM_INVALID."
+    },
+    {
+      "statement": "Порівняння new-inputs/on проти reference-from-hex у зоні даних (0x180000–0x1FDFFF) дає 2085 змінених байтів у зоні калібрування, які лягають рівно на 24 об'єкти A2L: PCR_pBDesMaxAP_MAP, PCR_pBDesBas_MAP, AccPed_trqEng0Cold/0..6/Low_MAP, EngPrt_trqLimP_MAP, AFSCD_mAirPerCylDfl_MAP, FlMng_qPresSmoke_MAP, FMTC_trq2qBas_MAP, InjVlv_phiInjMI1_MAP1..4, InjCrv_phiBasGear12/34/56_MAP, EngPrt_facTempPreTrbn_MAP, FlMng_pIATCorr_MAP. Плюс 2902 байти у 619 ділянках поза покриттям A2L.",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.85,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Ділянки поза A2L (2902 B) не ідентифіковані — A2L описує 11537 characteristics, але покриває не весь образ. Що саме там змінено — не встановлено."
+    },
+    {
+      "statement": "Уставка наддуву PCR_pBDesBas_MAP піднята: максимум 2050 → 2214 гПа (+164), змінено 104 зі 160 комірок. Стеля PCR_pBDesMaxAP_MAP піднята в УСІХ 110 комірках: максимум 2200 → 2376 гПа (+176 на рівні моря, +97…+120 на низькому атмосферному тиску).",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "calibration", "unit": "hPa", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived"
+    },
+    {
+      "statement": "Лімітер моменту двигунозахисту EngPrt_trqLimP_MAP піднятий з 282 до 380.7 Нм (+98.7, тобто +35%), змінено 51 з 63 комірок. Запит моменту водія AccPed_trqEng*_MAP піднятий до +42.8 Нм (390 → 432.8 у 4-й передачі). Перерахунок моменту в паливо FMTC_trq2qBas_MAP: +8.0 мг/цикл (72.4 → 80.4). Димова межа FlMng_qPresSmoke_MAP: +7.8 мг/хід (60.0 → 67.8). Кут головного впорскування InjVlv_phiInjMI1_MAP1: до +3.5° раніше.",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived"
+    },
+    {
+      "statement": "У EngPrt_facTempPreTrbn_MAP (коефіцієнт обмеження моменту за температурою перед турбіною) тюн ПРИБРАВ дві перші сходинки теплового захисту: при T3=805°C стік різав момент до 0.99/0.98 на 4500/5000 об/хв — у тюні 1.000; при T3=820°C стік різав до 0.98/0.98/0.96/0.96/0.96 на 3000–5000 об/хв — у тюні всі 1.000. Сходинки 840°C (0.95/0.92) і 860°C (0.90) лишились без змін.",
+      "evidence_kind": "MEASURED", "verification_state": "raw",
+      "quantity_kind": "calibration", "is_modeled": 0, "confidence": 0.9,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "bin_derived",
+      "missing_evidence": "Наслідок: двигун тепер тримає повний момент до 820°C T3 там, де стік починав відступати з 805°C. Наскільки це критично — залежить від того, ЧИ T3 вимірюється датчиком, чи моделюється; це досі UNKNOWN (окрема прогалина). Якщо модель — захист рахує проти калібрування під стокову подачу, а подача вже змінена."
+    },
+    {
+      "statement": "Виміряний у логу фактичний пік наддуву 2438 мбар абс. перевищує навіть ПІДНЯТУ тюном стелю PCR_pBDesMaxAP_MAP (2376 гПа) приблизно на 62 мбар, і підняту базову уставку (2214 гПа) — на 224 мбар. Тобто фактичний тиск виходить за межу, яку сам тюн задекларував як максимально дозволену.",
+      "evidence_kind": "CALCULATED", "verification_state": "raw",
+      "quantity_kind": "physical", "unit": "mbar", "frame": "physical",
+      "is_modeled": 0, "confidence": 0.75,
+      "ecu_family": "EDC16", "ecu_variant": "EDC16U34", "sw_number": "1037391847",
+      "engine_code": "BLS", "source_class": "computed",
+      "missing_evidence": "Зіставлення двох джерел: значення з образу new-inputs/on і лог VCDS_WOT_Log_20260914_153242.csv. Прив'язка логу саме до цього образу не доведена байт-у-байт — доведено лише, що командована уставка в логу (2203) узгоджується з підиятою базовою мапою (2214), а не зі стоковою (2050)."
+    }
+  ],
+
+  "gaps": [
+    {
+      "question": "З'ясувати, що змінено у 2902 байтах поза покриттям A2L (619 ділянок, зокрема 0x1BFF74-0x1BFFFF і 0x1FDF78-0x1FDFFF)",
+      "why_needed": "Це 58% усіх змін тюну за обсягом. Дві найбільші ділянки лежать рівно перед словами контрольних сум обох блоків — імовірно вирівнювання/сума, але решта 617 ділянок не пояснені. Поки вони не ідентифіковані, повний перелік того, що робить цей тюн, неповний.",
+      "priority": 2,
+      "needed_source": "розширений A2L/DAMOS або дизасемблювання; альтернатива — порівняння з третім образом того самого SW"
+    },
+    {
+      "question": "Отримати ПОВНИЙ образ ECU (з кодовою зоною), а не лише зону даних",
+      "why_needed": "Обидва наявні образи машини містять лише 0x180000-0x1FDFFF; кодова зона 0xFF. Як точка повернення після невдалого запису вони неповні — відновити код з них неможливо.",
+      "priority": 1,
+      "needed_source": "BDM/boot-зчитування повного образу, не OBD-читання зони калібрування"
+    }
+  ]
+}

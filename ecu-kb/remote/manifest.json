@@ -1,0 +1,1121 @@
+{
+  "schema_version": 2,
+  "snapshot_state": "CANONICAL_DB_EXPORT",
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "canonical_source": "ecu-kb/knowledge/kb.sqlite3 (local, not committed)",
+  "logical_snapshot_sha256": "efcf7008b72dae20ba0fc782020597384c9f87f06f2d2766b65cdd0ed07631ce",
+  "integrity": {
+    "kb_check": "PASSED",
+    "export_warnings": [
+      "claim #80 is contradicted; do not use as positive support",
+      "claim #84 is contradicted; do not use as positive support"
+    ]
+  },
+  "epistemic_policy": {
+    "support_states": [
+      "corroborated",
+      "experiment_supported",
+      "project_matched",
+      "verified"
+    ],
+    "negative_states": [
+      "contradicted"
+    ],
+    "non_support_evidence_kinds": [
+      "COMMUNITY_CLAIM",
+      "HYPOTHESIS",
+      "MODEL_RECALL",
+      "UNKNOWN"
+    ],
+    "rule": "Use epistemic_role=support for positive factual support; context requires explicit qualification; negative records contradict rather than support a proposition."
+  },
+  "privacy_boundary": {
+    "raw_corpus_exported": false,
+    "sqlite_exported": false,
+    "firmware_binaries_exported": false,
+    "local_corpus_paths_exported": false,
+    "corpus_metadata_exported": true,
+    "citation_snippets_attached_to_claims": true,
+    "retraction_history_exported": true
+  },
+  "stats": {
+    "sources": 99,
+    "documents": 99,
+    "chunks": 9251,
+    "identifiers": 5222,
+    "a2l_objects": 16772,
+    "corpus_sources": 9,
+    "corpus_artifacts": 35,
+    "corpus_exact": 7,
+    "claims_current": 85,
+    "claims_support": 39,
+    "claims_context": 44,
+    "claims_negative": 2,
+    "gaps_total": 25,
+    "gaps_open": 18
+  },
+  "files": {
+    "claims": {
+      "path": "claims.json",
+      "sha256": "7383889a7d6458c7f96300f978e3b1f0197ca85af7f9c48d3a56ed2ce7e7a4e3",
+      "count": 85
+    },
+    "retractions": {
+      "path": "retractions.json",
+      "sha256": "8dd21bc2c8e498af4b80f9d06f0568b1b93619fff4daf9dcd48fe787b3c2bd2b",
+      "count": 11
+    },
+    "gaps": {
+      "path": "gaps.json",
+      "sha256": "1e10d8b0124c856d62e314660dbbf636fa9d72755d5a1842ecbb891e9f0f4838",
+      "count": 25
+    },
+    "conflicts": {
+      "path": "conflicts.json",
+      "sha256": "78328670fe567b215bf55f03ee5828eb0221323558393b1266156c7ef8b581d3",
+      "count": 1
+    },
+    "corpus": {
+      "path": "corpus.json",
+      "sha256": "77d534fddba916624a23a1faa6556a9b5827c29b75e51ed89d116497deda624e",
+      "count": 35
+    }
+  },
+  "a2l_groups": {
+    "AC": {
+      "path": "a2l/AC.json",
+      "count": 8,
+      "sha256": "a7abd60e9d95770d10d18aebbd3996887af69cd5bcb64dd9c57e5cb5108caffb"
+    },
+    "ACC": {
+      "path": "a2l/ACC.json",
+      "count": 106,
+      "sha256": "afbd5970bbb94e3e9135b1151693bf96850db3e3e35c8a89b64e8d779764bc78"
+    },
+    "ACCCD": {
+      "path": "a2l/ACCCD.json",
+      "count": 191,
+      "sha256": "c0a8392d09ccb77d0b137ca20df95d0b128bc7659cc42c4f337a8776128891e4"
+    },
+    "ACCD": {
+      "path": "a2l/ACCD.json",
+      "count": 58,
+      "sha256": "2cce38a4d1599998284be08b7d5b6c21927baa842b3250c45aae3113632fc559"
+    },
+    "ACCtl": {
+      "path": "a2l/ACCtl.json",
+      "count": 93,
+      "sha256": "5528e0518074c5ea1665c036e769333346f90451c48b894011a89492eb41a3df"
+    },
+    "ACTrqC": {
+      "path": "a2l/ACTrqC.json",
+      "count": 13,
+      "sha256": "3f931629bf76963da1458226431e2cdbe09dc4d29a57c5c86604657d0fba4f3b"
+    },
+    "ADCMon": {
+      "path": "a2l/ADCMon.json",
+      "count": 15,
+      "sha256": "e2507c5994b1490ef43e02b00f79c5ae950e129483f0b1cb1a8deb30a04c7e9e"
+    },
+    "AFSCD": {
+      "path": "a2l/AFSCD.json",
+      "count": 120,
+      "sha256": "b8daa972b723601f04b3229b4b276e8239fc8a4ae097997a3fc9af866b247700"
+    },
+    "AFVCD": {
+      "path": "a2l/AFVCD.json",
+      "count": 16,
+      "sha256": "abb0f1ba39a18028e79eaf2e5e38bd80f3896ec51a90ff72901170c458474cf5"
+    },
+    "AFVCtl": {
+      "path": "a2l/AFVCtl.json",
+      "count": 43,
+      "sha256": "1f042fcba08631a5597acc4a9ee3cb7823d84ec638f292da9f6c5037a5b38f98"
+    },
+    "AOHt": {
+      "path": "a2l/AOHt.json",
+      "count": 43,
+      "sha256": "9380542ee6e3387cc0d09ac97e8abc64ca0ae1528aff0634334949a51b79f838"
+    },
+    "AOHtCD": {
+      "path": "a2l/AOHtCD.json",
+      "count": 53,
+      "sha256": "8defef24e324a647a23230de1d8966edde5357f51defb1a08217c464501b5992"
+    },
+    "APPCD": {
+      "path": "a2l/APPCD.json",
+      "count": 121,
+      "sha256": "a82f3881b7261d090bbc7a079c0504ff81e6ed4cada6cd3eb85b81b408fb2c2f"
+    },
+    "APSCD": {
+      "path": "a2l/APSCD.json",
+      "count": 27,
+      "sha256": "0f73ca7c977b3414a340e8749dbce8710fc341706c14cac335d65e610ccc3189"
+    },
+    "ARnMon": {
+      "path": "a2l/ARnMon.json",
+      "count": 5,
+      "sha256": "e52075b93c39ed828df60d2a8c1212975a89d149ab4986038ee7d87b3a12351b"
+    },
+    "ASDdc": {
+      "path": "a2l/ASDdc.json",
+      "count": 202,
+      "sha256": "b6488befda4e88925f1fa3302616739ba58f5fc0416ec7574b7aaa9e15f3e7bd"
+    },
+    "ASDrf": {
+      "path": "a2l/ASDrf.json",
+      "count": 69,
+      "sha256": "d985b60feb3db87b371454ed057393d139338e02462e7689a171420aeb0edc16"
+    },
+    "AccPed": {
+      "path": "a2l/AccPed.json",
+      "count": 197,
+      "sha256": "a1fd156665be47d78b101bf24968f55a4bfc0906fb1e185c80615bcede78bf21"
+    },
+    "AddPCD": {
+      "path": "a2l/AddPCD.json",
+      "count": 2,
+      "sha256": "158b42bde938f77907b27d615016fee73dcdfb3ebcbaa0efd57849608bcaeda6"
+    },
+    "AddPmp": {
+      "path": "a2l/AddPmp.json",
+      "count": 3,
+      "sha256": "86699812aae8a01981b1491ed6fb9c83e19eea1087400209b5ac124b410fa051"
+    },
+    "AdjVal": {
+      "path": "a2l/AdjVal.json",
+      "count": 2,
+      "sha256": "174ff0803cf1024d489ba03e1acf41630426a37ad32ab5c0a20b31c8f3b7a942"
+    },
+    "AirCtl": {
+      "path": "a2l/AirCtl.json",
+      "count": 575,
+      "sha256": "9d110e723eb452149daeb31f7a5b58887e8c799dea63dd7cbfce814b2e171202"
+    },
+    "AirSys": {
+      "path": "a2l/AirSys.json",
+      "count": 4,
+      "sha256": "0c70dd2e62a7d4f0fe3d4ffecfd1c52a9ad721a1fd3e0f7799e0ca3eff626065"
+    },
+    "AirbCD": {
+      "path": "a2l/AirbCD.json",
+      "count": 18,
+      "sha256": "3b66d070fecc793f053cdcf251a88612b22fc4a53c698322b0643f735b8814fd"
+    },
+    "Alt": {
+      "path": "a2l/Alt.json",
+      "count": 31,
+      "sha256": "5410edcaedef48eb8d0a55be05bcc513b8a0dc9e9b220d93fcaa6005f780e163"
+    },
+    "AltCD": {
+      "path": "a2l/AltCD.json",
+      "count": 55,
+      "sha256": "461312b7d642e7215249fddf3dcaeef94d22e4a9ca8c6e2ece73e23e93f1feec"
+    },
+    "BIP": {
+      "path": "a2l/BIP.json",
+      "count": 98,
+      "sha256": "5baf5d76b7e78db800fdaf8a67529f8b351411ee12256e47078d569fda2f3b52"
+    },
+    "BIPCD": {
+      "path": "a2l/BIPCD.json",
+      "count": 20,
+      "sha256": "f38eaef9bb00cc41fa34be6925600eeeac004643b5f64241c0da9a9c0d188bff"
+    },
+    "BPACD": {
+      "path": "a2l/BPACD.json",
+      "count": 47,
+      "sha256": "bac5dac668a16f2f6be3ca9e272299cfd2d603a3f49a6683f80f078ce0fba186"
+    },
+    "BPASCD": {
+      "path": "a2l/BPASCD.json",
+      "count": 29,
+      "sha256": "643051d511b78bbd5424fe7f4f57feffd7d2376419c6705c0f65b760f992e8a5"
+    },
+    "BPSCD": {
+      "path": "a2l/BPSCD.json",
+      "count": 42,
+      "sha256": "25f95e51b3ea36f8402eae98163fc3505d65ce967ab8f64d1b46cd5b4c8cb1e5"
+    },
+    "BasAdj": {
+      "path": "a2l/BasAdj.json",
+      "count": 79,
+      "sha256": "17bfbd5f3d29f0f8b01354a49e8ef3afe742a318161300e0503121b081d5f48a"
+    },
+    "Batt": {
+      "path": "a2l/Batt.json",
+      "count": 2,
+      "sha256": "09f1ffe297f3b3aba49f1e1d7a1c5067b11bb80df2a8ca85b1e8151d9b696fc4"
+    },
+    "BattCD": {
+      "path": "a2l/BattCD.json",
+      "count": 16,
+      "sha256": "3c4b9ea6941825c55638a132d0d48e0850c60c7b956538ce96f8b5eb3d7a1693"
+    },
+    "BdInt": {
+      "path": "a2l/BdInt.json",
+      "count": 4,
+      "sha256": "473a6735f93fa6719ac326d4e5d5ee86ae669f1bb8f1d79a045944ab5110ac58"
+    },
+    "BrkCD": {
+      "path": "a2l/BrkCD.json",
+      "count": 50,
+      "sha256": "906a544dd1da5ae11b60e8c1a863a7285d9549fd9801658cfdccc3cdf6188229"
+    },
+    "BypEtk": {
+      "path": "a2l/BypEtk.json",
+      "count": 12,
+      "sha256": "0e99af9cce4452569d0fcefa53fa14b7431ba300b0a1b5709071ca51796c91ce"
+    },
+    "BypInt": {
+      "path": "a2l/BypInt.json",
+      "count": 3,
+      "sha256": "9639429701e76b274550f44f10a99e560034aea7625ac86acce98c3385364b33"
+    },
+    "CARB": {
+      "path": "a2l/CARB.json",
+      "count": 36,
+      "sha256": "4edada494bb8028598753c6870f23df77b2efaec0b4e0ffa888be10bd785b7b0"
+    },
+    "Carb": {
+      "path": "a2l/CARB.json",
+      "count": 36,
+      "sha256": "4edada494bb8028598753c6870f23df77b2efaec0b4e0ffa888be10bd785b7b0"
+    },
+    "CCAdp": {
+      "path": "a2l/CCAdp.json",
+      "count": 18,
+      "sha256": "946532e72a50baf74ee794395b6f5aa3ae983486710a48256981c375295714ee"
+    },
+    "COTSCD": {
+      "path": "a2l/COTSCD.json",
+      "count": 14,
+      "sha256": "a5f904a7fa6ce37cb1296b5eb5670209608cc64740dddecc58e2ba125c79ec61"
+    },
+    "CTSCD": {
+      "path": "a2l/CTSCD.json",
+      "count": 52,
+      "sha256": "aaf2adc0bb280e0156a1fd51b29d4ca799150b0f5c4cc98b644ec78afafa11e3"
+    },
+    "CaSCD": {
+      "path": "a2l/CaSCD.json",
+      "count": 122,
+      "sha256": "891593c3f207a7f9c14c183bf16c26beb7d15e8c465e0790b84f38608647592a"
+    },
+    "Can": {
+      "path": "a2l/Can.json",
+      "count": 2,
+      "sha256": "ecdd3f08b20aca233fc6693f9f3a0c9418473c083d97a6e17c83d767ce84687e"
+    },
+    "CatSys": {
+      "path": "a2l/CatSys.json",
+      "count": 2,
+      "sha256": "4d65f42480c8c46a9c047f6fbf05704843b5303af891523484e8f8af9f8e57cb"
+    },
+    "Chiste": {
+      "path": "a2l/Chiste.json",
+      "count": 1,
+      "sha256": "2ea1881c2a0d4b61e4c6adb3c09b8753bb4434c2702da64dc368a7c53498c8d2"
+    },
+    "Clg": {
+      "path": "a2l/Clg.json",
+      "count": 18,
+      "sha256": "881251cbbdfc34e83d46b2fda06a0ca639407ab727cd5a226fe450d24cf9deae"
+    },
+    "CmbChb": {
+      "path": "a2l/CmbChb.json",
+      "count": 31,
+      "sha256": "850ca36b6c9e80d5bef89a3f34eb4adaf4b2bc67c5567df7f420258dd10918f9"
+    },
+    "CoDT": {
+      "path": "a2l/CoDT.json",
+      "count": 67,
+      "sha256": "26daa91012f3175553812e73f765daadbfae22607e0b6e4f89cfcbf143ac62f4"
+    },
+    "CoEng": {
+      "path": "a2l/CoEng.json",
+      "count": 222,
+      "sha256": "ea4face9183ec0d4b4129d272fd854556db0dbd11fb3785ceafb8fb6d0190608"
+    },
+    "CoVM": {
+      "path": "a2l/CoVM.json",
+      "count": 41,
+      "sha256": "f04196b643121123bd670d2943855f471f21ec34cb8f71b230da5a5541625368"
+    },
+    "CoVeh": {
+      "path": "a2l/CoVeh.json",
+      "count": 71,
+      "sha256": "df12e9082b861f687a65905c7be3a108463e57015136aa8c55fe43993eca3330"
+    },
+    "ComVar": {
+      "path": "a2l/ComVar.json",
+      "count": 3,
+      "sha256": "d48084013a52015e530e4ba61bc6368136f963baed7c7566cafff8ddd8c880e8"
+    },
+    "Conv": {
+      "path": "a2l/Conv.json",
+      "count": 20,
+      "sha256": "6b734a144e53ad846ae343e3fc734691dc8d8c06983ddc2eb00d6ce086ed9cb6"
+    },
+    "ConvCD": {
+      "path": "a2l/ConvCD.json",
+      "count": 38,
+      "sha256": "a8a01e24e2af3eccc0624de862cd8fd0f52df532d39f56f721a0536fb9d9914c"
+    },
+    "CrCCD": {
+      "path": "a2l/CrCCD.json",
+      "count": 49,
+      "sha256": "8ecbc49a011ae4521905f06c43e211f7150b90e2151c2b09dbe355a92555243c"
+    },
+    "CrCtl": {
+      "path": "a2l/CrCtl.json",
+      "count": 260,
+      "sha256": "5b97b1b4826ea9c20588d507d697dfaa2329984df28e30f27227fe109a1212b9"
+    },
+    "CrS": {
+      "path": "a2l/CrS.json",
+      "count": 14,
+      "sha256": "1639749d9cb27e0fc8ac2a8332d48f5885d0d5517b0500b268018e76c855325b"
+    },
+    "CrSCD": {
+      "path": "a2l/CrSCD.json",
+      "count": 59,
+      "sha256": "1bbe17864b45def34fd8965c857cd2dcbcb1bf8b24e73d53637d420dfa3e3597"
+    },
+    "CtApCD": {
+      "path": "a2l/CtApCD.json",
+      "count": 27,
+      "sha256": "ee79875285ccdd11e8b2e9dd62a18681c471f21baa11e9a42ddab7226793678f"
+    },
+    "CtT": {
+      "path": "a2l/CtT.json",
+      "count": 33,
+      "sha256": "8be98cc8e67b295d107193ab39ecb373109b2079b22f7b65b8baa9bd355075f8"
+    },
+    "CtTCD": {
+      "path": "a2l/CtTCD.json",
+      "count": 15,
+      "sha256": "7fa4f49a6babdc7361fb4799e87a569c466e1a8ba69805f6b60569644e353cda"
+    },
+    "CtTCtl": {
+      "path": "a2l/CtTCtl.json",
+      "count": 50,
+      "sha256": "eb8c5ebbe1ea79663b92701b9abc1ecb372f980f147c76f0e40edd2e203b6553"
+    },
+    "DFPM": {
+      "path": "a2l/DFPM.json",
+      "count": 1,
+      "sha256": "a15d78bd4cb851c166e1987f1e3b1726376980942b1f0da0a09096a452c5bd72"
+    },
+    "DIUMPR": {
+      "path": "a2l/DIUMPR.json",
+      "count": 36,
+      "sha256": "68ca246790a4729c4a150b60d4ab807161a08a5b40f30715ceee5d0a5a1341d0"
+    },
+    "DSC": {
+      "path": "a2l/DSC.json",
+      "count": 1,
+      "sha256": "7e221a43ba8dbbe9da1c1ed38d5fe0e3c9f8151301c867b1a0b70c02e0d131d2"
+    },
+    "DSCHED": {
+      "path": "a2l/DSCHED.json",
+      "count": 3,
+      "sha256": "1af5970dd1cf276f252215cde19e7d178fedde4fdc74042129b6255cc63cc44f"
+    },
+    "DSM": {
+      "path": "a2l/DSM.json",
+      "count": 3181,
+      "sha256": "b654946f5c4bb3c704ca50e99b2de02c51a9c90d179a3f5f625fd06c15743fb5"
+    },
+    "DSMDur": {
+      "path": "a2l/DSMDur.json",
+      "count": 15,
+      "sha256": "1ff6aacbae3362c1463048263d52e46c2698bc3c6a02fdc6b0604a7bb1123958"
+    },
+    "DTR": {
+      "path": "a2l/DTR.json",
+      "count": 5,
+      "sha256": "2bd7e6ba9a9336f66618e556cf7c1d658334692ab7825546a64c472cff0000b8"
+    },
+    "Dfp": {
+      "path": "a2l/Dfp.json",
+      "count": 404,
+      "sha256": "5b140ddf69bcaa8837c84d60122c93398c45b7b38f4f64b9baa191cb0170cc4d"
+    },
+    "DfpErrCol": {
+      "path": "a2l/DfpErrCol.json",
+      "count": 1,
+      "sha256": "6d8c43fe392d51ff60f2e151c63d51a936e35d54e465555ff22ad822c22f6686"
+    },
+    "DfpZpfCol": {
+      "path": "a2l/DfpZpfCol.json",
+      "count": 1,
+      "sha256": "844ec1c1e809918f60e20cf0fc89aba721b2f36a1441d106c70515b30b360f2b"
+    },
+    "DfpZyfCol": {
+      "path": "a2l/DfpZyfCol.json",
+      "count": 1,
+      "sha256": "b847f4903f43dadb47b478ded995de37ba85d0d7f84f0622256cc9b2e58f8202"
+    },
+    "Diff": {
+      "path": "a2l/Diff.json",
+      "count": 7,
+      "sha256": "0f3a1136a62dc780d1ee96a2633463865dec40b1a20ee0e577b980b201caed57"
+    },
+    "DrvTrn": {
+      "path": "a2l/DrvTrn.json",
+      "count": 10,
+      "sha256": "7ef2a1925c765fbf7734d4771d5a964595947703e7f96a4adf2fb74d7fd1ee63"
+    },
+    "EATSCD": {
+      "path": "a2l/EATSCD.json",
+      "count": 23,
+      "sha256": "77cd8ee67d7c3a75e479790aff994152e0b195e192082cc155d0cfc9c38bd27d"
+    },
+    "ECU": {
+      "path": "a2l/ECU.json",
+      "count": 1,
+      "sha256": "6dae10241304f4deb95e75d123ba8edb2d1b62b63ec2ac56739192bd4575d919"
+    },
+    "EEPCD": {
+      "path": "a2l/EEPCD.json",
+      "count": 11,
+      "sha256": "7f38137396c5e8afe774d458e4bbcc0e0d18007a96c3aaca63046192caae60af"
+    },
+    "EGPp": {
+      "path": "a2l/EGPp.json",
+      "count": 16,
+      "sha256": "385fe674fb15bc091ce2dee1da0e31e3316e3b3499c3da9a74a043c03382494f"
+    },
+    "EGPpCD": {
+      "path": "a2l/EGPpCD.json",
+      "count": 23,
+      "sha256": "834a599625ac81441cd081fd8577a42c913ed1ce8e7aee8fde5243bf01541ea5"
+    },
+    "EGRCD": {
+      "path": "a2l/EGRCD.json",
+      "count": 60,
+      "sha256": "24f5fdcd8cec879c99c4886bb9af6baa12eca6da40616b1d03c2d512f8ff6225"
+    },
+    "EGRSCD": {
+      "path": "a2l/EGRSCD.json",
+      "count": 93,
+      "sha256": "ac5a5a7f90b92e3f93bd46466f1c72cf57756aa4e342777fdda836e6a433d2fd"
+    },
+    "EGRVlv": {
+      "path": "a2l/EGRVlv.json",
+      "count": 78,
+      "sha256": "0f85ce9a3a49dd96aec285e1a312aea0815d1a27519e5af34d0a413e66803598"
+    },
+    "EGSys": {
+      "path": "a2l/EGSys.json",
+      "count": 287,
+      "sha256": "08b054cb5142a7cd3733feb39fa0bb40bc000804f84635e152565136952d1a3c"
+    },
+    "EGT": {
+      "path": "a2l/EGT.json",
+      "count": 30,
+      "sha256": "c761b1f9216ce01c3fbfc9ae29203df0f39a7e217a2f09c5ef9931c43d7900ec"
+    },
+    "EMCCD": {
+      "path": "a2l/EMCCD.json",
+      "count": 16,
+      "sha256": "3f851db5ed5809681a983a7b00f64fd45fad86e9798d91c4bc85686e2021456f"
+    },
+    "EOPD": {
+      "path": "a2l/EOPD.json",
+      "count": 2,
+      "sha256": "5ca397575b56cd5f419f2b7716921ebe3425d302edc316b7c74a3f4ad899e1ea"
+    },
+    "ESS": {
+      "path": "a2l/ESS.json",
+      "count": 19,
+      "sha256": "d5fc12f4655a31f34fb908e2549810c83a17101a48a5a2525549fdfb54ec7302"
+    },
+    "EcoCD": {
+      "path": "a2l/EcoCD.json",
+      "count": 1,
+      "sha256": "ea95bf43172e3c6cebb9c6aca455b558104f358b9beee842f08d07f093d5a0c0"
+    },
+    "EcuInit": {
+      "path": "a2l/EcuInit.json",
+      "count": 4,
+      "sha256": "d97c00b4fcf9bc506417ee6a1822727ff1ce2effc947041b34256bc75dd70356"
+    },
+    "EepDev": {
+      "path": "a2l/EepDev.json",
+      "count": 8,
+      "sha256": "6825120b74eccb9dc751f918570e1382cfe114f77c5f295b6f965c1784aa2919"
+    },
+    "EepInit": {
+      "path": "a2l/EepInit.json",
+      "count": 20,
+      "sha256": "ff6d66cdb9e9652c04648a88274eb6ac2dddaedd664146febd492a6d0fbc5138"
+    },
+    "Eng": {
+      "path": "a2l/Eng.json",
+      "count": 85,
+      "sha256": "82f5ab3c592c977e87c2f69ba61c508bea77ab16e51db631f2073cf02272b1f0"
+    },
+    "EngM": {
+      "path": "a2l/EngM.json",
+      "count": 203,
+      "sha256": "1bc8ffc380eff056c90c2245b51355bb863e12b560dcb52d11481942cf4d2a82"
+    },
+    "EngMon": {
+      "path": "a2l/EngMon.json",
+      "count": 14,
+      "sha256": "79188d5fb0aa500a275e02ddd4dc33d84c9e3cc97273072daa8b2d0311dd592d"
+    },
+    "EngPrt": {
+      "path": "a2l/EngPrt.json",
+      "count": 107,
+      "sha256": "9188679345eb598407453c4a8ad0619ea31b755d3c92693a29222b75616d0a9f"
+    },
+    "ErLp": {
+      "path": "a2l/ErLp.json",
+      "count": 17,
+      "sha256": "eed3a5ac9fe0cf050f5de05f69bf01bbe4f45d86c42c495f0acd9df854c7d0ce"
+    },
+    "ErLpCD": {
+      "path": "a2l/ErLpCD.json",
+      "count": 33,
+      "sha256": "d416c2b8830f015d439e7b162d53126136aba0dfbd6af4f8c7de3f06d2a9c4fd"
+    },
+    "ExeMon": {
+      "path": "a2l/ExeMon.json",
+      "count": 1,
+      "sha256": "4d154aa6e8223e6918c641b9a7a28b765bf4d12f96b06be9a3e421a115b3b9fa"
+    },
+    "FBC": {
+      "path": "a2l/FBC.json",
+      "count": 162,
+      "sha256": "1480c4a6689d14ead44477e3f690ba0f9d02d88296b29b16ca47277eaa0a2312"
+    },
+    "FMA": {
+      "path": "a2l/FMA.json",
+      "count": 74,
+      "sha256": "7faf6198b05581693b631d9319fbf2ffeb5158c8f36646007966149704ba64fa"
+    },
+    "FMTC": {
+      "path": "a2l/FMTC.json",
+      "count": 38,
+      "sha256": "e714d63124425ceb29e8b2c5b7201d0012a91a4f2b66f5f848fe7a4379415700"
+    },
+    "FQTSCD": {
+      "path": "a2l/FQTSCD.json",
+      "count": 42,
+      "sha256": "208984460ab872e3527db4872b73e898e056d45d6b20612e9244b58b3d44003f"
+    },
+    "FQlSCD": {
+      "path": "a2l/FQlSCD.json",
+      "count": 22,
+      "sha256": "6edc4587f852f7334823b3282b8436e94c6b4c8d0b8245ea72cbaf8218895bfc"
+    },
+    "FTSCD": {
+      "path": "a2l/FTSCD.json",
+      "count": 39,
+      "sha256": "190d6c43cdb54d5eedcf666b77d9b9cbf1d2592d5bfcfb4cc8946f6c37f5233d"
+    },
+    "FanCD": {
+      "path": "a2l/FanCD.json",
+      "count": 77,
+      "sha256": "b47733f42bc37ef4f2d11169527850c6d4d550c33322e4c7d449c3265385ce15"
+    },
+    "FanCtl": {
+      "path": "a2l/FanCtl.json",
+      "count": 228,
+      "sha256": "27e9805456f0a38b929f6d7153336612f68d83cdb40b333b928396ccfc6dda61"
+    },
+    "Fid": {
+      "path": "a2l/Fid.json",
+      "count": 461,
+      "sha256": "852d6a8856fa2feb1d86d8f2a9d1b5e97de16447c4effb9d4bbee42421cf9014"
+    },
+    "FidCol": {
+      "path": "a2l/FidCol.json",
+      "count": 1,
+      "sha256": "4bcbb9e382e69c7e150f1d100ec131ed15c026be412c2fd83b5439d81670c1a3"
+    },
+    "FlClgCD": {
+      "path": "a2l/FlClgCD.json",
+      "count": 14,
+      "sha256": "f9d60b793126835dcad113d34083fee347689e7bd7ae6847691fa53fa212ad7a"
+    },
+    "FlMng": {
+      "path": "a2l/FlMng.json",
+      "count": 80,
+      "sha256": "a282e77d76894e4a18bdea921eda07843cf04c578fd193f1e89aae8628db02f2"
+    },
+    "FlPpCD": {
+      "path": "a2l/FlPpCD.json",
+      "count": 18,
+      "sha256": "4257e4df42f3a73b39a787d18c2f359a465a482904615719aedbecd9922048da"
+    },
+    "FlSCD": {
+      "path": "a2l/FlSCD.json",
+      "count": 20,
+      "sha256": "c0a71696b3df338725d277d89429be3fe51c31b5f9fb2c0c8f58a3dcd85a3f40"
+    },
+    "FlSys": {
+      "path": "a2l/FlSys.json",
+      "count": 25,
+      "sha256": "bac053c2610a20ab93baf57b81fc93ec98557c9796d13ad1f7c595cb0242ce03"
+    },
+    "FrmMng": {
+      "path": "a2l/FrmMng.json",
+      "count": 1511,
+      "sha256": "ea25eb401ab1cd49e673e1048a001e1dddb68720d68fb2255b18f39d45e41044"
+    },
+    "GbSSCD": {
+      "path": "a2l/GbSSCD.json",
+      "count": 20,
+      "sha256": "aa305e4a53bcbd5fa71617d9a8847000ab28f1dbbdecd1605696793a1b5e944e"
+    },
+    "Gearbx": {
+      "path": "a2l/Gearbx.json",
+      "count": 218,
+      "sha256": "29d2bd0b1e6050feda432b6933f9d1f893f4285bb1cb7d107a726b15eed389e3"
+    },
+    "GlwCD": {
+      "path": "a2l/GlwCD.json",
+      "count": 122,
+      "sha256": "95e0db7ebabcdbcb25330a5484885e1de9f4b3766f33ea94319bb7c1dd2590f4"
+    },
+    "GlwCtl": {
+      "path": "a2l/GlwCtl.json",
+      "count": 124,
+      "sha256": "0b2fd69cb40ef0dc6fee0d22c5eea736cc95cbcb0527bdbce3da4dd33847f324"
+    },
+    "HCInj": {
+      "path": "a2l/HCInj.json",
+      "count": 3,
+      "sha256": "512c15b1c340e7f6156ec25267255abd8c081afec1984302e7c680b633f0dd1e"
+    },
+    "HDSCD": {
+      "path": "a2l/HDSCD.json",
+      "count": 14,
+      "sha256": "072934dc0c1558dd8d123610155038ec0ddd0f90f9aeafca88e5af6361c0cca9"
+    },
+    "HPUn": {
+      "path": "a2l/HPUn.json",
+      "count": 2,
+      "sha256": "94e1a0c2a152a9d6c88685ce41e1346115a61fa07ab895a5015c9cf6db712e44"
+    },
+    "HWEMon": {
+      "path": "a2l/HWEMon.json",
+      "count": 15,
+      "sha256": "a359a6b711d105e10215a73226bcaf644d3825bb48f03594d65e62225e719bd3"
+    },
+    "IATSCD": {
+      "path": "a2l/IATSCD.json",
+      "count": 19,
+      "sha256": "b1626a4e77863d0802406cafe1cfb6b7f642d3cebe986379c0c4e11b6d76284d"
+    },
+    "IFCD": {
+      "path": "a2l/IFCD.json",
+      "count": 16,
+      "sha256": "8a6c1e308e55512cbd20ba5ab0b123322577fc5770289d730c5baedea2c7d39d"
+    },
+    "IFCtl": {
+      "path": "a2l/IFCtl.json",
+      "count": 11,
+      "sha256": "bda1a02d5e6eb721748cd15620f54669aae3a097f719ff2ca7af44dc54a42d91"
+    },
+    "IgnLck": {
+      "path": "a2l/IgnLck.json",
+      "count": 1,
+      "sha256": "b7347d91d54d3d575665258308ee9d768f0924f01971ad9275705a0ad789bae5"
+    },
+    "ImmCtl": {
+      "path": "a2l/ImmCtl.json",
+      "count": 27,
+      "sha256": "f92cd775f2d6a96e8f3227c4dcceac0b683440b441d5d927e0c2045499c42019"
+    },
+    "IndSys": {
+      "path": "a2l/IndSys.json",
+      "count": 89,
+      "sha256": "f84d25638240ed97d056a4247df552a2bfdf928a2694362fd8d62fe57f9709bd"
+    },
+    "InjCrv": {
+      "path": "a2l/InjCrv.json",
+      "count": 546,
+      "sha256": "185b246ad07227e7f0370cdadabb6aa571056af4bee0be68292a2b2ec9a157b5"
+    },
+    "InjCtl": {
+      "path": "a2l/InjCtl.json",
+      "count": 17,
+      "sha256": "9ca844a1521e5aab2e9e417d08221f456a0821867c73e86cc31e64761eb878b5"
+    },
+    "InjUn": {
+      "path": "a2l/InjUn.json",
+      "count": 30,
+      "sha256": "c88fb129588f40cb99599d91c9b429e66929fab55aa556ac26bec85ebd45f56c"
+    },
+    "InjVCD": {
+      "path": "a2l/InjVCD.json",
+      "count": 42,
+      "sha256": "00bf47499df7460ac9b9c4e0f8c7bc141754b0673ab687bb84a12b52e5b2b2ca"
+    },
+    "InjVlv": {
+      "path": "a2l/InjVlv.json",
+      "count": 84,
+      "sha256": "e92cd2edc388b24a76b59909a0a74ed6afdc0cbcd00a802d006f888ddedadb40"
+    },
+    "K2RDI": {
+      "path": "a2l/K2RDI.json",
+      "count": 2,
+      "sha256": "1ee5753fc6b1eb800caf0cd1715b07e0037a76e2558b92ee687177ab404591d4"
+    },
+    "K2rffd": {
+      "path": "a2l/K2rffd.json",
+      "count": 1,
+      "sha256": "5e088109c5aba10765ddb56534c39256a868834f53089ecf5bf261c3934d705f"
+    },
+    "LASCD": {
+      "path": "a2l/LASCD.json",
+      "count": 13,
+      "sha256": "62182d642d283a37db3b183c17e63f8acca0e25953a9ac6be070a6926fc92d41"
+    },
+    "LIGov": {
+      "path": "a2l/LIGov.json",
+      "count": 166,
+      "sha256": "b47076f91f913b628019728bbdc3e6fe1304559857beb63826dcd92c1725f86e"
+    },
+    "LSU": {
+      "path": "a2l/LSU.json",
+      "count": 143,
+      "sha256": "6041b26f17e56eaeed73b699b8432a0c452208401297fe02a0f29e391c2926d7"
+    },
+    "LSUCD": {
+      "path": "a2l/LSUCD.json",
+      "count": 227,
+      "sha256": "22c73f3300c80a60eceddc691190da16dab519157e2777bcc398d5741ac06661"
+    },
+    "LSUCtl": {
+      "path": "a2l/LSUCtl.json",
+      "count": 58,
+      "sha256": "47d491496b810debc8fbbfe105661305554684d0185dc2d749a07802acbace8d"
+    },
+    "Layer": {
+      "path": "a2l/Layer.json",
+      "count": 2,
+      "sha256": "47fe7e96872e6a193a218ff0fc1857be41e132eb126f24a9ac45126a004fe2a5"
+    },
+    "LockCnt": {
+      "path": "a2l/LockCnt.json",
+      "count": 2,
+      "sha256": "9356bfb5930859127990c1b51ba4077eda0605907d98183804bd75e9d81d0a68"
+    },
+    "Lub": {
+      "path": "a2l/Lub.json",
+      "count": 1,
+      "sha256": "f587e3589dcf345a40ddd6e759c04f33d0a289abb6e23beaa7048e43a3ece6cf"
+    },
+    "MRlyCD": {
+      "path": "a2l/MRlyCD.json",
+      "count": 9,
+      "sha256": "a36bb33f1b4ee4cc77cd31554befb26b46bc88a796a508ce9bf626d60c222e22"
+    },
+    "MSid": {
+      "path": "a2l/MSid.json",
+      "count": 1,
+      "sha256": "33e4a2756235ad84428d55f99e2a55d44d25f87a4014505a43ad1f30ced9931f"
+    },
+    "MSidCD": {
+      "path": "a2l/MSidCD.json",
+      "count": 3,
+      "sha256": "17847b0c7cb37a536aea8d024aaeca06c2b62b811a389842035984bc29c5e46c"
+    },
+    "McMess": {
+      "path": "a2l/McMess.json",
+      "count": 1,
+      "sha256": "267a4f6264fd25eb6f029b9eaa2c197db73676896df1286ffaddb042bcd75bbd"
+    },
+    "MemMon": {
+      "path": "a2l/MemMon.json",
+      "count": 9,
+      "sha256": "b995409c2a0dda386f7c9b2256cf8f4db320ed312a9113a275a278769ba479fd"
+    },
+    "NSC": {
+      "path": "a2l/NSC.json",
+      "count": 4,
+      "sha256": "28268ab29289eddc0c0f8782cd50640984305cdb48c0bb5bec7419cba7477f74"
+    },
+    "NetMng": {
+      "path": "a2l/NetMng.json",
+      "count": 84,
+      "sha256": "acfb26474b7921cf1d6d2d4d7bd16a2f35017deab6b11678e4ebea63c1758490"
+    },
+    "OTSCD": {
+      "path": "a2l/OTSCD.json",
+      "count": 52,
+      "sha256": "40a1580ba1330eb7b4a131458c42547c52ff82cd2d43623f35f75f06a6882635"
+    },
+    "OvRMon": {
+      "path": "a2l/OvRMon.json",
+      "count": 146,
+      "sha256": "9fde5f57d039b83c9a0a6455cb802d2c6bd553f5a80b00a7411e45b3ca44aa76"
+    },
+    "OxiCCD": {
+      "path": "a2l/OxiCCD.json",
+      "count": 15,
+      "sha256": "c22850a6be9180cc52ea81908fde5a38c3566bd680dbb48a3793e78b0d7e7b88"
+    },
+    "PCR": {
+      "path": "a2l/PCR.json",
+      "count": 355,
+      "sha256": "8bb6e12e13c47ea2bc217d474aaff2f0d158fa404ffc85e8347f8f45d5279dcf"
+    },
+    "PFlt": {
+      "path": "a2l/PFlt.json",
+      "count": 801,
+      "sha256": "dbcaf3c1e6afeb698e983ea8cab12ef85666b01da30ea8d9945666726daa5699"
+    },
+    "PFltCD": {
+      "path": "a2l/PFltCD.json",
+      "count": 70,
+      "sha256": "0f6e80ab7c3dec185ea3b4ec2706ed1e0504c3f9521e1f1a6b5ca3cf45adf0e9"
+    },
+    "PSP": {
+      "path": "a2l/PSP.json",
+      "count": 4,
+      "sha256": "48d66f9f4e8bd211043adfd198843a037cf5cbd72aa6fc6acf6a04307b099f9f"
+    },
+    "PSPCD": {
+      "path": "a2l/PSPCD.json",
+      "count": 14,
+      "sha256": "1794901365a0506a3e73351959658df6cfd9052bf47dd493971a03012ffd368b"
+    },
+    "Prp": {
+      "path": "a2l/Prp.json",
+      "count": 53,
+      "sha256": "d53e81cc11e7ef0caa5b568b80a7d02f5eb692dd5d8127a2742473781acf3c92"
+    },
+    "PrpBrk": {
+      "path": "a2l/PrpBrk.json",
+      "count": 3,
+      "sha256": "734e85760401f26883ae0c02f8f1d2741449cce7a7767b9cc165e1ccda01209d"
+    },
+    "PrpCtl": {
+      "path": "a2l/PrpCtl.json",
+      "count": 136,
+      "sha256": "c7621b50b34e840db37ec9b27c5ee476385e3ece9062186f180ad00bde2c56c1"
+    },
+    "Rtmo": {
+      "path": "a2l/Rtmo.json",
+      "count": 20,
+      "sha256": "96addf783e79641a15311c2bda6e8276586e87b29240e57a96adcb82b389f8cd"
+    },
+    "Rttp": {
+      "path": "a2l/Rttp.json",
+      "count": 1,
+      "sha256": "8a48c52a7ea0c3fb8a55b085e6a233a57f3d52100e10effbad42353d9ccb4e00"
+    },
+    "SOPTst": {
+      "path": "a2l/SOPTst.json",
+      "count": 6,
+      "sha256": "c1ebbecc895fd0d2f1330b6fae098481891ef8435542680a338cbaa182988a24"
+    },
+    "SSpMon": {
+      "path": "a2l/SSpMon.json",
+      "count": 16,
+      "sha256": "c681a45cb8c74eea9444a840353c594d55f2c6dc660100ba9b68a13ea9a1aca3"
+    },
+    "SWTmr": {
+      "path": "a2l/SWTmr.json",
+      "count": 2,
+      "sha256": "1f128b72d5142c47c8c5458bcb6338e3a8945e311962cd91e18268728869ceec"
+    },
+    "Shtrp": {
+      "path": "a2l/Shtrp.json",
+      "count": 134,
+      "sha256": "67e37ba754617bef3a7d40ebc330f35f2d75fa5149508a9cf3c5085abfd9febe"
+    },
+    "Sig": {
+      "path": "a2l/Sig.json",
+      "count": 558,
+      "sha256": "16daa71b79947fd0f3dc180d3ff56425a0fd2459fef804d5db17d1257a7c3b34"
+    },
+    "SigTst": {
+      "path": "a2l/SigTst.json",
+      "count": 36,
+      "sha256": "581f9ad63cb36f857f1f8a056e38ac46e8001eb4828303569242a4e7dd98db51"
+    },
+    "signals": {
+      "path": "a2l/Signals.json",
+      "count": 18,
+      "sha256": "e9436effe7b2e5a2e7565d0df6d318ad7cee10f18e9b1d46b7bf553c3c21d11a"
+    },
+    "Signals": {
+      "path": "a2l/Signals.json",
+      "count": 18,
+      "sha256": "e9436effe7b2e5a2e7565d0df6d318ad7cee10f18e9b1d46b7bf553c3c21d11a"
+    },
+    "SrvPmp": {
+      "path": "a2l/SrvPmp.json",
+      "count": 15,
+      "sha256": "ef38fa212f683cebe2e48fa802a02bbca73516c2106b286e7394c8e73460fa7d"
+    },
+    "StSys": {
+      "path": "a2l/StSys.json",
+      "count": 66,
+      "sha256": "faa13d70671b215d8ee6171c4b182336e92a3b7c958436063a71b055a0c7909a"
+    },
+    "StSysCtl": {
+      "path": "a2l/StSysCtl.json",
+      "count": 58,
+      "sha256": "d44745720a1001a2492c1fbd6710b0db6d4d54d99340b6e68ae8974299496d87"
+    },
+    "StrtCD": {
+      "path": "a2l/StrtCD.json",
+      "count": 34,
+      "sha256": "d0d600d4d42bc4350551687c2aa49cff29196ff4da0b4b224013771743b896d7"
+    },
+    "SvLp": {
+      "path": "a2l/SvLp.json",
+      "count": 45,
+      "sha256": "6509d775d0d3910c4bad47c825e7722662f0dc7e1580f0a02c07f6e256a528c8"
+    },
+    "SvLpCD": {
+      "path": "a2l/SvLpCD.json",
+      "count": 23,
+      "sha256": "7e283e5b8984e24e69e85cb074a81b27c1b7c2aa58dfd04a466f7f4b888a4ba5"
+    },
+    "T15CD": {
+      "path": "a2l/T15CD.json",
+      "count": 33,
+      "sha256": "2b483f53ed21693307da9de5ae2fe67795b62a66d23e108900915a51378d43e5"
+    },
+    "T50CD": {
+      "path": "a2l/T50CD.json",
+      "count": 28,
+      "sha256": "2f932280c27bfb6faa234db82d3cdf347f6815764d4751e3c78b41c96fec2064"
+    },
+    "TAA": {
+      "path": "a2l/TAA.json",
+      "count": 46,
+      "sha256": "b8e03d10ccd58d8c1632a3c924e7e6debb2466cf3872b740f251fad31f984b70"
+    },
+    "TPUMon": {
+      "path": "a2l/TPUMon.json",
+      "count": 9,
+      "sha256": "357a7d2894cef49885858b5e18811e87ce178a7c53ff5e022d713a53daead176"
+    },
+    "TVACD": {
+      "path": "a2l/TVACD.json",
+      "count": 36,
+      "sha256": "821d499c366a300648e7297c29ad088a7342970dedd17e2618d6a4087ef4d7a4"
+    },
+    "TVASCD": {
+      "path": "a2l/TVASCD.json",
+      "count": 49,
+      "sha256": "646e57d05fe544dac38d2dc81132b97327487868563a07d08c6be42cea9ffdbe"
+    },
+    "ThrVlv": {
+      "path": "a2l/ThrVlv.json",
+      "count": 136,
+      "sha256": "3c19b41f7f3f7344b5a26d2b6093259fd37c4c569a8fb9d45e7fb41f22d14fe1"
+    },
+    "Tp20": {
+      "path": "a2l/Tp20.json",
+      "count": 4,
+      "sha256": "fb97bbb4b6c9affa209fe2befb7607e755f32a96e5dc86d101d9af2d3a754f9a"
+    },
+    "Tst": {
+      "path": "a2l/Tst.json",
+      "count": 7,
+      "sha256": "b96becc81a9fd8d2810ea79ee352ad01f9540634aac01f6211c934f8c48e3285"
+    },
+    "TstTog": {
+      "path": "a2l/TstTog.json",
+      "count": 18,
+      "sha256": "a7dededd23f2c9e9685c5abc8b1fbb3ea5e372c973ec9624c15c8dec79a74f17"
+    },
+    "UACC": {
+      "path": "a2l/UACC.json",
+      "count": 67,
+      "sha256": "0a8c1249cb59f164c96d03bef31416e7098b6638e1f90942f42af9a76c6c3702"
+    },
+    "Uacc": {
+      "path": "a2l/UACC.json",
+      "count": 67,
+      "sha256": "0a8c1249cb59f164c96d03bef31416e7098b6638e1f90942f42af9a76c6c3702"
+    },
+    "UAcc": {
+      "path": "a2l/UACC.json",
+      "count": 67,
+      "sha256": "0a8c1249cb59f164c96d03bef31416e7098b6638e1f90942f42af9a76c6c3702"
+    },
+    "UAddr": {
+      "path": "a2l/UAddr.json",
+      "count": 1,
+      "sha256": "40e4996c02c89e96c17bd8b432ae50b2ea3779e1456183448d21356150786eb7"
+    },
+    "UKey": {
+      "path": "a2l/UKey.json",
+      "count": 5,
+      "sha256": "1128d650b8c4c67e3e665b400ce69ba01206726cb7eeeb5410e4442e85346d47"
+    },
+    "USAp": {
+      "path": "a2l/USAp.json",
+      "count": 9,
+      "sha256": "97d383397159f074ae1b9249fcf26afa1296a5c29659e1ee4b19fbf87bdb6714"
+    },
+    "VESGov": {
+      "path": "a2l/VESGov.json",
+      "count": 1,
+      "sha256": "82ac94591193373db5ffb49483b5582bfc32c3df9566fd659fdc133f1df01143"
+    },
+    "VSACD": {
+      "path": "a2l/VSACD.json",
+      "count": 26,
+      "sha256": "78acb15f9191c3500708a1eae6c6c0b294d5bcd3d2f348fa6482c7cf73b288f4"
+    },
+    "VSSCD": {
+      "path": "a2l/VSSCD.json",
+      "count": 49,
+      "sha256": "f5b1409f85a227f0b0e465cb33525b902eca79e1c6dc24832a4653ce15cf16e5"
+    },
+    "VehDa": {
+      "path": "a2l/VehDa.json",
+      "count": 26,
+      "sha256": "160e13da51984122f099a7c0369baad3979b4551ef95c9631f24a821085c3def"
+    },
+    "VehMot": {
+      "path": "a2l/VehMot.json",
+      "count": 4,
+      "sha256": "ab9fe2e52ce972e6c3b12fa237baabdab7b6f07fd99dac963e4d94ca09a87c6c"
+    },
+    "WDALCD": {
+      "path": "a2l/WDALCD.json",
+      "count": 16,
+      "sha256": "2ea0f2f774005ad4396377098dcf8fbb499e9beeb551c555b7148ba73618f6a2"
+    },
+    "WDASCD": {
+      "path": "a2l/WDASCD.json",
+      "count": 20,
+      "sha256": "cf8146cf0d1c3535fa09bc519aff9c1892e532dc09a5adc5fb94b8473c26c5de"
+    },
+    "WDCom": {
+      "path": "a2l/WDCom.json",
+      "count": 7,
+      "sha256": "d97acfc79737e9eaff151c72f2d0c1fcbcb8e530e1ef03bec75462762f794160"
+    },
+    "_UNGROUPED": {
+      "path": "a2l/_UNGROUPED.json",
+      "count": 1,
+      "sha256": "0d7ec4357913c6a999d6ff888030f547b0606ea61d0e6b1464131207443fd6bb"
+    }
+  },
+  "consumer_entrypoint": "docs/CHATGPT-KB-BRIDGE.md"
+}

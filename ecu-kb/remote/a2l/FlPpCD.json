@@ -1,0 +1,217 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "FlPpCD",
+  "raw_groups": [
+    "FlPpCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_DebExcTempDef_C",
+      "description": "Defekterkennungszeit Übertemperatur für FlPpCD Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D704A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_DebExcTempOk_C",
+      "description": "Heilzeit Übertemperatur für FlPpCD Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D704C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_DebNoLoadDef_C",
+      "description": "Defekterkennungszeit Leerlauf für FlPpCD Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D704E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_DebNoLoadOk_C",
+      "description": "Heilzeit Leerlauf für FlPpCD Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7050",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_DebShortCircBatDef_C",
+      "description": "Defekterkennungszeit Kurzschluß Batterie für FlPpCD Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7052",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_DebShortCircBatOk_C",
+      "description": "Heilzeit Kurzschluß Batterie für FlPpCD Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7054",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_DebShortCircGndDef_C",
+      "description": "Defekterkennungszeit Kurzschluß Masse für FlPpCD Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7056",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_DebShortCircGndOk_C",
+      "description": "Heilzeit Kurzschluß Masse für FlPpCD Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7058",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_ctPwrStgOnMax_C",
+      "description": "maximale Anzahl von Endstufen-Einschaltungen pro Fahrzyklus bei SCB oder Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7048",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_stFlPp",
+      "description": "Hardwareansteuerung Kraftstoffumwaelzpumpe",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93F3",
+      "record_layout": null,
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_stInvOut_C",
+      "description": "Invertierung des Ausgangssignales",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D705A",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_stSPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart ( 1 = SPI kontrollierbare Endstufe, 0 = nicht SPI-Endstufe )",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D705B",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_swtFlPpAct",
+      "description": "Schalter fuer die Kraftstoffumwaelzpumpe ( 0 - deaktiviert / 1 - aktiviert )",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93F4",
+      "record_layout": null,
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_swtFlPpActType_C",
+      "description": "Type des Schalters fuer die Kraftstoffumwaelzpumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5F0A",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_swtFlPpActVal_C",
+      "description": "Wert des EEPROM Schalters fuer die Kraftstoffumwaelzpumpe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5F09",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_swtFlPpAct_C",
+      "description": "Kraftstoffumwälzpumpe AKTIV/INAKTIV",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D5F08",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_tiBtwTst_C",
+      "description": "Zeitabstand, in dem im Fehlerfall die Endstufe getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D705C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlPpCD_tiPwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall eingeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D705E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlPpCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

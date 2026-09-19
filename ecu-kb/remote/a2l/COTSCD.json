@@ -1,0 +1,173 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "COTSCD",
+  "raw_groups": [
+    "COTSCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_DebSRCHighDef_C",
+      "description": "WTK Fehlerentprellzeit fuer SRC-High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCE26",
+      "record_layout": "Kw_Wu16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_DebSRCHighOk_C",
+      "description": "WTK Heilungsentprellzeit fuer SRC-High",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCE28",
+      "record_layout": "Kw_Wu16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_DebSRCLowDef_C",
+      "description": "WTK Fehlerentprellzeit fuer SRC-Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCE2A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_DebSRCLowOk_C",
+      "description": "WTK Heilungsentprellzeit fuer SRC-Low",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCE2C",
+      "record_layout": "Kw_Wu16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_dtRmpSlpDwn_C",
+      "description": "Rampensteigung bei Heilung/Vorgabewert für WTK",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCE34",
+      "record_layout": "Kw_Wu32",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_dtRmpSlpUp_C",
+      "description": "Rampensteigung bei Heilung/Vorgabewert für WTK",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCE30",
+      "record_layout": "Kw_Wu32",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_stSensIDWord_C",
+      "description": "Geberkennwort WTK-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCE38",
+      "record_layout": "Kw_Wu16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_tClnt",
+      "description": "Kühlmitteltemperatur am Kühleraustritt",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F971C",
+      "record_layout": null,
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_tClntLin",
+      "description": "linearisierter Wert aus HWK vorm Aufruf der Übergangsfunktion",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F971E",
+      "record_layout": null,
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_tDfl_C",
+      "description": "Vorgabewert im Fehlerfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCE3A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_tLin_CUR",
+      "description": "Linearisierungskennlinie für WTK-Sensor",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCDC0",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_uRaw",
+      "description": "Rohwert des Senorsignals",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9720",
+      "record_layout": null,
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_uSRCMax_C",
+      "description": "Maximalwert für SRC WTK-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCDBE",
+      "record_layout": "Kw_Ws16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "COTSCD_uSRCMin_C",
+      "description": "Minimalwert für SRC WTK-Sensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCDBC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "COTSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

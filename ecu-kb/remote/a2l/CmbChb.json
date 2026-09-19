@@ -1,0 +1,360 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "CmbChb",
+  "raw_groups": [
+    "CmbChb"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctEngRevLogBuf1_mp",
+      "description": "Anzahl der ausgewerteten Kurbelwellenumdrehungen, gespeichert im Puffer 1",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA2A",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctEngRevLogBuf2_mp",
+      "description": "Anzahl der ausgewerteten Kurbelwellenumdrehungen, gespeichert im Puffer 2",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA2C",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctEngRevLogMem_mp",
+      "description": "Anzahl der ausgewerteten Kurbelwellenumdrehungen",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA2E",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctEngRevPerBlk_C",
+      "description": "Anzahl der Kurbelwellenumdrehungen pro Block",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA92",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctEngRevPerBlk_mp",
+      "description": "Warteperiode nach dem die Überwachungsbedingungen erfüllt sind: Anzahl der Kurbelwellenumdrehungen bis zur ersten Auswertung",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA30",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctMifBuf1_mp",
+      "description": "Anzahl der erkannten Zündaussetzer, ein Meßpunkt für jeden Zylinder, Puffer 1",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FE9FC",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctMifBuf2_mp",
+      "description": "Anzahl der erkannten Zündaussetzer, ein Meßpunkt für jeden Zylinder, Puffer 2",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA06",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctMifMem_mp",
+      "description": "Anzahl der erkannten Zündaussetzer, ein Meßpunkt für jeden Zylinder",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA10",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctMisfireAvrg_mp",
+      "description": "Durchschnittliche Anzahl von Zündaussetzern (EWMA) während der letzten Fahrzyklen, ein Meßpunkt pro Zylinder",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA1A",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctMisfireMax_C",
+      "description": "Maximale Anzahl von Aussetzern pro Testrahmen, um den Zylinder als normal einzustufen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA9A",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctMisfireTot_mp",
+      "description": "Anzahl der detektieren Zündaussetzer im letzten bzw. derzeitigen Fahrzyklus (Key-Trip)",
+      "obj_type": "UWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA22",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_ctSegTDC1_C",
+      "description": "Offset für internen Segmentzähler in Aussetzererkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA94",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_dnSegMinPerCyl_mp",
+      "description": "Verhältnis von minimal zulässigem zum durchschnittlichen Drehzahlanstieg in Prozent: Empfindlichkeit der Aussetzererkennung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA32",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_dnSegMin_C",
+      "description": "Min. Drehzahlanstieg einer normalen Verbrennung in Prozent des durchschnittl. Drehzahlanstiegs: Empfindlichkeit der Erkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA98",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_nAvrgThrHi_C",
+      "description": "Überwachungsbedingung: Maximal zulässige Motordrehzahl",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA82",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_nAvrgThrLo_C",
+      "description": "Überwachungsbedingung: Minimal zulässige Motordrehzahl",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA84",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_nSegEven_mp",
+      "description": "Summe der Drehzahlen der geradzahligen Segmente zweier Kurbelwellenumdrehungen",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA34",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_nSegOdd_mp",
+      "description": "Summe der Drehzahlen der ungerade Segmente zweier Kurbelwellenumdrehungen",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FEA36",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_numBlk_C",
+      "description": "Anzahl der Blöcke in einem Testrahmen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA96",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_phiCmbLim_CUR",
+      "description": "Label für die Applikation der Brenngrenzen, keine Funktionalität",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA70",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_qRawThrHi_C",
+      "description": "maximale Menge fuer Ueberwachung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA86",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_qRawThrLo_C",
+      "description": "minimale Menge fuer Ueberwachung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA88",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_st",
+      "description": "Status der Aussetzererkennung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F932B",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_swtMonClutch",
+      "description": "SW-Schalter Aktivierung/Deaktivierung Überwachung Zündaussetzererkennung",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F932C",
+      "record_layout": null,
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_swtMonClutchType_C",
+      "description": "Typ SW-Schalter CmbChb_swtMonClutch (1: EEPROM, 2: DS-Wert CrCCD_swtMonClutchVal_C)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA9D",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_swtMonClutchVal_C",
+      "description": "DS-Wert für SW-Schalter CmbChb_swtMonClutch, De/Aktivierung Überwachung Zündaussetzererkennung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA9C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_swtPoI2HCMisf_C",
+      "description": "Schalter zur Aktivierung der massage  InjCrv_stPol2HCOff und die zusätzliche Freigabebedingung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA9E",
+      "record_layout": "Kw_Wu8",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_tClntThrLo_C",
+      "description": "Überwachungsbedingung: Minimal zulässige Motortemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA8A",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_tiDebClutchChng_C",
+      "description": "Überwachungsbedingung: Entprellzeit für das Kupplungssignal",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA8E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_tiDlyStr_C",
+      "description": "Überwachungsbedingung: Entprellzeit für den Motorzustand \"\"normal",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA90",
+      "record_layout": "Kw_Wu16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "CmbChb_vThrHi_C",
+      "description": "Überwachungsbedingung: Maximal zulässige Fahrzeuggeschwindigkeit",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1CCA8C",
+      "record_layout": "Kw_Ws16",
+      "func_group": "CmbChb",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

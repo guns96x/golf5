@@ -1,0 +1,239 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "FlSCD",
+  "raw_groups": [
+    "FlSCD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_DebSRCMaxDef_C",
+      "description": "Defektentprellung fuer SCR-High Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70CE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_DebSRCMaxOk_C",
+      "description": "Heilungsentprellung fuer SRC-High Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70D0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_DebSRCMinDef_C",
+      "description": "Defektentprellung fuer SRC-Low Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70D2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_DebSRCMinOk_C",
+      "description": "Heilungsentprellung fuer SRC-Low Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70D4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_DebSigDef_C",
+      "description": "Defektentprellung fuer CAN-Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70CA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_DebSigOK_C",
+      "description": "Heilungsentprellung fuer CAN-Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70CC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_dvolRmpSlpDwn_C",
+      "description": "Rampensteigung abwärts für Heilung/Vorgabewert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70DC",
+      "record_layout": "Kw_Wu32",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_dvolRmpSlpUp_C",
+      "description": "Rampensteigung aufwärts bei Heilung/Vorgabewert",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70D8",
+      "record_layout": "Kw_Wu32",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_stSensIDWord_C",
+      "description": "Geberkennwort FlSCD",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70E2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_stVld",
+      "description": "Qualifizierungsmessage für den Tankstand",
+      "obj_type": "UBYTE",
+      "kind": "MEASUREMENT",
+      "address": "0x7F93F5",
+      "record_layout": null,
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_swtFuelSens_C",
+      "description": "Schalter für Konstantwert Kraftstoffvolumen",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70E0",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_swtSig_C",
+      "description": "Schalter für Eingangssignal ADC oder CAN für Tankstandssensor",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70E1",
+      "record_layout": "Kw_Wu8",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_uLvlRawT1",
+      "description": "Spannungsrohwert des Kraftstofflevelsensors 1",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F996E",
+      "record_layout": null,
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_uSRCMax_C",
+      "description": "Obere Schwelle für SRC-Max",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7062",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_uSRCMin_C",
+      "description": "Untere Schwelle für den SRC-Min",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7060",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_volTotal",
+      "description": "gefiltertes Gesamtvolumen des Tanks",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9970",
+      "record_layout": null,
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_volTotalDflVal_C",
+      "description": "Vorgabewert bei SRC Fehler",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70E4",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_volTotalLin",
+      "description": "Rohwert des Kraftstoffvolumens im Tank",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9972",
+      "record_layout": null,
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_volTotalLin_CUR",
+      "description": "Kennlinie um Pegelmesswert in Kraftstoffvolumen umzuwandeln",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D7064",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "FlSCD_volTotal_C",
+      "description": "Konstantwert für Kraftstoffvolumen am Prüfstand",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1D70E6",
+      "record_layout": "Kw_Ws16",
+      "func_group": "FlSCD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

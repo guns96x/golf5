@@ -1,0 +1,305 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-09-18T21:05:45Z",
+  "profile": {
+    "vehicle": "Volkswagen Golf 5 (1K1), 2008",
+    "engine_code": "BLS",
+    "engine": "1.9 TDI 8V Pumpe-Duese",
+    "ecu_family": "EDC16",
+    "ecu_variant": "EDC16U34-3.42",
+    "sw_number": "1037391847",
+    "hw_number": "03G906021QJ"
+  },
+  "func_group": "VSACD",
+  "raw_groups": [
+    "VSACD"
+  ],
+  "objects": [
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_DebExcTempDef_C",
+      "description": "Fehlerentprellzeit für Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32DA",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_DebExcTempOk_C",
+      "description": "Heilungsentprellzeit für Übertemperatur",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32DC",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_DebNoLoadDef_C",
+      "description": "Fehlerentprellzeit für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32DE",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_DebNoLoadOk_C",
+      "description": "Heilungsentprellzeit für Lastabfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32E0",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_DebShortCircBatDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Batterie",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32E2",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_DebShortCircBatOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Batterie",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32E4",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_DebShortCircGndDef_C",
+      "description": "Fehlerentprellzeit für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32E6",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_DebShortCircGndOk_C",
+      "description": "Heilungsentprellzeit für Kurzschluß nach Masse",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32E8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_ctPwrStgOnMax_C",
+      "description": "Maximaler Zähler für Powerstage On im Fehlerfall",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32D8",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_rCnv_CUR",
+      "description": "Kennlinie zur Konvertierung von Öffnungsgrad in Tastverhältnis",
+      "obj_type": "CURVE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32EE",
+      "record_layout": "Kl_Xs16_Ws16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_rCnv_mp",
+      "description": "Tastverhältnis basierend aus dem Ausgang der Drallniveausteuerung",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF996",
+      "record_layout": null,
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_rOut",
+      "description": "Tastverhältnis zurAnsteuerung der Drosselklappe",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x7F9CB6",
+      "record_layout": null,
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_rOutByp_mp",
+      "description": "Meßpunkt für Bypass Freischnitt",
+      "obj_type": "SWORD",
+      "kind": "MEASUREMENT",
+      "address": "0x9FF998",
+      "record_layout": null,
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_rOutMax_C",
+      "description": "Maximal auszugebendes Tastverhältnis",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3354",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_rOutMin_C",
+      "description": "Minimal auszugebendes Tastverhältnis",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3356",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_rOut_Channel",
+      "description": "Konfigurationslabel für Bypass Freischnitt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B37",
+      "record_layout": "Kw_Wu8",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_rOut_Vector",
+      "description": "Konfigurationslabel für Bypass Freischnitt",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1C0B36",
+      "record_layout": "Kw_Wu8",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_stInvOut_C",
+      "description": "Invertierungsparameter für das Signal der Drallniveaustellerendstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32EA",
+      "record_layout": "Kw_Wu8",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_stPwrStgActv_C",
+      "description": "Aktivierung der Abschaltbedingungen der Endstufe",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3358",
+      "record_layout": "Kw_Wu8",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_stPwrStgDia_C",
+      "description": "Aktivierung der Abschaltbedingungen der Endstufendiagnose",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3359",
+      "record_layout": "Kw_Wu8",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_stSPICtl_C",
+      "description": "Parameter zur Anzeige der verwendeten Endstufenart (1 = SPI kontrollierbar, 0 = nicht SPI kontrollierbar)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F335A",
+      "record_layout": "Kw_Wu8",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_swtLambdaIgnore_C",
+      "description": "Applikationsschalter zum Abschalten der Lambdasonden-Bedingung",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F335B",
+      "record_layout": "Kw_Wu8",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_swt_C",
+      "description": "Schalter Batteriespannungskorrektur (0 = AUS, 1 = EIN);H - Brücke-Paket  (0 = EIN, 1 = AUS)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F335C",
+      "record_layout": "Kw_Wu8",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_tiBtwTst_C",
+      "description": "Zeitabstand, in dem im Fehlerfall die Endstufe getestet wird",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F335E",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_tiPer_C",
+      "description": "Periodendauer des Ausgangssignal für den Drallniveausteller",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F32EC",
+      "record_layout": "Kw_Ws16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    },
+    {
+      "sw_number": "1037391847",
+      "name": "VSACD_tiPwrStgOn_C",
+      "description": "Zeit für welche die Endstufe im Fehlerfall eingeschalten wird (nur nicht SPI kontrolliert)",
+      "obj_type": "VALUE",
+      "kind": "CHARACTERISTIC",
+      "address": "0x1F3360",
+      "record_layout": "Kw_Wu16",
+      "func_group": "VSACD",
+      "a2l_sha256": "04ab636a3f564031cfc9ed0a4178d5e1c3795e6f37e42236c71eda786c16050a"
+    }
+  ]
+}

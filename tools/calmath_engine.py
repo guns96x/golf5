@@ -25,9 +25,12 @@ from calmath.params import VEHICLE, FUEL, ENGINE, AIR  # noqa: E402
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-CURRENT_BIN = '03G906021QJ_stage1_full_power_dpf_egr_off.bin'
-STOCK_BIN = 'diagnostic-review/reference-from-hex.analysis-only.bin'
-OUT_DIR = 'diagnostic-review/math-engine'
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_cand_cur = os.path.join(REPO_ROOT, 'firmware', '03G906021QJ_stage1_full_power_dpf_egr_off.bin')
+CURRENT_BIN = _cand_cur if os.path.exists(_cand_cur) else '03G906021QJ_stage1_full_power_dpf_egr_off.bin'
+_cand_stock = os.path.join(REPO_ROOT, 'diagnostic-review', 'reference-from-hex.analysis-only.bin')
+STOCK_BIN = _cand_stock if os.path.exists(_cand_stock) else 'diagnostic-review/reference-from-hex.analysis-only.bin'
+OUT_DIR = os.path.join(REPO_ROOT, 'diagnostic-review', 'math-engine')
 RPM_BINS = list(range(1500, 4001, 250))
 BARO_MBAR = 1005.5          # phone barometer, 2026-09-16 sessions
 IAT_C = 35.0                # snapshot value, stale; only used for the smoke-axis threshold check
